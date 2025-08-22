@@ -1,0 +1,35 @@
+# Dependencias
+/node_modules
+
+# Build de Next.js
+/.next
+/out
+
+# Archivos de logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Configuración del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Backups locales
+*_backup.tsx
+*_backup.js
+*_backup.ts
+*_backup.jsx
+
+# Archivos de cobertura de tests
+/coverage
+
+# Archivos de cache
+/.turbo
+/.vercel
