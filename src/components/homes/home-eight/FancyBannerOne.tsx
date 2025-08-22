@@ -12,7 +12,11 @@ const FancyBannerOne = () => {
                      <Image src={img_1} alt="" className="rounded-circle avatar" />
                      <div className="ps-3 text">
                         <h6 className="fs-22">Javier Cervantes</h6>
-                        <span className="fs-20">Fundador y CEO de CERVANTES BIENES RAICES
+                        <span className="fs-20">Fundador y CEO de CERCANTES BIENES RAICES</span>
+                     </div>
+                  </div>
+               </div>
+               <div className="col-xxl-7 col-lg-8">
                   <blockquote>&quot;Seguimos un proceso para ofrecer a nuestros inversionistas las mejores oportunidades.&quot;</blockquote>
                </div>
             </div>
