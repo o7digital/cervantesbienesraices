@@ -20,7 +20,7 @@ const HeaderFive = ({ style }: any) => {
                         <Link href="/" className="d-flex align-items-center">
                            <Image 
                               src="/images/logo.png"     // logo desde /public
-                              alt="LC Inmobiliaria" 
+                              alt="Cervantes Bienes Raices" 
                               width={140} 
                               height={40} 
                               priority 
