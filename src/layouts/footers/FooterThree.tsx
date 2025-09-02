@@ -60,7 +60,7 @@ const FooterThree = () => {
                      <li><Link href="/faq">Privacidad y Términos</Link></li>
                      <li><Link href="/contact">Contáctanos</Link></li>
                   </ul>
-                  <p className="mb-15 text-center text-lg-start fs-16 order-md-first">Copyright ©2024 LC Inmobiliaria. Todos los derechos reservados.</p>
+                  <p className="mb-15 text-center text-lg-start fs-16 order-md-first">Copyright ©2025 CERVANTES BIENES RAICES. Todos los derechos reservados.</p>
                </div>
             </div>
          </div>
