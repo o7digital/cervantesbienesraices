@@ -28,7 +28,7 @@ const feature_data: DataType[] = [
       id: 3,
       icon: icon_3,
       title: "Proceso rápido",
-      desc: (<>Sólo toma 5 minutos comprar o vender tus propiedades con LC Inmobiliaria.</>),
+      desc: (<>Sólo toma 5 minutos comprar o vender tus propiedades con CERVANTES BIENES RAICES.</>),
    },
 ];
 
