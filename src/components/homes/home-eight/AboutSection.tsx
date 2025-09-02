@@ -9,9 +9,9 @@ const AboutSection = () => {
             <div className="title-one text-center mb-40">
               <h2>Quiénes Somos</h2>
               <p>
-                En <strong>LC Inmobiliaria</strong> ofrecemos un servicio basado en la
+                En <strong>CERVANTES BIENES RAICES</strong> ofrecemos un servicio basado en la
                 confianza, la experiencia y la transparencia. Nuestra fundadora,
-                <strong> Ma. de Lourdes Cázares Arce</strong>, cuenta con más de 20 años
+                <strong> Javier Cervantes</strong>, cuenta con más de 20 años
                 de trayectoria en el sector inmobiliario.
               </p>
             </div>

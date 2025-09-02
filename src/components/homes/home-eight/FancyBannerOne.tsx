@@ -11,8 +11,8 @@ const FancyBannerOne = () => {
                   <div className="d-flex align-items-center md-mb-30">
                      <Image src={img_1} alt="" className="rounded-circle avatar" />
                      <div className="ps-3 text">
-                        <h6 className="fs-22">Lourdes Cazares</h6>
-                        <span className="fs-20">Fundadora y CEO de LC Inmobiliaria</span>
+                        <h6 className="fs-22">Javier Cervantes</h6>
+                        <span className="fs-20">Fundador y CEO de CERVANTES BIENES RAICES</span>
                      </div>
                   </div>
                </div>
