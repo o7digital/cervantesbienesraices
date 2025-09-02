@@ -1,5 +1,5 @@
 "use client"
-import Image from "next/image"
+import Link from "next/link"
 
 const Hero = () => {
    return (
@@ -21,16 +21,12 @@ const Hero = () => {
                </div>
             </div>
 
-            {/* ✅ Botón EasyBroker en lugar del buscador */}
+            {/* ✅ Botón que encapsula EasyBroker (mismo que PropertyListingOne) */}
             <div className="d-flex justify-content-center mt-45 lg-mt-20">
-               <a 
-                  href="https://cervantesbienesraices.easybroker.com/properties" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn btn-lg btn-light fw-bold px-5 py-3"
-               >
-                  Ver todas las propiedades
-               </a>
+               <Link href="/listing_06" className="btn-eight btn-lg">
+                  <span>Ver todas las propiedades</span>{" "}
+                  <i className="bi bi-arrow-up-right"></i>
+               </Link>
             </div>
          </div>
       </div>

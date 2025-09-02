@@ -16,7 +16,7 @@ const feature_data: DataType[] = [
       id: 1,
       icon: icon_1,
       title: "2M+ Propiedades",
-      desc: (<>Asesoría legal para temas inmobiliarios en CDMX y Naucalpan.</>),
+      desc: (<>Asesoría legal para temas inmobiliarios en MEXICO, MIAMI Y MADRID.</>),
    },
    {
       id: 2,
