@@ -1,20 +1,20 @@
-# Usa Node 22 oficial
+# Usa Node 22 (Directus 11.12 lo requiere)
 FROM node:22-alpine
 
-# Carpeta de trabajo
+# Define carpeta de trabajo
 WORKDIR /app
 
-# Copiar package.json y package-lock.json primero para aprovechar cache
-COPY cervantes-directus/package*.json ./
+# Copia package.json y package-lock.json
+COPY package*.json ./
 
-# Instalar dependencias
-RUN npm install
+# Instala dependencias
+RUN npm ci --omit=dev
 
-# Copiar todo el proyecto
-COPY cervantes-directus .
+# Copia el resto del proyecto
+COPY . .
 
-# Puerto por defecto para Directus
+# Expone el puerto (Railway usará $PORT)
 EXPOSE 8055
 
-# Comando de arranque
+# Arranca Directus
 CMD ["npx", "directus", "start"]
