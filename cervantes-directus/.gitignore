@@ -1,7 +1,7 @@
 # Dependencias
 node_modules/
 
-# Build / cache
+# Archivos de build/cache
 .cache/
 dist/
 .next/
@@ -25,5 +25,5 @@ Thumbs.db
 *.bak
 *.tmp
 
-# SQLite database lock (opcional dejar el .db)
+# SQLite database lock (deja solo el .db real)
 *.db-journal
