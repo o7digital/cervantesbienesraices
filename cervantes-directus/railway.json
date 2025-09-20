@@ -2,9 +2,10 @@
   "build": {
     "builder": "NIXPACKS",
     "nixpacksConfig": {
-      "nodeVersion": "22",
-      "buildCommand": "cd cervantes-directus && npm install",
-      "startCommand": "cd cervantes-directus && npm start"
+      "nodeVersion": "22"
     }
+  },
+  "deploy": {
+    "startCommand": "cd cervantes-directus && npx directus start"
   }
 }
