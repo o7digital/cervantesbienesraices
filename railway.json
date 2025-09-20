@@ -1,0 +1,7 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "cd cervantes-directus && npm install",
+    "startCommand": "cd cervantes-directus && npx directus start"
+  }
+}
