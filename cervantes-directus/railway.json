@@ -4,5 +4,6 @@
     "nixpacksConfig": {
       "nodeVersion": "22"
     }
-  }
+  },
+  "start": "cd cervantes-directus && npx directus start"
 }
