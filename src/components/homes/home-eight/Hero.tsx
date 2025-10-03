@@ -21,7 +21,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ✅ Botón grande en lugar del buscador */}
+        {/* ✅ Botón grande en lugar du search */}
         <div className="d-flex justify-content-center mt-45 lg-mt-20">
           <Link
             href="/listing_06"
