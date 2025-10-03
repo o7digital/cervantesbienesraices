@@ -346,27 +346,26 @@ const feature_data: DataType[] = [
    },
 
    // home_6_feature_1
-   
    {
       id: 1,
       page: "home_6_feature_1",
-      icon:feature7Icon_1,
-      title: "Property Insurance",
-      desc: "Elit esse cillum dol fug nulla tur nos ullamo.",
-   }, 
+      icon: feature7Icon_1,
+      title: "Operaciones Seguras",
+      desc: "Protegemos cada transacción para tu tranquilidad.",
+   },
    {
       id: 2,
       page: "home_6_feature_1",
-      icon:feature7Icon_2,
-      title: "Easy Payments",
-      desc: "quis nostrud exerct ulla security finibus ne derived.",
-   }, 
+      icon: feature7Icon_2,
+      title: "Pagos Seguros",
+      desc: "Tus pagos siempre bajo sistemas verificados y seguros.",
+   },
    {
       id: 3,
       page: "home_6_feature_1",
-      icon:feature7Icon_3,
-      title: "Quick Process",
-      desc: "Duis aute irure do reprehe de Cicero's voluptat velit.",
+      icon: feature7Icon_3,
+      title: "Proceso Rápido",
+      desc: "Compra o vende tu propiedad en minutos, sin complicaciones.",
    },
 ]
 
