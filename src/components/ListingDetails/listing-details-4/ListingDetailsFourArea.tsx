@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react"
 import CommonBanner from "../listing-details-common/CommonBanner"
-import MediaGallery from "./MediaGallery"
+// ✅ Correction : import explicite et sûr de MediaGallery
+import MediaGallery from "@/components/ListingDetails/listing-details-4/MediaGallery"
 import PropertyOverview from "./PropertyOverview"
 import CommonAmenities from "../listing-details-common/CommonAmenities"
 import Link from "next/link"
@@ -64,7 +65,6 @@ const ListingDetailsFourArea = () => {
           />
 
           {/* Galerie d’images */}
-          {/* ✅ Correction ici : on utilise bien property.Image (champ Directus) */}
           <MediaGallery images={property?.Image || []} />
 
           {/* Vue d'ensemble */}
