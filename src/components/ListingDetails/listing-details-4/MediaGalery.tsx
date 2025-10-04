@@ -22,7 +22,6 @@ const MediaGallery = ({ images }: MediaGalleryProps) => {
     )
   }
 
-  // URL base de Directus (Railway)
   const BASE_URL = "https://cervantes-directus-backend-production.up.railway.app/assets"
 
   return (
