@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react"
 import CommonBanner from "../listing-details-common/CommonBanner"
-// ✅ Correction : import explicite et sûr de MediaGallery
-import MediaGallery from "@/components/ListingDetails/listing-details-4/MediaGallery"
+// ✅ Import corrigé : chemin relatif sûr vers ton MediaGallery local
+import MediaGallery from "../listing-details-4/MediaGallery"
 import PropertyOverview from "./PropertyOverview"
 import CommonAmenities from "../listing-details-common/CommonAmenities"
 import Link from "next/link"
@@ -53,6 +53,9 @@ const ListingDetailsFourArea = () => {
     )
   }
 
+  // ✅ Déclaration explicite du composant pour TypeScript
+  const Gallery: React.FC<{ images?: any[] }> = MediaGallery
+
   return (
     <>
       <div className="listing-details-one theme-details-one border-top mt-130 lg-mt-100 pt-70 pb-150 xl-pb-120">
@@ -65,7 +68,7 @@ const ListingDetailsFourArea = () => {
           />
 
           {/* Galerie d’images */}
-          <MediaGallery images={property?.Image || []} />
+          <Gallery images={property?.Image || []} />
 
           {/* Vue d'ensemble */}
           <PropertyOverview property={property} />
