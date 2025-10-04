@@ -1,94 +1,97 @@
 "use client"
+
 import { useEffect, useState } from "react"
 import CommonBanner from "../listing-details-common/CommonBanner"
 import MediaGallery from "./MediaGallery"
 import PropertyOverview from "./PropertyOverview"
-import CommonPropertyFeatureList from "../listing-details-common/CommonPropertyFeatureList"
 import CommonAmenities from "../listing-details-common/CommonAmenities"
-import CommonPropertyVideoTour from "../listing-details-common/CommonPropertyVideoTour"
-import CommonPropertyFloorPlan from "../listing-details-common/CommonPropertyFloorPlan"
-import CommonNearbyList from "../listing-details-common/CommonNearbyList"
-import SimilarProperty from "./SimilarProperty"
-import CommonProPertyScore from "../listing-details-common/CommonProPertyScore"
-import CommonLocation from "../listing-details-common/CommonLocation"
+import Link from "next/link"
+import Sidebar from "../listing-details-1/Sidebar"
+import LoginModal from "@/modals/LoginModal"
 import NiceSelect from "@/ui/NiceSelect"
 import Review from "@/components/inner-pages/agency/agency-details/Review"
 import AgencyFormOne from "@/components/forms/AgencyFormOne"
-import LoginModal from "@/modals/LoginModal"
-import Sidebar from "../listing-details-1/Sidebar"
-import Link from "next/link"
+
+// URL de base de ton backend Directus (Railway)
+const API_URL = "https://cervantes-directus-backend-production.up.railway.app"
 
 const ListingDetailsFourArea = () => {
   const [property, setProperty] = useState<any>(null)
   const [loginModal, setLoginModal] = useState<boolean>(false)
+  const [loading, setLoading] = useState(true)
 
+  // Charger UNE propriété (ici id=1 par défaut)
   useEffect(() => {
-    // 🔗 Remplace l’URL par ton instance Railway Directus
-    fetch("https://cervantes-directus-backend-production.up.railway.app/items/propriedades/1")
-      .then(res => res.json())
-      .then(data => setProperty(data.data))
-      .catch(err => console.error("Erreur de fetch:", err))
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`${API_URL}/items/propriedades/1?fields=*,Image.directus_files_id.*`)
+        const data = await res.json()
+        setProperty(data.data)
+      } catch (err) {
+        console.error("Erreur API Directus:", err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
-  if (!property) return <div>Chargement...</div>
+  if (loading) {
+    return (
+      <div className="text-center py-5">
+        <p className="fs-20">Chargement des données...</p>
+      </div>
+    )
+  }
 
-  const selectHandler = (e: any) => {}
+  if (!property) {
+    return (
+      <div className="text-center py-5">
+        <p className="fs-20">Aucune propriété trouvée.</p>
+      </div>
+    )
+  }
 
   return (
     <>
       <div className="listing-details-one theme-details-one border-top mt-130 lg-mt-100 pt-70 pb-150 xl-pb-120">
         <div className="container">
-          {/* Données dynamiques de Directus */}
+          {/* Bannière titre + adresse */}
           <CommonBanner
-            title={property.titulo}
-            address={property.ubicacion}
-            price={property.precio}
+            title={property.Title || "Propriété sans titre"}
+            address={property.Address || ""}
+            style_3={true}
           />
 
-          {/* Images depuis Directus */}
-          <MediaGallery images={property.imagenes || []} />
+          {/* Galerie d’images */}
+          {/* ✅ Correction ici : on utilise bien property.Image (champ Directus) */}
+          <MediaGallery images={property?.Image || []} />
 
           {/* Vue d'ensemble */}
           <PropertyOverview property={property} />
 
-          <div className="row">
+          <div className="row mt-60">
             <div className="col-xl-8">
-              <div className="property-overview bottom-line-dark pb-40 mb-60">
-                <h4 className="mb-20">Descripción</h4>
-                <p className="fs-20 lh-lg">{property.descripcion}</p>
-              </div>
-
-              <div className="property-feature-accordion bottom-line-dark pb-40 mb-60">
-                <h4 className="mb-20">Características</h4>
-                <CommonPropertyFeatureList features={property.caracteristicas} />
-              </div>
-
+              {/* Équipements / commodités */}
               <div className="property-amenities bottom-line-dark pb-40 mb-60">
-                <CommonAmenities amenities={property.amenidades} />
+                <h4 className="mb-20">Amenidades</h4>
+                <CommonAmenities />
               </div>
 
-              <div className="property-video-tour bottom-line-dark pb-40 mb-60">
-                <CommonPropertyVideoTour videoUrl={property.video_url} />
-              </div>
-
-              <CommonPropertyFloorPlan plan={property.planos} />
-              <CommonNearbyList nearby={property.cercanias} />
-              <SimilarProperty />
-              <CommonProPertyScore score={property.calificacion} />
-              <CommonLocation location={property.ubicacion_mapa} />
-
+              {/* Section commentaires */}
               <div className="review-panel-one bottom-line-dark pb-40 mb-60">
                 <div className="position-relative z-1">
                   <div className="d-sm-flex justify-content-between align-items-center mb-10">
-                    <h4 className="m0 xs-pb-30">Reseñas</h4>
+                    <h4 className="m0 xs-pb-30">Reviews</h4>
                     <NiceSelect
                       className="nice-select rounded-0"
                       options={[
-                        { value: "01", text: "Más recientes" },
-                        { value: "02", text: "Mejor valoradas" },
+                        { value: "01", text: "Newest" },
+                        { value: "02", text: "Best Seller" },
+                        { value: "03", text: "Best Match" },
                       ]}
                       defaultCurrent={0}
-                      onChange={selectHandler}
+                      onChange={() => {}}
                       name=""
                       placeholder=""
                     />
@@ -97,8 +100,9 @@ const ListingDetailsFourArea = () => {
                 </div>
               </div>
 
+              {/* Formulaire contact */}
               <div className="review-form">
-                <h4 className="mb-20">Deja un comentario</h4>
+                <h4 className="mb-20">Déjanos tu comentario</h4>
                 <p className="fs-20 lh-lg pb-15">
                   <Link
                     href="#"
@@ -108,19 +112,20 @@ const ListingDetailsFourArea = () => {
                   >
                     Inicia sesión
                   </Link>{" "}
-                  para dejar tu comentario o regístrate si no tienes cuenta.
+                  para publicar tu comentario o regístrate si aún no tienes cuenta.
                 </p>
-
                 <div className="bg-dot p-30">
                   <AgencyFormOne />
                 </div>
               </div>
             </div>
+
             <Sidebar />
           </div>
         </div>
       </div>
 
+      {/* Modal login */}
       <LoginModal loginModal={loginModal} setLoginModal={setLoginModal} />
     </>
   )
