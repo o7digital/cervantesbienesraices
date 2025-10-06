@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react"
 import CommonBanner from "../listing-details-common/CommonBanner"
-// ✅ Import corrigé : chemin relatif sûr vers ton MediaGallery local
-import MediaGallery from "../listing-details-4/MediaGallery"
+// ✅ Import du nouveau composant sans conflit
+import DirectusGallery from "../listing-details-4/DirectusGallery"
 import PropertyOverview from "./PropertyOverview"
 import CommonAmenities from "../listing-details-common/CommonAmenities"
 import Link from "next/link"
@@ -13,7 +13,6 @@ import NiceSelect from "@/ui/NiceSelect"
 import Review from "@/components/inner-pages/agency/agency-details/Review"
 import AgencyFormOne from "@/components/forms/AgencyFormOne"
 
-// URL de base de ton backend Directus (Railway)
 const API_URL = "https://cervantes-directus-backend-production.up.railway.app"
 
 const ListingDetailsFourArea = () => {
@@ -21,11 +20,12 @@ const ListingDetailsFourArea = () => {
   const [loginModal, setLoginModal] = useState<boolean>(false)
   const [loading, setLoading] = useState(true)
 
-  // Charger UNE propriété (ici id=1 par défaut)
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${API_URL}/items/propriedades/1?fields=*,Image.directus_files_id.*`)
+        const res = await fetch(
+          `${API_URL}/items/propriedades/1?fields=*,Image.directus_files_id.*`
+        )
         const data = await res.json()
         setProperty(data.data)
       } catch (err) {
@@ -53,9 +53,6 @@ const ListingDetailsFourArea = () => {
     )
   }
 
-  // ✅ Déclaration explicite du composant pour TypeScript
-  const Gallery: React.FC<{ images?: any[] }> = MediaGallery
-
   return (
     <>
       <div className="listing-details-one theme-details-one border-top mt-130 lg-mt-100 pt-70 pb-150 xl-pb-120">
@@ -67,21 +64,19 @@ const ListingDetailsFourArea = () => {
             style_3={true}
           />
 
-          {/* Galerie d’images */}
-          <Gallery images={property?.Image || []} />
+          {/* ✅ Nouvelle galerie sans conflit */}
+          <DirectusGallery images={property?.Image || []} />
 
           {/* Vue d'ensemble */}
           <PropertyOverview property={property} />
 
           <div className="row mt-60">
             <div className="col-xl-8">
-              {/* Équipements / commodités */}
               <div className="property-amenities bottom-line-dark pb-40 mb-60">
                 <h4 className="mb-20">Amenidades</h4>
                 <CommonAmenities />
               </div>
 
-              {/* Section commentaires */}
               <div className="review-panel-one bottom-line-dark pb-40 mb-60">
                 <div className="position-relative z-1">
                   <div className="d-sm-flex justify-content-between align-items-center mb-10">
@@ -103,7 +98,6 @@ const ListingDetailsFourArea = () => {
                 </div>
               </div>
 
-              {/* Formulaire contact */}
               <div className="review-form">
                 <h4 className="mb-20">Déjanos tu comentario</h4>
                 <p className="fs-20 lh-lg pb-15">
@@ -128,7 +122,6 @@ const ListingDetailsFourArea = () => {
         </div>
       </div>
 
-      {/* Modal login */}
       <LoginModal loginModal={loginModal} setLoginModal={setLoginModal} />
     </>
   )

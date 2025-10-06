@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 
-interface MediaGalleryProps {
+interface DirectusGalleryProps {
   images?: {
     id: string
     title?: string
@@ -13,7 +13,7 @@ interface MediaGalleryProps {
   }[]
 }
 
-const MediaGallery = ({ images }: MediaGalleryProps) => {
+const DirectusGallery: React.FC<DirectusGalleryProps> = ({ images }) => {
   if (!images || images.length === 0) {
     return (
       <div className="text-center py-5">
@@ -45,4 +45,4 @@ const MediaGallery = ({ images }: MediaGalleryProps) => {
   )
 }
 
-export default MediaGallery
+export default DirectusGallery
