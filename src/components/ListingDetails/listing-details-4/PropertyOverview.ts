@@ -21,7 +21,7 @@ interface PropertyOverviewProps {
   }
 }
 
-const PropertyOverview = ({ property }: PropertyOverviewProps) => {
+const PropertyOverview: React.FC<PropertyOverviewProps> = ({ property }) => {
   if (!property) return null
 
   return (
@@ -84,9 +84,7 @@ const PropertyOverview = ({ property }: PropertyOverviewProps) => {
         <div className="col-md-6 mb-3">
           <strong>Superficie Terreno:</strong>
           <p>
-            {property.area_terreno
-              ? `${property.area_terreno} m²`
-              : "—"}
+            {property.area_terreno ? `${property.area_terreno} m²` : "—"}
           </p>
         </div>
 
