@@ -1,20 +1,36 @@
 "use client"
 
-import Image from "next/image"
+type FileId = { id: string; filename_download?: string }
+type M2MItem = { id: string; title?: string; directus_files_id: FileId }
 
-interface DirectusGalleryProps {
-  images?: {
-    id: string
-    title?: string
-    directus_files_id: {
-      id: string
-      filename_download: string
-    }
-  }[]
+interface Props {
+  apiUrl: string
+  images?: string | FileId | { id: string } | M2MItem[]
 }
 
-const DirectusGallery: React.FC<DirectusGalleryProps> = ({ images }) => {
-  if (!images || images.length === 0) {
+function normalizeAssetIds(images?: Props["images"]): string[] {
+  if (!images) return []
+
+  // Caso: string con el id del asset
+  if (typeof images === "string") return [images]
+
+  // Caso: objeto con { id }
+  if (!Array.isArray(images) && (images as any).id) return [(images as any).id as string]
+
+  // Caso: array M2M [{ directus_files_id: { id }}, ...]
+  if (Array.isArray(images)) {
+    return images
+      .map((it) => it?.directus_files_id?.id)
+      .filter((x): x is string => Boolean(x))
+  }
+
+  return []
+}
+
+export default function DirectusGallery({ apiUrl, images }: Props) {
+  const assetIds = normalizeAssetIds(images)
+
+  if (!assetIds.length) {
     return (
       <div className="text-center py-5">
         <p className="fs-20 opacity-75">Sin imágenes disponibles.</p>
@@ -22,20 +38,19 @@ const DirectusGallery: React.FC<DirectusGalleryProps> = ({ images }) => {
     )
   }
 
-  const BASE_URL = "https://cervantes-directus-backend-production.up.railway.app/assets"
-
   return (
     <section className="media-gallery mb-60">
       <div className="row g-3">
-        {images.map((img) => (
-          <div key={img.id} className="col-lg-4 col-md-6 col-sm-12">
+        {assetIds.map((id) => (
+          <div key={id} className="col-lg-4 col-md-6 col-sm-12">
             <div className="gallery-item position-relative overflow-hidden rounded-4">
-              <Image
-                src={`${BASE_URL}/${img.directus_files_id.id}`}
-                alt={img.title || "Imagen de propiedad"}
+              <img
+                src={`${apiUrl}/assets/${id}`}
+                alt="Imagen de propiedad"
                 width={600}
                 height={400}
-                className="w-100 h-auto rounded-4"
+                style={{ width: "100%", height: "auto", borderRadius: "12px", display: "block" }}
+                loading="lazy"
               />
             </div>
           </div>
@@ -44,5 +59,3 @@ const DirectusGallery: React.FC<DirectusGalleryProps> = ({ images }) => {
     </section>
   )
 }
-
-export default DirectusGallery
