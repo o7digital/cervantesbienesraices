@@ -76,6 +76,8 @@ const ListingSixArea = () => {
                 </p>
                 <Link
                   href={`/property/${prop.public_id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-one mt-3 d-block text-center"
                 >
                   Ver detalles
