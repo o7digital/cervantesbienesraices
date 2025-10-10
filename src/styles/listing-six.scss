@@ -37,9 +37,47 @@
   justify-content: center;
 }
 
+.listing-filters .filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.listing-filters .btn-reset {
+  background: transparent;
+  border: none;
+  color: #246bfd;
+  font-weight: 600;
+  text-decoration: underline;
+  padding: 0 16px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.listing-filters .btn-reset:hover {
+  color: #174ccc;
+}
+
+.listing-filters .btn-reset:disabled {
+  color: rgba(15, 34, 67, 0.4);
+  text-decoration: none;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 @media (max-width: 767px) {
   .listing-filters {
     padding: 20px;
     border-radius: 12px;
+  }
+
+  .listing-filters .filter-actions {
+    justify-content: flex-start;
+    gap: 10px;
   }
 }

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 
 const formatLocation = (location: any) => {
@@ -30,16 +30,6 @@ const mapOperationType = (operationType?: string) => {
   return normalized;
 };
 
-const getLocationKey = (location: any) => {
-  if (!location) return "";
-  return (
-    (location.city || location.state || location.name || "")
-      .toString()
-      .trim()
-      .toLowerCase() || ""
-  );
-};
-
 const getLocationLabel = (location: any) => {
   if (!location) return "";
   const parts = [location.city, location.state].filter(Boolean);
@@ -67,14 +57,19 @@ const extractOperationAmounts = (operations: any[] | undefined) => {
     .filter((value): value is number => typeof value === "number" && !Number.isNaN(value));
 };
 
+const initialFilterState = {
+  type: "",
+  location: "",
+  minPrice: "",
+  maxPrice: "",
+};
+
 const ListingSixArea = () => {
   const [properties, setProperties] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedType, setSelectedType] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
+  const [inputs, setInputs] = useState(initialFilterState);
+  const [filters, setFilters] = useState(initialFilterState);
 
   useEffect(() => {
     fetch("/api/properties")
@@ -155,21 +150,15 @@ const ListingSixArea = () => {
 
   const locationOptions = useMemo(() => {
     if (!properties.length) return [];
-    const locations = new Map<string, string>();
+    const locations = new Set<string>();
 
     properties.forEach((prop) => {
-      const key = getLocationKey(prop?.location);
-      if (!key) return;
       const label = getLocationLabel(prop?.location) || formatLocation(prop?.location);
-      if (!locations.has(key)) {
-        locations.set(key, label);
-      }
+      if (!label || label === "Ubicación no disponible") return;
+      locations.add(label);
     });
 
-    return Array.from(locations.entries()).map(([value, label]) => ({
-      value,
-      label,
-    }));
+    return Array.from(locations.values()).sort((a, b) => a.localeCompare(b, "es"));
   }, [properties]);
 
   const filteredProperties = useMemo(() => {
@@ -183,15 +172,16 @@ const ListingSixArea = () => {
             .filter(Boolean)
         : [];
       const amounts = extractOperationAmounts(prop?.operations);
-      const locationKey = getLocationKey(prop?.location);
+      const locationFilter = filters.location.trim().toLowerCase();
+      const propertyLocation = formatLocation(prop?.location).toLowerCase();
 
       const matchesType =
-        !selectedType ||
-        (selectedType.startsWith("property:") &&
-          selectedType.replace("property:", "") === propertyType) ||
-        (selectedType.startsWith("operation:") &&
+        !filters.type ||
+        (filters.type.startsWith("property:") &&
+          filters.type.replace("property:", "") === propertyType) ||
+        (filters.type.startsWith("operation:") &&
           (() => {
-            const selectedOperation = selectedType.replace("operation:", "");
+            const selectedOperation = filters.type.replace("operation:", "");
             if (selectedOperation === "compra") {
               return operationTypes.includes("venta");
             }
@@ -200,10 +190,10 @@ const ListingSixArea = () => {
 
       if (!matchesType) return false;
 
-      const hasMin = minPrice.trim() !== "";
-      const hasMax = maxPrice.trim() !== "";
-      const min = hasMin ? Number(minPrice) : null;
-      const max = hasMax ? Number(maxPrice) : null;
+      const hasMin = filters.minPrice.trim() !== "";
+      const hasMax = filters.maxPrice.trim() !== "";
+      const min = hasMin ? Number(filters.minPrice) : null;
+      const max = hasMax ? Number(filters.maxPrice) : null;
 
       if ((hasMin && (min === null || Number.isNaN(min))) || (hasMax && (max === null || Number.isNaN(max)))) {
         return false;
@@ -220,21 +210,50 @@ const ListingSixArea = () => {
 
       if (!matchesAmount) return false;
 
-      const matchesLocation = !selectedLocation || selectedLocation === locationKey;
+      const matchesLocation = !locationFilter || propertyLocation.includes(locationFilter);
 
       return matchesLocation;
     });
-  }, [properties, selectedType, minPrice, maxPrice, selectedLocation]);
+  }, [properties, filters]);
+
+  const handleInputChange = (key: keyof typeof initialFilterState) => (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const value = event.target.value;
+    setInputs((prev) => ({ ...prev, [key]: value }));
+  };
 
   const handleResetFilters = () => {
-    setSelectedType("");
-    setSelectedLocation("");
-    setMinPrice("");
-    setMaxPrice("");
+    setInputs(initialFilterState);
+    setFilters(initialFilterState);
   };
 
   const hasFiltersApplied =
-    Boolean(selectedType) || Boolean(selectedLocation) || Boolean(minPrice.trim()) || Boolean(maxPrice.trim());
+    Boolean(filters.type) ||
+    Boolean(filters.location.trim()) ||
+    Boolean(filters.minPrice.trim()) ||
+    Boolean(filters.maxPrice.trim());
+
+  const filtersMatchInputs =
+    inputs.type === filters.type &&
+    inputs.location.trim() === filters.location.trim() &&
+    inputs.minPrice.trim() === filters.minPrice.trim() &&
+    inputs.maxPrice.trim() === filters.maxPrice.trim();
+
+  const inputsAreClear =
+    !inputs.type &&
+    !inputs.location.trim() &&
+    !inputs.minPrice.trim() &&
+    !inputs.maxPrice.trim();
+
+  const isResetDisabled = inputsAreClear && !hasFiltersApplied;
+
+  const handleApplyFilters = () => {
+    setFilters({
+      type: inputs.type,
+      location: inputs.location.trim(),
+      minPrice: inputs.minPrice.trim(),
+      maxPrice: inputs.maxPrice.trim(),
+    });
+  };
 
   return (
     <div className="property-listing-six pt-200 xl-pt-150 pb-200 xl-pb-120">
@@ -250,8 +269,8 @@ const ListingSixArea = () => {
               <select
                 id="listing-type-filter"
                 className="form-select"
-                value={selectedType}
-                onChange={(event) => setSelectedType(event.target.value)}
+                value={inputs.type}
+                onChange={handleInputChange("type")}
               >
                 <option value="">Todos</option>
                 {typeOptionGroups.map((group) => (
@@ -274,8 +293,8 @@ const ListingSixArea = () => {
                 type="number"
                 className="form-control"
                 placeholder="Ej. 500000"
-                value={minPrice}
-                onChange={(event) => setMinPrice(event.target.value)}
+                value={inputs.minPrice}
+                onChange={handleInputChange("minPrice")}
                 min={0}
               />
             </div>
@@ -288,8 +307,8 @@ const ListingSixArea = () => {
                 type="number"
                 className="form-control"
                 placeholder="Ej. 1500000"
-                value={maxPrice}
-                onChange={(event) => setMaxPrice(event.target.value)}
+                value={inputs.maxPrice}
+                onChange={handleInputChange("maxPrice")}
                 min={0}
               />
             </div>
@@ -297,24 +316,39 @@ const ListingSixArea = () => {
               <label htmlFor="listing-location-filter" className="form-label fw-500">
                 Ubicación
               </label>
-              <select
+              <input
                 id="listing-location-filter"
-                className="form-select"
-                value={selectedLocation}
-                onChange={(event) => setSelectedLocation(event.target.value)}
-              >
-                <option value="">Todas</option>
+                className="form-control"
+                value={inputs.location}
+                onChange={handleInputChange("location")}
+                list="listing-location-options"
+                placeholder="Teclea la ubicación o deja vacío para todas"
+              />
+              <datalist id="listing-location-options">
                 {locationOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
+                  <option key={option} value={option} />
                 ))}
-              </select>
+              </datalist>
             </div>
-            <div className="col-12 col-md-6 col-lg-2">
-              <button type="button" className="btn-one w-100" onClick={handleResetFilters} disabled={!hasFiltersApplied}>
-                Limpiar filtros
-              </button>
+            <div className="col-12">
+              <div className="filter-actions">
+                <button
+                  type="button"
+                  className="btn-one"
+                  onClick={handleApplyFilters}
+                  disabled={filtersMatchInputs}
+                >
+                  Buscar
+                </button>
+                <button
+                  type="button"
+                  className="btn-reset"
+                  onClick={handleResetFilters}
+                  disabled={isResetDisabled}
+                >
+                  Limpiar filtros
+                </button>
+              </div>
             </div>
           </div>
         </div>
