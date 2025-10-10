@@ -1,16 +1,16 @@
-import FooterFour from "@/layouts/footers/FooterFour"
-import HeaderFour from "@/layouts/headers/HeaderFour"
+import HeaderFive from "@/layouts/headers/HeaderFive"
+import FooterThree from "@/layouts/footers/FooterThree"
 import FancyBanner from "@/components/common/FancyBanner"
 import ListingSixArea from "./ListingSixArea"
 
 const ListingSix = () => {
    return (
-      <>
-         <HeaderFour />
+      <div className="main-page-wrapper">
+         <HeaderFive />
          <ListingSixArea />
          <FancyBanner />
-         <FooterFour />
-      </>
+         <FooterThree />
+      </div>
    )
 }
 
