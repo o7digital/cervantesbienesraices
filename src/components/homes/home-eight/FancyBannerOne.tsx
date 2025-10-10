@@ -7,7 +7,10 @@ const FancyBannerOne = () => {
         <div className="row align-items-center">
           <div className="col-lg-4">
             <div className="d-flex align-items-center md-mb-30">
-              <div className="avatar rounded-circle overflow-hidden position-relative">
+              <div
+                className="avatar rounded-circle overflow-hidden"
+                style={{ width: 60, height: 60, position: "relative" }}
+              >
                 <Image
                   src="/assets/images/javier-cervantes.jpeg"
                   alt="Javier Cervantes"
