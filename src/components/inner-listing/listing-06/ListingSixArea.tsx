@@ -2,19 +2,49 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+const formatLocation = (location: any) => {
+  if (!location) return "Ubicación no disponible";
+
+  if (typeof location === "string") {
+    return location;
+  }
+
+  const parts = [
+    location?.name,
+    location?.street,
+    location?.exterior_number,
+    location?.interior_number,
+    location?.city,
+    location?.state,
+    location?.country,
+  ].filter(Boolean);
+
+  return parts.length ? parts.join(", ") : "Ubicación no disponible";
+};
+
 const ListingSixArea = () => {
   const [properties, setProperties] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/properties")
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.errors?.length) {
+          console.error("EasyBroker API error:", data.errors);
+          setError("No se pudieron cargar las propiedades en este momento.");
+          setProperties([]);
+          setLoading(false);
+          return;
+        }
+
         setProperties(data.content || []);
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Error cargando propiedades:", err);
+        setError("No se pudieron cargar las propiedades en este momento.");
         setLoading(false);
       });
   }, []);
@@ -25,7 +55,8 @@ const ListingSixArea = () => {
         <h2 className="mb-40 text-center">Propiedades disponibles</h2>
 
         {loading && <p className="text-center">Cargando propiedades...</p>}
-        {!loading && properties.length === 0 && <p>No se encontraron propiedades.</p>}
+        {!loading && error && <p className="text-center text-danger">{error}</p>}
+        {!loading && !error && properties.length === 0 && <p>No se encontraron propiedades.</p>}
 
         <div className="row">
           {properties.map((prop) => (
@@ -37,7 +68,7 @@ const ListingSixArea = () => {
                   className="img-fluid mb-3 rounded"
                 />
                 <h5>{prop.title}</h5>
-                <p>{prop.location}</p>
+                <p>{formatLocation(prop.location)}</p>
                 <p>
                   <strong>
                     {prop.operations?.[0]?.formatted_amount || "Precio no disponible"}

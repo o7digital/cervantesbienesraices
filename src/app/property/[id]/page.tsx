@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 
 const PropertyDetailPage = () => {
@@ -9,6 +9,23 @@ const PropertyDetailPage = () => {
 
   const [property, setProperty] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+
+  const locationLabel = useMemo(() => {
+    if (!property?.location) return "Ubicación no disponible";
+    if (typeof property.location === "string") return property.location;
+
+    const parts = [
+      property.location?.name,
+      property.location?.street,
+      property.location?.exterior_number,
+      property.location?.interior_number,
+      property.location?.city,
+      property.location?.state,
+      property.location?.country,
+    ].filter(Boolean);
+
+    return parts.length ? parts.join(", ") : "Ubicación no disponible";
+  }, [property?.location]);
 
   useEffect(() => {
     if (!id) return;
@@ -36,7 +53,7 @@ const PropertyDetailPage = () => {
   return (
     <div className="property-detail container pt-100 pb-100">
       <h1 className="mb-4">{property.title}</h1>
-      <p className="text-muted">{property.location}</p>
+      <p className="text-muted">{locationLabel}</p>
 
       {property.property_images?.length > 0 && (
         <div className="row mb-4">
