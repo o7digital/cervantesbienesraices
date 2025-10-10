@@ -36,7 +36,7 @@ const FooterThree = () => {
                         <h5 className="footer-title">Legal</h5>
                         <ul className="footer-nav-link style-none">
                            <li><Link href="/cookie">Cookie</Link></li>
-                           <li><Link href="/faq">FAQ's</Link></li>
+                           <li><Link href="/faq">FAQ&apos;s</Link></li>
                         </ul>
                      </div>
                   </div>
