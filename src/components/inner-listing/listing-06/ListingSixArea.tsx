@@ -40,7 +40,7 @@ const ListingSixArea = () => {
                 <p>{prop.location}</p>
                 <p>
                   <strong>
-                    {prop.operations[0]?.formatted_amount || "Precio no disponible"}
+                    {prop.operations?.[0]?.formatted_amount || "Precio no disponible"}
                   </strong>
                 </p>
                 <Link

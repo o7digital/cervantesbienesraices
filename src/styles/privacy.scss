@@ -1,0 +1,404 @@
+/* Estilos para Aviso de Privacidad */
+.privacy-policy-section {
+  .privacy-nav {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    
+    .privacy-nav-list {
+      li {
+        margin-bottom: 10px;
+        
+        a {
+          display: block;
+          padding: 12px 15px;
+          color: #495057;
+          text-decoration: none;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background-color: #e9ecef;
+            color: #007bff;
+          }
+          
+          &.active {
+            background-color: #007bff;
+            color: white;
+          }
+          
+          i {
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+  
+  .privacy-content {
+    .main-title {
+      color: #2c3e50;
+      font-weight: 700;
+    }
+    
+    .sub-title {
+      color: #34495e;
+      font-weight: 600;
+    }
+    
+    .section-title {
+      color: #2c3e50;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+    
+    .content-box {
+      background: #f8f9fa;
+      border-left: 4px solid #007bff;
+      margin-bottom: 30px;
+      
+      h5, h6 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+      
+      .company-details {
+        li {
+          margin-bottom: 8px;
+          padding-left: 20px;
+          position: relative;
+          
+          &::before {
+            content: "•";
+            color: #007bff;
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+      
+      .data-list {
+        li {
+          padding: 8px 0;
+          border-bottom: 1px solid #e9ecef;
+          
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+      
+      .finalidades-grid {
+        .finalidad-item {
+          background: white;
+          padding: 25px;
+          border-radius: 8px;
+          border: 1px solid #e9ecef;
+          
+          h5 {
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 10px;
+          }
+        }
+      }
+      
+      .arco-rights {
+        .right-item {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          border: 1px solid #e9ecef;
+          
+          h5 i {
+            font-size: 18px;
+          }
+        }
+      }
+      
+      .cookies-types {
+        .cookie-type {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          border: 1px solid #e9ecef;
+          
+          .cookie-examples {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Estilos para Cookie Banner */
+.cookie-banner {
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  
+  .btn {
+    white-space: nowrap;
+  }
+}
+
+/* Estilos para Formulario ARCO */
+.arco-form-container {
+  background: #f8f9fa;
+  
+  .arco-info-sidebar {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    
+    .arco-right {
+      border-left: 3px solid #e9ecef;
+      padding-left: 15px;
+      
+      &:hover {
+        border-left-color: #007bff;
+        
+        i {
+          transform: scale(1.1);
+        }
+      }
+      
+      i {
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+  
+  .arco-form-content {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    .form-label {
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    
+    .form-control, .form-select {
+      border-radius: 8px;
+      border: 2px solid #e9ecef;
+      padding: 12px 15px;
+      transition: all 0.3s ease;
+      
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+      
+      &.is-invalid {
+        border-color: #dc3545;
+      }
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      }
+      
+      &:disabled {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+  
+  .success-message {
+    background: white !important;
+    border: 2px solid #28a745;
+    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.2);
+    
+    .fa-check-circle {
+      animation: checkmark 0.8s ease-in-out;
+    }
+  }
+}
+
+/* Breadcrumb Section */
+.breadcrumb-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  
+  .breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 0;
+    
+    .breadcrumb-item {
+      a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        
+        &:hover {
+          color: white;
+        }
+      }
+      
+      &.active {
+        color: white;
+      }
+      
+      &::before {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+  
+  .breadcrumb-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 20px 0 10px;
+  }
+  
+  .breadcrumb-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+}
+
+/* Animations */
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .privacy-policy-section {
+    .privacy-nav {
+      margin-bottom: 30px;
+      position: relative !important;
+      top: auto !important;
+    }
+  }
+  
+  .arco-form-container {
+    .arco-info-sidebar {
+      margin-bottom: 30px;
+      position: relative !important;
+      top: auto !important;
+    }
+  }
+  
+  .breadcrumb-title {
+    font-size: 2rem !important;
+  }
+}
+
+/* Privacy Floating Button */
+.privacy-floating-button {
+  position: fixed;
+  bottom: 44px;
+  right: 20px;
+  z-index: 999;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+  display: flex;
+  align-items: center;
+  max-width: 250px;
+  animation: slideInRight 0.5s ease-out;
+  
+  .privacy-link {
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: white;
+      transform: translateX(-2px);
+    }
+  }
+  
+  .privacy-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .privacy-policy-section .content-box,
+  .arco-form-content,
+  .arco-info-sidebar {
+    background: #2c3e50;
+    color: #ecf0f1;
+  }
+}
+
+/* Responsive privacy button */
+@media (max-width: 768px) {
+  .privacy-floating-button {
+    bottom: 80px; /* Au-dessus du bouton scroll to top sur mobile */
+    right: 15px;
+    max-width: 200px;
+    
+    .privacy-link {
+      padding: 10px 15px;
+      font-size: 12px;
+    }
+  }
+}

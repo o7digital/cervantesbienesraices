@@ -2,6 +2,8 @@
 import "../styles/index.scss";
 import { Provider } from "react-redux";
 import store from "@/redux/store";
+import CookieConsent from "@/components/common/CookieConsent";
+import PrivacyFloatingButton from "@/components/common/PrivacyFloatingButton";
 
 export default function RootLayout({
   children,
@@ -42,6 +44,8 @@ export default function RootLayout({
         <div className="main-page-wrapper">
           <Provider store={store}>
             {children}
+            <CookieConsent />
+            <PrivacyFloatingButton />
           </Provider>
         </div>
       </body>

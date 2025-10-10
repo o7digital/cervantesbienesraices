@@ -11,18 +11,23 @@ const PropertyDetailPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (id) {
-      fetch(`/api/property/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setProperty(data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.error("Error cargando propiedad:", err);
-          setLoading(false);
-        });
-    }
+    if (!id) return;
+
+    fetch(`/api/property/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.error) {
+          setProperty(null);
+        } else {
+          setProperty(data?.property ?? data);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error cargando propiedad:", err);
+        setProperty(null);
+        setLoading(false);
+      });
   }, [id]);
 
   if (loading) return <p className="text-center pt-100">Cargando propiedad...</p>;
