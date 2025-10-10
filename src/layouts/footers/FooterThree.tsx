@@ -31,16 +31,6 @@ const FooterThree = () => {
                      </div>
                   </div>
 
-                  <div className="col-lg-2 col-md-6 mb-30">
-                     <div className="footer-nav">
-                        <h5 className="footer-title">Legal</h5>
-                        <ul className="footer-nav-link style-none">
-                           <li><Link href="/cookie">Cookie</Link></li>
-                           <li><Link href="/faq">FAQ&apos;s</Link></li>
-                        </ul>
-                     </div>
-                  </div>
-
                   <div className="col-xl-3 col-lg-4 col-md-6 mb-30">
                      <div className="footer-nav">
                         <h5 className="footer-title">Boletín</h5>
@@ -57,22 +47,8 @@ const FooterThree = () => {
          </div>
          
          <div className="bottom-footer">
-            <div className="container">
-               <div className="row align-items-center">
-                  <div className="col-lg-4 order-lg-3 text-center text-lg-end">
-                     <ul className="style-none d-flex order-lg-last justify-content-center justify-content-lg-end">
-                        <li><Link href="/cookie">Cookie</Link></li>
-                     </ul>
-                  </div>
-                  <div className="col-lg-4 order-lg-1">
-                     <ul className="d-flex style-none bottom-nav-list justify-content-center justify-content-lg-start">
-                        <li><Link href="/aviso-privacidad">Aviso de Privacidad</Link></li>
-                     </ul>
-                  </div>
-                  <div className="col-lg-4 order-lg-2 text-center">
-                     <p>Copyright ©2025 CERVANTES BIENES RAÍCES. Todos los derechos reservados.</p>
-                  </div>
-               </div>
+            <div className="container text-center">
+               <p className="m-0">Copyright ©2025 CERVANTES BIENES RAÍCES. Todos los derechos reservados.</p>
             </div>
          </div>
       </div>
