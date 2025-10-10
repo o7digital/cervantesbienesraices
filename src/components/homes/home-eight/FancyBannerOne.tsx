@@ -1,7 +1,3 @@
-import Image from "next/image"
-
-import img_1 from "@/assets/images/media/img_03.jpg"
-
 const FancyBannerOne = () => {
    return (
       <div className="fancy-banner-nine mt-110 lg-mt-80">
@@ -9,7 +5,9 @@ const FancyBannerOne = () => {
             <div className="row align-items-center">
                <div className="col-lg-4">
                   <div className="d-flex align-items-center md-mb-30">
-                     <Image src={img_1} alt="" className="rounded-circle avatar" />
+                     <div className="avatar placeholder rounded-circle d-flex align-items-center justify-content-center">
+                        <i className="fa-regular fa-user fs-24"></i>
+                     </div>
                      <div className="ps-3 text">
                         <h6 className="fs-22">Javier Cervantes</h6>
                         <span className="fs-20">Fundador y CEO de CERVANTES BIENES RAICES</span>
