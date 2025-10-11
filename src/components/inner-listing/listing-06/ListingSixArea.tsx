@@ -22,6 +22,15 @@ const formatLocation = (location: any) => {
   return parts.length ? parts.join(", ") : "Ubicación no disponible";
 };
 
+const normalizeText = (value?: string) => {
+  if (!value) return "";
+  return value
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .trim();
+};
+
 const mapOperationType = (operationType?: string) => {
   if (!operationType) return "";
   const normalized = operationType.toLowerCase();
@@ -150,15 +159,20 @@ const ListingSixArea = () => {
 
   const locationOptions = useMemo(() => {
     if (!properties.length) return [];
-    const locations = new Set<string>();
+    const locations = new Map<string, string>();
 
     properties.forEach((prop) => {
       const label = getLocationLabel(prop?.location) || formatLocation(prop?.location);
       if (!label || label === "Ubicación no disponible") return;
-      locations.add(label);
+      const key = normalizeText(label);
+      if (!locations.has(key)) {
+        locations.set(key, label);
+      }
     });
 
-    return Array.from(locations.values()).sort((a, b) => a.localeCompare(b, "es"));
+    return Array.from(locations.values()).sort((a, b) =>
+      normalizeText(a).localeCompare(normalizeText(b), "es")
+    );
   }, [properties]);
 
   const filteredProperties = useMemo(() => {
@@ -172,8 +186,8 @@ const ListingSixArea = () => {
             .filter(Boolean)
         : [];
       const amounts = extractOperationAmounts(prop?.operations);
-      const locationFilter = filters.location.trim().toLowerCase();
-      const propertyLocation = formatLocation(prop?.location).toLowerCase();
+      const locationFilter = normalizeText(filters.location);
+      const propertyLocation = normalizeText(formatLocation(prop?.location));
 
       const matchesType =
         !filters.type ||

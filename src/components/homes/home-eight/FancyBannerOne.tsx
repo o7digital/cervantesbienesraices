@@ -6,21 +6,18 @@ const FancyBannerOne = () => {
       <div className="container container-large">
         <div className="row align-items-center">
           <div className="col-lg-4">
-            <div className="d-flex align-items-center md-mb-30">
-              <div
-                className="avatar rounded-circle overflow-hidden"
-                style={{ width: 60, height: 60, position: "relative" }}
-              >
+            <div className="d-flex align-items-center md-mb-30 gap-4 flex-wrap">
+              <div className="profile-wrapper">
                 <Image
-                  src="/assets/images/javier-cervantes.jpeg"
+                  src="/assets/images/icon/fotojavier.png"
                   alt="Javier Cervantes"
-                  fill
-                  sizes="60px"
-                  style={{ objectFit: "cover" }}
+                  width={260}
+                  height={293}
+                  className="profile-photo"
                   priority
                 />
               </div>
-              <div className="ps-3 text">
+              <div className="ps-3 text" style={{ width: "auto", flex: "1 1 240px" }}>
                 <h6 className="fs-22">Javier Cervantes</h6>
                 <span className="fs-20">Fundador y CEO de CERVANTES BIENES RAICES</span>
               </div>
