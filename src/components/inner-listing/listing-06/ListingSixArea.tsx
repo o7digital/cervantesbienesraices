@@ -81,7 +81,9 @@ const ListingSixArea = () => {
   const [filters, setFilters] = useState(initialFilterState);
 
   useEffect(() => {
-    fetch("/api/properties")
+    const isDev = process.env.NODE_ENV !== "production";
+    const url = isDev ? "/api/properties?status=No publicada" : "/api/properties";
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         if (data?.errors?.length) {
