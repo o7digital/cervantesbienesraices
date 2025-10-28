@@ -41,6 +41,26 @@ const matchesStatus = (item: any, statusFilter: string) => {
   });
 };
 
+// Public: criterio par défaut — ne retourner que les biens publiés
+const isPublished = (item: any) => {
+  // Si l'API fournit un booléen explicite
+  if (typeof item?.publicly_visible === "boolean") {
+    return item.publicly_visible === true;
+  }
+
+  // Sinon, on tombe sur les champs de statut texte
+  const candidates: Array<string | undefined> = [
+    typeof item?.publication_status === "string" ? item.publication_status : item?.publication_status?.name,
+    typeof item?.status === "string" ? item.status : item?.status?.name,
+  ];
+
+  return candidates.some((c) => {
+    const n = normalize(c as string);
+    if (!n) return false;
+    return n === "publicada" || n === "published";
+  });
+};
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const pageParam = Number(req.query.page);
@@ -62,9 +82,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       const pageData = await response.json();
 
-      if (statusParam && Array.isArray(pageData?.content)) {
-        const filtered = pageData.content.filter((item: any) => matchesStatus(item, statusParam));
-        return res.status(200).json({ ...pageData, content: filtered, pagination: { ...(pageData.pagination || {}), total_returned: filtered.length } });
+      if (Array.isArray(pageData?.content)) {
+        // Par défaut on filtre aux biens publiés; si statusParam est fourni, on l'honore explicitement
+        const predicate = statusParam
+          ? (item: any) => matchesStatus(item, statusParam)
+          : (item: any) => isPublished(item);
+        const filtered = pageData.content.filter(predicate);
+        return res
+          .status(200)
+          .json({
+            ...pageData,
+            content: filtered,
+            pagination: { ...(pageData.pagination || {}), total_returned: filtered.length },
+          });
       }
 
       return res.status(200).json(pageData);
@@ -97,7 +127,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       page = nextPage;
     }
 
-    const resultContent = statusParam ? allContent.filter((item) => matchesStatus(item, statusParam)) : allContent;
+    // Par défaut (pas de param), on ne renvoie que les biens publiés
+    const predicate = statusParam ? (item: any) => matchesStatus(item, statusParam) : (item: any) => isPublished(item);
+    const resultContent = allContent.filter(predicate);
 
     res.status(200).json({
       content: resultContent,

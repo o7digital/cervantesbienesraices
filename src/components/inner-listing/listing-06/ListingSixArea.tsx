@@ -81,9 +81,8 @@ const ListingSixArea = () => {
   const [filters, setFilters] = useState(initialFilterState);
 
   useEffect(() => {
-    const isDev = process.env.NODE_ENV !== "production";
-    const url = isDev ? "/api/properties?status=No publicada" : "/api/properties";
-    fetch(url)
+    // Toujours récupérer uniquement les biens publiés (filtré côté API par défaut)
+    fetch("/api/properties")
       .then((res) => res.json())
       .then((data) => {
         if (data?.errors?.length) {
