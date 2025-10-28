@@ -41,24 +41,35 @@ const matchesStatus = (item: any, statusFilter: string) => {
   });
 };
 
-// Public: criterio par défaut — ne retourner que les biens publiés
+// Public: criterio par défaut — inclure tout sauf si clairement "No publicada"
 const isPublished = (item: any) => {
   // Si l'API fournit un booléen explicite
   if (typeof item?.publicly_visible === "boolean") {
     return item.publicly_visible === true;
   }
 
-  // Sinon, on tombe sur les champs de statut texte
+  // Examiner les champs texte connus
   const candidates: Array<string | undefined> = [
     typeof item?.publication_status === "string" ? item.publication_status : item?.publication_status?.name,
     typeof item?.status === "string" ? item.status : item?.status?.name,
   ];
 
-  return candidates.some((c) => {
+  // Si on détecte explicitement un statut non publié, on exclut
+  const hasExplicitUnpublished = candidates.some((c) => {
     const n = normalize(c as string);
     if (!n) return false;
-    return n === "publicada" || n === "published";
+    return (
+      n === "no publicada" ||
+      n === "no_publicada" ||
+      n === "unpublished" ||
+      n === "not published"
+    );
   });
+
+  if (hasExplicitUnpublished) return false;
+
+  // Par défaut (aucun indicateur explicite), considérer comme publié
+  return true;
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
