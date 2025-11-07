@@ -305,24 +305,7 @@ const ListingSixArea = () => {
 
         <div className="listing-filters mb-40">
           <div className="row g-3 align-items-end">
-            <div className="col-12">
-              <div className="d-flex gap-2 mb-2" role="group" aria-label="Filtro de estado">
-                <button
-                  type="button"
-                  className={`btn ${statusView === "published" ? "btn-one" : "btn-outline-secondary"}`}
-                  onClick={() => setStatusView("published")}
-                >
-                  Publicadas
-                </button>
-                <button
-                  type="button"
-                  className={`btn ${statusView === "archived" ? "btn-one" : "btn-outline-secondary"}`}
-                  onClick={() => setStatusView("archived")}
-                >
-                  Archivadas
-                </button>
-              </div>
-            </div>
+            {null}
             <div className="col-12 col-md-4 col-lg-3">
               <label htmlFor="listing-type-filter" className="form-label fw-500">
                 Tipo
