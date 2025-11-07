@@ -26,8 +26,9 @@
 @media (max-width: 767px) {
   .hero-banner-eight {
     .hero-heading {
-      // Reduce by ~30% from 100px -> 70px for better fit
-      font-size: 70px;
+      // Reduce by ~50% total from 100px -> 50-60px range
+      // Additional ~20% reduction from previous 70px => 56px
+      font-size: 56px;
       line-height: 1.12em;
     }
   }
