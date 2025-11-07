@@ -21,3 +21,14 @@
     }
   }
 }
+
+// Mobile adjustments for Home Eight hero title
+@media (max-width: 767px) {
+  .hero-banner-eight {
+    .hero-heading {
+      // Reduce by ~30% from 100px -> 70px for better fit
+      font-size: 70px;
+      line-height: 1.12em;
+    }
+  }
+}
