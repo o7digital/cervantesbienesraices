@@ -77,14 +77,24 @@ const ListingSixArea = () => {
   const [properties, setProperties] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  // Toggle temporal: publicadas vs archivadas (not_published + suspended)
+  const [statusView, setStatusView] = useState<"published" | "archived">("published");
   const [inputs, setInputs] = useState(initialFilterState);
   const [filters, setFilters] = useState(initialFilterState);
 
   useEffect(() => {
-    // Toujours récupérer uniquement les biens publiés (filtré côté API par défaut)
-    fetch("/api/properties")
+    // Cargar según el estado seleccionado
+    setLoading(true);
+    setError(null);
+    const url =
+      statusView === "published"
+        ? "/api/properties?status=published"
+        : "/api/properties?status=not_published,suspended";
+
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        // Caso 1: errores devueltos por EasyBroker (proxy directo)
         if (data?.errors?.length) {
           console.error("EasyBroker API error:", data.errors);
           setError("No se pudieron cargar las propiedades en este momento.");
@@ -93,7 +103,25 @@ const ListingSixArea = () => {
           return;
         }
 
-        setProperties(data.content || []);
+        // Caso 2: error estandarizado desde nuestro endpoint Next (status 500, campo 'error')
+        if (data?.error) {
+          console.error("/api/properties error:", data.error);
+          setError("No se pudieron cargar las propiedades en este momento.");
+          setProperties([]);
+          setLoading(false);
+          return;
+        }
+
+        // Validar estructura esperada
+        if (!Array.isArray(data?.content)) {
+          console.warn("Respuesta inesperada de /api/properties:", data);
+          setError("No se pudieron cargar las propiedades en este momento.");
+          setProperties([]);
+          setLoading(false);
+          return;
+        }
+
+        setProperties(data.content);
         setLoading(false);
       })
       .catch((err) => {
@@ -101,7 +129,7 @@ const ListingSixArea = () => {
         setError("No se pudieron cargar las propiedades en este momento.");
         setLoading(false);
       });
-  }, []);
+  }, [statusView]);
 
   const typeOptionGroups = useMemo(() => {
     if (!properties.length) return [];
@@ -277,6 +305,24 @@ const ListingSixArea = () => {
 
         <div className="listing-filters mb-40">
           <div className="row g-3 align-items-end">
+            <div className="col-12">
+              <div className="d-flex gap-2 mb-2" role="group" aria-label="Filtro de estado">
+                <button
+                  type="button"
+                  className={`btn ${statusView === "published" ? "btn-one" : "btn-outline-secondary"}`}
+                  onClick={() => setStatusView("published")}
+                >
+                  Publicadas
+                </button>
+                <button
+                  type="button"
+                  className={`btn ${statusView === "archived" ? "btn-one" : "btn-outline-secondary"}`}
+                  onClick={() => setStatusView("archived")}
+                >
+                  Archivadas
+                </button>
+              </div>
+            </div>
             <div className="col-12 col-md-4 col-lg-3">
               <label htmlFor="listing-type-filter" className="form-label fw-500">
                 Tipo
