@@ -1,5 +1,7 @@
 "use client";
 import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import DropdownHomeEightEs from "@/components/search-dropdown/home-dropdown/DropdownHomeEightEs";
 import Link from "next/link";
 
 const formatLocation = (location: any) => {
@@ -74,6 +76,7 @@ const initialFilterState = {
 };
 
 const ListingSixArea = () => {
+  const searchParams = useSearchParams();
   const [properties, setProperties] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -207,6 +210,62 @@ const ListingSixArea = () => {
   const filteredProperties = useMemo(() => {
     if (!properties.length) return [];
 
+    // Query params from Hero/list search
+    const tipoParam = normalizeText(searchParams?.get("tipo") || "");
+    const ubicacionKey = normalizeText(searchParams?.get("ubicacion") || "");
+    const rangoParam = normalizeText(searchParams?.get("rango") || "");
+
+    const ubicacionTokens: Record<string, string[]> = {
+      cdmx: ["ciudad de mexico", "cdmx", "mexico city", "distrito federal"],
+      guadalajara: ["guadalajara", "jalisco"],
+      monterrey: ["monterrey", "nuevo leon", "nuevo león"],
+      puebla: ["puebla"],
+      toluca: ["toluca", "estado de mexico", "edomex"],
+      queretaro: ["queretaro", "querétaro"],
+      morelia: ["morelia", "michoacan", "michoacán"],
+      merida: ["merida", "mérida", "yucatan", "yucatán"],
+      cancun: ["cancun", "cancún", "quintana roo"],
+      chetumal: ["chetumal", "quintana roo"],
+      campeche: ["campeche"],
+      villahermosa: ["villahermosa", "tabasco"],
+      tuxtla: ["tuxtla gutierrez", "tuxtla gutiérrez", "chiapas"],
+      oaxaca: ["oaxaca", "oaxaca de juarez", "oaxaca de juárez"],
+      xalapa: ["xalapa", "veracruz"],
+      veracruz: ["veracruz"],
+      hermosillo: ["hermosillo", "sonora"],
+      chihuahua: ["chihuahua"],
+      culiacan: ["culiacan", "culiacán", "sinaloa"],
+      tepic: ["tepic", "nayarit"],
+      zacatecas: ["zacatecas"],
+      aguascalientes: ["aguascalientes"],
+      slp: ["san luis potosi", "san luis potosí"],
+      saltillo: ["saltillo", "coahuila"],
+      torreon: ["torreon", "torreón", "coahuila"],
+      durango: ["durango"],
+      lapaz: ["la paz", "baja california sur"],
+      mexicali: ["mexicali", "baja california"],
+      tijuana: ["tijuana", "baja california"],
+      colima: ["colima"],
+      manzanillo: ["manzanillo", "colima"],
+      guanajuato: ["guanajuato"],
+      leon: ["leon", "león", "guanajuato"],
+      pachuca: ["pachuca", "hidalgo"],
+      tlaxcala: ["tlaxcala"],
+      cuernavaca: ["cuernavaca", "morelos"],
+      queretaro2: ["san juan del rio", "san juan del río", "queretaro", "querétaro"],
+      madrid: ["madrid", "espana", "españa", "spain"],
+    };
+
+    const rangeMap: Record<string, [number, number]> = {
+      "1": [10000, 200000],
+      "2": [200000, 500000],
+      "3": [500000, 1000000],
+    };
+
+    const hasTipo = Boolean(tipoParam);
+    const hasUbicacion = Boolean(ubicacionKey) && Boolean(ubicacionTokens[ubicacionKey]);
+    const hasRange = Boolean(rangoParam) && Boolean(rangeMap[rangoParam]);
+
     return properties.filter((prop) => {
       const propertyType = prop?.property_type?.toString().trim().toLowerCase() || "";
       const operationTypes = Array.isArray(prop?.operations)
@@ -233,6 +292,19 @@ const ListingSixArea = () => {
 
       if (!matchesType) return false;
 
+      // Extra: match by "tipo" from URL (comprar/rentar + casa/departamento)
+      const propTypeNorm = normalizeText(propertyType);
+      const isApartment = /apartment|departament|depa|apto|apartament/.test(propTypeNorm);
+      const isHouse = /house|casa|residenc/.test(propTypeNorm);
+      const matchesTipoParam = !hasTipo || (() => {
+        if (tipoParam === "comprar_departamento") return operationTypes.includes("venta") && isApartment;
+        if (tipoParam === "comprar_casa") return operationTypes.includes("venta") && isHouse;
+        if (tipoParam === "rentar_apartamento") return operationTypes.includes("renta") && isApartment;
+        if (tipoParam === "rentar_casa") return operationTypes.includes("renta") && isHouse;
+        return true;
+      })();
+      if (!matchesTipoParam) return false;
+
       const hasMin = filters.minPrice.trim() !== "";
       const hasMax = filters.maxPrice.trim() !== "";
       const min = hasMin ? Number(filters.minPrice) : null;
@@ -251,13 +323,31 @@ const ListingSixArea = () => {
               return true;
             });
 
+      // Extra: range from URL param
+      if (hasRange) {
+        const [rMin, rMax] = rangeMap[rangoParam];
+        const inRouteRange = amounts.some((amount) => {
+          if (rMin !== null && amount < rMin) return false;
+          if (rMax !== null && amount > rMax) return false;
+          return true;
+        });
+        if (!inRouteRange) return false;
+      }
+
       if (!matchesAmount) return false;
 
-      const matchesLocation = !locationFilter || propertyLocation.includes(locationFilter);
+      // Extra: location from URL param key
+      let routeLocationMatch = true;
+      if (hasUbicacion) {
+        const tokens = ubicacionTokens[ubicacionKey].map((t) => normalizeText(t));
+        routeLocationMatch = tokens.some((t) => propertyLocation.includes(t));
+      }
+
+      const matchesLocation = (!locationFilter || propertyLocation.includes(locationFilter)) && routeLocationMatch;
 
       return matchesLocation;
     });
-  }, [properties, filters]);
+  }, [properties, filters, searchParams]);
 
   const handleInputChange = (key: keyof typeof initialFilterState) => (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const value = event.target.value;
@@ -303,6 +393,7 @@ const ListingSixArea = () => {
       <div className="container">
         <h2 className="mb-40 text-center">Propiedades disponibles</h2>
 
+<<<<<<< HEAD
         <div className="listing-filters mb-40">
           <div className="row g-3 align-items-end">
             {null}
@@ -394,6 +485,12 @@ const ListingSixArea = () => {
                 </button>
               </div>
             </div>
+=======
+        {/* Replace old filters with the Spanish Home-Three style search bar */}
+        <div className="search-wrapper-one layout-one position-relative mb-40">
+          <div className="bg-wrapper">
+            <DropdownHomeEightEs />
+>>>>>>> dev
           </div>
         </div>
 
