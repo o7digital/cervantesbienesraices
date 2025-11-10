@@ -393,12 +393,7 @@ const ListingSixArea = () => {
       <div className="container">
         <h2 className="mb-40 text-center">Propiedades disponibles</h2>
 
-        {/* Barra de búsqueda estilo Home Three (ES) au-dessus de la liste */}
-        <div className="search-wrapper-one layout-one position-relative mb-40">
-          <div className="bg-wrapper">
-            <DropdownHomeEightEs />
-          </div>
-        </div>
+        {/* (Retirado) Barra de búsqueda superior: dejamos solo el panel de filtros */}
 
         {/* Panel de filtros original (estado, tipo, montos, ubicación) */}
         <div className="listing-filters mb-40">
