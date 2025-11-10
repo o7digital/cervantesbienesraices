@@ -393,104 +393,10 @@ const ListingSixArea = () => {
       <div className="container">
         <h2 className="mb-40 text-center">Propiedades disponibles</h2>
 
-<<<<<<< HEAD
-        <div className="listing-filters mb-40">
-          <div className="row g-3 align-items-end">
-            {null}
-            <div className="col-12 col-md-4 col-lg-3">
-              <label htmlFor="listing-type-filter" className="form-label fw-500">
-                Tipo
-              </label>
-              <select
-                id="listing-type-filter"
-                className="form-select"
-                value={inputs.type}
-                onChange={handleInputChange("type")}
-              >
-                <option value="">Todos</option>
-                {typeOptionGroups.map((group) => (
-                  <optgroup key={group.label} label={group.label}>
-                    {group.options.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </optgroup>
-                ))}
-              </select>
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <label htmlFor="listing-min-price" className="form-label fw-500">
-                Monto mín.
-              </label>
-              <input
-                id="listing-min-price"
-                type="number"
-                className="form-control"
-                placeholder="Ej. 500000"
-                value={inputs.minPrice}
-                onChange={handleInputChange("minPrice")}
-                min={0}
-              />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <label htmlFor="listing-max-price" className="form-label fw-500">
-                Monto máx.
-              </label>
-              <input
-                id="listing-max-price"
-                type="number"
-                className="form-control"
-                placeholder="Ej. 1500000"
-                value={inputs.maxPrice}
-                onChange={handleInputChange("maxPrice")}
-                min={0}
-              />
-            </div>
-            <div className="col-12 col-md-6 col-lg-3">
-              <label htmlFor="listing-location-filter" className="form-label fw-500">
-                Ubicación
-              </label>
-              <input
-                id="listing-location-filter"
-                className="form-control"
-                value={inputs.location}
-                onChange={handleInputChange("location")}
-                list="listing-location-options"
-                placeholder="Teclea la ubicación o deja vacío para todas"
-              />
-              <datalist id="listing-location-options">
-                {locationOptions.map((option) => (
-                  <option key={option} value={option} />
-                ))}
-              </datalist>
-            </div>
-            <div className="col-12">
-              <div className="filter-actions">
-                <button
-                  type="button"
-                  className="btn-one"
-                  onClick={handleApplyFilters}
-                  disabled={filtersMatchInputs}
-                >
-                  Buscar
-                </button>
-                <button
-                  type="button"
-                  className="btn-reset"
-                  onClick={handleResetFilters}
-                  disabled={isResetDisabled}
-                >
-                  Limpiar filtros
-                </button>
-              </div>
-            </div>
-=======
-        {/* Replace old filters with the Spanish Home-Three style search bar */}
+        {/* Barra de búsqueda estilo Home Three (ES) au-dessus de la liste */}
         <div className="search-wrapper-one layout-one position-relative mb-40">
           <div className="bg-wrapper">
             <DropdownHomeEightEs />
->>>>>>> dev
           </div>
         </div>
 
