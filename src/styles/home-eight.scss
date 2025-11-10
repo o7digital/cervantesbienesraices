@@ -21,3 +21,15 @@
     }
   }
 }
+
+// --- Overrides Home Eight hero ---
+.hero-banner-eight {
+  .search-wrapper-one {
+    .bg-wrapper {
+      border-radius: 28px; // más redondeado que el 15px por defecto
+    }
+    .search-btn-three {
+      border-radius: 14px; // botón "Buscar" un poco más redondo
+    }
+  }
+}

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import DropdownHomeEightEs from "@/components/search-dropdown/home-dropdown/DropdownHomeEightEs";
 
 const Hero = () => {
   const router = useRouter();
@@ -46,86 +47,11 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Filtros en overlay, estilo Home Eight */}
+        {/* Barra de búsqueda estilo Home Three (ES) */}
         <div className="search-wrapper-overlay">
           <div className="search-wrapper-one layout-one position-relative">
-            <div className="bg-wrapper border-0 rounded-0">
-              <form onSubmit={onSubmit}>
-                <div className="row gx-0 align-items-center">
-                  <div className="col-xxl-3 col-xl-3 col-lg-3">
-                    <div className="input-box-one border-left">
-                      <div className="label">Tipo</div>
-                      <select
-                        className="form-select nice-select fw-normal"
-                        value={tipo}
-                        onChange={(e) => setTipo(e.target.value)}
-                        aria-label="Selecciona el tipo"
-                      >
-                        <option value="todos">Todos</option>
-                        <option value="venta">Venta</option>
-                        <option value="renta">Renta</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="col-xxl-2 col-xl-2 col-lg-2">
-                    <div className="input-box-one border-left">
-                      <div className="label">Monto mín.</div>
-                      <input
-                        type="number"
-                        inputMode="numeric"
-                        className="form-control"
-                        placeholder="Ej. 5000000"
-                        value={min}
-                        onChange={(e) => setMin(e.target.value)}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xxl-2 col-xl-2 col-lg-2">
-                    <div className="input-box-one border-left">
-                      <div className="label">Monto máx.</div>
-                      <input
-                        type="number"
-                        inputMode="numeric"
-                        className="form-control"
-                        placeholder="Ej. 15000000"
-                        value={max}
-                        onChange={(e) => setMax(e.target.value)}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xxl-3 col-xl-3 col-lg-3">
-                    <div className="input-box-one border-left">
-                      <div className="label">Ubicación</div>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Teclea la ubicación o deja vacío"
-                        value={ubicacion}
-                        onChange={(e) => setUbicacion(e.target.value)}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xxl-2 col-xl-2 col-lg-2">
-                    <div className="input-box-one md-mt-10 d-flex gap-2 justify-content-center justify-content-xxl-end p-3 p-lg-0">
-                      <button type="submit" className="search-btn-four">
-                        <span>Buscar</span>
-                        <i className="fa-light fa-magnifying-glass"></i>
-                      </button>
-                      <button
-                        type="button"
-                        className="search-modal-btn"
-                        onClick={onReset}
-                      >
-                        Limpiar filtros
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+            <div className="bg-wrapper">
+              <DropdownHomeEightEs />
             </div>
           </div>
         </div>
