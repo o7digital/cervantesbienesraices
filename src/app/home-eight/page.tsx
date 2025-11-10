@@ -2,7 +2,7 @@ import HomeEight from "@/components/homes/home-eight";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Home Eight Homy - Real Estate React Next js Template",
+   title: "Cervantes Bienes Raíces – Home Eight | Venta y Renta de Casas y Departamentos en México",
 };
 
 const index = () => {

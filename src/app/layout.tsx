@@ -14,14 +14,14 @@ export default function RootLayout({
   const isDev = process.env.NODE_ENV === 'development'
 
   return (
-    <html lang="en" suppressHydrationWarning={isDev}>
+    <html lang="es" suppressHydrationWarning={isDev}>
       <head>
-        <meta name="keywords" content="Real estate, Property sale, Property buy" />
-        <meta name="description" content="Homy is a beautiful website template designed for Real Estate Agency." />
-        <meta property="og:site_name" content="Homy" />
-        <meta property="og:url" content="https://creativegigstf.com" />
+        <meta name="keywords" content="Cervantes Bienes Raíces, bienes raíces, inmobiliaria, venta de casas, renta de casas, departamentos, México" />
+        <meta name="description" content="Cervantes Bienes Raíces – Sitio oficial. Venta y renta de casas y departamentos en México. Experiencia exclusiva en bienes raíces." />
+        <meta property="og:site_name" content="Cervantes Bienes Raíces" />
+        <meta property="og:url" content="https://cervantesbienesraices.vercel.app" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Homy - Real Estate React Next js Template" />
+        <meta property="og:title" content="Cervantes Bienes Raíces – Sitio oficial" />
         <meta name='og:image' content='images/assets/ogg.png' />
         {/* For IE  */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -39,6 +39,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" />
+        <title>Cervantes Bienes Raíces – Sitio oficial | Venta y Renta de Casas y Departamentos en México</title>
       </head>
       <body suppressHydrationWarning={true}>
         <div className="main-page-wrapper">
