@@ -10,7 +10,7 @@ const AboutSection = () => {
               <h2>Quiénes Somos</h2>
               <p>
                 En <strong>CERVANTES BIENES RAICES</strong> ofrecemos un servicio basado en la
-                confianza, la experiencia y la transparencia. Nuestra fundador,
+                confianza, la experiencia y la transparencia. Nuestro fundador,
                 <strong> Javier Cervantes</strong>, cuenta con más de 20 años
                 de trayectoria en el sector inmobiliario.
               </p>
