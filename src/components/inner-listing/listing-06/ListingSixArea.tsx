@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import DropdownHomeEightEs from "@/components/search-dropdown/home-dropdown/DropdownHomeEightEs";
 import Link from "next/link";
@@ -210,62 +210,6 @@ const ListingSixArea = () => {
   const filteredProperties = useMemo(() => {
     if (!properties.length) return [];
 
-    // Query params from Hero/list search
-    const tipoParam = normalizeText(searchParams?.get("tipo") || "");
-    const ubicacionKey = normalizeText(searchParams?.get("ubicacion") || "");
-    const rangoParam = normalizeText(searchParams?.get("rango") || "");
-
-    const ubicacionTokens: Record<string, string[]> = {
-      cdmx: ["ciudad de mexico", "cdmx", "mexico city", "distrito federal"],
-      guadalajara: ["guadalajara", "jalisco"],
-      monterrey: ["monterrey", "nuevo leon", "nuevo león"],
-      puebla: ["puebla"],
-      toluca: ["toluca", "estado de mexico", "edomex"],
-      queretaro: ["queretaro", "querétaro"],
-      morelia: ["morelia", "michoacan", "michoacán"],
-      merida: ["merida", "mérida", "yucatan", "yucatán"],
-      cancun: ["cancun", "cancún", "quintana roo"],
-      chetumal: ["chetumal", "quintana roo"],
-      campeche: ["campeche"],
-      villahermosa: ["villahermosa", "tabasco"],
-      tuxtla: ["tuxtla gutierrez", "tuxtla gutiérrez", "chiapas"],
-      oaxaca: ["oaxaca", "oaxaca de juarez", "oaxaca de juárez"],
-      xalapa: ["xalapa", "veracruz"],
-      veracruz: ["veracruz"],
-      hermosillo: ["hermosillo", "sonora"],
-      chihuahua: ["chihuahua"],
-      culiacan: ["culiacan", "culiacán", "sinaloa"],
-      tepic: ["tepic", "nayarit"],
-      zacatecas: ["zacatecas"],
-      aguascalientes: ["aguascalientes"],
-      slp: ["san luis potosi", "san luis potosí"],
-      saltillo: ["saltillo", "coahuila"],
-      torreon: ["torreon", "torreón", "coahuila"],
-      durango: ["durango"],
-      lapaz: ["la paz", "baja california sur"],
-      mexicali: ["mexicali", "baja california"],
-      tijuana: ["tijuana", "baja california"],
-      colima: ["colima"],
-      manzanillo: ["manzanillo", "colima"],
-      guanajuato: ["guanajuato"],
-      leon: ["leon", "león", "guanajuato"],
-      pachuca: ["pachuca", "hidalgo"],
-      tlaxcala: ["tlaxcala"],
-      cuernavaca: ["cuernavaca", "morelos"],
-      queretaro2: ["san juan del rio", "san juan del río", "queretaro", "querétaro"],
-      madrid: ["madrid", "espana", "españa", "spain"],
-    };
-
-    const rangeMap: Record<string, [number, number]> = {
-      "1": [10000, 200000],
-      "2": [200000, 500000],
-      "3": [500000, 1000000],
-    };
-
-    const hasTipo = Boolean(tipoParam);
-    const hasUbicacion = Boolean(ubicacionKey) && Boolean(ubicacionTokens[ubicacionKey]);
-    const hasRange = Boolean(rangoParam) && Boolean(rangeMap[rangoParam]);
-
     return properties.filter((prop) => {
       const propertyType = prop?.property_type?.toString().trim().toLowerCase() || "";
       const operationTypes = Array.isArray(prop?.operations)
@@ -292,19 +236,6 @@ const ListingSixArea = () => {
 
       if (!matchesType) return false;
 
-      // Extra: match by "tipo" from URL (comprar/rentar + casa/departamento)
-      const propTypeNorm = normalizeText(propertyType);
-      const isApartment = /apartment|departament|depa|apto|apartament/.test(propTypeNorm);
-      const isHouse = /house|casa|residenc/.test(propTypeNorm);
-      const matchesTipoParam = !hasTipo || (() => {
-        if (tipoParam === "comprar_departamento") return operationTypes.includes("venta") && isApartment;
-        if (tipoParam === "comprar_casa") return operationTypes.includes("venta") && isHouse;
-        if (tipoParam === "rentar_apartamento") return operationTypes.includes("renta") && isApartment;
-        if (tipoParam === "rentar_casa") return operationTypes.includes("renta") && isHouse;
-        return true;
-      })();
-      if (!matchesTipoParam) return false;
-
       const hasMin = filters.minPrice.trim() !== "";
       const hasMax = filters.maxPrice.trim() !== "";
       const min = hasMin ? Number(filters.minPrice) : null;
@@ -314,40 +245,103 @@ const ListingSixArea = () => {
         return false;
       }
 
-      const matchesAmount =
-        !hasMin && !hasMax
-          ? true
-          : amounts.some((amount) => {
-              if (hasMin && min !== null && amount < min) return false;
-              if (hasMax && max !== null && amount > max) return false;
-              return true;
-            });
-
-      // Extra: range from URL param
-      if (hasRange) {
-        const [rMin, rMax] = rangeMap[rangoParam];
-        const inRouteRange = amounts.some((amount) => {
-          if (rMin !== null && amount < rMin) return false;
-          if (rMax !== null && amount > rMax) return false;
-          return true;
-        });
-        if (!inRouteRange) return false;
-      }
+      const matchesAmount = !hasMin && !hasMax
+        ? true
+        : amounts.some((amount) => {
+            if (hasMin && min !== null && amount < min) return false;
+            if (hasMax && max !== null && amount > max) return false;
+            return true;
+          });
 
       if (!matchesAmount) return false;
 
-      // Extra: location from URL param key
-      let routeLocationMatch = true;
-      if (hasUbicacion) {
-        const tokens = ubicacionTokens[ubicacionKey].map((t) => normalizeText(t));
-        routeLocationMatch = tokens.some((t) => propertyLocation.includes(t));
-      }
-
-      const matchesLocation = (!locationFilter || propertyLocation.includes(locationFilter)) && routeLocationMatch;
+      const matchesLocation = !locationFilter || propertyLocation.includes(locationFilter);
 
       return matchesLocation;
     });
-  }, [properties, filters, searchParams]);
+  }, [properties, filters]);
+
+  // Prefill visible filters from URL params on first load, then rely solely on panel
+  const initializedFromParams = useRef(false);
+  useEffect(() => {
+    if (initializedFromParams.current) return;
+    const tipoParam = normalizeText(searchParams?.get("tipo") || "");
+    const ubicacionKey = normalizeText(searchParams?.get("ubicacion") || "");
+    const rangoParam = normalizeText(searchParams?.get("rango") || "");
+
+    const toOperation = (t: string): string => {
+      if (!t) return "";
+      if (t.startsWith("comprar_")) return "operation:venta";
+      if (t.startsWith("rentar_")) return "operation:renta";
+      return "";
+    };
+
+    const ubicacionTokens: Record<string, string[]> = {
+      cdmx: ["ciudad de mexico"],
+      guadalajara: ["guadalajara"],
+      monterrey: ["monterrey"],
+      puebla: ["puebla"],
+      toluca: ["toluca"],
+      queretaro: ["queretaro", "querétaro"],
+      morelia: ["morelia"],
+      merida: ["merida", "mérida"],
+      cancun: ["cancun", "cancún"],
+      chetumal: ["chetumal"],
+      campeche: ["campeche"],
+      villahermosa: ["villahermosa"],
+      tuxtla: ["tuxtla"],
+      oaxaca: ["oaxaca"],
+      xalapa: ["xalapa"],
+      veracruz: ["veracruz"],
+      hermosillo: ["hermosillo"],
+      chihuahua: ["chihuahua"],
+      culiacan: ["culiacan", "culiacán"],
+      tepic: ["tepic"],
+      zacatecas: ["zacatecas"],
+      aguascalientes: ["aguascalientes"],
+      slp: ["san luis potosi", "san luis potosí"],
+      saltillo: ["saltillo"],
+      torreon: ["torreon", "torreón"],
+      durango: ["durango"],
+      lapaz: ["la paz"],
+      mexicali: ["mexicali"],
+      tijuana: ["tijuana"],
+      colima: ["colima"],
+      manzanillo: ["manzanillo"],
+      guanajuato: ["guanajuato"],
+      leon: ["leon", "león"],
+      pachuca: ["pachuca"],
+      tlaxcala: ["tlaxcala"],
+      cuernavaca: ["cuernavaca"],
+      queretaro2: ["san juan del rio", "san juan del río"],
+      madrid: ["madrid"],
+    };
+
+    const rangeMap: Record<string, [number, number]> = {
+      "1": [10000, 200000],
+      "2": [200000, 500000],
+      "3": [500000, 1000000],
+    };
+
+    const nextInputs = { ...initialFilterState };
+    const op = toOperation(tipoParam);
+    if (op) nextInputs.type = op;
+    if (ubicacionKey && ubicacionTokens[ubicacionKey]) {
+      nextInputs.location = ubicacionTokens[ubicacionKey][0];
+    }
+    if (rangoParam && rangeMap[rangoParam]) {
+      const [min, max] = rangeMap[rangoParam];
+      nextInputs.minPrice = String(min);
+      nextInputs.maxPrice = String(max);
+    }
+
+    // If any param present, prefill and apply immediately
+    if (op || nextInputs.location || nextInputs.minPrice || nextInputs.maxPrice) {
+      setInputs(nextInputs);
+      setFilters(nextInputs);
+    }
+    initializedFromParams.current = true;
+  }, [searchParams]);
 
   const handleInputChange = (key: keyof typeof initialFilterState) => (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const value = event.target.value;
