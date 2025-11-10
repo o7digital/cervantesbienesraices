@@ -211,9 +211,9 @@ const ListingSixArea = () => {
     if (!properties.length) return [];
 
     // Query params from Hero/list search
-    const tipoParam = normalizeText(searchParams.get("tipo") || "");
-    const ubicacionKey = normalizeText(searchParams.get("ubicacion") || "");
-    const rangoParam = normalizeText(searchParams.get("rango") || "");
+    const tipoParam = normalizeText(searchParams?.get("tipo") || "");
+    const ubicacionKey = normalizeText(searchParams?.get("ubicacion") || "");
+    const rangoParam = normalizeText(searchParams?.get("rango") || "");
 
     const ubicacionTokens: Record<string, string[]> = {
       cdmx: ["ciudad de mexico", "cdmx", "mexico city", "distrito federal"],
