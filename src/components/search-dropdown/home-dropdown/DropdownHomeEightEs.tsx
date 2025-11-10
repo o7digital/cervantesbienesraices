@@ -6,7 +6,7 @@ import { useState } from "react";
 const DropdownHomeEightEs = () => {
   const router = useRouter();
 
-  const [tipo, setTipo] = useState("comprar_departamento");
+  const [tipo, setTipo] = useState("todos");
   const [ubicacion, setUbicacion] = useState("cdmx");
   const [rango, setRango] = useState("1");
 
@@ -16,12 +16,16 @@ const DropdownHomeEightEs = () => {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const params = new URLSearchParams({ tipo, ubicacion, rango });
-    const href = `https://cervantesbienesraices.vercel.app/listing_06?${params.toString()}`;
+    const params = new URLSearchParams();
+    if (tipo && tipo !== 'todos') params.set('tipo', tipo);
+    if (ubicacion) params.set('ubicacion', ubicacion);
+    if (rango) params.set('rango', rango);
+    const qs = params.toString();
+    const href = `https://cervantesbienesraices.vercel.app/listing_06${qs ? `?${qs}` : ''}`;
     if (typeof window !== 'undefined') {
       window.location.href = href;
     } else {
-      router.push(`/listing_06?${params.toString()}`);
+      router.push(`/listing_06${qs ? `?${qs}` : ''}`);
     }
   };
 
@@ -34,6 +38,7 @@ const DropdownHomeEightEs = () => {
             <NiceSelect
               className="nice-select fw-normal"
               options={[
+                { value: "todos", text: "Todos" },
                 { value: "comprar_departamento", text: "Comprar un Departamento" },
                 { value: "comprar_casa", text: "Comprar una Casa" },
                 { value: "rentar_apartamento", text: "Rentar un Apartamento" },
