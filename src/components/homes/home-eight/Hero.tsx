@@ -2,6 +2,18 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import DropdownHomeEightEs from "@/components/search-dropdown/home-dropdown/DropdownHomeEightEs";
+import Slider from "react-slick";
+
+const sliderSettings = {
+  dots: false,
+  arrows: false,
+  centerPadding: "0px",
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  fade: true,
+  autoplaySpeed: 7000,
+};
 
 const Hero = () => {
   const router = useRouter();
@@ -32,6 +44,12 @@ const Hero = () => {
 
   return (
     <div className="hero-banner-eight z-1 pt-250 xl-pt-200 pb-250 xl-pb-150 lg-pb-100 position-relative">
+      {/* Slider d'arrière-plan (style Home Three) */}
+      <Slider {...(sliderSettings as any)} className="hero-slider-one m0">
+        <div className="item m0"><div className="hero-img" style={{ backgroundImage: `url(/assets/images/media/img_26.jpg)` }}></div></div>
+        <div className="item m0"><div className="hero-img" style={{ backgroundImage: `url(/assets/images/media/img_27.jpg)` }}></div></div>
+        <div className="item m0"><div className="hero-img" style={{ backgroundImage: `url(/assets/images/media/img_28.jpg)` }}></div></div>
+      </Slider>
       <div className="container position-relative">
         <div className="row">
           <div className="col-xl-9 col-lg-10 col-md-10 m-auto">

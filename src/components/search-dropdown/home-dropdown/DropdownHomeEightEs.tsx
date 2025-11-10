@@ -7,7 +7,7 @@ const DropdownHomeEightEs = () => {
   const router = useRouter();
 
   const [tipo, setTipo] = useState("comprar_departamento");
-  const [ubicacion, setUbicacion] = useState("berlin");
+  const [ubicacion, setUbicacion] = useState("cdmx");
   const [rango, setRango] = useState("1");
 
   const handleTipo = (e: any) => setTipo(e.target.value);
@@ -48,12 +48,46 @@ const DropdownHomeEightEs = () => {
             <NiceSelect
               className="nice-select location fw-normal"
               options={[
-                { value: "berlin", text: "Berlin, Germany" },
-                { value: "acapulco", text: "Acapulco, Mexico" },
-                { value: "cannes", text: "Cannes, France" },
-                { value: "delhi", text: "Delhi, India" },
-                { value: "giza", text: "Giza, Egypt" },
-                { value: "havana", text: "Havana, Cuba" },
+                // México
+                { value: "cdmx", text: "CDMX, México" },
+                { value: "guadalajara", text: "Guadalajara, Jalisco" },
+                { value: "monterrey", text: "Monterrey, Nuevo León" },
+                { value: "puebla", text: "Puebla, Puebla" },
+                { value: "toluca", text: "Toluca, Estado de México" },
+                { value: "queretaro", text: "Querétaro, Querétaro" },
+                { value: "morelia", text: "Morelia, Michoacán" },
+                { value: "merida", text: "Mérida, Yucatán" },
+                { value: "cancun", text: "Cancún, Quintana Roo" },
+                { value: "chetumal", text: "Chetumal, Quintana Roo" },
+                { value: "campeche", text: "Campeche, Campeche" },
+                { value: "villahermosa", text: "Villahermosa, Tabasco" },
+                { value: "tuxtla", text: "Tuxtla Gutiérrez, Chiapas" },
+                { value: "oaxaca", text: "Oaxaca de Juárez, Oaxaca" },
+                { value: "xalapa", text: "Xalapa, Veracruz" },
+                { value: "veracruz", text: "Veracruz, Veracruz" },
+                { value: "hermosillo", text: "Hermosillo, Sonora" },
+                { value: "chihuahua", text: "Chihuahua, Chihuahua" },
+                { value: "culiacan", text: "Culiacán, Sinaloa" },
+                { value: "tepic", text: "Tepic, Nayarit" },
+                { value: "zacatecas", text: "Zacatecas, Zacatecas" },
+                { value: "aguascalientes", text: "Aguascalientes, Aguascalientes" },
+                { value: "slp", text: "San Luis Potosí, San Luis Potosí" },
+                { value: "saltillo", text: "Saltillo, Coahuila" },
+                { value: "torreon", text: "Torreón, Coahuila" },
+                { value: "durango", text: "Durango, Durango" },
+                { value: "lapaz", text: "La Paz, Baja California Sur" },
+                { value: "mexicali", text: "Mexicali, Baja California" },
+                { value: "tijuana", text: "Tijuana, Baja California" },
+                { value: "colima", text: "Colima, Colima" },
+                { value: "manzanillo", text: "Manzanillo, Colima" },
+                { value: "guanajuato", text: "Guanajuato, Guanajuato" },
+                { value: "leon", text: "León, Guanajuato" },
+                { value: "pachuca", text: "Pachuca, Hidalgo" },
+                { value: "tlaxcala", text: "Tlaxcala, Tlaxcala" },
+                { value: "cuernavaca", text: "Cuernavaca, Morelos" },
+                { value: "queretaro2", text: "San Juan del Río, Querétaro" },
+                // Internacional
+                { value: "madrid", text: "Madrid, España" },
               ]}
               defaultCurrent={0}
               onChange={handleUbicacion}
@@ -92,4 +126,3 @@ const DropdownHomeEightEs = () => {
 };
 
 export default DropdownHomeEightEs;
-
