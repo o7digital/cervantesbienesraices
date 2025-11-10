@@ -17,7 +17,12 @@ const DropdownHomeEightEs = () => {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const params = new URLSearchParams({ tipo, ubicacion, rango });
-    router.push(`/home-eight?${params.toString()}`);
+    const href = `https://cervantesbienesraices.vercel.app/listing_06?${params.toString()}`;
+    if (typeof window !== 'undefined') {
+      window.location.href = href;
+    } else {
+      router.push(`/listing_06?${params.toString()}`);
+    }
   };
 
   return (
