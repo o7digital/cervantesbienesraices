@@ -400,6 +400,117 @@ const ListingSixArea = () => {
           </div>
         </div>
 
+        {/* Panel de filtros original (estado, tipo, montos, ubicación) */}
+        <div className="listing-filters mb-40">
+          <div className="row g-3 align-items-end">
+            <div className="col-12">
+              <div className="d-flex gap-2 mb-2" role="group" aria-label="Filtro de estado">
+                <button
+                  type="button"
+                  className={`btn ${statusView === "published" ? "btn-one" : "btn-outline-secondary"}`}
+                  onClick={() => setStatusView("published")}
+                >
+                  Publicadas
+                </button>
+                <button
+                  type="button"
+                  className={`btn ${statusView === "archived" ? "btn-one" : "btn-outline-secondary"}`}
+                  onClick={() => setStatusView("archived")}
+                >
+                  Archivadas
+                </button>
+              </div>
+            </div>
+            <div className="col-12 col-md-4 col-lg-3">
+              <label htmlFor="listing-type-filter" className="form-label fw-500">
+                Tipo / Operación
+              </label>
+              <select
+                id="listing-type-filter"
+                className="form-select"
+                value={inputs.type}
+                onChange={handleInputChange("type")}
+              >
+                <option value="">Todos</option>
+                {typeOptionGroups.map((group) => (
+                  <optgroup key={group.label} label={group.label}>
+                    {group.options.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <label htmlFor="listing-min-price" className="form-label fw-500">
+                Monto mín.
+              </label>
+              <input
+                id="listing-min-price"
+                type="number"
+                className="form-control"
+                placeholder="Ej. 500000"
+                value={inputs.minPrice}
+                onChange={handleInputChange("minPrice")}
+                min={0}
+              />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <label htmlFor="listing-max-price" className="form-label fw-500">
+                Monto máx.
+              </label>
+              <input
+                id="listing-max-price"
+                type="number"
+                className="form-control"
+                placeholder="Ej. 1500000"
+                value={inputs.maxPrice}
+                onChange={handleInputChange("maxPrice")}
+                min={0}
+              />
+            </div>
+            <div className="col-12 col-md-6 col-lg-3">
+              <label htmlFor="listing-location-filter" className="form-label fw-500">
+                Ubicación
+              </label>
+              <input
+                id="listing-location-filter"
+                className="form-control"
+                value={inputs.location}
+                onChange={handleInputChange("location")}
+                list="listing-location-options"
+                placeholder="Teclea la ubicación o deja vacío para todas"
+              />
+              <datalist id="listing-location-options">
+                {locationOptions.map((option) => (
+                  <option key={option} value={option} />
+                ))}
+              </datalist>
+            </div>
+            <div className="col-12">
+              <div className="filter-actions">
+                <button
+                  type="button"
+                  className="btn-one"
+                  onClick={handleApplyFilters}
+                  disabled={filtersMatchInputs}
+                >
+                  Buscar
+                </button>
+                <button
+                  type="button"
+                  className="btn-reset"
+                  onClick={handleResetFilters}
+                  disabled={isResetDisabled}
+                >
+                  Limpiar filtros
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         {loading && <p className="text-center">Cargando propiedades...</p>}
         {!loading && error && <p className="text-center text-danger">{error}</p>}
         {!loading && !error && properties.length === 0 && <p>No se encontraron propiedades.</p>}
