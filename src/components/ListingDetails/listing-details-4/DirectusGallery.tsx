@@ -1,5 +1,9 @@
 "use client"
 
+import Fancybox from "@/components/common/Fancybox"
+import { useState } from "react"
+import styles from "./DirectusGallery.module.css"
+
 type FileId = { id: string; filename_download?: string }
 type M2MItem = { id: string; title?: string; directus_files_id: FileId }
 
@@ -29,6 +33,7 @@ function normalizeAssetIds(images?: Props["images"]): string[] {
 
 export default function DirectusGallery({ apiUrl, images }: Props) {
   const assetIds = normalizeAssetIds(images)
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
 
   if (!assetIds.length) {
     return (
@@ -38,23 +43,55 @@ export default function DirectusGallery({ apiUrl, images }: Props) {
     )
   }
 
+  const handleImageError = (id: string) => {
+    setImageErrors(prev => new Set(prev).add(id))
+  }
+
   return (
     <section className="media-gallery mb-60">
       <div className="row g-3">
-        {assetIds.map((id) => (
-          <div key={id} className="col-lg-4 col-md-6 col-sm-12">
-            <div className="gallery-item position-relative overflow-hidden rounded-4">
-              <img
-                src={`${apiUrl}/assets/${id}`}
-                alt="Imagen de propiedad"
-                width={600}
-                height={400}
-                style={{ width: "100%", height: "auto", borderRadius: "12px", display: "block" }}
-                loading="lazy"
-              />
-            </div>
-          </div>
-        ))}
+        <Fancybox
+          options={{
+            Carousel: {
+              infinite: true,
+            },
+            Toolbar: {
+              display: {
+                left: ["infobar"],
+                middle: [],
+                right: ["slideshow", "thumbs", "close"],
+              },
+            },
+          }}
+        >
+          {assetIds.map((id, index) => {
+            const imageUrl = `${apiUrl}/assets/${id}`
+            const hasError = imageErrors.has(id)
+            
+            if (hasError) return null
+
+            return (
+              <div key={id} className="col-lg-4 col-md-6 col-sm-12">
+                <a
+                  data-fancybox="property-gallery"
+                  href={imageUrl}
+                  className={styles.galleryItem}
+                >
+                  <img
+                    src={imageUrl}
+                    alt={`Imagen ${index + 1} de la propiedad`}
+                    className={styles.galleryImage}
+                    loading="lazy"
+                    onError={() => handleImageError(id)}
+                  />
+                  <div className={styles.overlayHover}>
+                    <i className={`fa-solid fa-magnifying-glass-plus ${styles.zoomIcon}`}></i>
+                  </div>
+                </a>
+              </div>
+            )
+          })}
+        </Fancybox>
       </div>
     </section>
   )

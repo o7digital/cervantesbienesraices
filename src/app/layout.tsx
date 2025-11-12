@@ -1,5 +1,6 @@
 'use client'
 import "../styles/index.scss";
+import "../styles/fancybox-custom.css";
 import { Provider } from "react-redux";
 import store from "@/redux/store";
 import CookieConsent from "@/components/common/CookieConsent";

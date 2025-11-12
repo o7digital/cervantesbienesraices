@@ -1,0 +1,262 @@
+Résumé technique détaillé - Problème de synchronisation EasyBroker
+🔴 PROBLÈME INITIAL
+Le site affiche seulement 3 propriétés alors qu'EasyBroker en contient 67 propriétés publiées.
+
+🔍 DIAGNOSTIC
+Ce qu'on a découvert :
+L'API EasyBroker retourne bien 67 propriétés quand on appelle /api/properties?debug=all
+TOUTES les propriétés ont leurs champs de statut à null :
+publicly_visible: null
+publication_status: null
+status: null
+property_status: null
+EasyBroker filtre déjà côté serveur via le paramètre search[statuses][] mais ne renvoie pas les champs de statut dans la réponse
+Le code actuel dans properties.ts filtre une deuxième fois les propriétés côté Next.js, ce qui élimine toutes les propriétés sauf 3
+Pourquoi seulement 3 propriétés passent ?
+La fonction isPublished() (ligne 103) filtre les propriétés mais comme tous les champs sont null, seules 3 propriétés passent le filtre par un comportement inattendu.
+
+✅ SOLUTION
+EasyBroker a déjà un système de statuts intégré
+D'après les captures d'écran de l'interface EB, on peut filtrer par :
+
+Publicada ✅
+No publicada
+Reservada
+Vendida o Rentada
+Suspendida
+Marcada para revisión
+Modifications à appliquer dans properties.ts
+Modification 1 - Fonction isPublished() (lignes 103-125)
+Remplacer par :
+
+Modification 2 - Ligne 154
+AVANT :
+
+APRÈS :
+
+Modification 3 - Ligne 207
+AVANT :
+
+APRÈS :
+
+🎯 RÉSULTAT ATTENDU
+Après ces modifications :
+
+✅ Propriétés publiées : /api/properties ou /api/properties?status=published → Affiche les 67 propriétés "Publicada"
+
+✅ Propriétés non publiées : /api/properties?status=not_published → Affiche uniquement les "No publicada"
+
+✅ Propriétés vendues : /api/properties?status=sold → Affiche uniquement les "Vendida"
+
+✅ Compatible Directus : La fonction isPublished() reste disponible pour une future intégration Directus
+
+📝 LOGIQUE
+EasyBroker filtre déjà côté serveur via search[statuses][]
+On fait confiance au filtre EasyBroker et on affiche toutes les propriétés retournées
+On garde la fonction isPublished() pour gérer les cas où les champs de statut seraient présents (compatibilité future avec Directus)
+🚀 PROCHAINES ÉTAPES
+Appliquer les 3 modifications dans le fichier properties.ts
+Tester en local : npm run dev
+Vérifier que les 67 propriétés s'affichent sur http://localhost:3000/listing_06
+Commit et push vers GitHub
+Vérifier en production
+
+const isPublished = (item: any) => {
+  // Si tous les champs de statut sont null, on considère comme publié
+  // (EasyBroker a déjà filtré côté serveur)
+  if (
+    item?.publicly_visible === null &&
+    !item?.publication_status &&
+    !item?.status &&
+    !item?.property_status
+  ) {
+    return true;
+  }
+
+  // Señal booleana explícita
+  if (typeof item?.publicly_visible === "boolean") {
+    if (item.publicly_visible === false) return false;
+  }
+
+  const candidates = getStatusCandidates(item);
+
+  // Exclusiones explícitas
+  if (hasAny(candidates, [
+    "unpublished", "not published", "no publicada", "no_publicada",
+    "inactive", "inactivo", "inactiva",
+    "hidden", "oculto", "oculta",
+  ])) return false;
+  if (hasAny(candidates, ["archived", "archive", "archivado", "archivada"])) return false;
+  if (hasAny(candidates, ["draft", "borrador"])) return false;
+
+  // Inclusiones explícitas
+  if (item?.publicly_visible === true) return true;
+  if (hasAny(candidates, ["published", "publicada", "publicado", "active", "activa", "activo"])) return true;
+
+  // Si no hay señales claras, incluimos por defecto
+  return true;
+};
+Modification 2 - Ligne 154
+AVANT :
+
+const filtered = statusParam ? pageData.content : pageData.content.filter((item: any) => isPublished(item));
+
+
+Résumé technique détaillé - Problème de synchronisation EasyBroker
+🔴 PROBLÈME INITIAL
+Le site affiche seulement 3 propriétés alors qu'EasyBroker en contient 67 propriétés publiées.
+
+🔍 DIAGNOSTIC
+Ce qu'on a découvert :
+L'API EasyBroker retourne bien 67 propriétés quand on appelle /api/properties?debug=all
+TOUTES les propriétés ont leurs champs de statut à null :
+publicly_visible: null
+publication_status: null
+status: null
+property_status: null
+EasyBroker filtre déjà côté serveur via le paramètre search[statuses][] mais ne renvoie pas les champs de statut dans la réponse
+Le code actuel dans properties.ts filtre une deuxième fois les propriétés côté Next.js, ce qui élimine toutes les propriétés sauf 3
+Pourquoi seulement 3 propriétés passent ?
+La fonction isPublished() (ligne 103) filtre les propriétés mais comme tous les champs sont null, seules 3 propriétés passent le filtre par un comportement inattendu.
+
+✅ SOLUTION
+EasyBroker a déjà un système de statuts intégré
+D'après les captures d'écran de l'interface EB, on peut filtrer par :
+
+Publicada ✅
+No publicada
+Reservada
+Vendida o Rentada
+Suspendida
+Marcada para revisión
+Modifications à appliquer dans properties.ts
+Modification 1 - Fonction isPublished() (lignes 103-125)
+Remplacer par :
+
+Modification 2 - Ligne 154
+AVANT :
+
+APRÈS :
+
+const filtered = pageData.content; // EasyBroker a déjà filtré selon le statut demandé
+
+Modification 3 - Ligne 207
+AVANT :
+
+const resultContent = statusParam ? allContent : allContent.filter((item: any) => isPublished(item));
+
+
+Résumé technique détaillé - Problème de synchronisation EasyBroker
+🔴 PROBLÈME INITIAL
+Le site affiche seulement 3 propriétés alors qu'EasyBroker en contient 67 propriétés publiées.
+
+🔍 DIAGNOSTIC
+Ce qu'on a découvert :
+L'API EasyBroker retourne bien 67 propriétés quand on appelle /api/properties?debug=all
+TOUTES les propriétés ont leurs champs de statut à null :
+publicly_visible: null
+publication_status: null
+status: null
+property_status: null
+EasyBroker filtre déjà côté serveur via le paramètre search[statuses][] mais ne renvoie pas les champs de statut dans la réponse
+Le code actuel dans properties.ts filtre une deuxième fois les propriétés côté Next.js, ce qui élimine toutes les propriétés sauf 3
+Pourquoi seulement 3 propriétés passent ?
+La fonction isPublished() (ligne 103) filtre les propriétés mais comme tous les champs sont null, seules 3 propriétés passent le filtre par un comportement inattendu.
+
+✅ SOLUTION
+EasyBroker a déjà un système de statuts intégré
+D'après les captures d'écran de l'interface EB, on peut filtrer par :
+
+Publicada ✅
+No publicada
+Reservada
+Vendida o Rentada
+Suspendida
+Marcada para revisión
+Modifications à appliquer dans properties.ts
+Modification 1 - Fonction isPublished() (lignes 103-125)
+Remplacer par :
+
+Modification 2 - Ligne 154
+AVANT :
+
+APRÈS :
+
+Modification 3 - Ligne 207
+AVANT :
+
+APRÈS :
+
+const resultContent = allContent; // EasyBroker a déjà filtré selon le statut demandé
+
+
+RÉSULTAT ATTENDU
+Après ces modifications :
+
+✅ Propriétés publiées : /api/properties ou /api/properties?status=published → Affiche les 67 propriétés "Publicada"
+
+✅ Propriétés non publiées : /api/properties?status=not_published → Affiche uniquement les "No publicada"
+
+✅ Propriétés vendues : /api/properties?status=sold → Affiche uniquement les "Vendida"
+
+✅ Compatible Directus : La fonction isPublished() reste disponible pour une future intégration Directus
+
+📝 LOGIQUE
+EasyBroker filtre déjà côté serveur via search[statuses][]
+On fait confiance au filtre EasyBroker et on affiche toutes les propriétés retournées
+On garde la fonction isPublished() pour gérer les cas où les champs de statut seraient présents (compatibilité future avec Directus)
+🚀 PROCHAINES ÉTAPES
+Appliquer les 3 modifications dans le fichier properties.ts
+Tester en local : npm run dev
+Vérifier que les 67 propriétés s'affichent sur http://localhost:3000/listing_06
+Commit et push vers GitHub
+Vérifier en production
+
+
+Résumé des modifications effectuées
+🎯 Objectif
+Résoudre le problème d'affichage des propriétés : seulement 3 propriétés affichées au lieu des 67 disponibles dans EasyBroker.
+
+🔧 Modifications appliquées dans route.ts
+1. Fonction isPublished() modernisée
+✅ Accepte maintenant les propriétés avec tous les champs de statut à null
+✅ Fait confiance au filtre côté serveur d'EasyBroker
+✅ Garde la logique pour une future intégration Directus
+2. Suppression du filtre redondant (ligne ~154)
+
+// AVANT
+const filtered = statusParam ? pageData.content : pageData.content.filter((item: any) => isPublished(item));
+
+// APRÈS
+const filtered = pageData.content; // EasyBroker a déjà filtré selon le statut demandé
+
+
+Résumé des modifications effectuées
+🎯 Objectif
+Résoudre le problème d'affichage des propriétés : seulement 3 propriétés affichées au lieu des 67 disponibles dans EasyBroker.
+
+🔧 Modifications appliquées dans route.ts
+1. Fonction isPublished() modernisée
+✅ Accepte maintenant les propriétés avec tous les champs de statut à null
+✅ Fait confiance au filtre côté serveur d'EasyBroker
+✅ Garde la logique pour une future intégration Directus
+2. Suppression du filtre redondant (ligne ~154)
+3. Suppression du filtre redondant (ligne ~207)
+
+// AVANT
+const resultContent = statusParam ? allContent : allContent.filter((item: any) => isPublished(item));
+
+// APRÈS
+const resultContent = allContent; // EasyBroker a déjà filtré selon le statut demandé
+
+Résultat attendu
+✅ Les 67 propriétés publiées s'affichent correctement
+✅ Pas de double filtrage (serveur + client)
+✅ EasyBroker gère les statuts, Next.js affiche les résultats
+⚠️ Action requise de votre part
+Vous devez supprimer le fichier conflictuel :
+
+Puis redémarrer :
+
+
+npm run dev

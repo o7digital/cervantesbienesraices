@@ -2,7 +2,7 @@
 import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import DropdownHomeEightEs from "@/components/search-dropdown/home-dropdown/DropdownHomeEightEs";
-import Link from "next/link";
+import PropertyCard from "@/components/common/PropertyCard";
 
 const formatLocation = (location: any) => {
   if (!location) return "Ubicación no disponible";
@@ -494,29 +494,19 @@ const ListingSixArea = () => {
             </div>
           )}
           {filteredProperties.map((prop) => (
-            <div key={prop.public_id} className="col-md-4 mb-4">
-              <div className="property-card p-3 bg-white shadow-sm rounded">
-                <img
-                  src={prop.title_image_thumb || "/images/default-property.jpg"}
-                  alt={prop.title}
-                  className="img-fluid mb-3 rounded"
-                />
-                <h5>{prop.title}</h5>
-                <p>{formatLocation(prop.location)}</p>
-                <p>
-                  <strong>
-                    {prop.operations?.[0]?.formatted_amount || "Precio no disponible"}
-                  </strong>
-                </p>
-                <Link
-                  href={`/property/${prop.public_id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-one mt-3 d-block text-center"
-                >
-                  Ver detalles
-                </Link>
-              </div>
+            <div key={prop.public_id} className="col-xl-4 col-lg-6 col-md-6 mb-4">
+              <PropertyCard
+                public_id={prop.public_id}
+                title={prop.title}
+                location={prop.location}
+                title_image_full={prop.title_image_full}
+                title_image_thumb={prop.title_image_thumb}
+                operations={prop.operations}
+                bedrooms={prop.bedrooms}
+                bathrooms={prop.bathrooms}
+                parking_spaces={prop.parking_spaces}
+                construction_size={prop.construction_size}
+              />
             </div>
           ))}
         </div>
