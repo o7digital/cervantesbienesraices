@@ -40,7 +40,7 @@ function mapToEbStatus(input?: string): EbStatus | undefined {
 }
 
 function parseStatusesParam(raw?: string): EbStatus[] {
-  if (!raw) return ["published"]; // por defecto: solo publicadas
+  if (!raw) return []; // Por defecto: obtener TODAS las propiedades sin filtrar
   const parts = raw
     .split(/[,|]/)
     .map((s) => s.trim())
@@ -48,7 +48,7 @@ function parseStatusesParam(raw?: string): EbStatus[] {
   const mapped = parts
     .map(mapToEbStatus)
     .filter((v): v is EbStatus => Boolean(v));
-  return mapped.length ? Array.from(new Set(mapped)) : ["published"]; // fallback seguro
+  return mapped.length ? Array.from(new Set(mapped)) : []; // Sin filtro si no se especifica
 }
 
 // Helpers de tokens de statut
@@ -98,10 +98,20 @@ const matchesStatus = (item: any, statusFilter: string) => {
 
 // Public: incluir solo si hay señal clara de publicación; excluir archived/unpublished/draft
 const isPublished = (item: any) => {
+  // Si tous les champs de statut sont null, on considère comme publié
+  // (EasyBroker a déjà filtré côté serveur)
+  if (
+    item?.publicly_visible === null &&
+    !item?.publication_status &&
+    !item?.status &&
+    !item?.property_status
+  ) {
+    return true;
+  }
+
   // Señal booleana explícita
   if (typeof item?.publicly_visible === "boolean") {
     if (item.publicly_visible === false) return false;
-    // true mais on double-checke pour descartes explícitos
   }
 
   const candidates = getStatusCandidates(item);
@@ -119,7 +129,7 @@ const isPublished = (item: any) => {
   if (item?.publicly_visible === true) return true;
   if (hasAny(candidates, ["published", "publicada", "publicado", "active", "activa", "activo"])) return true;
 
-  // Si no hay señales claras, incluimos por defecto (para no vaciar)
+  // Si no hay señales claras, incluimos por defecto
   return true;
 };
 
@@ -140,7 +150,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Si el cliente solicita una página concreta, devolvemos esa página únicamente.
     if (Number.isFinite(pageParam) && pageParam > 0) {
-      const statusQs = ebStatuses.map((s) => `search[statuses][]=${encodeURIComponent(s)}`).join("&");
+      const statusQs = ebStatuses.length > 0 
+        ? ebStatuses.map((s) => `search[statuses][]=${encodeURIComponent(s)}`).join("&")
+        : "";
       const url = `${EASY_BROKER_URL}?page=${pageParam}&limit=${limit}${statusQs ? `&${statusQs}` : ""}`;
       const response = await fetch(url, { headers });
 
@@ -151,8 +163,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const pageData = await response.json();
 
       if (Array.isArray(pageData?.content)) {
-        // Si on a demandé un statut explicite, on fait confiance au filtre EasyBroker
-        const filtered = statusParam ? pageData.content : pageData.content.filter((item: any) => isPublished(item));
+        // EasyBroker a déjà filtré selon le statut demandé
+        const filtered = pageData.content;
 
         if (debugStatuses || debugFields) {
           const stats = debugStatuses ? buildStatusStats(pageData.content) : undefined;
@@ -186,7 +198,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     let lastPagination: any = null;
 
     while (true) {
-      const statusQs = ebStatuses.map((s) => `search[statuses][]=${encodeURIComponent(s)}`).join("&");
+      const statusQs = ebStatuses.length > 0
+        ? ebStatuses.map((s) => `search[statuses][]=${encodeURIComponent(s)}`).join("&")
+        : "";
       const url = `${EASY_BROKER_URL}?page=${page}&limit=${limit}${statusQs ? `&${statusQs}` : ""}`;
       const response = await fetch(url, { headers });
 
@@ -209,8 +223,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       page = nextPage;
     }
 
-    // Par défaut (pas de param), on ne renvoie que les biens publiés
-    const resultContent = statusParam ? allContent : allContent.filter((item: any) => isPublished(item));
+    // EasyBroker a déjà filtré selon le statut demandé
+    const resultContent = allContent;
 
     if (debugStatuses || debugFields) {
       const stats = debugStatuses ? buildStatusStats(allContent) : undefined;
