@@ -14,6 +14,25 @@ const DropdownHomeEightEs = () => {
   const handleUbicacion = (e: any) => setUbicacion(e.target.value);
   const handleRango = (e: any) => setRango(e.target.value);
 
+  // Déterminer si c'est une location ou une vente
+  const isRental = tipo === 'rentar_departamento' || tipo === 'rentar_casa';
+  
+  // Options de prix pour vente
+  const ventaPriceOptions = [
+    { value: "1", text: "$3,000,000 - $10,000,000" },
+    { value: "2", text: "$10,000,000 - $30,000,000" },
+    { value: "3", text: "$30,000,000+" },
+  ];
+  
+  // Options de prix pour location
+  const rentaPriceOptions = [
+    { value: "1", text: "$25,000 - $50,000" },
+    { value: "2", text: "$50,000 - $100,000" },
+    { value: "3", text: "$100,000+" },
+  ];
+  
+  const priceOptions = isRental ? rentaPriceOptions : ventaPriceOptions;
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const params = new URLSearchParams();
@@ -41,7 +60,7 @@ const DropdownHomeEightEs = () => {
                 { value: "todos", text: "Todos" },
                 { value: "comprar_departamento", text: "Comprar un Departamento" },
                 { value: "comprar_casa", text: "Comprar una Casa" },
-                { value: "rentar_apartamento", text: "Rentar un Apartamento" },
+                { value: "rentar_departamento", text: "Rentar un Departamento" },
                 { value: "rentar_casa", text: "Rentar una Casa" },
               ]}
               defaultCurrent={0}
@@ -58,45 +77,75 @@ const DropdownHomeEightEs = () => {
             <NiceSelect
               className="nice-select location fw-normal"
               options={[
-                // México
-                { value: "cdmx", text: "CDMX, México" },
-                { value: "guadalajara", text: "Guadalajara, Jalisco" },
-                { value: "monterrey", text: "Monterrey, Nuevo León" },
-                { value: "puebla", text: "Puebla, Puebla" },
-                { value: "toluca", text: "Toluca, Estado de México" },
-                { value: "queretaro", text: "Querétaro, Querétaro" },
-                { value: "morelia", text: "Morelia, Michoacán" },
-                { value: "merida", text: "Mérida, Yucatán" },
-                { value: "cancun", text: "Cancún, Quintana Roo" },
-                { value: "chetumal", text: "Chetumal, Quintana Roo" },
-                { value: "campeche", text: "Campeche, Campeche" },
-                { value: "villahermosa", text: "Villahermosa, Tabasco" },
-                { value: "tuxtla", text: "Tuxtla Gutiérrez, Chiapas" },
-                { value: "oaxaca", text: "Oaxaca de Juárez, Oaxaca" },
-                { value: "xalapa", text: "Xalapa, Veracruz" },
-                { value: "veracruz", text: "Veracruz, Veracruz" },
-                { value: "hermosillo", text: "Hermosillo, Sonora" },
-                { value: "chihuahua", text: "Chihuahua, Chihuahua" },
-                { value: "culiacan", text: "Culiacán, Sinaloa" },
-                { value: "tepic", text: "Tepic, Nayarit" },
-                { value: "zacatecas", text: "Zacatecas, Zacatecas" },
+                // Aguascalientes
                 { value: "aguascalientes", text: "Aguascalientes, Aguascalientes" },
-                { value: "slp", text: "San Luis Potosí, San Luis Potosí" },
-                { value: "saltillo", text: "Saltillo, Coahuila" },
-                { value: "torreon", text: "Torreón, Coahuila" },
-                { value: "durango", text: "Durango, Durango" },
-                { value: "lapaz", text: "La Paz, Baja California Sur" },
+                // Baja California
                 { value: "mexicali", text: "Mexicali, Baja California" },
                 { value: "tijuana", text: "Tijuana, Baja California" },
+                // Baja California Sur
+                { value: "lapaz", text: "La Paz, Baja California Sur" },
+                // Campeche
+                { value: "campeche", text: "Campeche, Campeche" },
+                // Chiapas
+                { value: "tuxtla", text: "Tuxtla Gutiérrez, Chiapas" },
+                // Chihuahua
+                { value: "chihuahua", text: "Chihuahua, Chihuahua" },
+                // Coahuila
+                { value: "saltillo", text: "Saltillo, Coahuila" },
+                { value: "torreon", text: "Torreón, Coahuila" },
+                // Colima
                 { value: "colima", text: "Colima, Colima" },
                 { value: "manzanillo", text: "Manzanillo, Colima" },
+                // Durango
+                { value: "durango", text: "Durango, Durango" },
+                // Estado de México
+                { value: "toluca", text: "Toluca, Estado de México" },
+                // Guanajuato
                 { value: "guanajuato", text: "Guanajuato, Guanajuato" },
                 { value: "leon", text: "León, Guanajuato" },
-                { value: "pachuca", text: "Pachuca, Hidalgo" },
-                { value: "tlaxcala", text: "Tlaxcala, Tlaxcala" },
-                { value: "cuernavaca", text: "Cuernavaca, Morelos" },
+                // Guerrero
                 { value: "ixtapa", text: "Ixtapa Zihuatanejo, Guerrero" },
+                // Hidalgo
+                { value: "pachuca", text: "Pachuca, Hidalgo" },
+                // Jalisco
+                { value: "guadalajara", text: "Guadalajara, Jalisco" },
+                // Michoacán
+                { value: "morelia", text: "Morelia, Michoacán" },
+                // Morelos
+                { value: "cuernavaca", text: "Cuernavaca, Morelos" },
+                // Nayarit
+                { value: "tepic", text: "Tepic, Nayarit" },
+                // Nuevo León
+                { value: "monterrey", text: "Monterrey, Nuevo León" },
+                // Oaxaca
+                { value: "oaxaca", text: "Oaxaca de Juárez, Oaxaca" },
+                // Puebla
+                { value: "puebla", text: "Puebla, Puebla" },
+                // Querétaro
+                { value: "queretaro", text: "Querétaro, Querétaro" },
                 { value: "queretaro2", text: "San Juan del Río, Querétaro" },
+                // Quintana Roo
+                { value: "cancun", text: "Cancún, Quintana Roo" },
+                { value: "chetumal", text: "Chetumal, Quintana Roo" },
+                // San Luis Potosí
+                { value: "slp", text: "San Luis Potosí, San Luis Potosí" },
+                // Sinaloa
+                { value: "culiacan", text: "Culiacán, Sinaloa" },
+                // Sonora
+                { value: "hermosillo", text: "Hermosillo, Sonora" },
+                // Tabasco
+                { value: "villahermosa", text: "Villahermosa, Tabasco" },
+                // Tlaxcala
+                { value: "tlaxcala", text: "Tlaxcala, Tlaxcala" },
+                // Veracruz
+                { value: "veracruz", text: "Veracruz, Veracruz" },
+                { value: "xalapa", text: "Xalapa, Veracruz" },
+                // Yucatán
+                { value: "merida", text: "Mérida, Yucatán" },
+                // Zacatecas
+                { value: "zacatecas", text: "Zacatecas, Zacatecas" },
+                // Ciudad de México
+                { value: "cdmx", text: "CDMX, México" },
                 // Internacional
                 { value: "madrid", text: "Madrid, España" },
               ]}
@@ -113,11 +162,7 @@ const DropdownHomeEightEs = () => {
             <div className="label">Rango de Precios</div>
             <NiceSelect
               className="nice-select fw-normal"
-              options={[
-                { value: "1", text: "$3,000,000 - $10,000,000" },
-                { value: "2", text: "$10,000,000 - $30,000,000" },
-                { value: "3", text: "$30,000,000+" },
-              ]}
+              options={priceOptions}
               defaultCurrent={0}
               onChange={handleRango}
               name="rango"
