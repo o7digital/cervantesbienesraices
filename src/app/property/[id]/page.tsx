@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import HeaderFive from "@/layouts/headers/HeaderFive";
 import FooterThree from "@/layouts/footers/FooterThree";
+import ImageGallery from "@/components/common/ImageGallery";
 
 const PropertyDetailPage = () => {
   // ✅ Corrección: tipamos params para evitar error en build
@@ -62,13 +63,7 @@ const PropertyDetailPage = () => {
         <p className="text-muted">{locationLabel}</p>
 
         {property.property_images?.length > 0 && (
-          <div className="row mb-4">
-            {property.property_images.map((img: any, index: number) => (
-              <div key={index} className="col-md-4 mb-3">
-                <img src={img.url} alt={property.title} className="img-fluid rounded" />
-              </div>
-            ))}
-          </div>
+          <ImageGallery images={property.property_images} title={property.title} />
         )}
 
         <h3>Precio</h3>
