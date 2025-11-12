@@ -147,12 +147,20 @@
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .viewButton:hover {
   background: #e04a2d;
   transform: translateX(4px);
   color: white;
+}
+
+.viewButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .viewButton i {
