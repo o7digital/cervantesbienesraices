@@ -95,6 +95,7 @@ const DropdownHomeEightEs = () => {
                 { value: "pachuca", text: "Pachuca, Hidalgo" },
                 { value: "tlaxcala", text: "Tlaxcala, Tlaxcala" },
                 { value: "cuernavaca", text: "Cuernavaca, Morelos" },
+                { value: "ixtapa", text: "Ixtapa Zihuatanejo, Guerrero" },
                 { value: "queretaro2", text: "San Juan del Río, Querétaro" },
                 // Internacional
                 { value: "madrid", text: "Madrid, España" },
@@ -113,7 +114,7 @@ const DropdownHomeEightEs = () => {
             <NiceSelect
               className="nice-select fw-normal"
               options={[
-                { value: "1", text: "$2,800,000 - $10,000,000" },
+                { value: "1", text: "$3,000,000 - $10,000,000" },
                 { value: "2", text: "$10,000,000 - $30,000,000" },
                 { value: "3", text: "$30,000,000+" },
               ]}
