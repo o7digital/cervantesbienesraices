@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Fancybox from "@/components/common/Fancybox";
 import styles from "./PropertyCard.module.css";
@@ -93,12 +94,16 @@ export default function PropertyCard({
       <div className={styles.propertyCard}>
         <div className={styles.imageContainer}>
           {!imageError ? (
-            <img
+            <Image
               src={imageUrl}
               alt={title}
               className={styles.propertyImage}
               onError={() => setImageError(true)}
-              loading="lazy"
+              width={600}
+              height={400}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={85}
+              priority={false}
             />
           ) : (
             <div className={styles.imagePlaceholder}>
@@ -181,7 +186,13 @@ export default function PropertyCard({
               href={img.url}
               data-caption={`${title} - Imagen ${index + 1}`}
             >
-              <img src={img.url} alt={`${title} ${index + 1}`} />
+              <Image 
+                src={img.url} 
+                alt={`${title} ${index + 1}`}
+                width={1200}
+                height={800}
+                quality={90}
+              />
             </a>
           ))}
         </Fancybox>

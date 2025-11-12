@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Fancybox from "@/components/common/Fancybox";
 import { useState } from "react";
 import styles from "./ImageGallery.module.css";
@@ -56,11 +57,14 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
                   href={img.url}
                   className={styles.galleryItem}
                 >
-                  <img
+                  <Image
                     src={img.url}
                     alt={title ? `${title} - Imagen ${index + 1}` : `Imagen ${index + 1}`}
                     className={styles.galleryImage}
-                    loading="lazy"
+                    width={600}
+                    height={400}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={85}
                     onError={() => handleImageError(index)}
                   />
                   <div className={styles.overlayHover}>

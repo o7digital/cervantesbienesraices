@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Fancybox from "@/components/common/Fancybox"
 import { useState } from "react"
 import styles from "./DirectusGallery.module.css"
@@ -77,11 +78,14 @@ export default function DirectusGallery({ apiUrl, images }: Props) {
                   href={imageUrl}
                   className={styles.galleryItem}
                 >
-                  <img
+                  <Image
                     src={imageUrl}
                     alt={`Imagen ${index + 1} de la propiedad`}
                     className={styles.galleryImage}
-                    loading="lazy"
+                    width={600}
+                    height={400}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={85}
                     onError={() => handleImageError(id)}
                   />
                   <div className={styles.overlayHover}>
