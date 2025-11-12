@@ -113,9 +113,9 @@ const DropdownHomeEightEs = () => {
             <NiceSelect
               className="nice-select fw-normal"
               options={[
-                { value: "1", text: "$10,000 - $200,000" },
-                { value: "2", text: "$200,000 - $500,000" },
-                { value: "3", text: "$500,000 - $1,000,000" },
+                { value: "1", text: "$2,800,000 - $10,000,000" },
+                { value: "2", text: "$10,000,000 - $30,000,000" },
+                { value: "3", text: "$30,000,000+" },
               ]}
               defaultCurrent={0}
               onChange={handleRango}
