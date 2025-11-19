@@ -41,6 +41,19 @@ export default function RootLayout({
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" />
         <title>Cervantes Bienes Raíces – Sitio oficial | Venta y Renta de Casas y Departamentos en México</title>
+
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTBQZGNTJ7"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HTBQZGNTJ7');
+            `,
+          }}
+        />
       </head>
       <body suppressHydrationWarning={true}>
         <div className="main-page-wrapper">
