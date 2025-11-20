@@ -1,15 +1,19 @@
 "use client";
 import menu_data from "@/data/home-data/MenuData";
+import menu_data_en from "@/data/home-data/MenuDataEn";
 import Link from "next/link.js";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
+import useLanguage from "@/hooks/useLanguage";
 
 import logo from "@/assets/images/logo/logo_01.svg";
 
 const NavMenu = () => {
     const pathname = usePathname();
     const currentRoute = usePathname();
+    const { isEnglish } = useLanguage();
+    const items = isEnglish ? menu_data_en : menu_data;
     const [navTitle, setNavTitle] = useState("");
 
     const isMenuItemActive = (menuLink: string) => {
@@ -35,7 +39,7 @@ const NavMenu = () => {
             <li className="nav-item dashboard-menu">
                 <Link className="nav-link" href="/dashboard/dashboard-index" target="_blank">Dashboard</Link>
             </li>
-            {menu_data.map((menu: any) => (
+            {items.map((menu: any) => (
                 <li key={menu.id} className={`nav-item dropdown ${menu.class_name}`}>
                     <Link href={menu.link} className={`nav-link dropdown-toggle ${pathname === menu.link ? 'active' : ''}
                      ${navTitle === menu.title ? "show" : ""}`} onClick={() => openMobileMenu(menu.title)}>
@@ -76,4 +80,3 @@ const NavMenu = () => {
 };
 
 export default NavMenu;
-
