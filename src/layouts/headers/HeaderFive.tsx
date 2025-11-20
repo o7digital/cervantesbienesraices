@@ -4,9 +4,12 @@ import Link from "next/link"
 import Image from "next/image"
 import UseSticky from "@/hooks/UseSticky"
 import LoginModal from "@/modals/LoginModal"
+import useLanguage from "@/hooks/useLanguage"
 
 const HeaderFive = ({ style }: any) => {
    const { sticky } = UseSticky();
+   const { isEnglish, togglePath } = useLanguage();
+   const homeHref = isEnglish ? "/en" : "/";
 
    return (
       <>
@@ -16,7 +19,7 @@ const HeaderFive = ({ style }: any) => {
                   <div className="d-flex align-items-center justify-content-between">
                      {/* LOGO */}
                      <div className="logo order-lg-0">
-                        <Link href="/" className="d-flex align-items-center">
+                        <Link href={homeHref} className="d-flex align-items-center">
                            <Image 
                               src="/images/logo.png"
                               alt="LC Inmobiliaria" 
@@ -30,6 +33,11 @@ const HeaderFive = ({ style }: any) => {
                      {/* BOTONES DERECHA */}
                      <div className="right-widget ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
                         <ul className="d-flex align-items-center style-none">
+                           <li className="me-2">
+                              <Link href={togglePath} className="btn-link text-white fw-500">
+                                 {isEnglish ? "ES" : "EN"}
+                              </Link>
+                           </li>
                            <li>
                               <Link href="#" data-bs-toggle="modal" data-bs-target="#loginModal" className="btn-one">
                                  <i className="fa-regular fa-lock"></i> <span>Login</span>
