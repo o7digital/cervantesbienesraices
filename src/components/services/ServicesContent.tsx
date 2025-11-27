@@ -27,12 +27,9 @@ const ServicesContent = ({
             </div>
           </div>
         </div>
-        <div className="row g-4 justify-content-center">
-          {services.map((service, index) => (
-            <div 
-              className={index < 3 ? "col-lg-4 col-md-6" : "col-lg-5 col-md-6"} 
-              key={service.title}
-            >
+        <div className="row g-4">
+          {services.map((service) => (
+            <div className="col-lg-4 col-md-6" key={service.title}>
               <ServiceCard {...service} />
             </div>
           ))}

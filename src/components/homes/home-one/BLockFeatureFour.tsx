@@ -1,22 +1,11 @@
 "use client"
 import Image from "next/image"
-import { useState } from "react"
 
 import titleShape from "@/assets/images/shape/title_shape_06.svg";
 import featureThumb from "@/assets/images/assets/screen_12.png";
 import Link from "next/link";
-import AppraisalModal from "@/modals/AppraisalModal";
 
 const BLockFeatureFour = () => {
-   const [email, setEmail] = useState("");
-   const [isModalOpen, setIsModalOpen] = useState(false);
-
-   const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      if (email.trim()) {
-         setIsModalOpen(true);
-      }
-   };
    return (
       <div className="block-feature-four mt-170 xl-mt-130 md-mt-40">
          <div className="container">
@@ -28,15 +17,9 @@ const BLockFeatureFour = () => {
                         <h3>Avaluos <span>realizados<Image src={titleShape} alt="" className="lazy-img" /></span> de su propriedad.</h3>
                         <p className="fs-24 color-dark">Evalua tu Propriedad y accede al mercado Inmobiliario con Seguridad y Vsion.</p>
                      </div>
-                     <form onSubmit={handleSubmit} className="me-xl-4">
-                        <input 
-                           type="email" 
-                           placeholder="Your Email Address..." 
-                           value={email}
-                           onChange={(e) => setEmail(e.target.value)}
-                           required
-                        />
-                        <button type="submit">Find out</button>
+                     <form onSubmit={(e) => e.preventDefault()} className="me-xl-4">
+                        <input type="email" placeholder="Your Email Address..." />
+                        <button>Find out</button>
                      </form>
                      <div className="fs-16 mt-10 opacity-75">*Para informacion precisa por favor <Link href="/contact" className="fst-italic color-dark text-decoration-underline">contactanos.</Link></div>
                   </div>
@@ -56,13 +39,6 @@ const BLockFeatureFour = () => {
                </div>
             </div>
          </div>
-
-         <AppraisalModal 
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-            initialEmail={email}
-            language="es"
-         />
       </div>
    )
 }

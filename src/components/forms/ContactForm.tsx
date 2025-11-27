@@ -1,5 +1,6 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -20,43 +21,29 @@ const schema = yup
    .required();
 
 const ContactForm = () => {
-   const [isSubmitting, setIsSubmitting] = useState(false);
 
    const { register, handleSubmit, reset, formState: { errors }, } = useForm<FormData>({ resolver: yupResolver(schema), });
 
-   const sendEmail = async (data: FormData) => {
-      setIsSubmitting(true);
-      
-      try {
-         const response = await fetch('/api/send-contact', {
-            method: 'POST',
-            headers: {
-               'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-               name: data.user_name,
-               email: data.user_email,
-               message: data.message,
-            }),
-         });
+   const form = useRef<HTMLFormElement>(null);
 
-         if (response.ok) {
-            toast.success('Message sent successfully', { position: 'top-center' });
-            reset();
-         } else {
-            const errorData = await response.json();
-            toast.error(errorData.error || 'Error sending message', { position: 'top-center' });
-         }
-      } catch (error) {
-         console.error('Error:', error);
-         toast.error('Error sending message', { position: 'top-center' });
-      } finally {
-         setIsSubmitting(false);
+   const sendEmail = (data: FormData) => {
+      if (form.current) {
+         emailjs.sendForm('service_070078r', 'template_lojvsvb', form.current, 'mtLgOuG25NnIwGeKm')
+            .then((result) => {
+               const notify = () => toast('Message sent successfully', { position: 'top-center' });
+               notify();
+               reset();
+               console.log(result.text);
+            }, (error) => {
+               console.log(error.text);
+            });
+      } else {
+         console.error("Form reference is null");
       }
    };
 
    return (
-      <form onSubmit={handleSubmit(sendEmail)}>
+      <form ref={form} onSubmit={handleSubmit(sendEmail)}>
          <h3>Send Message</h3>
          <div className="messages"></div>
          <div className="row controls">
@@ -76,18 +63,12 @@ const ContactForm = () => {
             </div>
             <div className="col-12">
                <div className="input-group-meta form-group mb-35">
-                  <textarea {...register("message")} placeholder="Your message*" name="message"></textarea>
+                  <textarea {...register("message")} placeholder="Your message*"></textarea>
                   <p className="form_error">{errors.message?.message}</p>
                </div>
             </div>
             <div className="col-12">
-               <button 
-                  type='submit' 
-                  className="btn-nine text-uppercase rounded-3 fw-normal w-100"
-                  disabled={isSubmitting}
-               >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-               </button>
+               <button type='submit' className="btn-nine text-uppercase rounded-3 fw-normal w-100">Send Message</button>
             </div>
          </div>
       </form>
