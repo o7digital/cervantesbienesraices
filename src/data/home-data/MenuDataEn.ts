@@ -33,6 +33,12 @@ const menu_data: MenuItem[] = [
   },
   {
     id: 3,
+    title: "Services",
+    link: "/en#services",
+    has_dropdown: false,
+  },
+  {
+    id: 4,
     title: "Contact",
     link: "/en#contact",
     has_dropdown: false,
