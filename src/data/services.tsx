@@ -30,7 +30,7 @@ export const servicesEs: ServiceItem[] = [
     icon: <FiSearch />,
     title: "Valuación y Análisis de Mercado",
     description:
-      "Realizamos estudios comparativos actualizados y análisis de mercado para determinar el valor real del inmueble, asegurando decisiones informadas que protegen el patrimonio de nuestros clientes.",
+      "Contamos con Peritos valuadores registrados y análisis de mercado para determinar el valor real del inmueble, asegurando decisiones informadas que protegen el patrimonio de nuestros clientes.",
   },
   {
     icon: <FiTarget />,
