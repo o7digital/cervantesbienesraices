@@ -27,17 +27,19 @@ const CreditoHipotecario = () => {
                </div>
 
                <div className="col-lg-6 d-flex">
-                  <div className="img-gallery position-relative z-1 w-100 h-100 ms-lg-5 wow fadeInRight">
-                     <div className="img-bg" style={{ backgroundImage: `url(/assets/images/media/img_11.jpg)` }}></div>
-                     <div className="card-one d-flex align-items-center justify-content-center" style={{ minHeight: '400px' }}>
-                        <div className="text-center z-1 p-5">
-                           <div className="mb-4" style={{ fontSize: '80px', color: '#ff5a3c' }}>
-                              <FiHome />
-                           </div>
-                           <h3 className="mb-3">Financiamiento</h3>
-                           <h4 className="color-dark">Para tu próximo hogar</h4>
-                           <p className="mt-3 fs-18">Tasas competitivas y asesoría personalizada</p>
+                  <div className="position-relative z-1 w-100 h-100 ms-lg-5 wow fadeInRight d-flex flex-column align-items-center justify-content-center">
+                     {/* Ilustración de casa */}
+                     <div className="mb-4 p-5 bg-white rounded-4 shadow-sm" style={{ maxWidth: '500px' }}>
+                        <div className="text-center mb-4" style={{ fontSize: '120px', color: '#ff5a3c' }}>
+                           <FiHome />
                         </div>
+                     </div>
+                     
+                     {/* Texto debajo de la imagen */}
+                     <div className="text-center mt-4">
+                        <h3 className="mb-3">Financiamiento</h3>
+                        <h4 className="color-dark mb-2">Para tu próximo hogar</h4>
+                        <p className="fs-18 opacity-75">Tasas competitivas y asesoría personalizada</p>
                      </div>
                   </div>
                </div>
