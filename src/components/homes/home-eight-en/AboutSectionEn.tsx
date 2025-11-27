@@ -17,7 +17,7 @@ const AboutSectionEn = () => {
                 Our team of property experts provides personalized guidance for both local and international buyers, including expats and foreign investors seeking premium homes in Mexico either for lifestyle, relocation, rental income or long-term capital appreciation.
               </p>
               <p className="mb-3">
-                We offer strong expertise in property valuation, market analytics, negotiation strategy and legal advisory, ensuring a secure and transparent transaction process. Our approach is based on discretion, ethics and a client-first service philosophy supported by real market data and deep knowledge of Mexico City's premium real-estate landscape.
+                We offer strong expertise in property valuation, market analytics, negotiation strategy and legal advisory, ensuring a secure and transparent transaction process. Our approach is based on discretion, ethics and a client-first service philosophy supported by real market data and deep knowledge of Mexico City&apos;s premium real-estate landscape.
               </p>
               <p className="mb-0">
                 From the initial search to evaluation, negotiation, due-diligence, documentation and closing, we deliver a fully guided process that provides confidence, peace of mind and tangible results in every acquisition.
