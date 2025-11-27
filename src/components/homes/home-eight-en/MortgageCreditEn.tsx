@@ -5,9 +5,9 @@ import titleShape from "@/assets/images/shape/title_shape_06.svg";
 
 const MortgageCreditEn = () => {
    return (
-      <div className="block-feature-four mt-170 xl-mt-130 md-mt-40">
+      <div className="block-feature-four mt-80 xl-mt-60 md-mt-40">
          <div className="container">
-            <div className="row">
+            <div className="row align-items-center">
                <div className="col-lg-6 d-flex">
                   <div className="pe-xxl-5 me-xl-4 pt-100 xl-pt-80 pb-45 w-100 h-100 wow fadeInLeft">
                      <div className="title-one mb-60 lg-mb-40">
@@ -26,9 +26,9 @@ const MortgageCreditEn = () => {
                </div>
 
                <div className="col-lg-6 d-flex">
-                  <div className="position-relative z-1 w-100 h-100 ms-lg-5 wow fadeInRight d-flex flex-column align-items-center justify-content-center">
+                  <div className="w-100 h-100 ms-lg-5 wow fadeInRight d-flex flex-column align-items-center justify-content-start pt-100 xl-pt-80">
                      {/* House illustration */}
-                     <div className="mb-4" style={{ maxWidth: '800px' }}>
+                     <div style={{ maxWidth: '800px' }}>
                         <Image
                            src="/assets/images/media/morgage_house.png"
                            alt="Mortgage Credit"
