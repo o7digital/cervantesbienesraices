@@ -17,7 +17,7 @@ const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
       <h5 className="mb-2" style={{ fontSize: 18, fontWeight: 600 }}>
         {title}
       </h5>
-      <p className="mb-0" style={{ fontSize: 14, color: "#666", textAlign: "justify" }}>
+      <p className="mb-0" style={{ color: "#666", textAlign: "justify" }}>
         {description}
       </p>
     </div>
