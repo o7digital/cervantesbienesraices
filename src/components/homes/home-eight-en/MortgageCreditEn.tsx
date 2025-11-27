@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image"
-import { FiHome } from "react-icons/fi"
 
 import titleShape from "@/assets/images/shape/title_shape_06.svg";
 
@@ -29,10 +28,14 @@ const MortgageCreditEn = () => {
                <div className="col-lg-6 d-flex">
                   <div className="position-relative z-1 w-100 h-100 ms-lg-5 wow fadeInRight d-flex flex-column align-items-center justify-content-center">
                      {/* House illustration */}
-                     <div className="mb-4 p-5 bg-white rounded-4 shadow-sm" style={{ maxWidth: '500px' }}>
-                        <div className="text-center mb-4" style={{ fontSize: '120px', color: '#ff5a3c' }}>
-                           <FiHome />
-                        </div>
+                     <div className="mb-4" style={{ maxWidth: '400px' }}>
+                        <Image
+                           src="/assets/images/media/morgage_house.png"
+                           alt="Mortgage Credit"
+                           width={400}
+                           height={400}
+                           style={{ borderRadius: '20px', width: '100%', height: 'auto' }}
+                        />
                      </div>
                      
                      {/* Text below image */}
