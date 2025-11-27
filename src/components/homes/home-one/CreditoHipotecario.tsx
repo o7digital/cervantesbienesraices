@@ -28,13 +28,18 @@ const CreditoHipotecario = () => {
                <div className="col-lg-6 d-flex">
                   <div className="w-100 h-100 ms-lg-5 wow fadeInRight d-flex flex-column align-items-center justify-content-start pt-100 xl-pt-80">
                      {/* Ilustración de casa */}
-                     <div style={{ maxWidth: '800px' }}>
+                     <div style={{ 
+                        maxWidth: '800px', 
+                        background: 'linear-gradient(to bottom, #87CEEB 0%, #87CEEB 65%, #90EE90 65%, #90EE90 100%)',
+                        borderRadius: '20px',
+                        padding: '40px'
+                     }}>
                         <Image
                            src="/assets/images/media/morgage_house.png"
                            alt="Crédito Hipotecario"
                            width={800}
                            height={800}
-                           style={{ borderRadius: '20px', width: '100%', height: 'auto' }}
+                           style={{ width: '100%', height: 'auto', display: 'block' }}
                         />
                      </div>
                      
