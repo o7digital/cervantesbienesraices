@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { FiFileText, FiGlobe, FiHome, FiSearch, FiUsers } from "react-icons/fi";
+import { FiFileText, FiHome, FiSearch, FiTarget, FiUsers } from "react-icons/fi";
 
 export type ServiceItem = {
   icon: ReactNode;
@@ -33,10 +33,10 @@ export const servicesEs: ServiceItem[] = [
       "Realizamos estudios comparativos actualizados y análisis de mercado para determinar el valor real del inmueble, asegurando decisiones informadas que protegen el patrimonio de nuestros clientes.",
   },
   {
-    icon: <FiGlobe />,
-    title: "Servicios para Extranjeros e Inversión Patrimonial",
+    icon: <FiTarget />,
+    title: "Estrategia de Inversión y Patrimonio",
     description:
-      "Guiamos a compradores internacionales en el proceso de adquisición en México, incluyendo aspectos legales, financiamiento, reubicación y acompañamiento cultural-administrativo, y diseñamos planes de inversión inmobiliaria de largo plazo enfocados en crecimiento de capital, rendimiento proyectado y diversificación inteligente en el mercado premium de CDMX.",
+      "Diseñamos planes de inversión inmobiliaria de largo plazo, enfocados en crecimiento de capital, rendimiento proyectado y diversificación inteligente en el mercado inmobiliario premium de CDMX.",
   },
 ];
 
@@ -66,9 +66,9 @@ export const servicesEn: ServiceItem[] = [
       "We deliver updated comparative market studies and property valuation to ensure accurate decision-making and strong protection of our clients' real-estate capital.",
   },
   {
-    icon: <FiGlobe />,
-    title: "Foreign Buyer & Investment Strategy",
+    icon: <FiTarget />,
+    title: "Investment & Wealth Strategy",
     description:
-      "We support international clients acquiring property in Mexico—legal process, financing, relocation and cultural onboarding—while designing long-term strategies focused on capital growth, projected yield and intelligent diversification in Mexico City's premium market.",
+      "We design long-term real-estate investment strategies focused on capital growth, projected yield and intelligent diversification in Mexico City's premium property market.",
   },
 ];
