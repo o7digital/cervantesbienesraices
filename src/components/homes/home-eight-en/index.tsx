@@ -6,6 +6,7 @@ import BLockFeatureOneEn from "./BLockFeatureOneEn";
 import PropertyListingOneEn from "./PropertyListingOneEn";
 import FancyBannerOneEn from "./FancyBannerOneEn";
 import BLockFeatureTwoEn from "./BLockFeatureTwoEn";
+import MortgageCreditEn from "./MortgageCreditEn";
 import BLockFeatureFourEn from "./BLockFeatureFourEn";
 import FancyBannerTwoEn from "./FancyBannerTwoEn";
 import FooterThreeEn from "@/layouts/footers/FooterThreeEn";
@@ -22,6 +23,7 @@ const HomeEightEn = () => {
       <PropertyListingOneEn />
       <FancyBannerOneEn />
       <BLockFeatureTwoEn />
+      <MortgageCreditEn />
       <BLockFeatureFourEn />
       <FeedbackEn />
       <FancyBannerTwoEn />

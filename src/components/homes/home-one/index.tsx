@@ -8,6 +8,7 @@ import BLockFeatureThree from "./BLockFeatureThree"
 import Property from "./Property"
 import FancyBannerOne from "./FancyBannerOne"
 import AgentArea from "./AgentArea"
+import CreditoHipotecario from "./CreditoHipotecario"
 import BLockFeatureFour from "./BLockFeatureFour"
 import BLockFeatureFive from "./BLockFeatureFive"
 import FancyBannerThree from "./FancyBannerThree"
@@ -25,6 +26,7 @@ const HomeOne = () => {
       <Property />
       <FancyBannerOne style={false} />
       <AgentArea style={false} />
+      <CreditoHipotecario />
       <BLockFeatureFour />
       <BLockFeatureFive style={false} />
       <FancyBanner style={false} />
