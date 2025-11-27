@@ -14,7 +14,7 @@ const MortgageCreditEn = () => {
                      <div className="title-one mb-60 lg-mb-40">
                         <div className="upper-title">MORTGAGE LOAN</div>
                         <h3>Need a <span>Mortgage<Image src={titleShape} alt="" className="lazy-img" /></span> Loan?</h3>
-                        <p className="fs-24 color-dark">We'll guide you through the entire process. Leave your details and we'll contact you.</p>
+                        <p className="fs-24 color-dark">We&apos;ll guide you through the entire process. Leave your details and we&apos;ll contact you.</p>
                      </div>
                      <form onSubmit={(e) => e.preventDefault()} className="me-xl-4">
                         <input type="text" placeholder="Your full name..." className="mb-3" />
