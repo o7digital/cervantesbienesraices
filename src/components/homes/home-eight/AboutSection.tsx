@@ -22,6 +22,20 @@ const AboutSection = () => {
               <p className="mb-0">
                 En cada operación ofrecemos acompañamiento integral: desde la búsqueda de la propiedad ideal hasta la negociación, revisión de documentos, trámites legales y entrega final. Nuestro compromiso es brindar confianza, tranquilidad y resultados reales en cada transacción.
               </p>
+              <div className="mt-40">
+                <h3 className="mb-20">Nuestra Filosofía</h3>
+                <p className="mb-3">
+                  En Cervantes Bienes Raíces creemos que cada propiedad representa mucho más que un activo inmobiliario: es un espacio de vida, un patrimonio personal y un proyecto a largo plazo. Por ello, nuestra filosofía se basa en tres pilares fundamentales:
+                </p>
+                <ul className="list-style-one">
+                  <li><strong>Confianza</strong> — Construimos relaciones duraderas basadas en transparencia, ética y confidencialidad.</li>
+                  <li><strong>Precisión</strong> — Cada recomendación está respaldada por análisis reales del mercado premium y datos comparativos actualizados.</li>
+                  <li><strong>Excelencia</strong> — Buscamos siempre la mejor oportunidad para nuestros clientes, ya sea en ubicación, valor, retorno o calidad de vida.</li>
+                </ul>
+                <p className="mb-0">
+                  Nuestra misión es actuar como socios estratégicos de nuestros clientes, guiándolos con rigor profesional en cada decisión inmobiliaria.
+                </p>
+              </div>
             </div>
           </div>
         </div>

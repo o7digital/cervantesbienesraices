@@ -22,6 +22,20 @@ const AboutSectionEn = () => {
               <p className="mb-0">
                 From the initial search to evaluation, negotiation, due-diligence, documentation and closing, we deliver a fully guided process that provides confidence, peace of mind and tangible results in every acquisition.
               </p>
+              <div className="mt-40">
+                <h3 className="mb-20">Our Philosophy</h3>
+                <p className="mb-3">
+                  At Cervantes Bienes Raíces we believe that a property is more than a real-estate asset: it is a lifestyle decision, a long-term investment and a personal milestone. Our philosophy is built on three core principles:
+                </p>
+                <ul className="list-style-one">
+                  <li><strong>Trust</strong> — We create long-term relationships based on integrity, confidentiality and full transparency.</li>
+                  <li><strong>Precision</strong> — Every recommendation is backed by real market analysis, premium segment insights and accurate comparative data.</li>
+                  <li><strong>Excellence</strong> — We aim to secure the best value for our clients, whether in location, price, investment potential or quality of life.</li>
+                </ul>
+                <p className="mb-0">
+                  Our mission is to serve as a strategic partner for our clients, guiding them with professional rigor in every real-estate decision.
+                </p>
+              </div>
             </div>
           </div>
         </div>
