@@ -12,75 +12,75 @@ export const servicesEs: ServiceItem[] = [
     icon: <FiHome />,
     title: "Compra de Propiedades Premium",
     description:
-      "Identificamos las mejores oportunidades en Polanco, Lomas, Condesa, Roma y Santa Fe, según perfil, presupuesto y propósito.",
+      "Identificamos las mejores oportunidades en Polanco, Lomas de Chapultepec, Condesa, Roma y Santa Fe, considerando estilo de vida, presupuesto y objetivos de inversión, ya sea residencial o patrimonial.",
   },
   {
     icon: <FiUsers />,
     title: "Venta y Representación de Propietarios",
     description:
-      "Valoramos correctamente el inmueble, lo posicionamos estratégicamente y lo ofrecemos a compradores calificados.",
+      "Realizamos una valuación profesional, posicionamos la propiedad en el mercado premium y la presentamos únicamente a compradores calificados nacionales y extranjeros, maximizando la velocidad y seguridad de venta.",
   },
   {
     icon: <FiFileText />,
     title: "Asesoría Legal y Documentación",
     description:
-      "Acompañamiento en contratos, escrituras, due-diligence y procesos notariales para garantizar certeza jurídica.",
+      "Acompañamos en todo el proceso jurídico: revisión de documentos, contratos, escrituras, impuestos y procesos notariales. Garantizamos certeza legal y absoluta transparencia en cada transacción.",
   },
   {
     icon: <FiSearch />,
     title: "Valuación y Análisis de Mercado",
     description:
-      "Estudios comparativos y análisis de mercado actualizados para asegurar decisiones con alta rentabilidad.",
+      "Realizamos estudios comparativos actualizados y análisis de mercado para determinar el valor real del inmueble, asegurando decisiones informadas que protegen el patrimonio de nuestros clientes.",
   },
   {
     icon: <FiGlobe />,
     title: "Servicios para Extranjeros",
     description:
-      "Guía legal, financiamiento y asistencia de reubicación para compradores internacionales y expatriados.",
+      "Guiamos a compradores internacionales en el proceso de adquisición en México, incluyendo aspectos legales, financiamiento, reubicación y acompañamiento cultural-administrativo para una experiencia sin fricción.",
   },
   {
     icon: <FiTarget />,
     title: "Estrategia de Inversión y Patrimonio",
     description:
-      "Construcción de estrategia patrimonial y planificación de inversión inmobiliaria en el mercado premium.",
+      "Diseñamos planes de inversión inmobiliaria de largo plazo, enfocados en crecimiento de capital, rendimiento proyectado y diversificación inteligente en el mercado inmobiliario premium de CDMX.",
   },
 ];
 
 export const servicesEn: ServiceItem[] = [
   {
     icon: <FiHome />,
-    title: "Premium Property Acquisition",
+    title: "Luxury Property Acquisition",
     description:
-      "We identify the best opportunities in Polanco, Lomas, Condesa, Roma, and Santa Fe based on profile, budget, and purpose.",
+      "We identify the finest opportunities in Polanco, Lomas, Condesa, Roma and Santa Fe based on lifestyle, budget and investment strategy, whether for personal residence or asset growth.",
   },
   {
     icon: <FiUsers />,
-    title: "Seller Representation",
+    title: "Property Sales & Seller Representation",
     description:
-      "Accurate pricing, strategic positioning, and targeted outreach to qualified buyers.",
+      "We provide professional valuation, premium market positioning and access to qualified national and international buyers, maximizing both transaction security and sale performance.",
   },
   {
     icon: <FiFileText />,
-    title: "Legal Advisory & Documentation",
+    title: "Legal & Documentation Advisory",
     description:
-      "Contracts, deeds, due diligence, and notarial processes to ensure legal certainty.",
+      "We assist throughout the entire legal process: document verification, contracts, deeds, taxes and notarization. Our objective is full legal certainty and full transparency at every stage.",
   },
   {
     icon: <FiSearch />,
-    title: "Valuation & Market Analysis",
+    title: "Market Analysis & Valuation",
     description:
-      "Comparative studies and current market analytics to drive high-return decisions.",
+      "We deliver updated comparative market studies and property valuation to ensure accurate decision-making and strong protection of our clients' real-estate capital.",
   },
   {
     icon: <FiGlobe />,
-    title: "Services for International Clients",
+    title: "Foreign Buyer & Expat Services",
     description:
-      "Legal guidance, financing, and relocation support for international buyers and expats.",
+      "We support international clients acquiring property in Mexico, providing guidance on legal processes, financing options, relocation, and cultural-administrative onboarding.",
   },
   {
     icon: <FiTarget />,
     title: "Investment & Wealth Strategy",
     description:
-      "Portfolio strategy and long-term planning focused on the premium real-estate market.",
+      "We design long-term real-estate investment strategies focused on capital growth, projected yield and intelligent diversification in Mexico City's premium property market.",
   },
 ];
