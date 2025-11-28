@@ -48,6 +48,9 @@ const FooterThree = () => {
          
          <div className="bottom-footer">
             <div className="container text-center">
+               <p className="seo-footer">
+                  bienes raíces de lujo CDMX · inmobiliaria premium Ciudad de México · departamentos en Polanco · casas en Lomas de Chapultepec · propiedades exclusivas CDMX · inversión inmobiliaria México · asesoría inmobiliaria profesional · compra de propiedades en CDMX · casas premium Ciudad de México · vivienda para expatriados México · propiedades en Roma · inmuebles en Condesa · zonas seguras CDMX · mercado inmobiliario premium · valuación inmobiliaria CDMX · consultores inmobiliarios México · patrimonio inmobiliario · propiedades de alto nivel · compra y venta de inmuebles premium · agencia inmobiliaria de confianza
+               </p>
                <p className="m-0">Copyright ©2025 CERVANTES BIENES RAÍCES. Todos los derechos reservados.</p>
             </div>
          </div>

@@ -48,6 +48,9 @@ const FooterThreeEn = () => {
          
          <div className="bottom-footer">
             <div className="container text-center">
+               <p className="seo-footer">
+                  luxury real estate Mexico City · premium real estate agency CDMX · homes in Polanco · houses in Lomas de Chapultepec · exclusive listings Mexico · investment property Mexico · expat housing Mexico City · Mexico real estate advisor · premium apartments CDMX · safe neighborhoods Mexico City · relocation to Mexico · property valuation Mexico · real estate consulting CDMX · high-end real estate Mexico · Mexico City property experts · long-term investment Mexico · premium condos Mexico · real estate for foreign buyers · luxury homes Mexico · trusted real estate agency CDMX
+               </p>
                <p className="m-0">Copyright ©2025 CERVANTES REAL ESTATE. All rights reserved.</p>
             </div>
          </div>
