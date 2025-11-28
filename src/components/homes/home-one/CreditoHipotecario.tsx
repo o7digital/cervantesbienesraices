@@ -31,9 +31,7 @@ const CreditoHipotecario = () => {
                      <div style={{ 
                         maxWidth: '800px',
                         width: '100%',
-                        position: 'relative',
-                        borderRadius: '20px',
-                        overflow: 'hidden'
+                        position: 'relative'
                      }}>
                         {/* Fond ciel et gazon */}
                         <div style={{

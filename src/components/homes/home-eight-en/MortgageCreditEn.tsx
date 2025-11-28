@@ -31,9 +31,7 @@ const MortgageCreditEn = () => {
                      <div style={{ 
                         maxWidth: '800px',
                         width: '100%',
-                        position: 'relative',
-                        borderRadius: '20px',
-                        overflow: 'hidden'
+                        position: 'relative'
                      }}>
                         {/* Sky and grass background */}
                         <div style={{
