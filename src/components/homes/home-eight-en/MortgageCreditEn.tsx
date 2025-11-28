@@ -27,32 +27,14 @@ const MortgageCreditEn = () => {
 
                <div className="col-lg-6 d-flex">
                   <div className="w-100 h-100 ms-lg-5 wow fadeInRight d-flex flex-column align-items-center justify-content-start pt-100 xl-pt-80">
-                     {/* House illustration */}
-                     <div style={{ 
-                        maxWidth: '800px',
-                        width: '100%',
-                        position: 'relative'
-                     }}>
-                        {/* Sky and grass background */}
-                        <div style={{
-                           position: 'absolute',
-                           top: 0,
-                           left: 0,
-                           right: 0,
-                           bottom: 0,
-                           background: 'linear-gradient(to bottom, #87CEEB 0%, #87CEEB 60%, #7EC850 60%, #7EC850 100%)',
-                           zIndex: 0
-                        }} />
-                        {/* House image */}
-                        <div style={{ position: 'relative', zIndex: 1, padding: '60px 40px' }}>
-                           <Image
-                              src="/assets/images/media/morgage_house.png"
-                              alt="Mortgage Credit"
-                              width={800}
-                              height={800}
-                              style={{ width: '100%', height: 'auto', display: 'block' }}
-                           />
-                        </div>
+                     <div style={{ maxWidth: '800px', width: '100%' }}>
+                        <Image
+                           src="/assets/images/media/morgage_house.png"
+                           alt="Mortgage Credit"
+                           width={800}
+                           height={800}
+                           style={{ width: '100%', height: 'auto', display: 'block' }}
+                        />
                      </div>
                      
                      {/* Text below image */}
