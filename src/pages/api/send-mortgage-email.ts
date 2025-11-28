@@ -32,8 +32,8 @@ export default async function handler(
       port: 465,
       secure: true, // true pour le port 465
       auth: {
-        user: process.env.FORWARD_EMAIL_USER || "info@cervantesbienesraices.com",
-        pass: process.env.FORWARD_EMAIL_PASSWORD, // À configurer dans les variables d'environnement
+        user: process.env.FORWARD_EMAIL_USER, // Votre compte principal ForwardMail
+        pass: process.env.FORWARD_EMAIL_PASSWORD,
       },
     });
 
