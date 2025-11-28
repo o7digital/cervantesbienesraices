@@ -5,7 +5,7 @@ import { toast } from "react-toastify"
 
 import titleShape from "@/assets/images/shape/title_shape_06.svg";
 
-const MortgageCreditEn = () => {
+const MortgageCredit = () => {
    const [formData, setFormData] = useState({
       name: "",
       email: "",
@@ -23,7 +23,7 @@ const MortgageCreditEn = () => {
 
       // Validation
       if (!formData.name || !formData.email || !formData.phone) {
-         toast.error("Please fill in all fields");
+         toast.error("Por favor, completa todos los campos");
          return;
       }
 
@@ -41,14 +41,14 @@ const MortgageCreditEn = () => {
          const data = await response.json();
 
          if (response.ok) {
-            toast.success("Request sent successfully! We'll contact you soon.");
+            toast.success("¡Solicitud enviada con éxito! Nos contactaremos pronto.");
             setFormData({ name: "", email: "", phone: "" });
          } else {
-            toast.error(data.error || "Failed to send request. Please try again.");
+            toast.error(data.error || "Error al enviar la solicitud. Por favor, intenta de nuevo.");
          }
       } catch (error) {
          console.error("Error submitting form:", error);
-         toast.error("An error occurred. Please try again later.");
+         toast.error("Ocurrió un error. Por favor, intenta más tarde.");
       } finally {
          setIsSubmitting(false);
       }
@@ -61,9 +61,9 @@ const MortgageCreditEn = () => {
                <div className="col-lg-6 d-flex">
                   <div className="pe-xxl-5 me-xl-4 pt-100 xl-pt-80 pb-45 w-100 h-100 wow fadeInLeft">
                      <div className="title-one mb-60 lg-mb-40">
-                        <div className="upper-title">MORTGAGE LOAN</div>
-                        <h3>Need a <span>Mortgage<Image src={titleShape} alt="" className="lazy-img" /></span> Loan?</h3>
-                        <p className="fs-24 color-dark">We&apos;ll guide you through the entire process. Leave your details and we&apos;ll contact you.</p>
+                        <div className="upper-title">CRÉDITO HIPOTECARIO</div>
+                        <h3>¿Necesitas un <span>Crédito<Image src={titleShape} alt="" className="lazy-img" /></span> Hipotecario?</h3>
+                        <p className="fs-24 color-dark">Te guiaremos durante todo el proceso. Déjanos tus datos y nos contactaremos contigo.</p>
                      </div>
                      <form onSubmit={handleSubmit} className="me-xl-4">
                         <input 
@@ -71,7 +71,7 @@ const MortgageCreditEn = () => {
                            name="name"
                            value={formData.name}
                            onChange={handleChange}
-                           placeholder="Your full name..." 
+                           placeholder="Tu nombre completo..." 
                            className="mb-3"
                            disabled={isSubmitting}
                            required
@@ -81,7 +81,7 @@ const MortgageCreditEn = () => {
                            name="email"
                            value={formData.email}
                            onChange={handleChange}
-                           placeholder="Your email address..." 
+                           placeholder="Tu correo electrónico..." 
                            className="mb-3"
                            disabled={isSubmitting}
                            required
@@ -91,16 +91,16 @@ const MortgageCreditEn = () => {
                            name="phone"
                            value={formData.phone}
                            onChange={handleChange}
-                           placeholder="Your phone number..." 
+                           placeholder="Tu número de teléfono..." 
                            className="mb-3"
                            disabled={isSubmitting}
                            required
                         />
                         <button type="submit" disabled={isSubmitting}>
-                           {isSubmitting ? "Sending..." : "Request Consultation"}
+                           {isSubmitting ? "Enviando..." : "Solicitar Consultoría"}
                         </button>
                      </form>
-                     <div className="fs-16 mt-20 opacity-75">*Response within 24 hours</div>
+                     <div className="fs-16 mt-20 opacity-75">*Respuesta dentro de 24 horas</div>
                   </div>
                </div>
 
@@ -109,7 +109,7 @@ const MortgageCreditEn = () => {
                      <div style={{ maxWidth: '800px', width: '100%' }}>
                         <Image
                            src="/assets/images/media/morgage_house.png"
-                           alt="Mortgage Credit"
+                           alt="Crédito Hipotecario"
                            width={800}
                            height={800}
                            style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -118,9 +118,9 @@ const MortgageCreditEn = () => {
                      
                      {/* Text below image */}
                      <div className="text-center mt-4">
-                        <h3 className="mb-3">Financing</h3>
-                        <h4 className="color-dark mb-2">For your next home</h4>
-                        <p className="fs-18 opacity-75">Competitive rates and personalized advice</p>
+                        <h3 className="mb-3">Financiamiento</h3>
+                        <h4 className="color-dark mb-2">Para tu próximo hogar</h4>
+                        <p className="fs-18 opacity-75">Tasas competitivas y asesoría personalizada</p>
                      </div>
                   </div>
                </div>
@@ -130,4 +130,4 @@ const MortgageCreditEn = () => {
    )
 }
 
-export default MortgageCreditEn
+export default MortgageCredit
