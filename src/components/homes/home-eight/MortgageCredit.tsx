@@ -62,7 +62,7 @@ const MortgageCredit = () => {
                   <div className="pe-xxl-5 me-xl-4 pt-100 xl-pt-80 pb-45 w-100 h-100 wow fadeInLeft">
                      <div className="title-one mb-60 lg-mb-40">
                         <div className="upper-title">CRÉDITO HIPOTECARIO</div>
-                        <h3>¿Necesitas un <span>Crédito<Image src={titleShape} alt="" className="lazy-img" /></span> Hipotecario?</h3>
+                        <h3>Solicitar un <span>Crédito<Image src={titleShape} alt="" className="lazy-img" /></span> Hipotecario</h3>
                         <p className="fs-24 color-dark">Te guiaremos durante todo el proceso. Déjanos tus datos y nos contactaremos contigo.</p>
                      </div>
                      <form onSubmit={handleSubmit} className="me-xl-4">
