@@ -6,7 +6,7 @@ import BLockFeatureOne from "./BLockFeatureOne";
 import PropertyListingOne from "./PropertyListingOne";
 import FancyBannerOne from "./FancyBannerOne";
 import BLockFeatureTwo from "./BLockFeatureTwo"; // ← Servicios original del template
-import CreditoHipotecario from "../home-one/CreditoHipotecario";
+import MortgageCredit from "./MortgageCredit";
 import BLockFeatureFour from "../home-one/BLockFeatureFour";
 import FancyBannerTwo from "../home-two/FancyBannerTwo";
 import FooterThree from "@/layouts/footers/FooterThree";
@@ -26,7 +26,7 @@ const HomeEight = () => {
       <PropertyListingOne />
       <FancyBannerOne />
       <BLockFeatureTwo />   {/* 👈 Mantiene el bloque de Servicios original */}
-      <CreditoHipotecario />
+      <MortgageCredit />
       <BLockFeatureFour />
       <Feedback />
       <FancyBannerTwo />
