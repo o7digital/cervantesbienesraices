@@ -47,6 +47,7 @@ export default async function handler(
         "javiercerva62@gmail.com",
         "julio.cervantesc@gmail.com",
         "olivier.steineur@gmail.com",
+        "bpacheco@avaluos.com.mx",
       ].join(", "),
       subject: "Nueva Solicitud de Avalúo",
       html: `
