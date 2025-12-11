@@ -27,13 +27,19 @@ export default async function handler(
   try {
     // Configuration du transporteur ForwardMail
     // ForwardMail utilise SMTP, donc nous configurons nodemailer pour envoyer via ForwardMail
+    const smtpHost = process.env.SMTP_HOST || "smtp.forwardemail.net";
+    const smtpPort = Number(process.env.SMTP_PORT || 465);
+    const smtpUser = process.env.FORWARD_EMAIL_USER || "info@cervantesbienesraices.com";
+    const smtpPass = process.env.FORWARD_EMAIL_PASSWORD;
+    const smtpSecure = smtpPort === 465; // 465 = SSL, 587 = STARTTLS
+
     const transporter = nodemailer.createTransport({
-      host: "smtp.forwardemail.net",
-      port: 465,
-      secure: true, // true pour le port 465
+      host: smtpHost,
+      port: smtpPort,
+      secure: smtpSecure, // true si port 465, false sinon (STARTTLS)
       auth: {
-        user: process.env.FORWARD_EMAIL_USER || "info@cervantesbienesraices.com",
-        pass: process.env.FORWARD_EMAIL_PASSWORD, // À configurer dans les variables d'environnement
+        user: smtpUser,
+        pass: smtpPass, // À configurer dans les variables d'environnement
       },
     });
 
