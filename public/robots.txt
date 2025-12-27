@@ -1,0 +1,19 @@
+# Robots.txt - Cervantes Bienes Raíces
+# Optimizado para SEO México - Bienes Raíces
+
+User-agent: *
+Allow: /
+
+# Bloquear áreas privadas
+Disallow: /dashboard/
+Disallow: /api/
+
+# Permitir crawlers de imágenes
+User-agent: Googlebot-Image
+Allow: /
+
+# Sitemap
+Sitemap: https://cervantesbienesraices.vercel.app/sitemap.xml
+
+# Crawl delay para reducir carga del servidor
+Crawl-delay: 1

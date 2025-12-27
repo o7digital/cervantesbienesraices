@@ -54,13 +54,13 @@ const Hero = () => {
         <div className="row">
           <div className="col-xl-9 col-lg-10 col-md-10 m-auto">
             <h1 className="hero-heading text-white text-center wow fadeInUp">
-              CERVANTES BIENES RAICES
+              Casas en Venta y Departamentos en Renta en México
             </h1>
             <p
               className="fs-24 text-white text-center pt-35 wow fadeInUp"
               data-wow-delay="0.1s"
             >
-              Asesoría inmobiliaria con más de 20 años de experiencia.
+              Cervantes Bienes Raíces – Asesoría inmobiliaria profesional con más de 20 años de experiencia en CDMX, Polanco, Condesa y toda el área metropolitana.
             </p>
           </div>
         </div>

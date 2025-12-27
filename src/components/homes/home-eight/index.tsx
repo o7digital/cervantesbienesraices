@@ -11,10 +11,14 @@ import BLockFeatureFour from "../home-one/BLockFeatureFour";
 import FancyBannerTwo from "../home-two/FancyBannerTwo";
 import FooterThree from "@/layouts/footers/FooterThree";
 import Feedback from "./Feedback";
+import OrganizationSchema from "@/components/common/OrganizationSchema";
 
 const HomeEight = () => {
   return (
     <div className="main-page-wrapper">
+      {/* SEO: Schema.org Organization */}
+      <OrganizationSchema />
+      
       <HeaderFive />
       <Hero />
 
