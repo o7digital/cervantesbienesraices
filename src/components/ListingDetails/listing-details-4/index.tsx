@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ListingDetailsFourArea from "./ListingDetailsFourArea"
 import FancyBanner from "@/components/common/FancyBanner"
 import FooterFour from "@/layouts/footers/FooterFour"
@@ -7,7 +8,9 @@ const ListingDetailsFour = () => {
    return (
       <>
          <HeaderFour />
-         <ListingDetailsFourArea />
+         <Suspense fallback={<div>Loading...</div>}>
+           <ListingDetailsFourArea />
+         </Suspense>
          <FancyBanner />
          <FooterFour />
       </>
