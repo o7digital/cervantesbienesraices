@@ -140,7 +140,7 @@ const LocalityPage = ({
                 <div className="row">
                   {properties.map((property) => (
                     <div key={property.public_id} className="col-md-6 mb-30">
-                      <Link href={`/listing_06?id=${property.public_id}`} className="card">
+                      <Link href={`/property/${property.public_id}`} className="card">
                         <div className="property-card">
                           {property.title}
                         </div>

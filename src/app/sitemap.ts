@@ -3,8 +3,13 @@ import { MetadataRoute } from 'next'
 const BASE_URL = 'https://cervantesbienesraices.vercel.app'
 const EASY_BROKER_URL = "https://api.easybroker.com/v1/properties"
 
-// Función para obtener todas las propiedades de EasyBroker
 async function fetchAllProperties() {
+  const apiKey = process.env.EB_API_KEY
+  if (!apiKey) {
+    console.warn('EB_API_KEY no está configurada, sitemap sin propiedades dinámicas')
+    return []
+  }
+
   try {
     const properties = []
     let page = 1
@@ -16,7 +21,7 @@ async function fetchAllProperties() {
         {
           headers: {
             accept: "application/json",
-            "X-Authorization": process.env.EB_API_KEY || "",
+            "X-Authorization": apiKey,
           },
           next: { revalidate: 3600 } // Cache 1 hora
         }
@@ -51,7 +56,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   // URLs de propiedades dinámicas
   const propertyUrls = properties.map((property: any) => ({
-    url: `${BASE_URL}/listing_06?id=${property.public_id}`,
+    url: `${BASE_URL}/property/${property.public_id}`,
     lastModified: property.updated_at ? new Date(property.updated_at) : new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,

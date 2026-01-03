@@ -5,34 +5,46 @@ interface PropertySchemaProps {
     public_id: string
     title: string
     description?: string
-    operations?: Array<{ type: string; amount?: number; currency?: string }>
-    location?: string
+    operations?: Array<{ type: string; amount?: number; currency?: string; formatted_amount?: string; type_label?: string }>
+    location?: string | { name?: string; city?: string; state?: string; country?: string; street?: string }
     bedrooms?: number
     bathrooms?: number
-    construction_size?: number
-    lot_size?: number
+    building_size?: { size?: number; unit?: string }
+    lot_size?: { size?: number; unit?: string }
     property_type?: string
     show_prices?: boolean
     updated_at?: string
+    property_images?: Array<{ url: string }>
   }
 }
 
+const SITE_URL = "https://cervantesbienesraices.vercel.app"
+
 export default function PropertySchema({ property }: PropertySchemaProps) {
-  // Determinar el precio
   const operation = property.operations?.[0]
   const price = operation?.amount
   const currency = operation?.currency || 'MXN'
-  const operationType = operation?.type === 'sale' ? 'venta' : 'renta'
 
-  // Construir la dirección
-  const address = property.location || 'México'
+  const address =
+    typeof property.location === "string"
+      ? property.location
+      : [
+          property.location?.street,
+          property.location?.city,
+          property.location?.state,
+          property.location?.country,
+        ]
+          .filter(Boolean)
+          .join(", ") || "México"
+
+  const canonicalUrl = `${SITE_URL}/property/${property.public_id}`
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "name": property.title,
     "description": property.description || property.title,
-    "url": `https://cervantesbienesraices.vercel.app/listing_06?id=${property.public_id}`,
+    "url": canonicalUrl,
     "datePosted": property.updated_at || new Date().toISOString(),
     "address": {
       "@type": "PostalAddress",
@@ -48,19 +60,18 @@ export default function PropertySchema({ property }: PropertySchemaProps) {
     } : undefined,
     "numberOfRooms": property.bedrooms,
     "numberOfBathroomsTotal": property.bathrooms,
-    "floorSize": property.construction_size ? {
+    "floorSize": property.building_size?.size ? {
       "@type": "QuantitativeValue",
-      "value": property.construction_size,
+      "value": property.building_size.size,
       "unitCode": "MTK"
     } : undefined,
     "provider": {
       "@type": "RealEstateAgent",
       "name": "Cervantes Bienes Raíces",
-      "url": "https://cervantesbienesraices.vercel.app"
+      "url": SITE_URL
     }
   }
 
-  // Eliminar campos undefined
   const cleanSchema = JSON.parse(JSON.stringify(schema))
 
   return (

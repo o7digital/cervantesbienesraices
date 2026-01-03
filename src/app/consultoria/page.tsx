@@ -1,3 +1,28 @@
+import type { Metadata } from "next"
+
+const BASE_URL = "https://cervantesbienesraices.vercel.app"
+
+export const metadata: Metadata = {
+  title: "Consultoría Inmobiliaria Estratégica | Cervantes Bienes Raíces",
+  description:
+    "Consultoría para inversionistas y desarrolladores: análisis de mercado, evaluación de terrenos y estructuración de proyectos inmobiliarios en México.",
+  alternates: {
+    canonical: `${BASE_URL}/consultoria`,
+    languages: {
+      "es-MX": `${BASE_URL}/consultoria`,
+      "en-US": `${BASE_URL}/en`,
+    },
+  },
+  openGraph: {
+    title: "Consultoría Inmobiliaria Estratégica",
+    description:
+      "Estrategias inmobiliarias a la medida: estudios de viabilidad, evaluación de proyectos y optimización de portafolios.",
+    url: `${BASE_URL}/consultoria`,
+    images: [{ url: "/images/assets/ogg.png" }],
+    locale: "es_MX",
+  },
+}
+
 export default function Consultoria() {
   return (
     <main className="container mx-auto py-16 px-4">
