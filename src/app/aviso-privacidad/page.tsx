@@ -14,7 +14,9 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/aviso-privacidad`,
     languages: {
       "es-MX": `${BASE_URL}/aviso-privacidad`,
-      "en-US": `${BASE_URL}/en`,
+      "en-US": `${BASE_URL}/en/privacy-policy`,
+      "fr-FR": `${BASE_URL}/fr/politique-confidentialite`,
+      "it-IT": `${BASE_URL}/it/politica-privacy`,
     },
   },
   openGraph: {

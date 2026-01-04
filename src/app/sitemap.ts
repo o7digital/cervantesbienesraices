@@ -150,6 +150,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/aviso-privacidad`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
     // Versión en inglés
     {
       url: `${BASE_URL}/en`,
@@ -188,6 +194,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/fr/politique-confidentialite`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
     // Versione italiana
     {
       url: `${BASE_URL}/it`,
@@ -200,6 +212,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/it/politica-privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
     },
     {
       url: `${BASE_URL}/it/services`,
