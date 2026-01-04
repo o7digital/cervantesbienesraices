@@ -72,3 +72,70 @@ export const servicesEn: ServiceItem[] = [
       "We design long-term real-estate investment strategies focused on capital growth, projected yield and intelligent diversification in Mexico City's premium property market.",
   },
 ];
+
+export const servicesFr: ServiceItem[] = [
+  {
+    icon: <FiHome />,
+    title: "Acquisition de Propriétés de Luxe",
+    description:
+      "Nous identifions les meilleures opportunités à Polanco, Lomas, Condesa, Roma et Santa Fe selon votre style de vie, budget et stratégie d'investissement, que ce soit pour résidence personnelle ou croissance patrimoniale.",
+  },
+  {
+    icon: <FiUsers />,
+    title: "Vente de Propriétés & Représentation",
+    description:
+      "Nous fournissons une évaluation professionnelle, un positionnement sur le marché premium et un accès à des acheteurs nationaux et internationaux qualifiés, maximisant la sécurité et la performance de la vente.",
+  },
+  {
+    icon: <FiFileText />,
+    title: "Conseil Juridique & Documentation",
+    description:
+      "Nous vous assistons tout au long du processus juridique : vérification de documents, contrats, actes, taxes et notarisation. Notre objectif est une certitude juridique totale et une transparence complète à chaque étape.",
+  },
+  {
+    icon: <FiSearch />,
+    title: "Analyse de Marché & Évaluation",
+    description:
+      "Nous fournissons des études comparatives de marché actualisées et des évaluations immobilières pour garantir une prise de décision précise et une forte protection du capital immobilier de nos clients.",
+  },
+  {
+    icon: <FiTarget />,
+    title: "Stratégie d'Investissement & Patrimoine",
+    description:
+      "Nous concevons des stratégies d'investissement immobilier à long terme axées sur la croissance du capital, le rendement projeté et la diversification intelligente sur le marché immobilier premium de Mexico.",
+  },
+];
+
+export const servicesIt: ServiceItem[] = [
+  {
+    icon: <FiHome />,
+    title: "Acquisizione di Proprietà di Lusso",
+    description:
+      "Identifichiamo le migliori opportunità a Polanco, Lomas, Condesa, Roma e Santa Fe in base al tuo stile di vita, budget e strategia di investimento, sia per residenza personale che per crescita patrimoniale.",
+  },
+  {
+    icon: <FiUsers />,
+    title: "Vendita di Proprietà & Rappresentazione",
+    description:
+      "Forniamo valutazione professionale, posizionamento sul mercato premium e accesso ad acquirenti nazionali e internazionali qualificati, massimizzando la sicurezza e le prestazioni della vendita.",
+  },
+  {
+    icon: <FiFileText />,
+    title: "Consulenza Legale & Documentazione",
+    description:
+      "Assistiamo durante l'intero processo legale: verifica documenti, contratti, atti, tasse e notarizzazione. Il nostro obiettivo è la piena certezza legale e la trasparenza totale in ogni fase.",
+  },
+  {
+    icon: <FiSearch />,
+    title: "Analisi di Mercato & Valutazione",
+    description:
+      "Forniamo studi comparativi di mercato aggiornati e valutazioni immobiliari per garantire decisioni accurate e una forte protezione del capitale immobiliare dei nostri clienti.",
+  },
+  {
+    icon: <FiTarget />,
+    title: "Strategia di Investimento & Patrimonio",
+    description:
+      "Progettiamo strategie di investimento immobiliare a lungo termine focalizzate sulla crescita del capitale, rendimento previsto e diversificazione intelligente nel mercato immobiliare premium di Città del Messico.",
+  },
+];
+

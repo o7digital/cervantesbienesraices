@@ -54,13 +54,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Obtener propiedades de EasyBroker
   const properties = await fetchAllProperties()
   
-  // URLs de propiedades dinámicas
-  const propertyUrls = properties.map((property: any) => ({
-    url: `${BASE_URL}/property/${property.public_id}`,
-    lastModified: property.updated_at ? new Date(property.updated_at) : new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }))
+  // URLs de propiedades dinámicas (ES, EN, FR, IT)
+  const propertyUrls: MetadataRoute.Sitemap = []
+  
+  properties.forEach((property: any) => {
+    const lastMod = property.updated_at ? new Date(property.updated_at) : new Date()
+    
+    // ES (default)
+    propertyUrls.push({
+      url: `${BASE_URL}/property/${property.public_id}`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })
+    
+    // EN
+    propertyUrls.push({
+      url: `${BASE_URL}/en/property/${property.public_id}`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })
+    
+    // FR
+    propertyUrls.push({
+      url: `${BASE_URL}/fr/property/${property.public_id}`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })
+    
+    // IT
+    propertyUrls.push({
+      url: `${BASE_URL}/it/property/${property.public_id}`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })
+  })
 
   // URLs estáticas principales
   const staticUrls = [
@@ -131,6 +162,50 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/en/services`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    // Version française
+    {
+      url: `${BASE_URL}/fr`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/fr/listing_06`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/fr/services`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    // Versione italiana
+    {
+      url: `${BASE_URL}/it`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/it/listing_06`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/it/services`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     },
   ]
 

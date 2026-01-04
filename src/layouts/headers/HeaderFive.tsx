@@ -8,8 +8,8 @@ import useLanguage from "@/hooks/useLanguage"
 
 const HeaderFive = ({ style }: any) => {
    const { sticky } = UseSticky();
-   const { isEnglish, togglePath } = useLanguage();
-   const homeHref = isEnglish ? "/en" : "/";
+   const { currentLang, paths } = useLanguage();
+   const homeHref = currentLang === "es" ? "/" : `/${currentLang}`;
 
    return (
       <>
@@ -33,9 +33,38 @@ const HeaderFive = ({ style }: any) => {
                      {/* BOTONES DERECHA */}
                      <div className="right-widget ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
                         <ul className="d-flex align-items-center style-none">
-                           <li className="me-2">
-                              <Link href={togglePath} className="btn-link text-white fw-500">
-                                 {isEnglish ? "ES" : "EN"}
+                           {/* LANGUAGE SWITCHER - 4 langues */}
+                           <li className="me-3 d-flex gap-2">
+                              <Link 
+                                 href={paths.es} 
+                                 className={`btn-link fw-500 ${currentLang === "es" ? "text-white" : "text-white opacity-50"}`}
+                                 style={{ fontSize: '14px' }}
+                              >
+                                 ES
+                              </Link>
+                              <span className="text-white opacity-50">|</span>
+                              <Link 
+                                 href={paths.en} 
+                                 className={`btn-link fw-500 ${currentLang === "en" ? "text-white" : "text-white opacity-50"}`}
+                                 style={{ fontSize: '14px' }}
+                              >
+                                 EN
+                              </Link>
+                              <span className="text-white opacity-50">|</span>
+                              <Link 
+                                 href={paths.fr} 
+                                 className={`btn-link fw-500 ${currentLang === "fr" ? "text-white" : "text-white opacity-50"}`}
+                                 style={{ fontSize: '14px' }}
+                              >
+                                 FR
+                              </Link>
+                              <span className="text-white opacity-50">|</span>
+                              <Link 
+                                 href={paths.it} 
+                                 className={`btn-link fw-500 ${currentLang === "it" ? "text-white" : "text-white opacity-50"}`}
+                                 style={{ fontSize: '14px' }}
+                              >
+                                 IT
                               </Link>
                            </li>
                            <li>

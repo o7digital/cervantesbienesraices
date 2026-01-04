@@ -1,6 +1,8 @@
 "use client";
 import menu_data from "@/data/home-data/MenuData";
 import menu_data_en from "@/data/home-data/MenuDataEn";
+import menu_data_fr from "@/data/home-data/MenuDataFr";
+import menu_data_it from "@/data/home-data/MenuDataIt";
 import Link from "next/link.js";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -12,8 +14,14 @@ import logo from "@/assets/images/logo/logo_01.svg";
 const NavMenu = () => {
     const pathname = usePathname();
     const currentRoute = usePathname();
-    const { isEnglish } = useLanguage();
-    const items = isEnglish ? menu_data_en : menu_data;
+    const { currentLang } = useLanguage();
+    
+    // Sélectionner le menu selon la langue
+    let items = menu_data; // ES par défaut
+    if (currentLang === "en") items = menu_data_en;
+    else if (currentLang === "fr") items = menu_data_fr;
+    else if (currentLang === "it") items = menu_data_it;
+    
     const [navTitle, setNavTitle] = useState("");
 
     const isMenuItemActive = (menuLink: string) => {
