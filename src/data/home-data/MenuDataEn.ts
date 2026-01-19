@@ -39,6 +39,12 @@ const menu_data: MenuItem[] = [
   },
   {
     id: 4,
+    title: "Blog",
+    link: "/blog",
+    has_dropdown: false,
+  },
+  {
+    id: 5,
     title: "Contact",
     link: "/en#contact",
     has_dropdown: false,
