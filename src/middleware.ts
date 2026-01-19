@@ -59,6 +59,10 @@ function shouldNoIndex(pathname: string) {
   const normalized = pathname.toLowerCase().replace(/\/$/, "");
   const stripped = normalized.startsWith("/en")
     ? normalized.slice(3) || "/"
+    : normalized.startsWith("/fr")
+    ? normalized.slice(3) || "/"
+    : normalized.startsWith("/it")
+    ? normalized.slice(3) || "/"
     : normalized;
 
   return NOINDEX_PREFIXES.some((prefix) => stripped.startsWith(prefix));
@@ -66,6 +70,13 @@ function shouldNoIndex(pathname: string) {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  if (pathname.startsWith("/fr") || pathname.startsWith("/it")) {
+    const rewritten = pathname.replace(/^\/(fr|it)/, "") || "/";
+    const url = request.nextUrl.clone();
+    url.pathname = rewritten;
+    return NextResponse.rewrite(url);
+  }
 
   if (shouldNoIndex(pathname)) {
     const response = NextResponse.next();

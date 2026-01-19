@@ -1,20 +1,27 @@
 import { usePathname } from "next/navigation";
 
+const SUPPORTED = ["es", "en", "fr", "it"] as const;
+
 const useLanguage = () => {
   const pathname = usePathname() || "/";
+  const match = pathname.match(/^\/(en|fr|it)(\/|$)/);
+  const lang = (match?.[1] as (typeof SUPPORTED)[number]) || "es";
 
-  const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
+  const stripPrefix = (path: string) =>
+    path.replace(/^\/(en|fr|it)(?=\/|$)/, "") || "/";
 
-  // Toggle between /en and the same path without the prefix
-  let togglePath = "/";
-  if (isEnglish) {
-    const withoutPrefix = pathname.replace(/^\/en/, "") || "/";
-    togglePath = withoutPrefix.startsWith("/") ? withoutPrefix : `/${withoutPrefix}`;
-  } else {
-    togglePath = pathname === "/" ? "/en" : `/en${pathname}`;
-  }
+  const buildPath = (targetLang: (typeof SUPPORTED)[number]) => {
+    const basePath = stripPrefix(pathname);
+    if (targetLang === "es") return basePath;
+    return basePath === "/" ? `/${targetLang}` : `/${targetLang}${basePath}`;
+  };
 
-  return { isEnglish, togglePath };
+  return {
+    lang,
+    isEnglish: lang === "en",
+    buildPath,
+    languages: SUPPORTED,
+  };
 };
 
 export default useLanguage;

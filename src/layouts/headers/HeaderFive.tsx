@@ -8,8 +8,8 @@ import useLanguage from "@/hooks/useLanguage"
 
 const HeaderFive = ({ style }: any) => {
    const { sticky } = UseSticky();
-   const { isEnglish, togglePath } = useLanguage();
-   const homeHref = isEnglish ? "/en" : "/";
+   const { lang, buildPath, languages } = useLanguage();
+   const homeHref = lang === "en" ? "/en" : lang === "fr" ? "/fr" : lang === "it" ? "/it" : "/";
 
    return (
       <>
@@ -33,10 +33,18 @@ const HeaderFive = ({ style }: any) => {
                      {/* BOTONES DERECHA */}
                      <div className="right-widget ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
                         <ul className="d-flex align-items-center style-none">
-                           <li className="me-2">
-                              <Link href={togglePath} className="btn-link text-white fw-500">
-                                 {isEnglish ? "ES" : "EN"}
-                              </Link>
+                           <li className="me-3">
+                              <div className="d-flex align-items-center gap-2 text-white fw-500">
+                                 {languages.map((code) => (
+                                    <Link
+                                       key={code}
+                                       href={buildPath(code)}
+                                       className={`btn-link ${lang === code ? "text-decoration-underline" : ""}`}
+                                    >
+                                       {code.toUpperCase()}
+                                    </Link>
+                                 ))}
+                              </div>
                            </li>
                            <li>
                               <Link href="#" data-bs-toggle="modal" data-bs-target="#loginModal" className="btn-one">
