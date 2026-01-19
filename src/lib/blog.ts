@@ -1,7 +1,9 @@
 import mockBlogPosts from "@/data/blog/posts";
 import { BlogPost } from "@/types/blog";
 
-const DATO_ENDPOINT = process.env.DATOCMS_API_URL ?? "https://graphql.datocms.com/";
+const BLOG_ENABLED = process.env.NEXT_PUBLIC_BLOG_ENABLED !== "off";
+const DATO_ENDPOINT =
+  process.env.DATOCMS_API_URL ?? "https://graphql.datocms.com/";
 const DATO_TOKEN = process.env.DATOCMS_API_TOKEN;
 const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL;
 
@@ -28,6 +30,8 @@ const defaultDatoQuery = `
 const datoQuery = process.env.DATOCMS_BLOG_QUERY ?? defaultDatoQuery;
 
 export async function getBlogPosts(limit = 12): Promise<BlogPost[]> {
+  if (!BLOG_ENABLED) return [];
+
   const sources = [fetchFromDato, fetchFromDirectus];
 
   for (const source of sources) {
@@ -52,7 +56,7 @@ async function fetchFromDato(limit: number): Promise<BlogPost[]> {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ query: datoQuery, variables: { limit } }),
-    next: { revalidate: 180 }
+    next: { revalidate: 300, tags: ["blog"] }
   });
 
   if (!res.ok) {
@@ -97,7 +101,9 @@ async function fetchFromDirectus(limit: number): Promise<BlogPost[]> {
     "content"
   ].join(","));
 
-  const res = await fetch(url.toString(), { next: { revalidate: 180 } });
+  const res = await fetch(url.toString(), {
+    next: { revalidate: 300, tags: ["blog"] }
+  });
   if (!res.ok) {
     console.error("[Directus] Request failed", res.status, await res.text());
     return [];
@@ -114,11 +120,18 @@ async function fetchFromDirectus(limit: number): Promise<BlogPost[]> {
 function normalizeDatoEntry(entry: any): BlogPost | null {
   if (!entry) return null;
 
-  const slug = entry.slug ?? entry.id?.toString();
+  const slug =
+    entry.slug ??
+    entry.permalink ??
+    (typeof entry.label === "string"
+      ? entry.label.toLowerCase().replace(/\s+/g, "-")
+      : undefined) ??
+    entry.id?.toString();
   if (!slug) return null;
 
   const image =
     entry.coverImage?.url ??
+    entry.cover_image?.url ??
     entry.cover_image?.url ??
     entry.image?.url ??
     entry.image?.src ??
@@ -132,8 +145,8 @@ function normalizeDatoEntry(entry: any): BlogPost | null {
   return {
     id: entry.id?.toString() ?? slug,
     slug,
-    title: entry.title ?? entry.name ?? "Artículo",
-    excerpt: entry.excerpt ?? entry.description ?? "",
+    title: entry.title ?? entry.label ?? entry.name ?? "Artículo",
+    excerpt: entry.excerpt ?? entry.extracto ?? entry.description ?? "",
     coverImage: image,
     category:
       typeof entry.category === "string"
@@ -144,6 +157,7 @@ function normalizeDatoEntry(entry: any): BlogPost | null {
     ),
     readTimeMinutes: entry.readTimeMinutes ?? entry.readingTime ?? entry.timeToRead,
     author: typeof entry.author === "string" ? entry.author : entry.author?.name,
+    sourceUrl: entry.text_url ?? entry.sourceUrl ?? undefined,
     tags,
     content: Array.isArray(entry.content) ? entry.content : undefined
   };
@@ -152,7 +166,12 @@ function normalizeDatoEntry(entry: any): BlogPost | null {
 function normalizeDirectusEntry(entry: any, baseUrl: string): BlogPost | null {
   if (!entry) return null;
 
-  const slug = entry.slug ?? entry.id?.toString();
+  const slug =
+    entry.slug ??
+    (typeof entry.label === "string"
+      ? entry.label.toLowerCase().replace(/\s+/g, "-")
+      : undefined) ??
+    entry.id?.toString();
   if (!slug) return null;
 
   const imageField = entry.cover_image;
@@ -172,7 +191,7 @@ function normalizeDirectusEntry(entry: any, baseUrl: string): BlogPost | null {
     id: entry.id?.toString() ?? slug,
     slug,
     title: entry.title ?? "Artículo",
-    excerpt: entry.excerpt ?? "",
+    excerpt: entry.excerpt ?? entry.extracto ?? "",
     coverImage,
     category:
       typeof entry.category === "string"
@@ -181,6 +200,7 @@ function normalizeDirectusEntry(entry: any, baseUrl: string): BlogPost | null {
     date: normalizeDate(entry.published_at ?? entry.date_created ?? entry.date),
     readTimeMinutes: entry.read_time ?? entry.readTime,
     author: entry.author?.name ?? entry.author ?? undefined,
+    sourceUrl: entry.text_url ?? entry.source_url ?? entry.sourceUrl,
     tags,
     content: Array.isArray(entry.content) ? entry.content : undefined
   };

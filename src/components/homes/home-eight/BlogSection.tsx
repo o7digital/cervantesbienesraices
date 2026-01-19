@@ -1,8 +1,13 @@
 import { getBlogPosts } from "@/lib/blog";
 import Link from "next/link";
 
+const BLOG_ENABLED = process.env.NEXT_PUBLIC_BLOG_ENABLED !== "off";
+
 const BlogSection = async () => {
+  if (!BLOG_ENABLED) return null;
+
   const posts = await getBlogPosts(3);
+  if (!posts.length) return null;
 
   return (
     <section className="blog-section-three mt-130 xl-mt-100">

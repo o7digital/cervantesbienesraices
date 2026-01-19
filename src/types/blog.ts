@@ -8,6 +8,7 @@ export interface BlogPost {
   date: string;
   readTimeMinutes?: number;
   author?: string;
+  sourceUrl?: string;
   tags?: string[];
   content?: string[];
 }
