@@ -1,15 +1,10 @@
-import BlogThree from "@/components/blogs/blog-three";
-import Wrapper from "@/layouts/Wrapper";
+import { redirect } from "next/navigation";
 
 export const metadata = {
-   title: "Blog Three Homy - Real Estate React Next js Template",
+  title: "Blog | Cervantes Bienes Raíces"
 };
 const index = () => {
-   return (
-      <Wrapper>
-         <BlogThree />
-      </Wrapper>
-   )
-}
+  redirect("/blog");
+};
 
-export default index
+export default index;
