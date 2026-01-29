@@ -18,6 +18,7 @@ const useLanguage = () => {
 
   return {
     lang,
+    currentLang: lang,
     isEnglish: lang === "en",
     buildPath,
     languages: SUPPORTED,
