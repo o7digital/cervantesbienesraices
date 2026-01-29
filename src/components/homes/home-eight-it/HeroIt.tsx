@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import DropdownHomeEightEn from "@/components/search-dropdown/home-dropdown/DropdownHomeEightEn";
+import DropdownHomeEightIt from "@/components/search-dropdown/home-dropdown/DropdownHomeEightIt";
 import Slider from "react-slick";
 
 const sliderSettings = {
@@ -31,7 +31,7 @@ const HeroEn = () => {
     if (max) params.set("max", max);
     if (location) params.set("location", location);
     const qs = params.toString();
-    router.push(`/en${qs ? `?${qs}` : ""}`);
+    router.push(`/it${qs ? `?${qs}` : ""}`);
   };
 
   const onReset = () => {
@@ -39,7 +39,7 @@ const HeroEn = () => {
     setMin("");
     setMax("");
     setLocation("");
-    router.push("/en");
+    router.push("/it");
   };
 
   return (
@@ -59,10 +59,10 @@ const HeroEn = () => {
         <div className="row">
           <div className="col-xl-9 col-lg-10 col-md-10 m-auto">
             <h1 className="hero-heading text-white text-center wow fadeInUp">
-              Homes for Sale and Apartments for Rent in Mexico
+              Case in Vendita e Appartamenti in Affitto in Messico
             </h1>
             <p className="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
-              Cervantes Real Estate – Professional real-estate advisory with more than 20 years of experience in CDMX, Polanco, Condesa and the whole metro area.
+              Cervantes Bienes Raíces – Consulenza immobiliare professionale con oltre 20 anni di esperienza a Città del Messico, Polanco, Condesa e tutta l’area metropolitana.
             </p>
           </div>
         </div>
@@ -70,7 +70,7 @@ const HeroEn = () => {
         <div className="search-wrapper-overlay">
           <div className="search-wrapper-one layout-one position-relative">
             <div className="bg-wrapper">
-              <DropdownHomeEightEn />
+              <DropdownHomeEightIt />
             </div>
           </div>
         </div>

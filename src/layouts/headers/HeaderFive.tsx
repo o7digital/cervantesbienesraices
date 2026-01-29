@@ -9,7 +9,7 @@ import useLanguage from "@/hooks/useLanguage"
 const HeaderFive = ({ style }: any) => {
    const { sticky } = UseSticky();
    const { lang, buildPath, languages } = useLanguage();
-   const homeHref = lang === "en" ? "/en" : "/";
+   const homeHref = lang === "en" ? "/en" : lang === "fr" ? "/fr" : lang === "it" ? "/it" : "/";
 
    return (
       <>

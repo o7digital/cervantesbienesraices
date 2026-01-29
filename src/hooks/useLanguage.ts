@@ -1,14 +1,14 @@
 import { usePathname } from "next/navigation";
 
-const SUPPORTED = ["es", "en"] as const;
+const SUPPORTED = ["es", "en", "fr", "it"] as const;
 
 const useLanguage = () => {
   const pathname = usePathname() || "/";
-  const match = pathname.match(/^\/(en)(\/|$)/);
+  const match = pathname.match(/^\/(en|fr|it)(\/|$)/);
   const lang = (match?.[1] as (typeof SUPPORTED)[number]) || "es";
 
   const stripPrefix = (path: string) =>
-    path.replace(/^\/(en)(?=\/|$)/, "") || "/";
+    path.replace(/^\/(en|fr|it)(?=\/|$)/, "") || "/";
 
   const buildPath = (targetLang: (typeof SUPPORTED)[number]) => {
     const basePath = stripPrefix(pathname);

@@ -71,14 +71,6 @@ function shouldNoIndex(pathname: string) {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith("/fr") || pathname.startsWith("/it")) {
-    // Redirect FR/IT to English locale for now
-    const rewritten = pathname.replace(/^\/(fr|it)/, "/en") || "/en";
-    const url = request.nextUrl.clone();
-    url.pathname = rewritten;
-    return NextResponse.redirect(url);
-  }
-
   if (shouldNoIndex(pathname)) {
     const response = NextResponse.next();
     response.headers.set("X-Robots-Tag", "noindex, nofollow");
