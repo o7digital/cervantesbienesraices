@@ -64,8 +64,8 @@ const PropertyListingOneEn = () => {
       <div className="container container-large">
         <div className="position-relative">
           <div className="title-one text-center mb-25 lg-mb-10 wow fadeInUp">
-            <h3>Featured Properties</h3>
-            <p className="fs-22 mt-xs">Explore our top properties for sale and rent.</p>
+            <h3>Proprietà in evidenza</h3>
+            <p className="fs-22 mt-xs">Scopri le nostre migliori proprietà in vendita e in affitto.</p>
           </div>
 
           <div className="row gx-xxl-5">
@@ -93,31 +93,31 @@ const PropertyListingOneEn = () => {
                       <div className="d-flex align-items-center justify-content-between">
                         <div className="pe-3">
                           <Link href={`/en/property/${item.id}`} className="title fw-500 tran4s">
-                            {item.Title || "Untitled property"}
+                            {item.Title || "Proprietà senza titolo"}
                           </Link>
                           <div className="address tran4s">
-                            {item.Address || "Address not available"}
+                            {item.Address || "Indirizzo non disponibile"}
                           </div>
                         </div>
                         <Link href={`/en/property/${item.id}`} className="btn-four inverse">
-                          <span>View more</span> <i className="bi bi-arrow-up-right"></i>
+                          <span>Vedi di più</span> <i className="bi bi-arrow-up-right"></i>
                         </Link>
                       </div>
 
                       <ul className="style-none feature d-flex flex-wrap align-items-center justify-content-between mt-3">
                         <li>
                           <strong className="color-dark fw-500">{item.Bedrooms ?? "-"}</strong>
-                          <span className="fs-16">Bedrooms</span>
+                          <span className="fs-16">Camere</span>
                         </li>
                         <li>
                           <strong className="color-dark fw-500">{item.Bathrooms ?? "-"}</strong>
-                          <span className="fs-16">Bathrooms</span>
+                          <span className="fs-16">Bagni</span>
                         </li>
                         <li>
                           <strong className="color-dark fw-500">
-                            {item.Price ? `$${item.Price.toLocaleString("en-US")}` : "Contact us"}
+                            {item.Price ? `$${item.Price.toLocaleString("en-US")}` : "Contattaci"}
                           </strong>
-                          <span className="fs-16">{item.Operation || "Sale/Rent"}</span>
+                          <span className="fs-16">{item.Operation || "Vendita/Affitto"}</span>
                         </li>
                       </ul>
                     </div>

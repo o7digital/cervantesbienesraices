@@ -18,26 +18,26 @@ const feedback_data: DataType[] = [
    {
       id: 1,
       avatar: avatar_1,
-      title: (<>Client</>),
-      desc: (<>Thanks to Cervantes Real Estate I sold a home that had been on the market for 2 years.</>),
+      title: (<>Cliente</>),
+      desc: (<>Grazie a Cervantes Real Estate ho venduto una casa che era sul mercato da 2 anni.</>),
    },
    {
       id: 2,
       avatar: avatar_2,
-      title: (<>Client</>),
-      desc: (<>They showed us several apartments until we found the one we loved the most.</>),
+      title: (<>Cliente</>),
+      desc: (<>Ci hanno mostrato diversi appartamenti finché non abbiamo trovato quello che ci piaceva davvero.</>),
    },
    {
       id: 3,
       avatar: avatar_3,
-      title: (<>Client</>),
-      desc: (<>Javier Cervantes guided me through the entire sale process and coordinated everything with the notary.</>),
+      title: (<>Cliente</>),
+      desc: (<>Javier Cervantes mi ha guidato durante tutta la vendita e ha coordinato tutto con il notaio.</>),
    },
    {
       id: 4,
       avatar: avatar_2,
-      title: (<>Client</>),
-      desc: (<>Julio Cervantes found the apartment I live in now, exactly with the specs I asked for.</>),
+      title: (<>Cliente</>),
+      desc: (<>Julio Cervantes ha trovato l’appartamento in cui vivo ora, esattamente con le specifiche richieste.</>),
    },
 ];
 
@@ -71,8 +71,8 @@ const FeedbackEn = () => {
       <div className="feedback-section-six bg-pink-two position-relative z-1 mt-170 xl-mt-120 pt-110 xl-pt-80 pb-120 xl-pb-80">
          <div className="container container-large">
             <div className="title-one text-center mb-80 xl-mb-50 md-mb-30">
-               <h3>Client Testimonials</h3>
-               <p className="fs-20 mt-xs">Our clients’ satisfaction speaks for itself. Read their stories.</p>
+               <h3>Testimonianze dei clienti</h3>
+               <p className="fs-20 mt-xs">La soddisfazione dei nostri clienti parla da sola. Leggi le loro storie.</p>
             </div>
          </div>
          <div className="slider-left">

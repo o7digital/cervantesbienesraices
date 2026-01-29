@@ -19,40 +19,40 @@ const FancyBannerOneEn = () => {
               </div>
               <div className="ps-3 text" style={{ width: "auto", flex: "1 1 240px" }}>
                 <h6 className="fs-22">Javier Cervantes</h6>
-                <span className="fs-20">Founder & CEO of CERVANTES REAL ESTATE</span>
+                <span className="fs-20">Founder & CEO di CERVANTES REAL ESTATE</span>
               </div>
             </div>
           </div>
           <div className="col-xxl-7 col-lg-8">
-            <blockquote>&quot;We follow a rigorous process to offer the best opportunities to our investors.&quot;</blockquote>
+            <blockquote>&quot;Seguiamo un processo rigoroso per offrire le migliori opportunità ai nostri investitori.&quot;</blockquote>
           </div>
         </div>
 
         <div className="fact-wrapper d-flex flex-wrap mt-60 md-mt-40">
           <div className="fact-box">
-            <div className="text-meta text-sm-start d-inline-block">
-              <div className="numb">300</div>
-              <span>Land plots analyzed</span>
+              <div className="text-meta text-sm-start d-inline-block">
+                <div className="numb">300</div>
+                <span>Lotti di terreno analizzati</span>
+              </div>
             </div>
-          </div>
-          <div className="fact-box">
-            <div className="text-meta text-sm-start d-inline-block">
-              <div className="numb">0.2%</div>
-              <span>Passed initial evaluation</span>
+            <div className="fact-box">
+              <div className="text-meta text-sm-start d-inline-block">
+                <div className="numb">0.2%</div>
+                <span>Superata la prima valutazione</span>
+              </div>
             </div>
-          </div>
-          <div className="fact-box">
-            <div className="text-meta text-sm-start d-inline-block">
-              <div className="numb">15%</div>
-              <span>Approved by the committee</span>
+            <div className="fact-box">
+              <div className="text-meta text-sm-start d-inline-block">
+                <div className="numb">15%</div>
+                <span>Approvati dal comitato</span>
+              </div>
             </div>
-          </div>
-          <div className="fact-box">
-            <div className="text-meta text-sm-start d-inline-block">
-              <div className="numb">5%</div>
-              <span>Acquired</span>
+            <div className="fact-box">
+              <div className="text-meta text-sm-start d-inline-block">
+                <div className="numb">5%</div>
+                <span>Acquisiti</span>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </div>

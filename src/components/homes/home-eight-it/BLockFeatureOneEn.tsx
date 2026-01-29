@@ -15,20 +15,20 @@ const feature_data: DataType[] = [
   {
     id: 1,
     icon: icon_1,
-    title: "2M+ Properties",
-    desc: <>Legal advisory for real estate in Mexico, Miami, and Madrid.</>,
+    title: "2M+ Proprietà",
+    desc: <>Consulenza legale per immobili in Messico, Miami e Madrid.</>,
   },
   {
     id: 2,
     icon: icon_2,
-    title: "BUY & RENT",
-    desc: <>Sell your property quickly at the best market price.</>,
+    title: "ACQUISTO & AFFITTO",
+    desc: <>Vendi o compra velocemente al miglior prezzo di mercato.</>,
   },
   {
     id: 3,
     icon: icon_3,
-    title: "Fast process",
-    desc: <>It only takes minutes to buy or sell with CERVANTES REAL ESTATE.</>,
+    title: "Processo rapido",
+    desc: <>Bastano pochi minuti per comprare o vendere con CERVANTES REAL ESTATE.</>,
   },
 ];
 
@@ -37,8 +37,8 @@ const BLockFeatureOneEn = () => {
     <div className="block-feature-one mt-150 xl-mt-120">
       <div className="container container-large">
         <div className="title-one text-center mb-60 xl-mb-30 lg-mb-20 wow fadeInUp">
-          <h3>Find the perfect home</h3>
-          <p className="fs-24">Your trusted real estate partner in every transaction.</p>
+          <h3>Trova la casa perfetta</h3>
+          <p className="fs-24">Il tuo partner immobiliare di fiducia in ogni transazione.</p>
         </div>
 
         <div className="row gx-xl-5">

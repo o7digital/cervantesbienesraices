@@ -10,11 +10,11 @@ const FancyBannerTwoEn = () => {
           <div className="col-xl-8 m-auto text-center">
             <div className="title-one mb-40 lg-mb-20">
               <h2 className="font-garamond fs-xl text-white">
-                Have a question? <br /> Get in touch with us.
+                Hai una domanda? <br /> Contattaci.
               </h2>
             </div>
             <Link href="/contact" className="btn-nine text-uppercase">
-              <span>Send message</span>
+              <span>Invia messaggio</span>
             </Link>
           </div>
         </div>

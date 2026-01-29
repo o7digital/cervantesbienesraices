@@ -4,20 +4,20 @@ const reasons = [
   {
     id: 1,
     icon: "/assets/images/icon/icon_40.svg",
-    title: "Secure operations",
-    desc: "We protect each transaction for your peace of mind.",
+    title: "Operazioni sicure",
+    desc: "Proteggiamo ogni transazione per la tua tranquillità.",
   },
   {
     id: 2,
     icon: "/assets/images/icon/icon_41.svg",
-    title: "Verified payments",
-    desc: "Your payments are processed with certified systems.",
+    title: "Pagamenti verificati",
+    desc: "I pagamenti sono gestiti con sistemi certificati.",
   },
   {
     id: 3,
     icon: "/assets/images/icon/icon_42.svg",
-    title: "Fast execution",
-    desc: "Buy or sell your property in minutes, hassle-free.",
+    title: "Esecuzione rapida",
+    desc: "Compra o vendi il tuo immobile in pochi minuti, senza complicazioni.",
   },
 ];
 
@@ -26,8 +26,8 @@ const BLockFeatureTwoEn = () => {
     <div className="block-feature-fourteen pt-120 xl-pt-100 pb-140 xl-pb-100 mt-170 xl-mt-120">
       <div className="container container-large">
         <div className="title-one text-center wow fadeInUp">
-          <h3 className="text-white">Why choose us?</h3>
-          <p className="fs-24 mt-xs text-white">Your leading real estate ally, turning houses into dreams.</p>
+          <h3 className="text-white">Perché sceglierci?</h3>
+          <p className="fs-24 mt-xs text-white">Il tuo alleato immobiliare d’eccellenza, trasformando le case in sogni.</p>
         </div>
 
         <div className="card-bg-wrapper wow fadeInUp mt-70 lg-mt-50">

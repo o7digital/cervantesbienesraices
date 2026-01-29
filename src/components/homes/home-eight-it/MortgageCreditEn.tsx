@@ -23,7 +23,7 @@ const MortgageCreditEn = () => {
 
       // Validation
       if (!formData.name || !formData.email || !formData.phone) {
-         toast.error("Please fill in all fields");
+         toast.error("Per favore compila tutti i campi");
          return;
       }
 
@@ -41,14 +41,14 @@ const MortgageCreditEn = () => {
          const data = await response.json();
 
          if (response.ok) {
-            toast.success("Request sent successfully! We'll contact you soon.");
+            toast.success("Richiesta inviata con successo! Ti contatteremo a breve.");
             setFormData({ name: "", email: "", phone: "" });
          } else {
-            toast.error(data.error || "Failed to send request. Please try again.");
+            toast.error(data.error || "Invio fallito. Riprova.");
          }
       } catch (error) {
          console.error("Error submitting form:", error);
-         toast.error("An error occurred. Please try again later.");
+         toast.error("Si è verificato un errore. Riprova più tardi.");
       } finally {
          setIsSubmitting(false);
       }
@@ -60,18 +60,18 @@ const MortgageCreditEn = () => {
             <div className="row align-items-center">
                <div className="col-lg-6 d-flex">
                   <div className="pe-xxl-5 me-xl-4 pt-100 xl-pt-80 pb-45 w-100 h-100 wow fadeInLeft">
-                     <div className="title-one mb-60 lg-mb-40">
-                        <div className="upper-title">MORTGAGE LOAN</div>
-                        <h3>Need a <span>Mortgage<Image src={titleShape} alt="" className="lazy-img" /></span> Loan?</h3>
-                        <p className="fs-24 color-dark">We&apos;ll guide you through the entire process. Leave your details and we&apos;ll contact you.</p>
-                     </div>
-                     <form onSubmit={handleSubmit} className="me-xl-4">
+                    <div className="title-one mb-60 lg-mb-40">
+                        <div className="upper-title">MUTUO</div>
+                        <h3>Hai bisogno di un <span>mutuo<Image src={titleShape} alt="" className="lazy-img" /></span>?</h3>
+                        <p className="fs-24 color-dark">Ti guidiamo in tutto il processo. Lascia i tuoi dati e ti contatteremo.</p>
+                    </div>
+                    <form onSubmit={handleSubmit} className="me-xl-4">
                         <input 
                            type="text" 
                            name="name"
                            value={formData.name}
                            onChange={handleChange}
-                           placeholder="Your full name..." 
+                           placeholder="Il tuo nome completo..." 
                            className="mb-3"
                            disabled={isSubmitting}
                            required
@@ -81,7 +81,7 @@ const MortgageCreditEn = () => {
                            name="email"
                            value={formData.email}
                            onChange={handleChange}
-                           placeholder="Your email address..." 
+                           placeholder="La tua email..." 
                            className="mb-3"
                            disabled={isSubmitting}
                            required
@@ -91,16 +91,16 @@ const MortgageCreditEn = () => {
                            name="phone"
                            value={formData.phone}
                            onChange={handleChange}
-                           placeholder="Your phone number..." 
+                           placeholder="Il tuo telefono..." 
                            className="mb-3"
                            disabled={isSubmitting}
                            required
                         />
                         <button type="submit" disabled={isSubmitting}>
-                           {isSubmitting ? "Sending..." : "Request Consultation"}
+                           {isSubmitting ? "Invio..." : "Richiedi consulenza"}
                         </button>
-                     </form>
-                     <div className="fs-16 mt-20 opacity-75">*Response within 24 hours</div>
+                    </form>
+                     <div className="fs-16 mt-20 opacity-75">*Risposta entro 24 ore</div>
                   </div>
                </div>
 
@@ -118,10 +118,10 @@ const MortgageCreditEn = () => {
                      
                      {/* Text below image */}
                      <div className="text-center mt-4">
-                        <h3 className="mb-3">Financing</h3>
-                        <h4 className="color-dark mb-2">For your next home</h4>
-                        <p className="fs-18 opacity-75">Competitive rates and personalized advice</p>
-                     </div>
+                        <h3 className="mb-3">Finanziamento</h3>
+                        <h4 className="color-dark mb-2">Per la tua prossima casa</h4>
+                        <p className="fs-18 opacity-75">Tassi competitivi e consulenza personalizzata</p>
+                    </div>
                   </div>
                </div>
             </div>
