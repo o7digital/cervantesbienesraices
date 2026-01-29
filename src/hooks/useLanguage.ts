@@ -1,44 +1,26 @@
 import { usePathname } from "next/navigation";
 
-type Language = "es" | "en" | "fr" | "it";
+const SUPPORTED = ["es", "en", "fr", "it"] as const;
 
 const useLanguage = () => {
   const pathname = usePathname() || "/";
+  const match = pathname.match(/^\/(en|fr|it)(\/|$)/);
+  const lang = (match?.[1] as (typeof SUPPORTED)[number]) || "es";
 
-  // Detect current language
-  let currentLang: Language = "es";
-  if (pathname === "/en" || pathname.startsWith("/en/")) {
-    currentLang = "en";
-  } else if (pathname === "/fr" || pathname.startsWith("/fr/")) {
-    currentLang = "fr";
-  } else if (pathname === "/it" || pathname.startsWith("/it/")) {
-    currentLang = "it";
-  }
+  const stripPrefix = (path: string) =>
+    path.replace(/^\/(en|fr|it)(?=\/|$)/, "") || "/";
 
-  // Legacy support
-  const isEnglish = currentLang === "en";
-
-  // Get base path without language prefix
-  const basePath = pathname.replace(/^\/(en|fr|it)/, "") || "/";
-  const normalizedBasePath = basePath.startsWith("/") ? basePath : `/${basePath}`;
-
-  // Generate paths for all languages
-  const paths = {
-    es: normalizedBasePath === "/" ? "/" : normalizedBasePath,
-    en: normalizedBasePath === "/" ? "/en" : `/en${normalizedBasePath}`,
-    fr: normalizedBasePath === "/" ? "/fr" : `/fr${normalizedBasePath}`,
-    it: normalizedBasePath === "/" ? "/it" : `/it${normalizedBasePath}`,
+  const buildPath = (targetLang: (typeof SUPPORTED)[number]) => {
+    const basePath = stripPrefix(pathname);
+    if (targetLang === "es") return basePath;
+    return basePath === "/" ? `/${targetLang}` : `/${targetLang}${basePath}`;
   };
 
-  // Legacy toggle (EN <-> ES)
-  const togglePath = currentLang === "en" ? paths.es : paths.en;
-
-  return { 
-    currentLang, 
-    isEnglish, 
-    togglePath, 
-    paths,
-    basePath: normalizedBasePath
+  return {
+    lang,
+    isEnglish: lang === "en",
+    buildPath,
+    languages: SUPPORTED,
   };
 };
 

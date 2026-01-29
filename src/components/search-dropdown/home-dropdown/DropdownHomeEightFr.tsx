@@ -31,19 +31,19 @@ const DropdownHomeEightFr = () => {
       <div className="row gx-0 align-items-center">
         <div className="col-xl-3 col-lg-4">
           <div className="input-box-one border-left">
-            <div className="label">Je cherche à</div>
+            <div className="label">Je cherche</div>
             <NiceSelect
               className="nice-select fw-normal"
               options={[
-                { value: "buy_apartment", text: "Acheter un Appartement" },
-                { value: "buy_house", text: "Acheter une Maison" },
-                { value: "rent_apartment", text: "Louer un Appartement" },
-                { value: "rent_house", text: "Louer une Maison" },
+                { value: "buy_apartment", text: "Acheter un appartement" },
+                { value: "buy_house", text: "Acheter une maison" },
+                { value: "rent_apartment", text: "Louer un appartement" },
+                { value: "rent_house", text: "Louer une maison" },
               ]}
               defaultCurrent={0}
               onChange={handleType}
               name="type"
-              placeholder="Sélectionner"
+              placeholder="Select"
             />
           </div>
         </div>
@@ -54,11 +54,11 @@ const DropdownHomeEightFr = () => {
             <NiceSelect
               className="nice-select location fw-normal"
               options={[
-                { value: "cdmx", text: "Mexico, Mexique" },
+                { value: "cdmx", text: "Mexico City, Mexico" },
                 { value: "guadalajara", text: "Guadalajara, Jalisco" },
                 { value: "monterrey", text: "Monterrey, Nuevo León" },
                 { value: "puebla", text: "Puebla, Puebla" },
-                { value: "toluca", text: "Toluca, État de Mexico" },
+                { value: "toluca", text: "Toluca, State of Mexico" },
                 { value: "queretaro", text: "Querétaro, Querétaro" },
                 { value: "morelia", text: "Morelia, Michoacán" },
                 { value: "merida", text: "Mérida, Yucatán" },
@@ -80,9 +80,9 @@ const DropdownHomeEightFr = () => {
                 { value: "saltillo", text: "Saltillo, Coahuila" },
                 { value: "torreon", text: "Torreón, Coahuila" },
                 { value: "durango", text: "Durango, Durango" },
-                { value: "lapaz", text: "La Paz, Basse-Californie du Sud" },
-                { value: "mexicali", text: "Mexicali, Basse-Californie" },
-                { value: "tijuana", text: "Tijuana, Basse-Californie" },
+                { value: "lapaz", text: "La Paz, Baja California Sur" },
+                { value: "mexicali", text: "Mexicali, Baja California" },
+                { value: "tijuana", text: "Tijuana, Baja California" },
                 { value: "colima", text: "Colima, Colima" },
                 { value: "manzanillo", text: "Manzanillo, Colima" },
                 { value: "guanajuato", text: "Guanajuato, Guanajuato" },
@@ -91,19 +91,19 @@ const DropdownHomeEightFr = () => {
                 { value: "tlaxcala", text: "Tlaxcala, Tlaxcala" },
                 { value: "cuernavaca", text: "Cuernavaca, Morelos" },
                 { value: "queretaro2", text: "San Juan del Río, Querétaro" },
-                { value: "madrid", text: "Madrid, Espagne" },
+                { value: "madrid", text: "Madrid, Spain" },
               ]}
               defaultCurrent={0}
               onChange={handleLocation}
               name="location"
-              placeholder="Choisir une ville"
+              placeholder="Choose a city"
             />
           </div>
         </div>
 
         <div className="col-xl-3 col-lg-4">
           <div className="input-box-one border-left border-lg-0">
-            <div className="label">Gamme de Prix</div>
+            <div className="label">Budget</div>
             <NiceSelect
               className="nice-select fw-normal"
               options={[
@@ -114,7 +114,7 @@ const DropdownHomeEightFr = () => {
               defaultCurrent={0}
               onChange={handleRange}
               name="range"
-              placeholder="Sélectionner gamme"
+              placeholder="Select range"
             />
           </div>
         </div>

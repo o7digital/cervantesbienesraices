@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Contact from "@/components/inner-pages/contact";
 import Wrapper from "@/layouts/Wrapper";
 
-const BASE_URL = "https://cervantesbienesraices.vercel.app";
+const BASE_URL = "https://www.cervantesbienesraices.com";
 
 export const metadata: Metadata = {
   title: "Contacto | Cervantes Bienes Raíces",

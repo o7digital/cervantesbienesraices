@@ -15,7 +15,7 @@ const sliderSettings = {
   autoplaySpeed: 7000,
 };
 
-const HeroFr = () => {
+const HeroEn = () => {
   const router = useRouter();
 
   const [type, setType] = useState("all");
@@ -59,10 +59,10 @@ const HeroFr = () => {
         <div className="row">
           <div className="col-xl-9 col-lg-10 col-md-10 m-auto">
             <h1 className="hero-heading text-white text-center wow fadeInUp">
-              CERVANTES IMMOBILIER
+              Maisons à Vendre et Appartements à Louer au Mexique
             </h1>
             <p className="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
-              Conseil immobilier avec plus de 20 ans d&apos;expérience.
+              Cervantes Bienes Raíces – Conseil immobilier professionnel avec plus de 20 ans d’expérience à Mexico, Polanco, Condesa et toute la zone métropolitaine.
             </p>
           </div>
         </div>
@@ -79,4 +79,4 @@ const HeroFr = () => {
   );
 };
 
-export default HeroFr;
+export default HeroEn;

@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import HomeEightFr from "@/components/homes/home-eight-fr";
 import Wrapper from "@/layouts/Wrapper";
 
-const BASE_URL = "https://cervantesbienesraices.vercel.app";
+const BASE_URL = "https://www.cervantesbienesraices.com";
 
 export const metadata: Metadata = {
-  title: "Cervantes Immobilier – Vente et Location de Propriétés au Mexique",
+  title: "Cervantes Bienes Raíces – Vente et Location de Maisons et Appartements au Mexique",
   description:
-    "Trouvez des maisons et appartements premium au Mexique. Cervantes Immobilier propose des conseils d'experts pour acheter ou louer des propriétés à Mexico et dans des emplacements clés.",
+    "Trouvez votre maison idéale au Mexique. Cervantes Bienes Raíces propose des maisons à vendre, des appartements à louer et un conseil hypothécaire professionnel. Plus de 20 ans d’expérience sur le marché immobilier.",
+  keywords:
+    "maisons à vendre mexique, appartements à louer cdmx, immobilier mexique, agence immobilière, propriétés à vendre, maisons polanco, appartements condesa, conseil hypothécaire",
   alternates: {
     canonical: `${BASE_URL}/fr`,
     languages: {
@@ -18,18 +20,27 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Cervantes Immobilier – Vente et Location au Mexique",
+    title: "Cervantes Bienes Raíces – Votre maison idéale au Mexique",
     description:
-      "Achetez ou louez des propriétés premium avec des conseils d'experts. Basé à Mexico.",
+      "Vente et location de maisons et appartements. Conseil immobilier professionnel avec plus de 20 ans d’expérience.",
     url: `${BASE_URL}/fr`,
-    images: [{ url: "/images/assets/ogg.png" }],
+    siteName: "Cervantes Bienes Raíces",
+    images: [
+      {
+        url: "/images/assets/ogg.png",
+        width: 1200,
+        height: 630,
+        alt: "Cervantes Bienes Raíces",
+      },
+    ],
     locale: "fr_FR",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cervantes Immobilier – Propriétés au Mexique",
+    title: "Cervantes Bienes Raíces – Vente et location au Mexique",
     description:
-      "Maisons, appartements et conseils pour acheteurs et locataires au Mexique.",
+      "Maisons, appartements et propriétés exclusives au Mexique avec conseil professionnel.",
     images: ["/images/assets/ogg.png"],
   },
 };

@@ -59,10 +59,10 @@ const HeroEn = () => {
         <div className="row">
           <div className="col-xl-9 col-lg-10 col-md-10 m-auto">
             <h1 className="hero-heading text-white text-center wow fadeInUp">
-              CERVANTES REAL ESTATE
+              Homes for Sale and Apartments for Rent in Mexico
             </h1>
             <p className="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
-              Real estate advisory with more than 20 years of experience.
+              Cervantes Real Estate – Professional real-estate advisory with more than 20 years of experience in CDMX, Polanco, Condesa and the whole metro area.
             </p>
           </div>
         </div>

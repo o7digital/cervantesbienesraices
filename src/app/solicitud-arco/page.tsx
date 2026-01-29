@@ -4,7 +4,7 @@ import Header from "@/layouts/headers/HeaderOne"
 import FooterOne from "@/layouts/footers/FooterOne"
 import ArcoFormulario from "@/components/forms/ArcoFormulario"
 
-const BASE_URL = "https://cervantesbienesraices.vercel.app"
+const BASE_URL = "https://www.cervantesbienesraices.com"
 
 export const metadata: Metadata = {
   title: "Solicitud de Derechos ARCO | Cervantes Bienes Raíces",

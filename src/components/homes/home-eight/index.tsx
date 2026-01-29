@@ -9,6 +9,7 @@ import BLockFeatureTwo from "./BLockFeatureTwo"; // ← Servicios original del t
 import MortgageCredit from "./MortgageCredit";
 import BLockFeatureFour from "../home-one/BLockFeatureFour";
 import FancyBannerTwo from "../home-two/FancyBannerTwo";
+import BlogSection from "./BlogSection";
 import FooterThree from "@/layouts/footers/FooterThree";
 import Feedback from "./Feedback";
 import OrganizationSchema from "@/components/common/OrganizationSchema";
@@ -32,6 +33,7 @@ const HomeEight = () => {
       <BLockFeatureTwo />   {/* 👈 Mantiene el bloque de Servicios original */}
       <MortgageCredit />
       <BLockFeatureFour />
+      <BlogSection />
       <Feedback />
       <FancyBannerTwo />
       <FooterThree />

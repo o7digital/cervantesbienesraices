@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://cervantesbienesraices.vercel.app'
+const BASE_URL = 'https://www.cervantesbienesraices.com'
 const EASY_BROKER_URL = "https://api.easybroker.com/v1/properties"
 
 async function fetchAllProperties() {
@@ -100,6 +100,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/en`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/fr`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/it`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
     },
     {
       url: `${BASE_URL}/quienes-somos`,

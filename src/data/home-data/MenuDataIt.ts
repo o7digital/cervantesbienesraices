@@ -18,7 +18,9 @@ interface MenuItem {
   }[];
 }
 
-const menu_data: MenuItem[] = [
+const BLOG_ENABLED = process.env.NEXT_PUBLIC_BLOG_ENABLED !== "off";
+
+const baseMenu: MenuItem[] = [
   {
     id: 1,
     title: "Home",
@@ -27,22 +29,30 @@ const menu_data: MenuItem[] = [
   },
   {
     id: 2,
-    title: "Chi Siamo",
-    link: "/it#chi-siamo",
+    title: "Chi siamo",
+    link: "/it#quienes-somos",
     has_dropdown: false,
   },
   {
     id: 3,
     title: "Servizi",
-    link: "/it/services",
+    link: "/it/servicios",
     has_dropdown: false,
   },
   {
     id: 4,
     title: "Contatto",
-    link: "/it#contatto",
+    link: "/it#contacto",
     has_dropdown: false,
   },
 ];
+
+const menu_data: MenuItem[] = BLOG_ENABLED
+  ? [
+      ...baseMenu.slice(0, 3),
+      { id: 99, title: "Blog", link: "/it/blog", has_dropdown: false },
+      ...baseMenu.slice(3),
+    ]
+  : baseMenu;
 
 export default menu_data;

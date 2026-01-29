@@ -3,7 +3,7 @@ import Wrapper from "@/layouts/Wrapper"
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cervantesbienesraices.vercel.app'),
+  metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Casas y Departamentos en Venta y Renta en Polanco CDMX | Cervantes Bienes Raíces",
   description: "Encuentra tu hogar ideal en Polanco, la colonia más exclusiva de México. Casas de lujo, departamentos premium, penthouse. Precios desde $15M MXN. Asesoría profesional con más de 20 años de experiencia.",
   keywords: "casas venta polanco, departamentos renta polanco, propiedades polanco cdmx, bienes raíces polanco, casas lujo polanco, penthouse polanco, departamentos exclusivos polanco",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     images: ["/assets/images/media/img_26.jpg"],
   },
   alternates: {
-    canonical: "https://cervantesbienesraices.vercel.app/polanco",
+    canonical: "https://www.cervantesbienesraices.com/polanco",
   },
 }
 

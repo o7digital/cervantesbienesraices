@@ -18,7 +18,7 @@ interface PropertySchemaProps {
   }
 }
 
-const SITE_URL = "https://cervantesbienesraices.vercel.app"
+const SITE_URL = "https://www.cervantesbienesraices.com"
 
 export default function PropertySchema({ property }: PropertySchemaProps) {
   const operation = property.operations?.[0]

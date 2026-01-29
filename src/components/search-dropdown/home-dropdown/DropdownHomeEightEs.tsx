@@ -40,7 +40,7 @@ const DropdownHomeEightEs = () => {
     if (ubicacion) params.set('ubicacion', ubicacion);
     if (rango) params.set('rango', rango);
     const qs = params.toString();
-    const href = `https://cervantesbienesraices.vercel.app/listing_06${qs ? `?${qs}` : ''}`;
+    const href = `https://www.cervantesbienesraices.com/listing_06${qs ? `?${qs}` : ''}`;
     if (typeof window !== 'undefined') {
       window.location.href = href;
     } else {

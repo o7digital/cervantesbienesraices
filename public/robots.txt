@@ -13,7 +13,7 @@ User-agent: Googlebot-Image
 Allow: /
 
 # Sitemap
-Sitemap: https://cervantesbienesraices.vercel.app/sitemap.xml
+Sitemap: https://www.cervantesbienesraices.com/sitemap.xml
 
 # Crawl delay para reducir carga del servidor
 Crawl-delay: 1

@@ -14,14 +14,15 @@ import logo from "@/assets/images/logo/logo_01.svg";
 const NavMenu = () => {
     const pathname = usePathname();
     const currentRoute = usePathname();
-    const { currentLang } = useLanguage();
-    
-    // Sélectionner le menu selon la langue
-    let items = menu_data; // ES par défaut
-    if (currentLang === "en") items = menu_data_en;
-    else if (currentLang === "fr") items = menu_data_fr;
-    else if (currentLang === "it") items = menu_data_it;
-    
+    const { lang } = useLanguage();
+    const items =
+      lang === "en"
+        ? menu_data_en
+        : lang === "fr"
+        ? menu_data_fr
+        : lang === "it"
+        ? menu_data_it
+        : menu_data;
     const [navTitle, setNavTitle] = useState("");
 
     const isMenuItemActive = (menuLink: string) => {

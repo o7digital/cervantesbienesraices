@@ -6,7 +6,7 @@ import CookieConsent from "@/components/common/CookieConsent";
 import PrivacyFloatingButton from "@/components/common/PrivacyFloatingButton";
 import Providers from "@/redux/Providers";
 
-const SITE_URL = "https://cervantesbienesraices.vercel.app";
+const SITE_URL = "https://www.cervantesbienesraices.com";
 const SITE_NAME = "Cervantes Bienes Raíces";
 
 export const metadata: Metadata = {

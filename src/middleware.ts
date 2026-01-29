@@ -57,16 +57,13 @@ const NOINDEX_PREFIXES = [
 
 function shouldNoIndex(pathname: string) {
   const normalized = pathname.toLowerCase().replace(/\/$/, "");
-  
-  // Strip language prefix (en, fr, it) if present
-  let stripped = normalized;
-  if (normalized.startsWith("/en")) {
-    stripped = normalized.slice(3) || "/";
-  } else if (normalized.startsWith("/fr")) {
-    stripped = normalized.slice(3) || "/";
-  } else if (normalized.startsWith("/it")) {
-    stripped = normalized.slice(3) || "/";
-  }
+  const stripped = normalized.startsWith("/en")
+    ? normalized.slice(3) || "/"
+    : normalized.startsWith("/fr")
+    ? normalized.slice(3) || "/"
+    : normalized.startsWith("/it")
+    ? normalized.slice(3) || "/"
+    : normalized;
 
   return NOINDEX_PREFIXES.some((prefix) => stripped.startsWith(prefix));
 }

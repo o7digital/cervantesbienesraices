@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import HomeEightEn from "@/components/homes/home-eight-en";
 import Wrapper from "@/layouts/Wrapper";
 
-const BASE_URL = "https://cervantesbienesraices.vercel.app";
+const BASE_URL = "https://www.cervantesbienesraices.com";
 
 export const metadata: Metadata = {
-  title: "Cervantes Real Estate – Properties for Sale and Rent in Mexico",
+  title: "Cervantes Real Estate – Homes for Sale & Apartments for Rent in Mexico",
   description:
-    "Find premium homes and apartments in Mexico. Cervantes Real Estate offers expert advisory for buying or renting properties in CDMX and key locations.",
+    "Find your ideal home in Mexico. Cervantes Real Estate offers homes for sale, apartments for rent, and expert mortgage advisory with 20+ years of experience.",
+  keywords:
+    "homes for sale mexico, apartments for rent cdmx, real estate mexico, real estate agency, properties for sale, houses polanco, apartments condesa, mortgage advisory",
   alternates: {
     canonical: `${BASE_URL}/en`,
     languages: {

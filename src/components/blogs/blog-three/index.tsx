@@ -1,19 +1,30 @@
-import BreadcrumbOne from "@/components/common/breadcrumb/BreadcrumbOne"
-import FooterFour from "@/layouts/footers/FooterFour"
-import HeaderOne from "@/layouts/headers/HeaderOne"
-import BlogThreeArea from "./BlogThreeArea"
-import FancyBanner from "@/components/common/FancyBanner"
+import BreadcrumbOne from "@/components/common/breadcrumb/BreadcrumbOne";
+import FancyBanner from "@/components/common/FancyBanner";
+import FooterFour from "@/layouts/footers/FooterFour";
+import HeaderOne from "@/layouts/headers/HeaderOne";
+import { BlogPost } from "@/types/blog";
+import BlogThreeArea from "./BlogThreeArea";
 
-const BlogThree = () => {
-   return (
-      <>
-         <HeaderOne style={true} />
-         <BreadcrumbOne title="Blog Full Width" link="#" link_title="Pages" sub_title="Blog" style={true} />
-         <BlogThreeArea />
-         <FancyBanner />
-         <FooterFour />
-      </>
-   )
-}
+type Props = {
+  posts: BlogPost[];
+};
 
-export default BlogThree
+const BlogThree = ({ posts }: Props) => {
+  return (
+    <>
+      <HeaderOne style={true} />
+      <BreadcrumbOne
+        title="Blog"
+        link="/"
+        link_title="Inicio"
+        sub_title="Artículos"
+        style={true}
+      />
+      <BlogThreeArea posts={posts} />
+      <FancyBanner />
+      <FooterFour />
+    </>
+  );
+};
+
+export default BlogThree;

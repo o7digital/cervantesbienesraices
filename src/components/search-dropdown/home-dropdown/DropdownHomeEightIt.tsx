@@ -31,34 +31,34 @@ const DropdownHomeEightIt = () => {
       <div className="row gx-0 align-items-center">
         <div className="col-xl-3 col-lg-4">
           <div className="input-box-one border-left">
-            <div className="label">Sto cercando di</div>
+            <div className="label">Sto cercando</div>
             <NiceSelect
               className="nice-select fw-normal"
               options={[
-                { value: "buy_apartment", text: "Comprare un Appartamento" },
-                { value: "buy_house", text: "Comprare una Casa" },
-                { value: "rent_apartment", text: "Affittare un Appartamento" },
-                { value: "rent_house", text: "Affittare una Casa" },
+                { value: "buy_apartment", text: "Comprare un appartamento" },
+                { value: "buy_house", text: "Comprare una casa" },
+                { value: "rent_apartment", text: "Affittare un appartamento" },
+                { value: "rent_house", text: "Affittare una casa" },
               ]}
               defaultCurrent={0}
               onChange={handleType}
               name="type"
-              placeholder="Selezionare"
+              placeholder="Select"
             />
           </div>
         </div>
 
         <div className="col-xl-3 col-lg-4">
           <div className="input-box-one border-left">
-            <div className="label">Posizione</div>
+            <div className="label">Località</div>
             <NiceSelect
               className="nice-select location fw-normal"
               options={[
-                { value: "cdmx", text: "Città del Messico, Messico" },
+                { value: "cdmx", text: "Mexico City, Mexico" },
                 { value: "guadalajara", text: "Guadalajara, Jalisco" },
                 { value: "monterrey", text: "Monterrey, Nuevo León" },
                 { value: "puebla", text: "Puebla, Puebla" },
-                { value: "toluca", text: "Toluca, Stato del Messico" },
+                { value: "toluca", text: "Toluca, State of Mexico" },
                 { value: "queretaro", text: "Querétaro, Querétaro" },
                 { value: "morelia", text: "Morelia, Michoacán" },
                 { value: "merida", text: "Mérida, Yucatán" },
@@ -80,9 +80,9 @@ const DropdownHomeEightIt = () => {
                 { value: "saltillo", text: "Saltillo, Coahuila" },
                 { value: "torreon", text: "Torreón, Coahuila" },
                 { value: "durango", text: "Durango, Durango" },
-                { value: "lapaz", text: "La Paz, Bassa California del Sud" },
-                { value: "mexicali", text: "Mexicali, Bassa California" },
-                { value: "tijuana", text: "Tijuana, Bassa California" },
+                { value: "lapaz", text: "La Paz, Baja California Sur" },
+                { value: "mexicali", text: "Mexicali, Baja California" },
+                { value: "tijuana", text: "Tijuana, Baja California" },
                 { value: "colima", text: "Colima, Colima" },
                 { value: "manzanillo", text: "Manzanillo, Colima" },
                 { value: "guanajuato", text: "Guanajuato, Guanajuato" },
@@ -91,19 +91,19 @@ const DropdownHomeEightIt = () => {
                 { value: "tlaxcala", text: "Tlaxcala, Tlaxcala" },
                 { value: "cuernavaca", text: "Cuernavaca, Morelos" },
                 { value: "queretaro2", text: "San Juan del Río, Querétaro" },
-                { value: "madrid", text: "Madrid, Spagna" },
+                { value: "madrid", text: "Madrid, Spain" },
               ]}
               defaultCurrent={0}
               onChange={handleLocation}
               name="location"
-              placeholder="Scegli una città"
+              placeholder="Choose a city"
             />
           </div>
         </div>
 
         <div className="col-xl-3 col-lg-4">
           <div className="input-box-one border-left border-lg-0">
-            <div className="label">Fascia di Prezzo</div>
+            <div className="label">Budget</div>
             <NiceSelect
               className="nice-select fw-normal"
               options={[
@@ -114,7 +114,7 @@ const DropdownHomeEightIt = () => {
               defaultCurrent={0}
               onChange={handleRange}
               name="range"
-              placeholder="Seleziona fascia"
+              placeholder="Select range"
             />
           </div>
         </div>

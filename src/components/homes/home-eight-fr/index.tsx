@@ -1,33 +1,33 @@
 import HeaderFive from "@/layouts/headers/HeaderFive";
 import HeroFr from "./HeroFr";
-import AboutSectionFr from "./AboutSectionFr";
-import ServicesSectionFr from "./ConsultoriaSectionFr";
-import BLockFeatureOneFr from "./BLockFeatureOneFr";
-import PropertyListingOneFr from "./PropertyListingOneFr";
-import FancyBannerOneFr from "./FancyBannerOneFr";
-import BLockFeatureTwoFr from "./BLockFeatureTwoFr";
-import MortgageCreditFr from "./MortgageCreditFr";
-import BLockFeatureFourFr from "./BLockFeatureFourFr";
-import FancyBannerTwoFr from "./FancyBannerTwoFr";
-import FooterThreeFr from "@/layouts/footers/FooterThreeFr";
-import FeedbackFr from "./FeedbackFr";
+import AboutSectionEn from "./AboutSectionEn";
+import ServicesSectionEn from "./ConsultoriaSectionEn";
+import BLockFeatureOneEn from "./BLockFeatureOneEn";
+import PropertyListingOneEn from "./PropertyListingOneEn";
+import FancyBannerOneEn from "./FancyBannerOneEn";
+import BLockFeatureTwoEn from "./BLockFeatureTwoEn";
+import MortgageCreditEn from "./MortgageCreditEn";
+import BLockFeatureFourEn from "./BLockFeatureFourEn";
+import FancyBannerTwoEn from "./FancyBannerTwoEn";
+import FooterThreeEn from "@/layouts/footers/FooterThreeEn";
+import FeedbackEn from "./FeedbackEn";
 
 const HomeEightFr = () => {
   return (
     <div className="main-page-wrapper">
       <HeaderFive />
       <HeroFr />
-      <AboutSectionFr />
-      <ServicesSectionFr />
-      <BLockFeatureOneFr />
-      <PropertyListingOneFr />
-      <FancyBannerOneFr />
-      <BLockFeatureTwoFr />
-      <MortgageCreditFr />
-      <BLockFeatureFourFr />
-      <FeedbackFr />
-      <FancyBannerTwoFr />
-      <FooterThreeFr />
+      <AboutSectionEn />
+      <ServicesSectionEn />
+      <BLockFeatureOneEn />
+      <PropertyListingOneEn />
+      <FancyBannerOneEn />
+      <BLockFeatureTwoEn />
+      <MortgageCreditEn />
+      <BLockFeatureFourEn />
+      <FeedbackEn />
+      <FancyBannerTwoEn />
+      <FooterThreeEn />
     </div>
   );
 };

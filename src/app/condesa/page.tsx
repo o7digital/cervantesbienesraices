@@ -3,7 +3,7 @@ import Wrapper from "@/layouts/Wrapper"
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cervantesbienesraices.vercel.app'),
+  metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Departamentos y Casas en Renta y Venta en Condesa CDMX | Cervantes Bienes Raíces",
   description: "Vive en la Condesa, el corazón bohemio y cultural de CDMX. Departamentos con balcón, casas estilo Art Deco, lofts modernos. Precios desde $8M MXN. Zona pet-friendly y llena de vida.",
   keywords: "departamentos condesa, casas venta condesa, rentas condesa cdmx, lofts condesa, departamentos con balcon condesa, propiedades condesa, bienes raíces condesa",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     images: ["/assets/images/media/img_27.jpg"],
   },
   alternates: {
-    canonical: "https://cervantesbienesraices.vercel.app/condesa",
+    canonical: "https://www.cervantesbienesraices.com/condesa",
   },
 }
 
