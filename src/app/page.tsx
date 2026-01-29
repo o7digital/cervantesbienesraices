@@ -3,14 +3,14 @@ import Wrapper from "@/layouts/Wrapper";
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cervantesbienesraices.vercel.app'),
+  metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Cervantes Bienes Raíces – Venta y Renta de Casas y Departamentos en México | +20 años de experiencia",
   description: "Encuentra tu hogar ideal en México. Cervantes Bienes Raíces ofrece casas en venta, departamentos en renta, y asesoría hipotecaria profesional. Más de 20 años de experiencia en el mercado inmobiliario.",
   keywords: "casas en venta méxico, departamentos en renta cdmx, bienes raíces méxico, inmobiliaria, propiedades en venta, casas polanco, departamentos condesa, asesoría hipotecaria",
   openGraph: {
     title: "Cervantes Bienes Raíces – Tu Hogar Ideal en México",
     description: "Venta y renta de casas y departamentos. Asesoría inmobiliaria profesional con más de 20 años de experiencia.",
-    url: "https://cervantesbienesraices.vercel.app",
+    url: "https://www.cervantesbienesraices.com",
     siteName: "Cervantes Bienes Raíces",
     images: [
       {
@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     images: ["/images/assets/ogg.png"],
   },
   alternates: {
-    canonical: "https://cervantesbienesraices.vercel.app",
+    canonical: "https://www.cervantesbienesraices.com",
     languages: {
-      'es-MX': 'https://cervantesbienesraices.vercel.app',
-      'en-US': 'https://cervantesbienesraices.vercel.app/en',
+      'es-MX': 'https://www.cervantesbienesraices.com',
+      'en-US': 'https://www.cervantesbienesraices.com/en',
     },
   },
 };

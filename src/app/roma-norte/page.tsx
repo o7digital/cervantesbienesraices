@@ -3,7 +3,7 @@ import Wrapper from "@/layouts/Wrapper"
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cervantesbienesraices.vercel.app'),
+  metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Departamentos y Casas en Renta y Venta en Roma Norte CDMX | Cervantes Bienes Raíces",
   description: "Encuentra tu hogar en Roma Norte, el barrio más trendy de CDMX. Departamentos modernos, lofts, casas restauradas. Precios desde $6M MXN. Arte, gastronomía y cultura en cada esquina.",
   keywords: "departamentos roma norte, casas venta roma norte, rentas roma cdmx, lofts roma norte, propiedades roma norte, bienes raíces roma, departamentos modernos roma",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     images: ["/assets/images/media/img_28.jpg"],
   },
   alternates: {
-    canonical: "https://cervantesbienesraices.vercel.app/roma-norte",
+    canonical: "https://www.cervantesbienesraices.com/roma-norte",
   },
 }
 

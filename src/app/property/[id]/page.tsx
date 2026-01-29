@@ -5,7 +5,7 @@ import FooterThree from "@/layouts/footers/FooterThree";
 import ImageGallery from "@/components/common/ImageGallery";
 import PropertySchema from "@/components/common/PropertySchema";
 
-const BASE_URL = "https://cervantesbienesraices.vercel.app";
+const BASE_URL = "https://www.cervantesbienesraices.com";
 const EB_API_URL = "https://api.easybroker.com/v1/properties";
 
 type Property = {

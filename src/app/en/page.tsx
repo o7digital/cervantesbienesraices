@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import HomeEightEn from "@/components/homes/home-eight-en";
 import Wrapper from "@/layouts/Wrapper";
 
-const BASE_URL = "https://cervantesbienesraices.vercel.app";
+const BASE_URL = "https://www.cervantesbienesraices.com";
 
 export const metadata: Metadata = {
   title: "Cervantes Real Estate – Properties for Sale and Rent in Mexico",

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-const BASE_URL = "https://cervantesbienesraices.vercel.app"
+const BASE_URL = "https://www.cervantesbienesraices.com"
 
 export const metadata: Metadata = {
   title: "Consultoría Inmobiliaria Estratégica | Cervantes Bienes Raíces",

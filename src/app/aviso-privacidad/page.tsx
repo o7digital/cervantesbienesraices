@@ -4,7 +4,7 @@ import HeaderFive from "@/layouts/headers/HeaderFive"
 import FooterThree from "@/layouts/footers/FooterThree"
 import AvisoPrivacidadContent from "@/components/inner-pages/AvisoPrivacidadContent"
 
-const BASE_URL = "https://cervantesbienesraices.vercel.app"
+const BASE_URL = "https://www.cervantesbienesraices.com"
 
 export const metadata: Metadata = {
   title: "Aviso de Privacidad | Cervantes Bienes Raíces",

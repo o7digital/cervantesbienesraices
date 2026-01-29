@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://cervantesbienesraices.vercel.app'
+const BASE_URL = 'https://www.cervantesbienesraices.com'
 const EASY_BROKER_URL = "https://api.easybroker.com/v1/properties"
 
 async function fetchAllProperties() {

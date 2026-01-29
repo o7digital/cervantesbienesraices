@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${post.title} | Cervantes Bienes Raíces`,
     description: post.excerpt,
     alternates: {
-      canonical: `https://cervantesbienesraices.vercel.app/blog/${post.slug}`
+      canonical: `https://www.cervantesbienesraices.com/blog/${post.slug}`
     }
   };
 }

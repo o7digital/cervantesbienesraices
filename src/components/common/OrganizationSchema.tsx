@@ -6,9 +6,9 @@ export default function OrganizationSchema() {
     "@type": "RealEstateAgent",
     "name": "Cervantes Bienes Raíces",
     "description": "Asesoría inmobiliaria con más de 20 años de experiencia en México. Venta y renta de casas y departamentos.",
-    "url": "https://cervantesbienesraices.vercel.app",
-    "logo": "https://cervantesbienesraices.vercel.app/images/assets/ogg.png",
-    "image": "https://cervantesbienesraices.vercel.app/images/assets/ogg.png",
+    "url": "https://www.cervantesbienesraices.com",
+    "logo": "https://www.cervantesbienesraices.com/images/assets/ogg.png",
+    "image": "https://www.cervantesbienesraices.com/images/assets/ogg.png",
     "telephone": "+52-55-XXXX-XXXX",
     "email": "info@cervantesbienesraices.com",
     "address": {

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Consejos inmobiliarios, tendencias de mercado y guías prácticas para comprar, vender o rentar en México.",
   alternates: {
-    canonical: "https://cervantesbienesraices.vercel.app/blog"
+    canonical: "https://www.cervantesbienesraices.com/blog"
   }
 };
 
