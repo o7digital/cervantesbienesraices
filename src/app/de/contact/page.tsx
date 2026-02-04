@@ -5,35 +5,31 @@ import Wrapper from "@/layouts/Wrapper";
 const BASE_URL = "https://www.cervantesbienesraices.com";
 
 export const metadata: Metadata = {
-  title: "Contacto | Cervantes Bienes Raíces",
-  description:
-    "Contáctanos para comprar, vender o rentar propiedades en México. Respuesta rápida y asesoría personalizada.",
+  title: "Kontakt | Cervantes Real Estate",
+  description: "Kontaktieren Sie uns für Kauf, Verkauf oder Vermietung in Mexiko. Schnelle Antwort und persönliche Beratung.",
   alternates: {
-    canonical: `${BASE_URL}/contact`,
+    canonical: `${BASE_URL}/de/contact`,
     languages: {
+      "de-DE": `${BASE_URL}/de/contact`,
       "es-MX": `${BASE_URL}/contact`,
       "en-US": `${BASE_URL}/en`,
       "fr-FR": `${BASE_URL}/fr`,
       "it-IT": `${BASE_URL}/it`,
-      "de-DE": `${BASE_URL}/de/contact`,
     },
   },
   openGraph: {
-    title: "Contacto | Cervantes Bienes Raíces",
-    description:
-      "Asesoría inmobiliaria personalizada en México. Escríbenos para agendar una llamada.",
-    url: `${BASE_URL}/contact`,
+    title: "Kontakt | Cervantes Real Estate",
+    description: "Individuelle Immobilienberatung in Mexiko. Schreiben Sie uns, um einen Termin zu vereinbaren.",
+    url: `${BASE_URL}/de/contact`,
     images: [{ url: "/images/assets/ogg.png" }],
-    locale: "es_MX",
+    locale: "de_DE",
   },
 };
 
-const index = () => {
+export default function ContactDe() {
   return (
     <Wrapper>
       <Contact />
     </Wrapper>
   );
-};
-
-export default index;
+}

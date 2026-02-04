@@ -4,7 +4,7 @@ import HeaderFive from "@/layouts/headers/HeaderFive"
 import FooterThreeFr from "@/layouts/footers/FooterThreeFr"
 import AvisoPrivacidadContentFr from "@/components/inner-pages/AvisoPrivacidadContentFr"
 
-const BASE_URL = "https://cervantesbienesraices.vercel.app"
+const BASE_URL = "https://www.cervantesbienesraices.com"
 
 export const metadata: Metadata = {
   title: "Politique de Confidentialité | Cervantes Immobilier",

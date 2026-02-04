@@ -13,7 +13,7 @@ const FancyBannerTwoDe = () => {
                 Haben Sie Fragen? <br /> Kontaktieren Sie uns.
               </h2>
             </div>
-            <Link href="/contact" className="btn-nine text-uppercase">
+            <Link href="/de/contact" className="btn-nine text-uppercase">
               <span>Nachricht senden</span>
             </Link>
           </div>
