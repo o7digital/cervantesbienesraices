@@ -42,7 +42,7 @@ const baseMenu: MenuItem[] = [
   {
     id: 4,
     title: "Contatto",
-    link: "/it#contacto",
+    link: "/it#contact",
     has_dropdown: false,
   },
 ];
