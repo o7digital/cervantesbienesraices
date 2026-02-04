@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     languages: {
       'es-MX': 'https://www.cervantesbienesraices.com',
       'en-US': 'https://www.cervantesbienesraices.com/en',
+      'fr-FR': 'https://www.cervantesbienesraices.com/fr',
+      'it-IT': 'https://www.cervantesbienesraices.com/it',
+      'de-DE': 'https://www.cervantesbienesraices.com/de',
     },
   },
 };

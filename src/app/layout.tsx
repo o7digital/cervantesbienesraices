@@ -57,6 +57,7 @@ export const metadata: Metadata = {
       "en-US": `${SITE_URL}/en`,
       "fr-FR": `${SITE_URL}/fr`,
       "it-IT": `${SITE_URL}/it`,
+      "de-DE": `${SITE_URL}/de`,
     },
   },
   themeColor: "#0D1A1C",

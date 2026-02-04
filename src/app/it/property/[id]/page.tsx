@@ -114,6 +114,7 @@ export async function generateMetadata({
         "es-MX": `${BASE_URL}/property/${id}`,
         "en-US": `${BASE_URL}/en/property/${id}`,
         "fr-FR": `${BASE_URL}/fr/property/${id}`,
+        "de-DE": `${BASE_URL}/de/property/${id}`,
       },
     },
     openGraph: {

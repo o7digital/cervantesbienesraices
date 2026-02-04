@@ -54,7 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Obtener propiedades de EasyBroker
   const properties = await fetchAllProperties()
   
-  // URLs de propiedades dinámicas (ES, EN, FR, IT)
+  // URLs de propiedades dinámicas (ES, EN, FR, IT, DE)
   const propertyUrls: MetadataRoute.Sitemap = []
   
   properties.forEach((property: any) => {
@@ -91,6 +91,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     })
+
+    // DE
+    propertyUrls.push({
+      url: `${BASE_URL}/de/property/${property.public_id}`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })
   })
 
   // URLs estáticas principales
@@ -115,6 +123,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${BASE_URL}/it`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/de`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.9,
@@ -248,6 +262,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    },
+    // Version deutsch
+    {
+      url: `${BASE_URL}/de`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/de/listing_06`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/de/services`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/de/datenschutz`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
     },
   ]
 

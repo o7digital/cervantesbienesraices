@@ -102,6 +102,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
       languages: {
         "es-MX": canonical,
         "en-US": `${BASE_URL}/en/property/${property.public_id || params.id}`,
+        "fr-FR": `${BASE_URL}/fr/property/${property.public_id || params.id}`,
+        "it-IT": `${BASE_URL}/it/property/${property.public_id || params.id}`,
+        "de-DE": `${BASE_URL}/de/property/${property.public_id || params.id}`,
       },
     },
     openGraph: {

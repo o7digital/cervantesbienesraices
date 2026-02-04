@@ -63,6 +63,8 @@ function shouldNoIndex(pathname: string) {
     ? normalized.slice(3) || "/"
     : normalized.startsWith("/it")
     ? normalized.slice(3) || "/"
+    : normalized.startsWith("/de")
+    ? normalized.slice(3) || "/"
     : normalized;
 
   return NOINDEX_PREFIXES.some((prefix) => stripped.startsWith(prefix));

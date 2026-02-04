@@ -3,6 +3,7 @@ import menu_data from "@/data/home-data/MenuData";
 import menu_data_en from "@/data/home-data/MenuDataEn";
 import menu_data_fr from "@/data/home-data/MenuDataFr";
 import menu_data_it from "@/data/home-data/MenuDataIt";
+import menu_data_de from "@/data/home-data/MenuDataDe";
 import Link from "next/link.js";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -22,6 +23,8 @@ const NavMenu = () => {
         ? menu_data_fr
         : lang === "it"
         ? menu_data_it
+        : lang === "de"
+        ? menu_data_de
         : menu_data;
     const [navTitle, setNavTitle] = useState("");
 

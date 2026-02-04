@@ -139,3 +139,35 @@ export const servicesIt: ServiceItem[] = [
   },
 ];
 
+export const servicesDe: ServiceItem[] = [
+  {
+    icon: <FiHome />,
+    title: "Premium-Immobilien kaufen",
+    description:
+      "Wir finden die besten Optionen in Polanco, Lomas, Condesa, Roma und Santa Fe – abgestimmt auf Lebensstil, Budget und Investmentziel, ob Eigenheim oder Vermögensaufbau.",
+  },
+  {
+    icon: <FiUsers />,
+    title: "Verkauf & Eigentümervertretung",
+    description:
+      "Wir erstellen eine professionelle Bewertung, positionieren Ihre Immobilie im Premiumsegment und präsentieren sie nur qualifizierten nationalen und internationalen Käufern, um schnell und sicher zu verkaufen.",
+  },
+  {
+    icon: <FiFileText />,
+    title: "Rechts- & Dokumentationsberatung",
+    description:
+      "Begleitung im gesamten juristischen Prozess: Dokumentenprüfung, Verträge, Urkunden, Steuern und Notariat. Wir garantieren Rechtssicherheit und Transparenz bei jeder Transaktion.",
+  },
+  {
+    icon: <FiSearch />,
+    title: "Marktanalyse & Bewertung",
+    description:
+      "Wir liefern Gutachten und aktuelle Marktvergleiche, um den realen Immobilienwert zu bestimmen und fundierte Entscheidungen zu ermöglichen, die Ihr Vermögen schützen.",
+  },
+  {
+    icon: <FiTarget />,
+    title: "Investitions- & Vermögensstrategie",
+    description:
+      "Wir entwickeln langfristige Investmentpläne mit Fokus auf Kapitalwachstum, Renditeprognose und smarte Diversifikation im Premium-Immobilienmarkt von Mexiko-Stadt.",
+  },
+];

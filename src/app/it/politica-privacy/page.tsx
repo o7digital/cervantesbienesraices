@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "es-MX": `${BASE_URL}/aviso-privacidad`,
       "en-US": `${BASE_URL}/en/privacy-policy`,
       "fr-FR": `${BASE_URL}/fr/politique-confidentialite`,
+      "de-DE": `${BASE_URL}/de/datenschutz`,
     },
   },
   openGraph: {

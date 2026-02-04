@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import HeaderFive from "@/layouts/headers/HeaderFive";
-import FooterThreeEn from "@/layouts/footers/FooterThreeEn";
+import FooterThreeDe from "@/layouts/footers/FooterThreeDe";
 import ImageGallery from "@/components/common/ImageGallery";
 import PropertySchema from "@/components/common/PropertySchema";
 
@@ -53,7 +53,7 @@ async function fetchProperty(id: string): Promise<Property | null> {
 }
 
 function buildLocationLabel(property: Property): string {
-  if (!property?.location) return "Location not available";
+  if (!property?.location) return "Standort nicht verfügbar";
   if (typeof property.location === "string") return property.location;
 
   const parts = [
@@ -66,12 +66,12 @@ function buildLocationLabel(property: Property): string {
     property.location?.country,
   ].filter(Boolean);
 
-  return parts.length ? parts.join(", ") : "Location not available";
+  return parts.length ? parts.join(", ") : "Standort nicht verfügbar";
 }
 
 function buildPriceLabel(property: Property): string {
   const op = property.operations?.[0];
-  return op?.formatted_amount || (op?.amount ? `${op.amount} ${op.currency || "MXN"}` : "Price not available");
+  return op?.formatted_amount || (op?.amount ? `${op.amount} ${op.currency || "MXN"}` : "Preis nicht verfügbar");
 }
 
 function truncate(text?: string, max = 160): string | undefined {
@@ -85,13 +85,13 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 
   if (!property) {
     return {
-      title: "Property not found | Cervantes Real Estate",
+      title: "Immobilie nicht gefunden | Cervantes Real Estate",
       robots: { index: false, follow: false },
     };
   }
 
-  const canonical = `${BASE_URL}/en/property/${property.public_id || params.id}`;
-  const description = truncate(property.description) || "Property for sale or rent in Mexico.";
+  const canonical = `${BASE_URL}/de/property/${property.public_id || params.id}`;
+  const description = truncate(property.description) || "Immobilie zum Kauf oder zur Miete in Mexiko.";
   const ogImage = property.property_images?.[0]?.url || "/images/assets/ogg.png";
 
   return {
@@ -100,11 +100,11 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     alternates: {
       canonical,
       languages: {
-        "en-US": canonical,
+        "de-DE": canonical,
         "es-MX": `${BASE_URL}/property/${property.public_id || params.id}`,
+        "en-US": `${BASE_URL}/en/property/${property.public_id || params.id}`,
         "fr-FR": `${BASE_URL}/fr/property/${property.public_id || params.id}`,
         "it-IT": `${BASE_URL}/it/property/${property.public_id || params.id}`,
-        "de-DE": `${BASE_URL}/de/property/${property.public_id || params.id}`,
       },
     },
     openGraph: {
@@ -112,7 +112,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
       description,
       url: canonical,
       images: [{ url: ogImage }],
-      locale: "en_US",
+      locale: "de_DE",
     },
     twitter: {
       card: "summary_large_image",
@@ -123,7 +123,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default async function PropertyDetailPageEn({ params }: { params: { id: string } }) {
+export default async function PropertyDetailPageDe({ params }: { params: { id: string } }) {
   const property = await fetchProperty(params.id);
   if (!property) {
     notFound();
@@ -142,26 +142,26 @@ export default async function PropertyDetailPageEn({ params }: { params: { id: s
         {property.property_images?.length ? (
           <ImageGallery images={property.property_images} title={property.title} />
         ) : (
-          <p className="text-muted mb-4">No images available.</p>
+          <p className="text-muted mb-4">Keine Bilder verfügbar.</p>
         )}
 
-        <h3>Price</h3>
+        <h3>Preis</h3>
         <p>{priceLabel}</p>
 
-        <h3>Description</h3>
-        <p>{property.description || "No description available"}</p>
+        <h3>Beschreibung</h3>
+        <p>{property.description || "Keine Beschreibung verfügbar"}</p>
 
-        <h3>Features</h3>
+        <h3>Merkmale</h3>
         <ul>
-          <li>Bedrooms: {property.bedrooms ?? "N/A"}</li>
-          <li>Bathrooms: {property.bathrooms ?? "N/A"}</li>
-          <li>Parking: {property.parking_spaces ?? "N/A"}</li>
+          <li>Schlafzimmer: {property.bedrooms ?? "N/A"}</li>
+          <li>Badezimmer: {property.bathrooms ?? "N/A"}</li>
+          <li>Parkplätze: {property.parking_spaces ?? "N/A"}</li>
           <li>
-            Area: {property.building_size?.size ?? "N/A"} {property.building_size?.unit}
+            Fläche: {property.building_size?.size ?? "N/A"} {property.building_size?.unit}
           </li>
         </ul>
       </main>
-      <FooterThreeEn />
+      <FooterThreeDe />
       <PropertySchema property={property} />
     </div>
   );
