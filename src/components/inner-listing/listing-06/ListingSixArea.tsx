@@ -70,6 +70,7 @@ const extractOperationAmounts = (operations: any[] | undefined) => {
 
 const initialFilterState = {
   type: "",
+  propertyKind: "",
   location: "",
   minPrice: "",
   maxPrice: "",
@@ -212,6 +213,7 @@ const ListingSixArea = () => {
 
     return properties.filter((prop) => {
       const propertyType = prop?.property_type?.toString().trim().toLowerCase() || "";
+      const propTypeNorm = normalizeText(propertyType);
       const operationTypes = Array.isArray(prop?.operations)
         ? prop.operations
             .map((operation: any) => mapOperationType(operation?.type))
@@ -220,6 +222,8 @@ const ListingSixArea = () => {
       const amounts = extractOperationAmounts(prop?.operations);
       const locationFilter = normalizeText(filters.location);
       const propertyLocation = normalizeText(formatLocation(prop?.location));
+      const isApartment = /apartment|departament|depa|apto|apartament/.test(propTypeNorm);
+      const isHouse = /house|casa|residenc/.test(propTypeNorm);
 
       const matchesType =
         !filters.type ||
@@ -235,6 +239,12 @@ const ListingSixArea = () => {
           })());
 
       if (!matchesType) return false;
+      const matchesPropertyKind =
+        !filters.propertyKind ||
+        (filters.propertyKind === "apartment" && isApartment) ||
+        (filters.propertyKind === "house" && isHouse);
+
+      if (!matchesPropertyKind) return false;
 
       const hasMin = filters.minPrice.trim() !== "";
       const hasMax = filters.maxPrice.trim() !== "";
@@ -276,6 +286,23 @@ const ListingSixArea = () => {
       if (!t || t === "todos") return "";
       if (t.startsWith("comprar_") || t.startsWith("buy_")) return "operation:venta";
       if (isRentalSearch(t)) return "operation:renta";
+      return "";
+    };
+
+    const toPropertyKind = (t: string): string => {
+      if (!t || t === "todos") return "";
+      if (
+        t === "comprar_departamento" ||
+        t === "rentar_departamento" ||
+        t === "rentar_apartamento" ||
+        t === "buy_apartment" ||
+        t === "rent_apartment"
+      ) {
+        return "apartment";
+      }
+      if (t === "comprar_casa" || t === "rentar_casa" || t === "buy_house" || t === "rent_house") {
+        return "house";
+      }
       return "";
     };
 
@@ -337,7 +364,9 @@ const ListingSixArea = () => {
 
     const nextInputs = { ...initialFilterState };
     const op = toOperation(tipoParam);
+    const propertyKind = toPropertyKind(tipoParam);
     if (op) nextInputs.type = op;
+    if (propertyKind) nextInputs.propertyKind = propertyKind;
     if (ubicacionKey && ubicacionTokens[ubicacionKey]) {
       nextInputs.location = ubicacionTokens[ubicacionKey][0];
     }
@@ -350,7 +379,7 @@ const ListingSixArea = () => {
     }
 
     // If any param present, prefill and apply immediately
-    if (op || nextInputs.location || nextInputs.minPrice || nextInputs.maxPrice) {
+    if (op || propertyKind || nextInputs.location || nextInputs.minPrice || nextInputs.maxPrice) {
       setInputs(nextInputs);
       setFilters(nextInputs);
     }
@@ -359,7 +388,11 @@ const ListingSixArea = () => {
 
   const handleInputChange = (key: keyof typeof initialFilterState) => (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const value = event.target.value;
-    setInputs((prev) => ({ ...prev, [key]: value }));
+    setInputs((prev) => ({
+      ...prev,
+      [key]: value,
+      ...(key === "type" ? { propertyKind: "" } : {}),
+    }));
   };
 
   const handleResetFilters = () => {
@@ -369,18 +402,21 @@ const ListingSixArea = () => {
 
   const hasFiltersApplied =
     Boolean(filters.type) ||
+    Boolean(filters.propertyKind) ||
     Boolean(filters.location.trim()) ||
     Boolean(filters.minPrice.trim()) ||
     Boolean(filters.maxPrice.trim());
 
   const filtersMatchInputs =
     inputs.type === filters.type &&
+    inputs.propertyKind === filters.propertyKind &&
     inputs.location.trim() === filters.location.trim() &&
     inputs.minPrice.trim() === filters.minPrice.trim() &&
     inputs.maxPrice.trim() === filters.maxPrice.trim();
 
   const inputsAreClear =
     !inputs.type &&
+    !inputs.propertyKind &&
     !inputs.location.trim() &&
     !inputs.minPrice.trim() &&
     !inputs.maxPrice.trim();
@@ -390,6 +426,7 @@ const ListingSixArea = () => {
   const handleApplyFilters = () => {
     setFilters({
       type: inputs.type,
+      propertyKind: inputs.propertyKind,
       location: inputs.location.trim(),
       minPrice: inputs.minPrice.trim(),
       maxPrice: inputs.maxPrice.trim(),
