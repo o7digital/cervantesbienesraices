@@ -6,7 +6,7 @@ import ListingSixAreaFr from "./ListingSixAreaFr";
 const ListingSixFr = () => {
   return (
     <div className="main-page-wrapper">
-      <HeaderFive />
+      <HeaderFive style="dark" />
       <Suspense fallback={<div>Chargement...</div>}>
         <ListingSixAreaFr />
       </Suspense>

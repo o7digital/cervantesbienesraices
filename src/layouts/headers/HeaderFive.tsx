@@ -9,6 +9,7 @@ import useLanguage from "@/hooks/useLanguage"
 const HeaderFive = ({ style }: any) => {
    const { sticky } = UseSticky();
    const { lang, buildPath, languages } = useLanguage();
+   const useDarkMenu = style === "dark";
    const homeHref = lang === "en"
       ? "/en"
       : lang === "fr"
@@ -21,7 +22,7 @@ const HeaderFive = ({ style }: any) => {
 
    return (
       <>
-         <header className={`theme-main-menu menu-overlay menu-style-seven white-vr sticky-menu ${sticky ? "fixed" : ""}`}>
+         <header className={`theme-main-menu menu-overlay menu-style-seven ${useDarkMenu ? "" : "white-vr"} sticky-menu ${sticky ? "fixed" : ""}`}>
             <div className="inner-content gap-one">
                <div className="top-header position-relative">
                   <div className="d-flex align-items-center justify-content-between">
@@ -42,7 +43,7 @@ const HeaderFive = ({ style }: any) => {
                      <div className="right-widget ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
                         <ul className="d-flex align-items-center style-none">
                            <li className="me-3">
-                              <div className="d-flex align-items-center gap-2 text-white fw-500">
+                              <div className={`d-flex align-items-center gap-2 fw-500 ${useDarkMenu ? "text-dark" : "text-white"}`}>
                                  {languages.map((code) => (
                                     <Link
                                        key={code}
