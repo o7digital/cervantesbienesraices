@@ -1,12 +1,11 @@
 "use client";
-import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import DropdownHomeEightFr from "@/components/search-dropdown/home-dropdown/DropdownHomeEightFr";
-import Link from "next/link";
+import PropertyCard from "@/components/common/PropertyCard";
 import { localizePropertyTitle } from "@/utils/propertyLocalization";
 
 const formatLocation = (location: any) => {
-  if (!location) return "Emplacement non disponible";
+  if (!location) return "Localisation non disponible";
 
   if (typeof location === "string") {
     return location;
@@ -22,7 +21,7 @@ const formatLocation = (location: any) => {
     location?.country,
   ].filter(Boolean);
 
-  return parts.length ? parts.join(", ") : "Emplacement non disponible";
+  return parts.length ? parts.join(", ") : "Localisation non disponible";
 };
 
 const normalizeText = (value?: string) => {
@@ -38,7 +37,7 @@ const mapOperationType = (operationType?: string) => {
   if (!operationType) return "";
   const normalized = operationType.toLowerCase();
   if (normalized === "sale") return "venta";
-  if (normalized === "rent") return "renta";
+  if (normalized === "rent" || normalized === "rental") return "renta";
   return normalized;
 };
 
@@ -71,6 +70,7 @@ const extractOperationAmounts = (operations: any[] | undefined) => {
 
 const initialFilterState = {
   type: "",
+  propertyKind: "",
   location: "",
   minPrice: "",
   maxPrice: "",
@@ -81,24 +81,19 @@ const ListingSixAreaFr = () => {
   const [properties, setProperties] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [statusView, setStatusView] = useState<"published" | "archived">("published");
   const [inputs, setInputs] = useState(initialFilterState);
   const [filters, setFilters] = useState(initialFilterState);
 
   useEffect(() => {
     setLoading(true);
     setError(null);
-    const url =
-      statusView === "published"
-        ? "/api/properties?status=published"
-        : "/api/properties?status=not_published,suspended";
 
-    fetch(url)
+    fetch("/api/properties?status=published")
       .then((res) => res.json())
       .then((data) => {
         if (data?.errors?.length) {
           console.error("EasyBroker API error:", data.errors);
-          setError("Nous n'avons pas pu charger les propriétés pour le moment.");
+          setError("Nous n'avons pas pu charger les proprietes pour le moment.");
           setProperties([]);
           setLoading(false);
           return;
@@ -106,7 +101,7 @@ const ListingSixAreaFr = () => {
 
         if (data?.error) {
           console.error("/api/properties error:", data.error);
-          setError("Nous n'avons pas pu charger les propriétés pour le moment.");
+          setError("Nous n'avons pas pu charger les proprietes pour le moment.");
           setProperties([]);
           setLoading(false);
           return;
@@ -114,7 +109,7 @@ const ListingSixAreaFr = () => {
 
         if (!Array.isArray(data?.content)) {
           console.warn("Unexpected response from /api/properties:", data);
-          setError("Nous n'avons pas pu charger les propriétés pour le moment.");
+          setError("Nous n'avons pas pu charger les proprietes pour le moment.");
           setProperties([]);
           setLoading(false);
           return;
@@ -125,10 +120,66 @@ const ListingSixAreaFr = () => {
       })
       .catch((err) => {
         console.error("Error loading properties:", err);
-        setError("Nous n'avons pas pu charger les propriétés pour le moment.");
+        setError("Nous n'avons pas pu charger les proprietes pour le moment.");
         setLoading(false);
       });
-  }, [statusView]);
+  }, []);
+
+  const typeOptionGroups = useMemo(() => {
+    if (!properties.length) return [];
+
+    const propertyTypes = new Map<string, string>();
+    properties.forEach((prop) => {
+      if (prop?.property_type) {
+        const normalized = prop.property_type.toString().trim().toLowerCase();
+        if (normalized && !propertyTypes.has(normalized)) {
+          const localized = localizePropertyTitle(prop.property_type.toString().trim(), "fr");
+          propertyTypes.set(normalized, localized || prop.property_type.toString().trim());
+        }
+      }
+    });
+
+    const operationTypes = new Set<string>();
+    properties.forEach((prop) => {
+      if (Array.isArray(prop?.operations)) {
+        prop.operations.forEach((operation: any) => {
+          const mapped = mapOperationType(operation?.type);
+          if (mapped) operationTypes.add(mapped);
+        });
+      }
+    });
+
+    const groups: { label: string; options: { value: string; label: string }[] }[] = [];
+
+    if (propertyTypes.size) {
+      groups.push({
+        label: "Type de propriete",
+        options: Array.from(propertyTypes.entries()).map(([value, label]) => ({
+          value: `property:${value}`,
+          label,
+        })),
+      });
+    }
+
+    if (operationTypes.size) {
+      const operationOptions = Array.from(operationTypes.values()).map((operation) => ({
+        value: `operation:${operation}`,
+        label: operation === "venta" ? "Vente" : operation === "renta" ? "Location" : operation,
+      }));
+
+      const hasSale = operationTypes.has("venta");
+      if (hasSale) {
+        operationOptions.push({ value: "operation:compra", label: "Achat" });
+      }
+
+      groups.push({
+        label: "Operation",
+        options: operationOptions,
+      });
+    }
+
+    return groups;
+  }, [properties]);
 
   const locationOptions = useMemo(() => {
     if (!properties.length) return [];
@@ -136,7 +187,7 @@ const ListingSixAreaFr = () => {
 
     properties.forEach((prop) => {
       const label = getLocationLabel(prop?.location) || formatLocation(prop?.location);
-      if (!label || label === "Emplacement non disponible") return;
+      if (!label || label === "Localisation non disponible") return;
       const key = normalizeText(label);
       if (!locations.has(key)) {
         locations.set(key, label);
@@ -144,70 +195,16 @@ const ListingSixAreaFr = () => {
     });
 
     return Array.from(locations.values()).sort((a, b) =>
-      normalizeText(a).localeCompare(normalizeText(b), "es")
+      normalizeText(a).localeCompare(normalizeText(b), "fr")
     );
   }, [properties]);
 
   const filteredProperties = useMemo(() => {
     if (!properties.length) return [];
 
-    const tipoParam = normalizeText(searchParams?.get("tipo") || "");
-    const ubicacionKey = normalizeText(searchParams?.get("ubicacion") || "");
-    const rangoParam = normalizeText(searchParams?.get("rango") || "");
-
-    const ubicacionTokens: Record<string, string[]> = {
-      cdmx: ["ciudad de mexico", "cdmx", "mexico city", "distrito federal"],
-      guadalajara: ["guadalajara", "jalisco"],
-      monterrey: ["monterrey", "nuevo leon", "nuevo león"],
-      puebla: ["puebla"],
-      toluca: ["toluca", "estado de mexico", "edomex"],
-      queretaro: ["queretaro", "querétaro"],
-      morelia: ["morelia", "michoacan", "michoacán"],
-      merida: ["merida", "mérida", "yucatan", "yucatán"],
-      cancun: ["cancun", "cancún", "quintana roo"],
-      chetumal: ["chetumal", "quintana roo"],
-      campeche: ["campeche"],
-      villahermosa: ["villahermosa", "tabasco"],
-      tuxtla: ["tuxtla gutierrez", "tuxtla gutiérrez", "chiapas"],
-      oaxaca: ["oaxaca", "oaxaca de juarez", "oaxaca de juárez"],
-      xalapa: ["xalapa", "veracruz"],
-      veracruz: ["veracruz"],
-      hermosillo: ["hermosillo", "sonora"],
-      chihuahua: ["chihuahua"],
-      culiacan: ["culiacan", "culiacán", "sinaloa"],
-      tepic: ["tepic", "nayarit"],
-      zacatecas: ["zacatecas"],
-      aguascalientes: ["aguascalientes"],
-      slp: ["san luis potosi", "san luis potosí"],
-      saltillo: ["saltillo", "coahuila"],
-      torreon: ["torreon", "torreón", "coahuila"],
-      durango: ["durango"],
-      lapaz: ["la paz", "baja california sur"],
-      mexicali: ["mexicali", "baja california"],
-      tijuana: ["tijuana", "baja california"],
-      colima: ["colima"],
-      manzanillo: ["manzanillo", "colima"],
-      guanajuato: ["guanajuato"],
-      leon: ["leon", "león", "guanajuato"],
-      pachuca: ["pachuca", "hidalgo"],
-      tlaxcala: ["tlaxcala"],
-      cuernavaca: ["cuernavaca", "morelos"],
-      queretaro2: ["san juan del rio", "san juan del río", "queretaro", "querétaro"],
-      madrid: ["madrid", "espana", "españa", "spain"],
-    };
-
-    const rangeMap: Record<string, [number, number]> = {
-      "1": [10000, 200000],
-      "2": [200000, 500000],
-      "3": [500000, 1000000],
-    };
-
-    const hasTipo = Boolean(tipoParam);
-    const hasUbicacion = Boolean(ubicacionKey) && Boolean(ubicacionTokens[ubicacionKey]);
-    const hasRange = Boolean(rangoParam) && Boolean(rangeMap[rangoParam]);
-
     return properties.filter((prop) => {
       const propertyType = prop?.property_type?.toString().trim().toLowerCase() || "";
+      const propTypeNorm = normalizeText(propertyType);
       const operationTypes = Array.isArray(prop?.operations)
         ? prop.operations
             .map((operation: any) => mapOperationType(operation?.type))
@@ -216,6 +213,8 @@ const ListingSixAreaFr = () => {
       const amounts = extractOperationAmounts(prop?.operations);
       const locationFilter = normalizeText(filters.location);
       const propertyLocation = normalizeText(formatLocation(prop?.location));
+      const isApartment = /apartment|departament|depa|apto|apartament/.test(propTypeNorm);
+      const isHouse = /house|casa|residenc/.test(propTypeNorm);
 
       const matchesType =
         !filters.type ||
@@ -232,18 +231,12 @@ const ListingSixAreaFr = () => {
 
       if (!matchesType) return false;
 
-      const propTypeNorm = normalizeText(propertyType);
-      const isApartment = /apartment|departament|depa|apto|apartament/.test(propTypeNorm);
-      const isHouse = /house|casa|residenc/.test(propTypeNorm);
-      const matchesTipoParam = !hasTipo ||
-        (() => {
-          if (tipoParam === "comprar_departamento" || tipoParam === "buy_apartment") return operationTypes.includes("venta") && isApartment;
-          if (tipoParam === "comprar_casa" || tipoParam === "buy_house") return operationTypes.includes("venta") && isHouse;
-          if (tipoParam === "rentar_apartamento" || tipoParam === "rent_apartment") return operationTypes.includes("renta") && isApartment;
-          if (tipoParam === "rentar_casa" || tipoParam === "rent_house") return operationTypes.includes("renta") && isHouse;
-          return true;
-        })();
-      if (!matchesTipoParam) return false;
+      const matchesPropertyKind =
+        !filters.propertyKind ||
+        (filters.propertyKind === "apartment" && isApartment) ||
+        (filters.propertyKind === "house" && isHouse);
+
+      if (!matchesPropertyKind) return false;
 
       const hasMin = filters.minPrice.trim() !== "";
       const hasMax = filters.maxPrice.trim() !== "";
@@ -263,34 +256,123 @@ const ListingSixAreaFr = () => {
               return true;
             });
 
-      if (hasRange) {
-        const [rMin, rMax] = rangeMap[rangoParam];
-        const inRouteRange = amounts.some((amount) => {
-          if (rMin !== null && amount < rMin) return false;
-          if (rMax !== null && amount > rMax) return false;
-          return true;
-        });
-        if (!inRouteRange) return false;
-      }
-
       if (!matchesAmount) return false;
 
-      let routeLocationMatch = true;
-      if (hasUbicacion) {
-        const tokens = ubicacionTokens[ubicacionKey].map((t) => normalizeText(t));
-        routeLocationMatch = tokens.some((t) => propertyLocation.includes(t));
-      }
-
-      const matchesLocation = (!locationFilter || propertyLocation.includes(locationFilter)) && routeLocationMatch;
+      const matchesLocation = !locationFilter || propertyLocation.includes(locationFilter);
 
       return matchesLocation;
     });
-  }, [properties, filters, searchParams]);
+  }, [properties, filters]);
 
-  const handleInputChange = (key: keyof typeof initialFilterState) => (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const value = event.target.value;
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
+  const initializedFromParams = useRef(false);
+  useEffect(() => {
+    if (initializedFromParams.current) return;
+    const tipoParam = normalizeText(searchParams?.get("tipo") || "");
+    const ubicacionKey = normalizeText(searchParams?.get("ubicacion") || "");
+    const rangoParam = normalizeText(searchParams?.get("rango") || "");
+
+    const toOperation = (t: string): string => {
+      if (!t || t === "todos") return "";
+      if (t.startsWith("comprar_") || t.startsWith("buy_")) return "operation:venta";
+      if (t.startsWith("rentar_") || t.startsWith("rent_")) return "operation:renta";
+      return "";
+    };
+
+    const toPropertyKind = (t: string): string => {
+      if (!t || t === "todos") return "";
+      if (
+        t === "comprar_departamento" ||
+        t === "rentar_departamento" ||
+        t === "rentar_apartamento" ||
+        t === "buy_apartment" ||
+        t === "rent_apartment"
+      ) {
+        return "apartment";
+      }
+      if (t === "comprar_casa" || t === "rentar_casa" || t === "buy_house" || t === "rent_house") {
+        return "house";
+      }
+      return "";
+    };
+
+    const ubicacionTokens: Record<string, string[]> = {
+      cdmx: ["ciudad de mexico", "cdmx", "mexico city"],
+      guadalajara: ["guadalajara"],
+      monterrey: ["monterrey"],
+      puebla: ["puebla"],
+      toluca: ["toluca"],
+      queretaro: ["queretaro", "querétaro"],
+      morelia: ["morelia"],
+      merida: ["merida", "mérida"],
+      cancun: ["cancun", "cancún"],
+      chetumal: ["chetumal"],
+      campeche: ["campeche"],
+      villahermosa: ["villahermosa"],
+      tuxtla: ["tuxtla"],
+      oaxaca: ["oaxaca"],
+      xalapa: ["xalapa"],
+      veracruz: ["veracruz"],
+      hermosillo: ["hermosillo"],
+      chihuahua: ["chihuahua"],
+      culiacan: ["culiacan", "culiacán"],
+      tepic: ["tepic"],
+      zacatecas: ["zacatecas"],
+      aguascalientes: ["aguascalientes"],
+      slp: ["san luis potosi", "san luis potosí"],
+      saltillo: ["saltillo"],
+      torreon: ["torreon", "torreón"],
+      durango: ["durango"],
+      lapaz: ["la paz"],
+      mexicali: ["mexicali"],
+      tijuana: ["tijuana"],
+      colima: ["colima"],
+      manzanillo: ["manzanillo"],
+      guanajuato: ["guanajuato"],
+      leon: ["leon", "león"],
+      ixtapa: ["ixtapa zihuatanejo", "ixtapa", "zihuatanejo"],
+      pachuca: ["pachuca"],
+      tlaxcala: ["tlaxcala"],
+      cuernavaca: ["cuernavaca"],
+      queretaro2: ["san juan del rio", "san juan del río"],
+      madrid: ["madrid"],
+    };
+
+    const rangeMap: Record<string, [number, number]> = {
+      "1": [10000, 200000],
+      "2": [200000, 500000],
+      "3": [500000, 1000000],
+    };
+
+    const nextInputs = { ...initialFilterState };
+    const op = toOperation(tipoParam);
+    const propertyKind = toPropertyKind(tipoParam);
+    if (op) nextInputs.type = op;
+    if (propertyKind) nextInputs.propertyKind = propertyKind;
+    if (ubicacionKey && ubicacionTokens[ubicacionKey]) {
+      nextInputs.location = ubicacionTokens[ubicacionKey][0];
+    }
+    if (rangoParam && rangeMap[rangoParam]) {
+      const [min, max] = rangeMap[rangoParam];
+      nextInputs.minPrice = String(min);
+      nextInputs.maxPrice = String(max);
+    }
+
+    if (op || propertyKind || nextInputs.location || nextInputs.minPrice || nextInputs.maxPrice) {
+      setInputs(nextInputs);
+      setFilters(nextInputs);
+    }
+    initializedFromParams.current = true;
+  }, [searchParams]);
+
+  const handleInputChange =
+    (key: keyof typeof initialFilterState) => (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const value = event.target.value;
+      setInputs((prev) => ({
+        ...prev,
+        [key]: value,
+        ...(key === "type" ? { propertyKind: "" } : {}),
+      }));
+    };
 
   const handleResetFilters = () => {
     setInputs(initialFilterState);
@@ -299,18 +381,21 @@ const ListingSixAreaFr = () => {
 
   const hasFiltersApplied =
     Boolean(filters.type) ||
+    Boolean(filters.propertyKind) ||
     Boolean(filters.location.trim()) ||
     Boolean(filters.minPrice.trim()) ||
     Boolean(filters.maxPrice.trim());
 
   const filtersMatchInputs =
     inputs.type === filters.type &&
+    inputs.propertyKind === filters.propertyKind &&
     inputs.location.trim() === filters.location.trim() &&
     inputs.minPrice.trim() === filters.minPrice.trim() &&
     inputs.maxPrice.trim() === filters.maxPrice.trim();
 
   const inputsAreClear =
     !inputs.type &&
+    !inputs.propertyKind &&
     !inputs.location.trim() &&
     !inputs.minPrice.trim() &&
     !inputs.maxPrice.trim();
@@ -320,6 +405,7 @@ const ListingSixAreaFr = () => {
   const handleApplyFilters = () => {
     setFilters({
       type: inputs.type,
+      propertyKind: inputs.propertyKind,
       location: inputs.location.trim(),
       minPrice: inputs.minPrice.trim(),
       maxPrice: inputs.maxPrice.trim(),
@@ -329,50 +415,128 @@ const ListingSixAreaFr = () => {
   return (
     <div className="property-listing-six pt-200 xl-pt-150 pb-200 xl-pb-120">
       <div className="container">
-        <h2 className="mb-40 text-center">Propriétés disponibles</h2>
+        <h2 className="mb-40 text-center">Proprietes disponibles</h2>
 
-        <div className="search-wrapper-one layout-one position-relative mb-40">
-          <div className="bg-wrapper">
-            <DropdownHomeEightFr />
+        <div className="listing-filters mb-40">
+          <div className="row g-3 align-items-end">
+            <div className="col-12 col-md-4 col-lg-3">
+              <label htmlFor="listing-type-filter-fr" className="form-label fw-500">
+                Type / Operation
+              </label>
+              <select
+                id="listing-type-filter-fr"
+                className="form-select"
+                value={inputs.type}
+                onChange={handleInputChange("type")}
+              >
+                <option value="">Tous</option>
+                {typeOptionGroups.map((group) => (
+                  <optgroup key={group.label} label={group.label}>
+                    {group.options.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <label htmlFor="listing-min-price-fr" className="form-label fw-500">
+                Montant min.
+              </label>
+              <input
+                id="listing-min-price-fr"
+                type="number"
+                className="form-control"
+                placeholder="Ex. 500000"
+                value={inputs.minPrice}
+                onChange={handleInputChange("minPrice")}
+                min={0}
+              />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <label htmlFor="listing-max-price-fr" className="form-label fw-500">
+                Montant max.
+              </label>
+              <input
+                id="listing-max-price-fr"
+                type="number"
+                className="form-control"
+                placeholder="Ex. 1500000"
+                value={inputs.maxPrice}
+                onChange={handleInputChange("maxPrice")}
+                min={0}
+              />
+            </div>
+            <div className="col-12 col-md-6 col-lg-3">
+              <label htmlFor="listing-location-filter-fr" className="form-label fw-500">
+                Localisation
+              </label>
+              <input
+                id="listing-location-filter-fr"
+                className="form-control"
+                value={inputs.location}
+                onChange={handleInputChange("location")}
+                list="listing-location-options-fr"
+                placeholder="Saisissez la localisation ou laissez vide pour toutes"
+              />
+              <datalist id="listing-location-options-fr">
+                {locationOptions.map((option) => (
+                  <option key={option} value={option} />
+                ))}
+              </datalist>
+            </div>
+            <div className="col-12">
+              <div className="filter-actions">
+                <button
+                  type="button"
+                  className="btn-one"
+                  onClick={handleApplyFilters}
+                  disabled={filtersMatchInputs}
+                >
+                  Rechercher
+                </button>
+                <button
+                  type="button"
+                  className="btn-reset"
+                  onClick={handleResetFilters}
+                  disabled={isResetDisabled}
+                >
+                  Effacer filtres
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        {loading && <p className="text-center">Chargement des propriétés...</p>}
+        {loading && <p className="text-center">Chargement des proprietes...</p>}
         {!loading && error && <p className="text-center text-danger">{error}</p>}
-        {!loading && !error && properties.length === 0 && <p>Aucune propriété trouvée.</p>}
+        {!loading && !error && properties.length === 0 && <p>Aucune propriete trouvee.</p>}
 
         <div className="row">
           {!loading && !error && properties.length > 0 && filteredProperties.length === 0 && (
             <div className="col-12">
-              <p className="text-center">Aucune propriété ne correspond aux filtres sélectionnés.</p>
+              <p className="text-center">Aucune propriete ne correspond aux filtres selectionnes.</p>
             </div>
           )}
           {filteredProperties.map((prop) => {
             const localizedTitle = localizePropertyTitle(prop.title || "", "fr");
             return (
-              <div key={prop.public_id} className="col-md-4 mb-4">
-                <div className="property-card p-3 bg-white shadow-sm rounded">
-                  <img
-                    src={prop.title_image_thumb || "/images/default-property.jpg"}
-                    alt={localizedTitle || prop.title}
-                    className="img-fluid mb-3 rounded"
-                  />
-                  <h5>{localizedTitle || prop.title}</h5>
-                  <p>{formatLocation(prop.location)}</p>
-                  <p>
-                    <strong>
-                      {prop.operations?.[0]?.formatted_amount || "Prix non disponible"}
-                    </strong>
-                  </p>
-                  <Link
-                    href={`/fr/property/${prop.public_id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-one mt-3 d-block text-center"
-                  >
-                    Voir les détails
-                  </Link>
-                </div>
+              <div key={prop.public_id} className="col-xl-4 col-lg-6 col-md-6 mb-4">
+                <PropertyCard
+                  public_id={prop.public_id}
+                  title={localizedTitle || prop.title}
+                  language="fr"
+                  location={prop.location}
+                  title_image_full={prop.title_image_full}
+                  title_image_thumb={prop.title_image_thumb}
+                  operations={prop.operations}
+                  bedrooms={prop.bedrooms}
+                  bathrooms={prop.bathrooms}
+                  parking_spaces={prop.parking_spaces}
+                  construction_size={prop.construction_size}
+                />
               </div>
             );
           })}
