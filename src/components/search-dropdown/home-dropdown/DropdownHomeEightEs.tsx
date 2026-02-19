@@ -7,8 +7,8 @@ const DropdownHomeEightEs = () => {
   const router = useRouter();
 
   const [tipo, setTipo] = useState("todos");
-  const [ubicacion, setUbicacion] = useState("cdmx");
-  const [rango, setRango] = useState("1");
+  const [ubicacion, setUbicacion] = useState("todas");
+  const [rango, setRango] = useState("todos");
 
   const handleTipo = (e: any) => setTipo(e.target.value);
   const handleUbicacion = (e: any) => setUbicacion(e.target.value);
@@ -19,6 +19,7 @@ const DropdownHomeEightEs = () => {
   
   // Options de prix pour vente
   const ventaPriceOptions = [
+    { value: "todos", text: "Todos los precios" },
     { value: "1", text: "$3,000,000 - $10,000,000" },
     { value: "2", text: "$10,000,000 - $30,000,000" },
     { value: "3", text: "$30,000,000+" },
@@ -26,6 +27,7 @@ const DropdownHomeEightEs = () => {
   
   // Options de prix pour location
   const rentaPriceOptions = [
+    { value: "todos", text: "Todos los precios" },
     { value: "1", text: "$25,000 - $50,000" },
     { value: "2", text: "$50,000 - $100,000" },
     { value: "3", text: "$100,000+" },
@@ -37,8 +39,8 @@ const DropdownHomeEightEs = () => {
     e.preventDefault();
     const params = new URLSearchParams();
     if (tipo && tipo !== 'todos') params.set('tipo', tipo);
-    if (ubicacion) params.set('ubicacion', ubicacion);
-    if (rango) params.set('rango', rango);
+    if (ubicacion && ubicacion !== "todas") params.set('ubicacion', ubicacion);
+    if (rango && rango !== "todos") params.set('rango', rango);
     const qs = params.toString();
     const href = `https://www.cervantesbienesraices.com/listing_06${qs ? `?${qs}` : ''}`;
     if (typeof window !== 'undefined') {
@@ -77,6 +79,7 @@ const DropdownHomeEightEs = () => {
             <NiceSelect
               className="nice-select location fw-normal"
               options={[
+                { value: "todas", text: "Todas las ubicaciones" },
                 // Aguascalientes
                 { value: "aguascalientes", text: "Aguascalientes, Aguascalientes" },
                 // Baja California

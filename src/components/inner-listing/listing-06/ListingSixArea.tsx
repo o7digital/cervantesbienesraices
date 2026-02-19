@@ -269,15 +269,18 @@ const ListingSixArea = () => {
     const ubicacionKey = normalizeText(searchParams?.get("ubicacion") || "");
     const rangoParam = normalizeText(searchParams?.get("rango") || "");
 
+    const isRentalSearch = (typeParam: string) =>
+      typeParam.startsWith("rentar_") || typeParam.startsWith("rent_");
+
     const toOperation = (t: string): string => {
-      if (!t) return "";
-      if (t.startsWith("comprar_")) return "operation:venta";
-      if (t.startsWith("rentar_")) return "operation:renta";
+      if (!t || t === "todos") return "";
+      if (t.startsWith("comprar_") || t.startsWith("buy_")) return "operation:venta";
+      if (isRentalSearch(t)) return "operation:renta";
       return "";
     };
 
     const ubicacionTokens: Record<string, string[]> = {
-      cdmx: ["ciudad de mexico"],
+      cdmx: ["ciudad de mexico", "cdmx", "mexico city"],
       guadalajara: ["guadalajara"],
       monterrey: ["monterrey"],
       puebla: ["puebla"],
@@ -310,6 +313,7 @@ const ListingSixArea = () => {
       manzanillo: ["manzanillo"],
       guanajuato: ["guanajuato"],
       leon: ["leon", "león"],
+      ixtapa: ["ixtapa zihuatanejo", "ixtapa", "zihuatanejo"],
       pachuca: ["pachuca"],
       tlaxcala: ["tlaxcala"],
       cuernavaca: ["cuernavaca"],
@@ -317,11 +321,19 @@ const ListingSixArea = () => {
       madrid: ["madrid"],
     };
 
-    const rangeMap: Record<string, [number, number]> = {
-      "1": [10000, 200000],
-      "2": [200000, 500000],
-      "3": [500000, 1000000],
+    const saleRangeMap: Record<string, [number, number | null]> = {
+      "1": [3000000, 10000000],
+      "2": [10000000, 30000000],
+      "3": [30000000, null],
     };
+
+    const rentalRangeMap: Record<string, [number, number | null]> = {
+      "1": [25000, 50000],
+      "2": [50000, 100000],
+      "3": [100000, null],
+    };
+
+    const rangeMap = isRentalSearch(tipoParam) ? rentalRangeMap : saleRangeMap;
 
     const nextInputs = { ...initialFilterState };
     const op = toOperation(tipoParam);
@@ -332,7 +344,9 @@ const ListingSixArea = () => {
     if (rangoParam && rangeMap[rangoParam]) {
       const [min, max] = rangeMap[rangoParam];
       nextInputs.minPrice = String(min);
-      nextInputs.maxPrice = String(max);
+      if (max !== null) {
+        nextInputs.maxPrice = String(max);
+      }
     }
 
     // If any param present, prefill and apply immediately
