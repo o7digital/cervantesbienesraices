@@ -3,6 +3,7 @@ import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import DropdownHomeEightDe from "@/components/search-dropdown/home-dropdown/DropdownHomeEightDe";
 import Link from "next/link";
+import { localizePropertyTitle } from "@/utils/propertyLocalization";
 
 const formatLocation = (location: any) => {
   if (!location) return "Standort nicht verfügbar";
@@ -391,6 +392,7 @@ const ListingSixAreaDe = () => {
               const imageUrl =
                 item.property_images?.[0]?.url ||
                 "/assets/images/media/img_01.jpg";
+              const localizedTitle = localizePropertyTitle(item.title || "", "de");
 
               const operation = item.operations?.[0];
               const priceLabel =
@@ -415,7 +417,7 @@ const ListingSixAreaDe = () => {
                       <div className="d-flex align-items-center justify-content-between">
                         <div className="pe-3">
                           <Link href={`/de/property/${item.public_id}`} className="title fw-500 tran4s">
-                            {item.title || "Unbenannte Immobilie"}
+                            {localizedTitle || item.title || "Unbenannte Immobilie"}
                           </Link>
                           <div className="address tran4s">
                             {formatLocation(item.location)}

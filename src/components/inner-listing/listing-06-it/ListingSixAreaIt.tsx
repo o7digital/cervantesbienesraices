@@ -3,6 +3,7 @@ import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import DropdownHomeEightIt from "@/components/search-dropdown/home-dropdown/DropdownHomeEightIt";
 import Link from "next/link";
+import { localizePropertyTitle } from "@/utils/propertyLocalization";
 
 const formatLocation = (location: any) => {
   if (!location) return "Posizione non disponibile";
@@ -346,32 +347,35 @@ const ListingSixAreaIt = () => {
               <p className="text-center">Nessuna proprietà corrisponde ai filtri selezionati.</p>
             </div>
           )}
-          {filteredProperties.map((prop) => (
-            <div key={prop.public_id} className="col-md-4 mb-4">
-              <div className="property-card p-3 bg-white shadow-sm rounded">
-                <img
-                  src={prop.title_image_thumb || "/images/default-property.jpg"}
-                  alt={prop.title}
-                  className="img-fluid mb-3 rounded"
-                />
-                <h5>{prop.title}</h5>
-                <p>{formatLocation(prop.location)}</p>
-                <p>
-                  <strong>
-                    {prop.operations?.[0]?.formatted_amount || "Prezzo non disponibile"}
-                  </strong>
-                </p>
-                <Link
-                  href={`/it/property/${prop.public_id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-one mt-3 d-block text-center"
-                >
-                  Visualizza dettagli
-                </Link>
+          {filteredProperties.map((prop) => {
+            const localizedTitle = localizePropertyTitle(prop.title || "", "it");
+            return (
+              <div key={prop.public_id} className="col-md-4 mb-4">
+                <div className="property-card p-3 bg-white shadow-sm rounded">
+                  <img
+                    src={prop.title_image_thumb || "/images/default-property.jpg"}
+                    alt={localizedTitle || prop.title}
+                    className="img-fluid mb-3 rounded"
+                  />
+                  <h5>{localizedTitle || prop.title}</h5>
+                  <p>{formatLocation(prop.location)}</p>
+                  <p>
+                    <strong>
+                      {prop.operations?.[0]?.formatted_amount || "Prezzo non disponibile"}
+                    </strong>
+                  </p>
+                  <Link
+                    href={`/it/property/${prop.public_id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-one mt-3 d-block text-center"
+                  >
+                    Visualizza dettagli
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
