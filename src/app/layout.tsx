@@ -2,8 +2,7 @@ import "../styles/index.scss";
 import "../styles/fancybox-custom.css";
 import type { Metadata } from "next";
 import Script from "next/script";
-import CookieConsent from "@/components/common/CookieConsent";
-import PrivacyFloatingButton from "@/components/common/PrivacyFloatingButton";
+import AppChrome from "@/components/common/AppChrome";
 import Providers from "@/redux/Providers";
 
 const SITE_URL = "https://www.cervantesbienesraices.com";
@@ -90,11 +89,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning={true}>
         <Providers>
-          <div className="main-page-wrapper">
-            {children}
-            <CookieConsent />
-            <PrivacyFloatingButton />
-          </div>
+          <AppChrome>{children}</AppChrome>
         </Providers>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17929897758"

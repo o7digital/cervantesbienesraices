@@ -53,6 +53,7 @@ const NOINDEX_PREFIXES = [
   "/compare",
   "/faq",
   "/dashboard",
+  "/crm",
 ];
 
 function shouldNoIndex(pathname: string) {
