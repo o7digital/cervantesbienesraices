@@ -1,0 +1,196 @@
+---
+const featured = [
+  {
+    status: "Venta",
+    title: "Penthouse con terrazas privadas",
+    location: "Polanco • CDMX",
+    price: "Desde $38.9 M MXN",
+  },
+  {
+    status: "Renta",
+    title: "Departamento Art Déco renovado",
+    location: "Condesa • CDMX",
+    price: "Desde $78,000 MXN / mes",
+  },
+  {
+    status: "Inversión",
+    title: "Propiedad con potencial patrimonial",
+    location: "Roma Norte • CDMX",
+    price: "Estrategia a medida",
+  },
+];
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cervantes Bienes Raíces — Agencia premium en CDMX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./premium.css" />
+  </head>
+  <body class="premium">
+    <main>
+      <section class="hero">
+        <div class="heroBg" aria-hidden="true"></div>
+        <div class="heroOverlay" aria-hidden="true"></div>
+        <div class="container heroInner">
+          <span class="kicker">Cervantes Bienes Raíces • CDMX</span>
+          <h1 class="heroTitle">
+            Representación inmobiliaria premium, discreta y estratégica
+          </h1>
+          <p class="heroSub">
+            Acompañamos a compradores, propietarios e inversionistas con valuación
+            profesional, asesoría legal y una estrategia comercial de alto nivel.
+          </p>
+          <div class="ctaRow" style="margin-top: 18px">
+            <a class="btn primary" href="#">Explorar Propiedades</a>
+            <a class="btn" href="#">Quiero Vender mi Propiedad</a>
+          </div>
+          <div class="searchShell">
+            <div class="searchRow">
+              <input
+                class="input"
+                placeholder="Buscar por zona, tipo de propiedad o estilo de vida…"
+                aria-label="Buscar propiedades"
+              />
+              <a class="btn primary" href="#">Buscar</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <span class="kicker">Tres audiencias, una firma</span>
+          <h2 class="h2">Una experiencia clara para cada objetivo</h2>
+          <p class="lead">
+            No somos un portal de anuncios. Somos una agencia y firma de asesoría
+            inmobiliaria con procesos, criterio y acompañamiento integral.
+          </p>
+
+          <div class="grid2">
+            <article class="card">
+              <h3 style="margin: 0; font-family: 'EB Garamond', serif; font-size: 22px;">
+                Comprar o Invertir
+              </h3>
+              <p style="margin: 8px 0 0; color: var(--muted); line-height: 1.65;">
+                Búsqueda curada, análisis comparativo, negociación y soporte legal.
+              </p>
+              <div class="ctaRow">
+                <a class="btn primary" href="#">Ver propiedades selectas</a>
+                <a class="btn" href="#">Solicitar asesoría</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3 style="margin: 0; font-family: 'EB Garamond', serif; font-size: 22px;">
+                Vender una Propiedad
+              </h3>
+              <p style="margin: 8px 0 0; color: var(--muted); line-height: 1.65;">
+                Valuación, estrategia comercial premium, filtro de compradores y
+                reportes.
+              </p>
+              <div class="ctaRow">
+                <a class="btn primary" href="#">Solicitar valuación</a>
+                <a class="btn" href="#">Ver proceso</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <span class="kicker">Servicios</span>
+          <h2 class="h2">Asesoría integral, estándar premium</h2>
+          <p class="lead">
+            Un enfoque boutique con rigor: datos, negociación y ejecución
+            legal‑documental.
+          </p>
+
+          <div class="services">
+            <div class="serviceCard">
+              <h3 class="serviceTitle">Compra de Propiedades Premium</h3>
+              <p class="serviceText">Curaduría, negociación y cierre.</p>
+            </div>
+            <div class="serviceCard">
+              <h3 class="serviceTitle">Venta y Representación de Propietarios</h3>
+              <p class="serviceText">Estrategia comercial y difusión selectiva.</p>
+            </div>
+            <div class="serviceCard">
+              <h3 class="serviceTitle">Avalúos y Análisis de Mercado</h3>
+              <p class="serviceText">Comparables, rango de precio y plan.</p>
+            </div>
+            <div class="serviceCard">
+              <h3 class="serviceTitle">Asesoría Legal y Documentación</h3>
+              <p class="serviceText">Riesgos, contrato, notaría y cierre.</p>
+            </div>
+            <div class="serviceCard">
+              <h3 class="serviceTitle">Estrategia Patrimonial e Inversión</h3>
+              <p class="serviceText">Rentabilidad, plusvalía y horizonte.</p>
+            </div>
+            <div class="serviceCard">
+              <h3 class="serviceTitle">Crédito Hipotecario</h3>
+              <p class="serviceText">Opciones comparadas y acompañamiento.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <span class="kicker">Selección</span>
+          <h2 class="h2">Propiedades destacadas</h2>
+          <p class="lead">
+            Fichas con imagen protagonista y detalle esencial. Sin estética de
+            marketplace.
+          </p>
+
+          <div class="grid2">
+            {
+              featured.map((p) => (
+                <article class="card">
+                  <span class="kicker" style="margin-bottom: 10px;">
+                    {p.status}
+                  </span>
+                  <h3 style="margin: 0; font-family: 'EB Garamond', serif; font-size: 22px;">
+                    {p.title}
+                  </h3>
+                  <p style="margin: 8px 0 0; color: var(--muted); line-height: 1.65;">
+                    {p.location} • {p.price}
+                  </p>
+                  <div class="ctaRow">
+                    <a class="btn primary" href="#">Ver detalles</a>
+                    <a class="btn" href="#">Agendar visita</a>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <span class="kicker">Cierre</span>
+          <h2 class="h2">Agende una asesoría privada</h2>
+          <p class="lead">
+            Compra, venta o inversión: comparta su objetivo y reciba un plan claro
+            (valuación, estrategia y ruta legal‑documental).
+          </p>
+          <div class="ctaRow">
+            <a class="btn primary" href="#">Agende una asesoría privada</a>
+            <a class="btn" href="#">Solicite una valuación</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+

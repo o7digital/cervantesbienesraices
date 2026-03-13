@@ -3,6 +3,7 @@ node_modules/
 .next/
 .cache/
 dist/
+tsconfig.tsbuildinfo
 
 # Logs
 npm-debug.log*

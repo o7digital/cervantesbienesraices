@@ -1,15 +1,15 @@
-import HomeEight from "@/components/homes/home-eight";
+import HomePremium from "@/components/homes/home-premium";
 import Wrapper from "@/layouts/Wrapper";
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.cervantesbienesraices.com'),
-  title: "Cervantes Bienes Raíces – Venta y Renta de Casas y Departamentos en México | +20 años de experiencia",
-  description: "Encuentra tu hogar ideal en México. Cervantes Bienes Raíces ofrece casas en venta, departamentos en renta, y asesoría hipotecaria profesional. Más de 20 años de experiencia en el mercado inmobiliario.",
-  keywords: "casas en venta méxico, departamentos en renta cdmx, bienes raíces méxico, inmobiliaria, propiedades en venta, casas polanco, departamentos condesa, asesoría hipotecaria",
+  title: "Cervantes Bienes Raíces – Agencia inmobiliaria premium en CDMX | Compra, Venta e Inversión",
+  description: "Agencia y asesoría inmobiliaria premium en Ciudad de México. Representación para compradores, propietarios e inversionistas: valuación, estrategia comercial, acompañamiento legal y cierre seguro.",
+  keywords: "inmobiliaria premium cdmx, agencia inmobiliaria cdmx, venta de propiedades premium, valuación inmobiliaria, asesoría legal inmobiliaria, inversión inmobiliaria cdmx, Polanco, Condesa, Roma Norte",
   openGraph: {
-    title: "Cervantes Bienes Raíces – Tu Hogar Ideal en México",
-    description: "Venta y renta de casas y departamentos. Asesoría inmobiliaria profesional con más de 20 años de experiencia.",
+    title: "Cervantes Bienes Raíces – Agencia premium en CDMX",
+    description: "Representación para compra, venta e inversión. Valuación, estrategia y acompañamiento legal con enfoque premium.",
     url: "https://www.cervantesbienesraices.com",
     siteName: "Cervantes Bienes Raíces",
     images: [
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cervantes Bienes Raíces – Venta y Renta de Propiedades en México",
-    description: "Encuentra casas, departamentos y propiedades exclusivas en México",
+    title: "Cervantes Bienes Raíces – Agencia premium en CDMX",
+    description: "Compra, venta e inversión con valuación, estrategia y acompañamiento legal.",
     images: ["/images/assets/ogg.png"],
   },
   alternates: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 const index = () => {
   return (
     <Wrapper>
-      <HomeEight />
+      <HomePremium />
     </Wrapper>
   )
 }
