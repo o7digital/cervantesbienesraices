@@ -68,7 +68,7 @@ const HomePremium = () => {
           <div className={`${styles.container} ${styles.heroInner}`}>
             <span className={styles.kicker}>Cervantes Bienes Raíces • CDMX</span>
             <h1 className={styles.heroTitle}>
-              Representación inmobiliaria premium, discreta y estratégica
+              Casas en Compra, Venta y Departamentos en Renta en México
             </h1>
             <p className={styles.heroSub}>
               Acompañamos a compradores, propietarios e inversionistas con
