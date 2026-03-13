@@ -58,7 +58,7 @@ const HomePremium = () => {
   return (
     <div className={styles.wrap}>
       <OrganizationSchema />
-      <HeaderFive />
+      <HeaderFive style="dark" />
 
       <main>
         <section className={styles.hero}>
@@ -443,4 +443,3 @@ const HomePremium = () => {
 };
 
 export default HomePremium;
-
