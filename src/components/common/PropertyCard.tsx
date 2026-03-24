@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Fancybox from "@/components/common/Fancybox";
 import type { PropertyLanguage } from "@/utils/propertyLocalization";
@@ -33,6 +35,7 @@ const CARD_TEXT: Record<
     forRent: string;
     loadingPhotos: string;
     viewPhotos: string;
+    contact: string;
     imageLabel: string;
   }
 > = {
@@ -43,6 +46,7 @@ const CARD_TEXT: Record<
     forRent: "EN RENTA",
     loadingPhotos: "Cargando...",
     viewPhotos: "Ver fotos",
+    contact: "Contactar",
     imageLabel: "Imagen",
   },
   en: {
@@ -52,6 +56,7 @@ const CARD_TEXT: Record<
     forRent: "FOR RENT",
     loadingPhotos: "Loading...",
     viewPhotos: "View photos",
+    contact: "Contact",
     imageLabel: "Image",
   },
   fr: {
@@ -61,6 +66,7 @@ const CARD_TEXT: Record<
     forRent: "A LOUER",
     loadingPhotos: "Chargement...",
     viewPhotos: "Voir photos",
+    contact: "Contacter",
     imageLabel: "Image",
   },
   it: {
@@ -70,6 +76,7 @@ const CARD_TEXT: Record<
     forRent: "IN AFFITTO",
     loadingPhotos: "Caricamento...",
     viewPhotos: "Vedi foto",
+    contact: "Contatta",
     imageLabel: "Immagine",
   },
   de: {
@@ -79,6 +86,7 @@ const CARD_TEXT: Record<
     forRent: "ZU VERMIETEN",
     loadingPhotos: "Laedt...",
     viewPhotos: "Fotos ansehen",
+    contact: "Kontakt",
     imageLabel: "Bild",
   },
 };
@@ -114,6 +122,7 @@ export default function PropertyCard({
   construction_size,
   property_images,
 }: PropertyCardProps) {
+  const pathname = usePathname();
   const [imageError, setImageError] = useState(false);
   const [images, setImages] = useState<Array<{ url: string; title?: string }>>(property_images || []);
   const [loadingImages, setLoadingImages] = useState(!property_images);
@@ -124,6 +133,13 @@ export default function PropertyCard({
   const operationType = operations?.[0]?.type || "";
   const normalizedOperationType = operationType.toLowerCase();
   const isForSale = normalizedOperationType === "sale" || normalizedOperationType === "venta";
+  const contactBasePath = pathname?.startsWith("/de") ? "/de/contact" : "/contact";
+  const contactQuery = new URLSearchParams({
+    property: title,
+    propertyId: public_id,
+    sourcePath: pathname || "/listing_06",
+  }).toString();
+  const contactHref = `${contactBasePath}?${contactQuery}#contact-form`;
 
   // Charger les images si elles ne sont pas déjà fournies
   useEffect(() => {
@@ -215,14 +231,20 @@ export default function PropertyCard({
 
           <div className={styles.propertyFooter}>
             <div className={styles.price}>{priceLabel}</div>
-            <button
-              onClick={handleViewPhotos}
-              className={styles.viewButton}
-              disabled={loadingImages}
-            >
-              {loadingImages ? text.loadingPhotos : text.viewPhotos}
-              <i className="fa-solid fa-images"></i>
-            </button>
+            <div className={styles.actionButtons}>
+              <Link href={contactHref} className={styles.contactButton}>
+                {text.contact}
+                <i className="fa-solid fa-envelope"></i>
+              </Link>
+              <button
+                onClick={handleViewPhotos}
+                className={styles.viewButton}
+                disabled={loadingImages}
+              >
+                {loadingImages ? text.loadingPhotos : text.viewPhotos}
+                <i className="fa-solid fa-images"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>

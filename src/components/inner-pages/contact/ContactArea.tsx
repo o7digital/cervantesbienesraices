@@ -68,7 +68,7 @@ const ContactArea = () => {
          <div className="bg-pink mt-150 xl-mt-120 md-mt-80">
             <div className="row">
                <div className="col-xl-7 col-lg-6">
-                  <div className="form-style-one wow fadeInUp">
+                  <div id="contact-form" className="form-style-one wow fadeInUp">
                      <ContactForm />
                   </div>
                </div>

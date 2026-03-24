@@ -1,6 +1,6 @@
 "use client"
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
+import { useSearchParams } from "next/navigation";
 import { toast } from 'react-toastify';
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -21,30 +21,66 @@ const schema = yup
    .required();
 
 const ContactForm = () => {
+   const searchParams = useSearchParams();
+   const propertyTitle = searchParams?.get("property")?.trim() || "";
+   const propertyId = searchParams?.get("propertyId")?.trim() || "";
+   const sourcePath = searchParams?.get("sourcePath")?.trim() || "";
+   const contextualMessage = propertyTitle
+      ? `Hola, me interesa recibir más información sobre esta propiedad:\n- Propiedad: ${propertyTitle}${propertyId ? `\n- Referencia: ${propertyId}` : ""}${sourcePath ? `\n- Página: ${sourcePath}` : ""}\n\nGracias.`
+      : "";
+   const defaultValues: FormData = {
+      user_name: "",
+      user_email: "",
+      message: contextualMessage,
+   };
 
-   const { register, handleSubmit, reset, formState: { errors }, } = useForm<FormData>({ resolver: yupResolver(schema), });
+   const { register, handleSubmit, reset, formState: { errors, isSubmitting }, } = useForm<FormData>({
+      resolver: yupResolver(schema),
+      defaultValues,
+   });
 
    const form = useRef<HTMLFormElement>(null);
 
-   const sendEmail = (data: FormData) => {
-      if (form.current) {
-         emailjs.sendForm('service_070078r', 'template_lojvsvb', form.current, 'mtLgOuG25NnIwGeKm')
-            .then((result) => {
-               const notify = () => toast('Message sent successfully', { position: 'top-center' });
-               notify();
-               reset();
-               console.log(result.text);
-            }, (error) => {
-               console.log(error.text);
-            });
-      } else {
-         console.error("Form reference is null");
+   const sendEmail = async (data: FormData) => {
+      try {
+         const response = await fetch("/api/send-contact-email", {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+               name: data.user_name,
+               email: data.user_email,
+               message: data.message,
+               propertyTitle,
+               propertyId,
+               sourcePath,
+            }),
+         });
+
+         const result = await response.json();
+
+         if (!response.ok) {
+            throw new Error(result?.error || result?.message || "Failed to send message");
+         }
+
+         toast("Message sent successfully", { position: "top-center" });
+         reset(defaultValues);
+      } catch (error) {
+         console.error("Error sending contact form:", error);
+         toast("Unable to send the message right now. Please try again.", { position: "top-center" });
       }
    };
 
    return (
       <form ref={form} onSubmit={handleSubmit(sendEmail)}>
          <h3>Send Message</h3>
+         {propertyTitle && (
+            <div className="alert alert-light border mb-25">
+               <strong>Property of interest:</strong> {propertyTitle}
+               {propertyId && <> ({propertyId})</>}
+            </div>
+         )}
          <div className="messages"></div>
          <div className="row controls">
             <div className="col-12">
@@ -68,7 +104,9 @@ const ContactForm = () => {
                </div>
             </div>
             <div className="col-12">
-               <button type='submit' className="btn-nine text-uppercase rounded-3 fw-normal w-100">Send Message</button>
+               <button type='submit' className="btn-nine text-uppercase rounded-3 fw-normal w-100" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+               </button>
             </div>
          </div>
       </form>

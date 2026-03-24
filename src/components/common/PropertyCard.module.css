@@ -121,55 +121,81 @@
 }
 
 .propertyFooter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
   margin-top: auto;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .price {
   font-size: 22px;
   font-weight: 700;
   color: #ff5a3c;
-  white-space: nowrap;
+  line-height: 1;
 }
 
+.actionButtons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  min-width: 280px;
+}
+
+.contactButton,
 .viewButton {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 20px;
-  background: #ff5a3c;
-  color: white;
+  min-height: 53px;
+  padding: 0 22px;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 0.3s ease;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+}
+
+.contactButton {
+  background: transparent;
+  color: #ff5a3c;
+  border: 1px solid #ff5a3c;
+}
+
+.contactButton:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.viewButton {
+  background: #ff6725;
+  color: white;
   border: none;
   cursor: pointer;
 }
 
 .viewButton:hover {
-  background: #e04a2d;
-  transform: translateX(4px);
+  background: #ff3f25;
   color: white;
 }
 
 .viewButton:disabled {
   background: #ccc;
   cursor: not-allowed;
-  transform: none;
 }
 
+.contactButton i,
 .viewButton i {
-  transition: transform 0.3s ease;
+  font-size: 14px;
 }
 
-.viewButton:hover i {
-  transform: translateX(4px);
+@media (max-width: 1199px) {
+  .actionButtons {
+    min-width: 250px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -186,12 +212,18 @@
   }
 
   .propertyFooter {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     align-items: stretch;
   }
 
+  .actionButtons {
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .contactButton,
   .viewButton {
     width: 100%;
-    justify-content: center;
   }
 }
