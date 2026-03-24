@@ -4,6 +4,7 @@ import HeaderFive from "@/layouts/headers/HeaderFive";
 import FooterThreeDe from "@/layouts/footers/FooterThreeDe";
 import ImageGallery from "@/components/common/ImageGallery";
 import PropertySchema from "@/components/common/PropertySchema";
+import { localizePropertyTitle } from "@/utils/propertyLocalization";
 
 const BASE_URL = "https://www.cervantesbienesraices.com";
 const EB_API_URL = "https://api.easybroker.com/v1/properties";
@@ -91,11 +92,12 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 
   const canonical = `${BASE_URL}/de/property/${property.public_id || params.id}`;
+  const localizedTitle = localizePropertyTitle(property.title || "", "de");
   const description = truncate(property.description) || "Immobilie zum Kauf oder zur Miete in Mexiko.";
   const ogImage = property.property_images?.[0]?.url || "/images/assets/ogg.png";
 
   return {
-    title: `${property.title} | Cervantes Real Estate`,
+    title: `${localizedTitle || property.title} | Cervantes Real Estate`,
     description,
     alternates: {
       canonical,
@@ -108,7 +110,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
       },
     },
     openGraph: {
-      title: `${property.title} | Cervantes Real Estate`,
+      title: `${localizedTitle || property.title} | Cervantes Real Estate`,
       description,
       url: canonical,
       images: [{ url: ogImage }],
@@ -116,7 +118,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     },
     twitter: {
       card: "summary_large_image",
-      title: `${property.title} | Cervantes Real Estate`,
+      title: `${localizedTitle || property.title} | Cervantes Real Estate`,
       description,
       images: [ogImage],
     },
@@ -129,6 +131,7 @@ export default async function PropertyDetailPageDe({ params }: { params: { id: s
     notFound();
   }
 
+  const localizedTitle = localizePropertyTitle(property.title || "", "de");
   const locationLabel = buildLocationLabel(property);
   const priceLabel = buildPriceLabel(property);
 
@@ -136,11 +139,11 @@ export default async function PropertyDetailPageDe({ params }: { params: { id: s
     <div className="main-page-wrapper">
       <HeaderFive />
       <main className="property-detail container pt-100 pb-100">
-        <h1 className="mb-4">{property.title}</h1>
+        <h1 className="mb-4">{localizedTitle || property.title}</h1>
         <p className="text-muted">{locationLabel}</p>
 
         {property.property_images?.length ? (
-          <ImageGallery images={property.property_images} title={property.title} />
+          <ImageGallery images={property.property_images} title={localizedTitle || property.title} />
         ) : (
           <p className="text-muted mb-4">Keine Bilder verfügbar.</p>
         )}

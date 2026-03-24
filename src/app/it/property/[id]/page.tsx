@@ -4,6 +4,7 @@ import HeaderFive from "@/layouts/headers/HeaderFive";
 import FooterThreeIt from "@/layouts/footers/FooterThreeIt";
 import ImageGallery from "@/components/common/ImageGallery";
 import PropertySchema from "@/components/common/PropertySchema";
+import { localizePropertyTitle } from "@/utils/propertyLocalization";
 
 const BASE_URL = "https://www.cervantesbienesraices.com";
 const EB_API_URL = "https://api.easybroker.com/v1/properties";
@@ -95,11 +96,12 @@ export async function generateMetadata({
     };
   }
 
+  const localizedTitle = localizePropertyTitle(property.title || "", "it");
   const locationLabel = buildLocationLabel(property);
   const priceLabel = buildPriceLabel(property);
-  const pageTitle = `${property.title} – ${locationLabel}`;
+  const pageTitle = `${localizedTitle || property.title} – ${locationLabel}`;
   const pageDescription = truncate(
-    property.description || `${property.title} situata a ${locationLabel}. ${priceLabel}.`
+    property.description || `${localizedTitle || property.title} situata a ${locationLabel}. ${priceLabel}.`
   );
   const imageUrl = property.property_images?.[0]?.url || "/images/assets/ogg.png";
   const canonicalUrl = `${BASE_URL}/it/property/${id}`;
@@ -146,6 +148,7 @@ export default async function PropertyDetailPageIt({
     notFound();
   }
 
+  const localizedTitle = localizePropertyTitle(property.title || "", "it");
   const locationLabel = buildLocationLabel(property);
   const priceLabel = buildPriceLabel(property);
 
@@ -153,11 +156,11 @@ export default async function PropertyDetailPageIt({
     <div className="main-page-wrapper">
       <HeaderFive />
       <main className="property-detail container pt-100 pb-100">
-        <h1 className="mb-4">{property.title}</h1>
+        <h1 className="mb-4">{localizedTitle || property.title}</h1>
         <p className="text-muted">{locationLabel}</p>
 
         {property.property_images?.length ? (
-          <ImageGallery images={property.property_images} title={property.title} />
+          <ImageGallery images={property.property_images} title={localizedTitle || property.title} />
         ) : (
           <p className="text-muted mb-4">Nessuna immagine disponibile.</p>
         )}

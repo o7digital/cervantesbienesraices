@@ -6,7 +6,7 @@ import ListingSixAreaIt from "./ListingSixAreaIt";
 const ListingSixIt = () => {
   return (
     <div className="main-page-wrapper">
-      <HeaderFive />
+      <HeaderFive style="dark" />
       <Suspense fallback={<div>Caricamento...</div>}>
         <ListingSixAreaIt />
       </Suspense>

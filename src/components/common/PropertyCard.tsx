@@ -1,14 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Fancybox from "@/components/common/Fancybox";
+import type { PropertyLanguage } from "@/utils/propertyLocalization";
 import styles from "./PropertyCard.module.css";
 
 interface PropertyCardProps {
   public_id: string;
   title: string;
+  language?: PropertyLanguage;
   location: any;
   title_image_full?: string;
   title_image_thumb?: string;
@@ -23,8 +24,68 @@ interface PropertyCardProps {
   property_images?: Array<{ url: string; title?: string }>;
 }
 
-const formatLocation = (location: any) => {
-  if (!location) return "Ubicación no disponible";
+const CARD_TEXT: Record<
+  PropertyLanguage,
+  {
+    locationNotAvailable: string;
+    priceOnRequest: string;
+    forSale: string;
+    forRent: string;
+    loadingPhotos: string;
+    viewPhotos: string;
+    imageLabel: string;
+  }
+> = {
+  es: {
+    locationNotAvailable: "Ubicacion no disponible",
+    priceOnRequest: "Consultar precio",
+    forSale: "EN VENTA",
+    forRent: "EN RENTA",
+    loadingPhotos: "Cargando...",
+    viewPhotos: "Ver fotos",
+    imageLabel: "Imagen",
+  },
+  en: {
+    locationNotAvailable: "Location not available",
+    priceOnRequest: "Price on request",
+    forSale: "FOR SALE",
+    forRent: "FOR RENT",
+    loadingPhotos: "Loading...",
+    viewPhotos: "View photos",
+    imageLabel: "Image",
+  },
+  fr: {
+    locationNotAvailable: "Localisation non disponible",
+    priceOnRequest: "Prix sur demande",
+    forSale: "A VENDRE",
+    forRent: "A LOUER",
+    loadingPhotos: "Chargement...",
+    viewPhotos: "Voir photos",
+    imageLabel: "Image",
+  },
+  it: {
+    locationNotAvailable: "Posizione non disponibile",
+    priceOnRequest: "Prezzo su richiesta",
+    forSale: "IN VENDITA",
+    forRent: "IN AFFITTO",
+    loadingPhotos: "Caricamento...",
+    viewPhotos: "Vedi foto",
+    imageLabel: "Immagine",
+  },
+  de: {
+    locationNotAvailable: "Standort nicht verfuegbar",
+    priceOnRequest: "Preis auf Anfrage",
+    forSale: "ZU VERKAUFEN",
+    forRent: "ZU VERMIETEN",
+    loadingPhotos: "Laedt...",
+    viewPhotos: "Fotos ansehen",
+    imageLabel: "Bild",
+  },
+};
+
+const formatLocation = (location: any, language: PropertyLanguage) => {
+  const text = CARD_TEXT[language] ?? CARD_TEXT.es;
+  if (!location) return text.locationNotAvailable;
   
   if (typeof location === "string") {
     return location;
@@ -36,12 +97,13 @@ const formatLocation = (location: any) => {
     location?.state,
   ].filter(Boolean);
 
-  return parts.length ? parts.join(", ") : "Ubicación no disponible";
+  return parts.length ? parts.join(", ") : text.locationNotAvailable;
 };
 
 export default function PropertyCard({
   public_id,
   title,
+  language = "es",
   location,
   title_image_full,
   title_image_thumb,
@@ -55,11 +117,13 @@ export default function PropertyCard({
   const [imageError, setImageError] = useState(false);
   const [images, setImages] = useState<Array<{ url: string; title?: string }>>(property_images || []);
   const [loadingImages, setLoadingImages] = useState(!property_images);
+  const text = CARD_TEXT[language] ?? CARD_TEXT.es;
 
   const imageUrl = title_image_full || title_image_thumb || "/images/default-property.jpg";
-  const priceLabel = operations?.[0]?.formatted_amount || "Consultar precio";
+  const priceLabel = operations?.[0]?.formatted_amount || text.priceOnRequest;
   const operationType = operations?.[0]?.type || "";
-  const isForSale = operationType.toLowerCase() === "sale";
+  const normalizedOperationType = operationType.toLowerCase();
+  const isForSale = normalizedOperationType === "sale" || normalizedOperationType === "venta";
 
   // Charger les images si elles ne sont pas déjà fournies
   useEffect(() => {
@@ -111,7 +175,7 @@ export default function PropertyCard({
             </div>
           )}
           <div className={styles.tag}>
-            {isForSale ? "EN VENTA" : "EN RENTA"}
+            {isForSale ? text.forSale : text.forRent}
           </div>
         </div>
 
@@ -119,7 +183,7 @@ export default function PropertyCard({
           <h3 className={styles.propertyTitle}>{title}</h3>
           <p className={styles.propertyLocation}>
             <i className="fa-solid fa-location-dot"></i>
-            {formatLocation(location)}
+            {formatLocation(location, language)}
           </p>
 
           <div className={styles.propertyFeatures}>
@@ -156,7 +220,7 @@ export default function PropertyCard({
               className={styles.viewButton}
               disabled={loadingImages}
             >
-              {loadingImages ? "Cargando..." : "Ver fotos"}
+              {loadingImages ? text.loadingPhotos : text.viewPhotos}
               <i className="fa-solid fa-images"></i>
             </button>
           </div>
@@ -184,7 +248,7 @@ export default function PropertyCard({
               key={index}
               data-fancybox={`gallery-${public_id}`}
               href={img.url}
-              data-caption={`${title} - Imagen ${index + 1}`}
+              data-caption={`${title} - ${text.imageLabel} ${index + 1}`}
             >
               <Image 
                 src={img.url} 
