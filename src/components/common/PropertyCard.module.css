@@ -121,11 +121,11 @@
 }
 
 .propertyFooter {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   margin-top: auto;
-  gap: 16px;
+  gap: 14px;
 }
 
 .price {
@@ -133,13 +133,14 @@
   font-weight: 700;
   color: #ff5a3c;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .actionButtons {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  min-width: 280px;
+  gap: 8px;
+  width: 100%;
 }
 
 .contactButton,
@@ -147,15 +148,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 53px;
-  padding: 0 22px;
+  gap: 6px;
+  min-height: 46px;
+  padding: 0 16px;
   text-decoration: none;
   border-radius: 10px;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 13px;
   white-space: nowrap;
   transition: all 0.3s ease-in-out;
+  width: 100%;
 }
 
 .contactButton {
@@ -189,12 +191,12 @@
 
 .contactButton i,
 .viewButton i {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 @media (max-width: 1199px) {
-  .actionButtons {
-    min-width: 250px;
+  .price {
+    font-size: 20px;
   }
 }
 
@@ -209,21 +211,20 @@
 
   .price {
     font-size: 18px;
+    white-space: normal;
   }
 
   .propertyFooter {
-    grid-template-columns: 1fr;
     align-items: stretch;
   }
 
   .actionButtons {
-    width: 100%;
-    min-width: 0;
     grid-template-columns: 1fr;
   }
 
   .contactButton,
   .viewButton {
     width: 100%;
+    min-height: 44px;
   }
 }
