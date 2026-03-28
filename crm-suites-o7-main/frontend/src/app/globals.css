@@ -1,0 +1,289 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b1021;
+  --surface: #0f1629;
+  --card: #151d32;
+  --foreground: #e9edf5;
+  --muted: #9fb3c8;
+  --accent: #7c3aed;
+  --accent-2: #22d3ee;
+  --marketing-bg: #f7f1e8;
+  --marketing-surface: rgba(255, 252, 247, 0.82);
+  --marketing-card: rgba(255, 255, 255, 0.72);
+  --marketing-border: rgba(90, 62, 35, 0.12);
+  --marketing-ink: #231a12;
+  --marketing-muted: #6c5a49;
+  --marketing-accent: #c77b30;
+  --marketing-accent-dark: #8f5320;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(
+      120% 120% at 10% 20%,
+      color-mix(in srgb, var(--accent-2) 16%, transparent),
+      transparent
+    ),
+    radial-gradient(90% 90% at 80% 10%, color-mix(in srgb, var(--accent) 20%, transparent), transparent),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.card {
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--card) 95%, transparent),
+    color-mix(in srgb, var(--surface) 96%, transparent)
+  );
+  border: 1px solid color-mix(in srgb, var(--foreground) 7%, transparent);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--accent), color-mix(in srgb, var(--accent) 72%, #000));
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 10px 14px;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.35);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 38px rgba(124, 58, 237, 0.45);
+  box-shadow: 0 18px 38px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.btn-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+  box-shadow: none;
+  filter: saturate(0.7);
+}
+
+.btn-primary:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: color-mix(in srgb, var(--surface) 82%, white 6%);
+  color: var(--foreground);
+  border: 1px solid color-mix(in srgb, var(--foreground) 9%, transparent);
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.nav-link {
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  transition: background 120ms ease, box-shadow 120ms ease, color 120ms ease;
+}
+
+.nav-link-active {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--accent) 34%, transparent),
+    color-mix(in srgb, var(--foreground) 3%, transparent)
+  );
+  color: color-mix(in srgb, var(--accent) 60%, #fff);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent),
+    0 14px 34px color-mix(in srgb, var(--accent) 26%, transparent);
+}
+
+.app-header {
+  border-color: color-mix(in srgb, var(--foreground) 6%, transparent);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+.app-menu {
+  border-color: color-mix(in srgb, var(--foreground) 10%, transparent);
+  background: color-mix(in srgb, var(--surface) 96%, black 4%);
+}
+
+.brand-mark {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: color-mix(in srgb, var(--foreground) 20%, #000 80%);
+}
+
+.marketing-page {
+  background:
+    radial-gradient(circle at top left, rgba(199, 123, 48, 0.15), transparent 32%),
+    radial-gradient(circle at right 10%, rgba(126, 95, 61, 0.12), transparent 28%),
+    linear-gradient(180deg, #fbf8f3 0%, var(--marketing-bg) 100%);
+  color: var(--marketing-ink);
+}
+
+.marketing-container {
+  width: min(1180px, calc(100vw - 2rem));
+  margin: 0 auto;
+}
+
+.marketing-section {
+  padding: 5rem 0;
+}
+
+.marketing-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--marketing-surface) 92%, transparent);
+  border-bottom: 1px solid var(--marketing-border);
+}
+
+.marketing-brand-mark {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #1d1b18, #6c4d2e);
+  color: #fff7ec;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
+}
+
+.marketing-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+  letter-spacing: -0.03em;
+}
+
+.marketing-kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--marketing-accent-dark);
+}
+
+.marketing-card,
+.marketing-panel {
+  border: 1px solid var(--marketing-border);
+  box-shadow: 0 20px 60px rgba(62, 42, 22, 0.08);
+}
+
+.marketing-card {
+  background: var(--marketing-card);
+  border-radius: 1.75rem;
+}
+
+.marketing-panel {
+  background: color-mix(in srgb, var(--marketing-surface) 88%, white 12%);
+  border-radius: 2rem;
+}
+
+.marketing-pill,
+.marketing-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--marketing-border);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--marketing-muted);
+}
+
+.marketing-pill {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.marketing-chip {
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+}
+
+.marketing-button-primary,
+.marketing-button-secondary,
+.marketing-nav-link,
+.marketing-link,
+.marketing-footer-link {
+  transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease, color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.marketing-button-primary,
+.marketing-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.marketing-button-primary {
+  background: linear-gradient(135deg, var(--marketing-accent), var(--marketing-accent-dark));
+  color: #fffaf5;
+  box-shadow: 0 16px 30px rgba(143, 83, 32, 0.22);
+}
+
+.marketing-button-secondary {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--marketing-border);
+  color: var(--marketing-ink);
+}
+
+.marketing-button-primary:hover,
+.marketing-button-secondary:hover,
+.marketing-nav-link:hover,
+.marketing-link:hover,
+.marketing-footer-link:hover {
+  transform: translateY(-1px);
+}
+
+.marketing-nav-link {
+  border-radius: 999px;
+  padding: 0.65rem 0.95rem;
+}
+
+.marketing-nav-link:hover {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.marketing-link {
+  color: var(--marketing-accent-dark);
+  font-weight: 700;
+}
+
+.marketing-footer-link:hover,
+.marketing-link:hover {
+  color: var(--marketing-accent);
+}
+
+@media (max-width: 768px) {
+  .marketing-section {
+    padding: 4rem 0;
+  }
+}
