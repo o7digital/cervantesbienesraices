@@ -1,5 +1,7 @@
 import { Transform } from 'class-transformer';
-import { IsEmail, IsOptional, IsString, MaxLength } from 'class-validator';
+import { IsEmail, IsIn, IsOptional, IsString, MaxLength } from 'class-validator';
+
+const CLIENT_STATUSES = ['CLIENT', 'PROSPECT', 'LOST'] as const;
 
 function optionalTrimmedString(value: unknown): string | undefined {
   if (value === null || value === undefined) return undefined;
@@ -37,6 +39,10 @@ export class CreateClientDto {
   @MaxLength(120)
   @Transform(({ value }) => optionalTrimmedString(value))
   name: string;
+
+  @IsOptional()
+  @IsIn(CLIENT_STATUSES)
+  status?: (typeof CLIENT_STATUSES)[number];
 
   @IsOptional()
   @IsString()

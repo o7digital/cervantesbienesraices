@@ -61,6 +61,12 @@ enum InviteStatus {
   REVOKED
 }
 
+enum ClientStatus {
+  CLIENT
+  PROSPECT
+  LOST
+}
+
 model User {
   id        String   @id @default(uuid())
   email     String   @unique
@@ -120,6 +126,7 @@ model Client {
   id        String   @id @default(uuid())
   firstName String?
   name      String
+  status    ClientStatus @default(CLIENT)
   function  String?
   companySector String?
   email     String?

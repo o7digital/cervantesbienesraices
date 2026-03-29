@@ -13,6 +13,7 @@ type Client = {
   id: string;
   firstName?: string | null;
   name: string;
+  status?: 'CLIENT' | 'PROSPECT' | 'LOST' | null;
   function?: string | null;
   companySector?: string | null;
   email?: string;
@@ -29,6 +30,7 @@ type ClientDetails = {
   id: string;
   firstName?: string | null;
   name: string;
+  status?: 'CLIENT' | 'PROSPECT' | 'LOST' | null;
   function?: string | null;
   companySector?: string | null;
   email?: string | null;
@@ -45,6 +47,7 @@ type ClientDetails = {
 type ClientCreatePayload = {
   firstName?: string;
   name: string;
+  status?: 'CLIENT' | 'PROSPECT' | 'LOST';
   function?: string;
   companySector?: string;
   email?: string;
@@ -84,6 +87,8 @@ function parseContactLine(input: string): { name?: string; email?: string } {
   return {};
 }
 
+const CLIENT_STATUS_OPTIONS = ['CLIENT', 'PROSPECT', 'LOST'] as const;
+
 export default function ClientsPage() {
   const { t } = useI18n();
 
@@ -118,6 +123,7 @@ function ClientsPageContent() {
   const [detailsForm, setDetailsForm] = useState<{
     firstName: string;
     name: string;
+    status: 'CLIENT' | 'PROSPECT' | 'LOST';
     clientFunction: string;
     companySector: string;
     email: string;
@@ -130,6 +136,7 @@ function ClientsPageContent() {
   }>({
     firstName: '',
     name: '',
+    status: 'CLIENT',
     clientFunction: '',
     companySector: '',
     email: '',
@@ -230,6 +237,7 @@ function ClientsPageContent() {
         setDetailsForm({
           firstName: data.firstName ?? '',
           name: data.name ?? '',
+          status: data.status ?? 'CLIENT',
           clientFunction: data.function ?? '',
           companySector: data.companySector ?? '',
           email: data.email ?? '',
@@ -276,6 +284,7 @@ function ClientsPageContent() {
         body: JSON.stringify({
           firstName: toOptionalTrimmed(detailsForm.firstName),
           name: nextName,
+          status: detailsForm.status,
           function: toOptionalTrimmed(detailsForm.clientFunction),
           companySector: toOptionalTrimmed(detailsForm.companySector),
           email: toOptionalTrimmed(detailsForm.email),
@@ -521,47 +530,84 @@ function ClientsPageContent() {
         <div className="mt-4 rounded-lg bg-emerald-500/10 px-3 py-2 text-emerald-200">{actionMessage}</div>
       )}
 
-      <div className="mt-6 space-y-3">
-        {clients.map((client) => (
-          <div
-            key={client.id}
-            className="card flex cursor-pointer flex-col gap-2 p-4 transition hover:bg-white/5 sm:flex-row sm:items-center sm:justify-between"
-            role="button"
-            tabIndex={0}
-            onClick={() => router.push(`/clients?clientId=${encodeURIComponent(client.id)}`)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                router.push(`/clients?clientId=${encodeURIComponent(client.id)}`);
-              }
-            }}
-          >
-            <div>
-              <p className="text-lg font-semibold">{getClientDisplayName(client)}</p>
-              <p className="text-sm text-slate-400">
-                {client.email || '—'} · {client.company || t('clients.noCompany')}
-                {client.companySector ? ` · ${client.companySector}` : ''}
-                {client.function ? ` · ${client.function}` : ''}
-                {client.taxId ? ` · ${t('clients.taxId')}: ${client.taxId}` : ''}
-              </p>
-              {client.website ? <p className="text-xs text-slate-500">{client.website}</p> : null}
-            </div>
-            <div className="flex gap-2">
-              <button
-                className="rounded-lg border border-red-500/30 px-3 py-2 text-sm text-red-200 hover:bg-red-500/10"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleDelete(client.id);
-                }}
-              >
-                {t('common.delete')}
-              </button>
-            </div>
+      <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/30">
+        {clients.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[720px] text-sm">
+              <thead className="bg-white/5 text-slate-400">
+                <tr>
+                  <th className="px-4 py-3 text-left">{t('clients.table.status')}</th>
+                  <th className="px-4 py-3 text-left">{t('clients.table.client')}</th>
+                  <th className="px-4 py-3 text-left">{t('clients.table.company')}</th>
+                  <th className="px-4 py-3 text-left">{t('clients.table.contact')}</th>
+                  <th className="px-4 py-3 text-right">{t('clients.table.actions')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {clients.map((client) => {
+                  const status = client.status ?? 'CLIENT';
+                  return (
+                    <tr
+                      key={client.id}
+                      className="cursor-pointer border-t border-white/5 transition hover:bg-white/5"
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => router.push(`/clients?clientId=${encodeURIComponent(client.id)}`)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          router.push(`/clients?clientId=${encodeURIComponent(client.id)}`);
+                        }
+                      }}
+                    >
+                      <td className="px-4 py-4">
+                        <span
+                          className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.12em] ${
+                            status === 'CLIENT'
+                              ? 'border-cyan-400/30 bg-cyan-400/10 text-cyan-200'
+                              : status === 'PROSPECT'
+                                ? 'border-amber-400/30 bg-amber-400/10 text-amber-200'
+                                : 'border-rose-400/30 bg-rose-400/10 text-rose-200'
+                          }`}
+                        >
+                          {t(`clients.status.${status}`)}
+                        </span>
+                      </td>
+                      <td className="px-4 py-4">
+                        <p className="font-semibold text-slate-100">{getClientDisplayName(client)}</p>
+                        {client.function ? <p className="text-xs text-slate-500">{client.function}</p> : null}
+                      </td>
+                      <td className="px-4 py-4 text-slate-300">
+                        <p>{client.company || t('clients.noCompany')}</p>
+                        {client.companySector ? <p className="text-xs text-slate-500">{client.companySector}</p> : null}
+                      </td>
+                      <td className="px-4 py-4 text-slate-300">
+                        <p>{client.email || '—'}</p>
+                        <p className="text-xs text-slate-500">
+                          {client.phone || '—'}
+                          {client.taxId ? ` · ${t('clients.taxId')}: ${client.taxId}` : ''}
+                        </p>
+                        {client.website ? <p className="text-xs text-slate-500">{client.website}</p> : null}
+                      </td>
+                      <td className="px-4 py-4 text-right">
+                        <button
+                          className="rounded-lg border border-red-500/30 px-3 py-2 text-sm text-red-200 hover:bg-red-500/10"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(client.id);
+                          }}
+                        >
+                          {t('common.delete')}
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
-        ))}
-        {clients.length === 0 && !loading && (
-          <p className="text-sm text-slate-400">{t('clients.empty')}</p>
-        )}
+        ) : null}
+        {clients.length === 0 && !loading && <p className="p-4 text-sm text-slate-400">{t('clients.empty')}</p>}
       </div>
 
       {importOpen && (
@@ -796,6 +842,25 @@ function ClientsPageContent() {
                       />
                     </label>
                     <label className="block text-sm text-slate-300">
+                      {t('field.clientStatus')}
+                      <select
+                        className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm"
+                        value={detailsForm.status}
+                        onChange={(e) =>
+                          setDetailsForm((prev) => ({
+                            ...prev,
+                            status: e.target.value as 'CLIENT' | 'PROSPECT' | 'LOST',
+                          }))
+                        }
+                      >
+                        {CLIENT_STATUS_OPTIONS.map((status) => (
+                          <option key={status} value={status}>
+                            {t(`clients.status.${status}`)}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <label className="block text-sm text-slate-300">
                       {t('field.function')}
                       <select
                         className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm"
@@ -929,6 +994,7 @@ function ClientForm({ onSubmit }: { onSubmit: (payload: Partial<Client>) => Prom
   const { t } = useI18n();
   const [firstName, setFirstName] = useState('');
   const [name, setName] = useState('');
+  const [status, setStatus] = useState<'CLIENT' | 'PROSPECT' | 'LOST'>('CLIENT');
   const [clientFunction, setClientFunction] = useState('');
   const [companySector, setCompanySector] = useState('');
   const [email, setEmail] = useState('');
@@ -954,6 +1020,7 @@ function ClientForm({ onSubmit }: { onSubmit: (payload: Partial<Client>) => Prom
       await onSubmit({
         firstName: optional(firstName),
         name: name.trim(),
+        status,
         function: optional(clientFunction),
         companySector: optional(companySector),
         email: optional(email),
@@ -966,6 +1033,7 @@ function ClientForm({ onSubmit }: { onSubmit: (payload: Partial<Client>) => Prom
       });
       setFirstName('');
       setName('');
+      setStatus('CLIENT');
       setClientFunction('');
       setCompanySector('');
       setEmail('');
@@ -1003,6 +1071,20 @@ function ClientForm({ onSubmit }: { onSubmit: (payload: Partial<Client>) => Prom
           className="mt-1 w-full rounded-lg bg-white/5 px-3 py-2 text-sm outline-none ring-1 ring-white/10 focus:ring-2 focus:ring-cyan-400"
           autoComplete="family-name"
         />
+      </div>
+      <div>
+        <label className="text-sm text-slate-300">{t('field.clientStatus')}</label>
+        <select
+          value={status}
+          onChange={(e) => setStatus(e.target.value as 'CLIENT' | 'PROSPECT' | 'LOST')}
+          className="mt-1 w-full rounded-lg bg-white/5 px-3 py-2 text-sm outline-none ring-1 ring-white/10 focus:ring-2 focus:ring-cyan-400"
+        >
+          {CLIENT_STATUS_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {t(`clients.status.${option}`)}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
         <label className="text-sm text-slate-300">{t('field.function')}</label>
