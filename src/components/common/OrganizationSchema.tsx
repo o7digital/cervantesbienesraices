@@ -9,7 +9,7 @@ export default function OrganizationSchema() {
     "url": "https://www.cervantesbienesraices.com",
     "logo": "https://www.cervantesbienesraices.com/images/assets/ogg.png",
     "image": "https://www.cervantesbienesraices.com/images/assets/ogg.png",
-    "telephone": "+52-55-XXXX-XXXX",
+    "telephone": "+52 55 8796 0451",
     "email": "info@cervantesbienesraices.com",
     "address": {
       "@type": "PostalAddress",

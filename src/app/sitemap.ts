@@ -190,12 +190,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     // Versión en inglés
     {
-      url: `${BASE_URL}/en`,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
-    },
-    {
       url: `${BASE_URL}/en/listing_06`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
@@ -214,12 +208,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     },
     // Version française
-    {
-      url: `${BASE_URL}/fr`,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
-    },
     {
       url: `${BASE_URL}/fr/listing_06`,
       lastModified: new Date(),
@@ -240,12 +228,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     // Versione italiana
     {
-      url: `${BASE_URL}/it`,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
-    },
-    {
       url: `${BASE_URL}/it/listing_06`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
@@ -264,12 +246,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     // Version deutsch
-    {
-      url: `${BASE_URL}/de`,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
-    },
     {
       url: `${BASE_URL}/de/listing_06`,
       lastModified: new Date(),
