@@ -11,9 +11,21 @@ export const metadata: Metadata = {
     title: "Vive en La Condesa CDMX – Departamentos y Casas | Cervantes",
     description: "Descubre el estilo de vida bohemio de la Condesa. Arquitectura Art Deco, cafés, parques y cultura.",
     images: ["/assets/images/media/img_27.jpg"],
+    url: "https://www.cervantesbienesraices.com/condesa",
+    type: "website",
+    locale: "es_MX",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vive en La Condesa CDMX – Departamentos y Casas | Cervantes",
+    description: "Departamentos y casas en Condesa con estilo de vida cultural y bohemio.",
+    images: ["/assets/images/media/img_27.jpg"],
   },
   alternates: {
     canonical: "https://www.cervantesbienesraices.com/condesa",
+    languages: {
+      "es-MX": "https://www.cervantesbienesraices.com/condesa",
+    },
   },
 }
 

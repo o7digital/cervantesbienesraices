@@ -11,9 +11,21 @@ export const metadata: Metadata = {
     title: "Propiedades Exclusivas en Polanco CDMX – Cervantes Bienes Raíces",
     description: "Descubre casas y departamentos de lujo en Polanco. La mejor zona residencial de Ciudad de México.",
     images: ["/assets/images/media/img_26.jpg"],
+    url: "https://www.cervantesbienesraices.com/polanco",
+    type: "website",
+    locale: "es_MX",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Propiedades Exclusivas en Polanco CDMX – Cervantes Bienes Raíces",
+    description: "Casas y departamentos de lujo en Polanco, Ciudad de México.",
+    images: ["/assets/images/media/img_26.jpg"],
   },
   alternates: {
     canonical: "https://www.cervantesbienesraices.com/polanco",
+    languages: {
+      "es-MX": "https://www.cervantesbienesraices.com/polanco",
+    },
   },
 }
 

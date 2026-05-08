@@ -11,9 +11,21 @@ export const metadata: Metadata = {
     title: "Vive en Roma Norte CDMX – El Barrio Más Trendy | Cervantes",
     description: "Descubre Roma Norte: arte urbano, cafés hipster, galerías y la mejor escena cultural de México.",
     images: ["/assets/images/media/img_28.jpg"],
+    url: "https://www.cervantesbienesraices.com/roma-norte",
+    type: "website",
+    locale: "es_MX",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vive en Roma Norte CDMX – El Barrio Más Trendy | Cervantes",
+    description: "Departamentos y casas en Roma Norte con enfoque cultural y urbano.",
+    images: ["/assets/images/media/img_28.jpg"],
   },
   alternates: {
     canonical: "https://www.cervantesbienesraices.com/roma-norte",
+    languages: {
+      "es-MX": "https://www.cervantesbienesraices.com/roma-norte",
+    },
   },
 }
 

@@ -8,6 +8,23 @@ export const metadata: Metadata = {
   title: "Blog | Cervantes Bienes Raíces",
   description:
     "Consejos inmobiliarios, tendencias de mercado y guías prácticas para comprar, vender o rentar en México.",
+  openGraph: {
+    title: "Blog inmobiliario | Cervantes Bienes Raíces",
+    description:
+      "Consejos inmobiliarios, tendencias de mercado y guías prácticas para comprar, vender o rentar en México.",
+    url: "https://www.cervantesbienesraices.com/blog",
+    siteName: "Cervantes Bienes Raíces",
+    locale: "es_MX",
+    type: "website",
+    images: ["/images/assets/ogg.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog inmobiliario | Cervantes Bienes Raíces",
+    description:
+      "Consejos inmobiliarios y guías prácticas para comprar, vender o rentar en México.",
+    images: ["/images/assets/ogg.png"],
+  },
   alternates: {
     canonical: "https://www.cervantesbienesraices.com/blog"
   }

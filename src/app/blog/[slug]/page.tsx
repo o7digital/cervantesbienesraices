@@ -30,6 +30,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${post.title} | Cervantes Bienes Raíces`,
     description: post.excerpt,
+    openGraph: {
+      title: `${post.title} | Cervantes Bienes Raíces`,
+      description: post.excerpt,
+      url: `https://www.cervantesbienesraices.com/blog/${post.slug}`,
+      type: "article",
+      locale: "es_MX",
+      images: [post.coverImage || "/images/assets/ogg.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | Cervantes Bienes Raíces`,
+      description: post.excerpt,
+      images: [post.coverImage || "/images/assets/ogg.png"],
+    },
     alternates: {
       canonical: `https://www.cervantesbienesraices.com/blog/${post.slug}`
     }
