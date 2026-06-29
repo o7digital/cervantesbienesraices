@@ -62,7 +62,7 @@ const HeroEn = () => {
               Case in Vendita e Appartamenti in Affitto in Messico
             </h1>
             <p className="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
-              Cervantes Bienes Raíces – Consulenza immobiliare professionale con oltre 20 anni di esperienza a Città del Messico, Polanco, Condesa e tutta l’area metropolitana.
+              Cervantes Immobiliare è specializzata nella vendita di ranch in Messico e offre consulenza immobiliare professionale con oltre 20 anni di esperienza.
             </p>
           </div>
         </div>

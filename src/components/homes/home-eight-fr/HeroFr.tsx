@@ -62,7 +62,7 @@ const HeroEn = () => {
               Maisons à Vendre et Appartements à Louer au Mexique
             </h1>
             <p className="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
-              Cervantes Bienes Raíces – Conseil immobilier professionnel avec plus de 20 ans d’expérience à Mexico, Polanco, Condesa et toute la zone métropolitaine.
+              Cervantes Immobilier est spécialisé dans la vente de ranchs au Mexique et propose un conseil immobilier professionnel fort de plus de 20 ans d’expérience.
             </p>
           </div>
         </div>

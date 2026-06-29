@@ -62,7 +62,7 @@ const HeroDe = () => {
               Häuser zum Verkauf und Apartments zur Miete in Mexiko
             </h1>
             <p className="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
-              Cervantes Real Estate – Professionelle Immobilienberatung mit über 20 Jahren Erfahrung in Mexiko-Stadt, Polanco, Condesa und der gesamten Metropolregion.
+              Cervantes Real Estate ist auf den Verkauf von Ranches in Mexiko spezialisiert und bietet professionelle Immobilienberatung mit über 20 Jahren Erfahrung.
             </p>
           </div>
         </div>

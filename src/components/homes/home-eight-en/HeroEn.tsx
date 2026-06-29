@@ -62,7 +62,7 @@ const HeroEn = () => {
               Homes for Sale and Apartments for Rent in Mexico
             </h1>
             <p className="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
-              Cervantes Real Estate – Professional real-estate advisory with more than 20 years of experience in CDMX, Polanco, Condesa and the whole metro area.
+              Cervantes Real Estate specializes in ranch sales throughout Mexico and offers professional real-estate advisory backed by more than 20 years of experience.
             </p>
           </div>
         </div>
