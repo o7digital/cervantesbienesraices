@@ -30,7 +30,7 @@ const ServicesContent = ({
         <div className="row g-4 justify-content-center">
           {services.map((service, index) => (
             <div 
-              className={index < 3 ? "col-lg-4 col-md-6" : "col-lg-5 col-md-6"} 
+              className={services.length % 3 === 0 || index < 3 ? "col-lg-4 col-md-6" : "col-lg-5 col-md-6"}
               key={service.title}
             >
               <ServiceCard {...service} />

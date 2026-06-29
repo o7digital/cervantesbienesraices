@@ -7,7 +7,7 @@ const ServicesSectionIt = () => {
     <ServicesContent
       id="services"
       title="Servizi"
-      subtitle="Consulenza premium per acquistare, vendere e investire con fiducia a Città del Messico."
+      subtitle="Consulenza premium per acquistare, vendere e investire a Città del Messico e in proprietà eccezionali in tutto il Messico."
       services={servicesIt}
     />
   );

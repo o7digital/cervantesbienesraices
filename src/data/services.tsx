@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { FiFileText, FiHome, FiSearch, FiTarget, FiUsers } from "react-icons/fi";
+import { FiCompass, FiFileText, FiHome, FiSearch, FiTarget, FiUsers } from "react-icons/fi";
 
 export type ServiceItem = {
   icon: ReactNode;
@@ -38,6 +38,12 @@ export const servicesEs: ServiceItem[] = [
     description:
       "Diseñamos planes de inversión inmobiliaria de largo plazo, enfocados en crecimiento de capital, rendimiento proyectado y diversificación inteligente en el mercado inmobiliario premium de CDMX.",
   },
+  {
+    icon: <FiCompass />,
+    title: "Venta de Ranchos en México",
+    description:
+      "Representamos ranchos ganaderos, agrícolas, ecuestres, cinegéticos y de recreo en todo México. Integramos valuación de tierra e infraestructura, revisión de títulos, agua y uso de suelo, promoción confidencial y negociación con compradores calificados nacionales e internacionales.",
+  },
 ];
 
 export const servicesEn: ServiceItem[] = [
@@ -70,6 +76,12 @@ export const servicesEn: ServiceItem[] = [
     title: "Investment & Wealth Strategy",
     description:
       "We design long-term real-estate investment strategies focused on capital growth, projected yield and intelligent diversification in Mexico City's premium property market.",
+  },
+  {
+    icon: <FiCompass />,
+    title: "Ranch Sales in Mexico",
+    description:
+      "We represent livestock, agricultural, equestrian, hunting and leisure ranches throughout Mexico. Our service combines land and infrastructure valuation, title, water-right and land-use review, confidential marketing, and negotiation with qualified domestic and international buyers.",
   },
 ];
 
@@ -104,6 +116,12 @@ export const servicesFr: ServiceItem[] = [
     description:
       "Nous concevons des stratégies d'investissement immobilier à long terme axées sur la croissance du capital, le rendement projeté et la diversification intelligente sur le marché immobilier premium de Mexico.",
   },
+  {
+    icon: <FiCompass />,
+    title: "Vente de Ranchs au Mexique",
+    description:
+      "Nous représentons des ranchs d'élevage, agricoles, équestres, cynégétiques et de loisirs dans tout le Mexique. Notre accompagnement comprend l'évaluation des terres et infrastructures, la vérification des titres, de l'eau et de l'usage du sol, une commercialisation confidentielle et la négociation avec des acquéreurs qualifiés.",
+  },
 ];
 
 export const servicesIt: ServiceItem[] = [
@@ -137,6 +155,12 @@ export const servicesIt: ServiceItem[] = [
     description:
       "Progettiamo strategie di investimento immobiliare a lungo termine focalizzate sulla crescita del capitale, rendimento previsto e diversificazione intelligente nel mercato immobiliare premium di Città del Messico.",
   },
+  {
+    icon: <FiCompass />,
+    title: "Vendita di Ranch in Messico",
+    description:
+      "Rappresentiamo ranch zootecnici, agricoli, equestri, venatori e ricreativi in tutto il Messico. Il servizio comprende valutazione di terreni e infrastrutture, verifica di titoli, diritti sull'acqua e destinazione d'uso, promozione riservata e negoziazione con acquirenti qualificati nazionali e internazionali.",
+  },
 ];
 
 export const servicesDe: ServiceItem[] = [
@@ -169,5 +193,11 @@ export const servicesDe: ServiceItem[] = [
     title: "Investitions- & Vermögensstrategie",
     description:
       "Wir entwickeln langfristige Investmentpläne mit Fokus auf Kapitalwachstum, Renditeprognose und smarte Diversifikation im Premium-Immobilienmarkt von Mexiko-Stadt.",
+  },
+  {
+    icon: <FiCompass />,
+    title: "Verkauf von Ranches in Mexiko",
+    description:
+      "Wir vertreten Viehzucht-, Landwirtschafts-, Reit-, Jagd- und Freizeitranches in ganz Mexiko. Unser Service umfasst die Bewertung von Land und Infrastruktur, die Prüfung von Eigentumstiteln, Wasserrechten und Flächennutzung, diskrete Vermarktung sowie Verhandlungen mit qualifizierten Käufern im In- und Ausland.",
   },
 ];

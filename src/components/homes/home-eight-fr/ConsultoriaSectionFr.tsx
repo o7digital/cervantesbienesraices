@@ -7,7 +7,7 @@ const ServicesSectionFr = () => {
     <ServicesContent
       id="services"
       title="Services"
-      subtitle="Conseil premium pour acheter, vendre et investir en toute confiance à Mexico."
+      subtitle="Conseil premium pour acheter, vendre et investir à Mexico et dans des propriétés d’exception partout au Mexique."
       services={servicesFr}
     />
   );
