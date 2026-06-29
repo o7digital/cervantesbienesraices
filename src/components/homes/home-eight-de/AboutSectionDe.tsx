@@ -11,7 +11,7 @@ const AboutSectionDe = () => {
             </div>
             <div className="text-center text-lg-start">
               <p className="mb-3">
-                Bei <strong>Cervantes Bienes Raíces</strong> sind wir eine professionelle Immobilienagentur, spezialisiert auf Premium-Immobilien in Mexiko-Stadt. Wir arbeiten mit exklusiven Objekten in den begehrtesten Wohnlagen wie Polanco, Lomas de Chapultepec, Condesa, Roma und Santa Fe.
+                <strong>Cervantes Bienes Raíces</strong> ist eine professionelle Immobilienagentur, die auf Luxusimmobilien in Mexiko-Stadt sowie auf den Verkauf von Ranches und Immobilien in ganz Mexiko spezialisiert ist. Wir arbeiten mit exklusiven, hochwertigen Objekten in den prestigeträchtigsten Stadtvierteln, darunter Polanco, Lomas de Chapultepec, Condesa, Roma und Santa Fe.
               </p>
               <p className="mb-3">
                 Unser Expertenteam begleitet lokale und internationale Käufer – auch Expats und ausländische Investoren – mit persönlicher Beratung, egal ob für Lifestyle, Umzug, Mieteinnahmen oder langfristige Wertsteigerung.

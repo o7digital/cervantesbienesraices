@@ -11,7 +11,7 @@ const AboutSectionFr = () => {
             </div>
             <div className="text-center text-lg-start">
               <p className="mb-3">
-                Chez <strong>Cervantes Bienes Raíces</strong> nous sommes une agence immobilière professionnelle spécialisée dans les propriétés de luxe à Mexico. Nous travaillons avec des biens exclusifs et de haute valeur dans les quartiers résidentiels les plus recherchés tels que Polanco, Lomas de Chapultepec, Condesa, Roma et Santa Fe.
+                Chez <strong>Cervantes Bienes Raíces</strong>, nous sommes une agence immobilière professionnelle spécialisée dans l&apos;immobilier de luxe à Mexico, ainsi que dans la vente de ranchs et de propriétés dans tout le Mexique. Nous travaillons avec des biens exclusifs et de grande valeur dans les quartiers les plus prestigieux de la ville, notamment Polanco, Lomas de Chapultepec, Condesa, Roma et Santa Fe.
               </p>
               <p className="mb-3">
                 Notre équipe d&apos;experts immobiliers fournit des conseils personnalisés aux acheteurs locaux et internationaux, y compris les expatriés et les investisseurs étrangers à la recherche de propriétés haut de gamme au Mexique pour leur style de vie, leur relocalisation, leurs revenus locatifs ou leur appréciation du capital à long terme.

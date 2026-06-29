@@ -11,7 +11,7 @@ const AboutSection = () => {
             </div>
             <div className="text-center text-lg-start">
               <p className="mb-3">
-                En <strong>Cervantes Bienes Raíces</strong> somos una agencia inmobiliaria profesional especializada en bienes raíces de lujo en Ciudad de México. Trabajamos con propiedades exclusivas y de alto valor en las zonas más prestigiosas de la ciudad, incluyendo Polanco, Lomas de Chapultepec, Condesa, Roma y Santa Fe.
+                En <strong>Cervantes Bienes Raíces</strong> somos una agencia inmobiliaria profesional especializada en bienes raíces de lujo en Ciudad de México, así como en la venta de ranchos y propiedades en México. Trabajamos con propiedades exclusivas y de alto valor en las zonas más prestigiosas de la ciudad, incluyendo Polanco, Lomas de Chapultepec, Condesa, Roma y Santa Fe.
               </p>
               <p className="mb-3">
                 Nuestro equipo de expertos inmobiliarios ofrece asesoría personalizada para compradores nacionales, expatriados y extranjeros interesados en adquirir propiedades premium en México, ya sea para vivir, invertir o diversificar patrimonio.
