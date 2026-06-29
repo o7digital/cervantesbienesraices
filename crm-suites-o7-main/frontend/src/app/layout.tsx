@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, JetBrains_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import { Providers } from "../components/Providers";
+import { getMarketingSiteUrl } from "../lib/marketingSeo";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -20,6 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getMarketingSiteUrl()),
   title: {
     default: "Cervantes Bienes Raíces",
     template: "%s | Cervantes Bienes Raíces",

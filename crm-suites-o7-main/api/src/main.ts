@@ -5,11 +5,23 @@ import { SchemaUpgraderService } from './prisma/schema-upgrader.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const explicitOrigins = (process.env.FRONTEND_URLS || process.env.FRONTEND_URL || '')
+  const explicitOrigins = [
+    process.env.FRONTEND_URLS || '',
+    process.env.FRONTEND_URL || '',
+    process.env.SITE_URL || '',
+    process.env.MARKETING_SITE_URL || '',
+  ]
+    .join(',')
     .split(',')
     .map((x) => x.trim())
     .filter(Boolean);
-  const allowlist = new Set<string>(['http://localhost:3000', 'https://crm-suites-o7.vercel.app', ...explicitOrigins]);
+  const allowlist = new Set<string>([
+    'http://localhost:3000',
+    'https://crm-suites-o7.vercel.app',
+    'https://www.cervantesbienesraices.com',
+    'https://cervantesbienesraices.com',
+    ...explicitOrigins,
+  ]);
   app.enableCors({
     origin(origin, callback) {
       // Allow non-browser and same-origin requests.

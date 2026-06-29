@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Finden Sie Ihr ideales Zuhause in Mexiko. Cervantes Real Estate bietet Häuser zum Verkauf, Apartments zur Miete und professionelle Hypothekenberatung mit über 20 Jahren Erfahrung.",
   keywords:
-    "immobilien mexiko, wohnungen mieten cdmx, häuser kaufen mexiko, immobilienagentur mexiko-stadt, immobilien polanco, apartments condesa, hypothekenberatung mexiko",
+    "immobilien mexiko, ranches in mexiko kaufen, ranches zum verkauf in mexiko, wohnungen mieten cdmx, häuser kaufen mexiko, immobilienagentur mexiko-stadt, immobilien polanco, apartments condesa, hypothekenberatung mexiko",
   alternates: {
     canonical: `${BASE_URL}/de`,
     languages: {

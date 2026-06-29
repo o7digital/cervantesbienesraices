@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Trouvez votre maison idéale au Mexique. Cervantes Bienes Raíces propose des maisons à vendre, des appartements à louer et un conseil hypothécaire professionnel. Plus de 20 ans d’expérience sur le marché immobilier.",
   keywords:
-    "maisons à vendre mexique, appartements à louer cdmx, immobilier mexique, agence immobilière, propriétés à vendre, maisons polanco, appartements condesa, conseil hypothécaire",
+    "maisons à vendre mexique, ranchs à vendre au mexique, vente de ranchs au mexique, appartements à louer cdmx, immobilier mexique, agence immobilière, propriétés à vendre, maisons polanco, appartements condesa, conseil hypothécaire",
   alternates: {
     canonical: `${BASE_URL}/fr`,
     languages: {

@@ -19,6 +19,7 @@ export class SchemaUpgraderService {
     await this.ensureTenantBrandingFields();
     await this.ensureTenantCrmSettingsFields();
     await this.ensureGoogleCalendarConnectionSchema();
+    await this.ensureMarketingContactLeadSchema();
   }
 
   private async tableExists(table: string) {
@@ -472,5 +473,33 @@ export class SchemaUpgraderService {
         // Ignore constraint races / existing under another name.
       }
     }
+  }
+
+  private async ensureMarketingContactLeadSchema() {
+    const hasTable = await this.tableExists('MarketingContactLead');
+    if (!hasTable) {
+      await this.prisma.$executeRawUnsafe(`
+        CREATE TABLE IF NOT EXISTS "MarketingContactLead" (
+          "id" TEXT NOT NULL,
+          "language" TEXT NOT NULL DEFAULT 'es',
+          "pagePath" TEXT,
+          "source" TEXT,
+          "name" TEXT NOT NULL,
+          "email" TEXT NOT NULL,
+          "phone" TEXT,
+          "objective" TEXT,
+          "message" TEXT NOT NULL,
+          "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          CONSTRAINT "MarketingContactLead_pkey" PRIMARY KEY ("id")
+        );
+      `);
+    }
+
+    await this.prisma.$executeRawUnsafe(
+      `CREATE INDEX IF NOT EXISTS "MarketingContactLead_language_idx" ON "MarketingContactLead"("language");`,
+    );
+    await this.prisma.$executeRawUnsafe(
+      `CREATE INDEX IF NOT EXISTS "MarketingContactLead_createdAt_idx" ON "MarketingContactLead"("createdAt");`,
+    );
   }
 }

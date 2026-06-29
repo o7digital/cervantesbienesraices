@@ -19,6 +19,7 @@ const FooterThreeDe = () => {
                            </Link>
                         </div>
                         <p className="mb-45 lg-mb-30">
+                           Cervantes Real Estate ist auf den Verkauf von Ranches in Mexiko spezialisiert.<br />
                            Cerrada de Bezares 133, Col. Lomas de Bezares, <br />
                            CP 11910, Miguel Hidalgo, CDMX.
                         </p>
@@ -49,7 +50,7 @@ const FooterThreeDe = () => {
          <div className="bottom-footer">
             <div className="container text-center">
                <p className="seo-footer">
-                  luxusimmobilien mexiko-stadt · premium immobilienagentur cdmx · häuser in polanco · villen lomas de chapultepec · exklusive angebote mexiko · immobilieninvestition mexiko · expat wohnungen mexiko · immobilienberatung mexiko · premium apartments cdmx · sichere stadtviertel mexiko · relocation nach mexiko · immobilienbewertung mexiko · real estate consulting cdmx · high-end immobilien mexiko · immobilienexperten mexiko-stadt · langfristige investition mexiko · premium condos mexiko · immobilien für ausländische käufer · luxushäuser mexiko · vertrauenswürdige immobilienagentur cdmx
+                  Ranches in Mexiko kaufen · Ranches zum Verkauf in Mexiko · luxusimmobilien mexiko-stadt · premium immobilienagentur cdmx · häuser in polanco · villen lomas de chapultepec · exklusive angebote mexiko · immobilieninvestition mexiko · expat wohnungen mexiko · immobilienberatung mexiko · premium apartments cdmx · sichere stadtviertel mexiko · relocation nach mexiko · immobilienbewertung mexiko · real estate consulting cdmx · high-end immobilien mexiko · immobilienexperten mexiko-stadt · langfristige investition mexiko · premium condos mexiko · immobilien für ausländische käufer · luxushäuser mexiko · vertrauenswürdige immobilienagentur cdmx
                </p>
                <p className="m-0">Copyright ©2025 CERVANTES REAL ESTATE. Alle Rechte vorbehalten.</p>
             </div>

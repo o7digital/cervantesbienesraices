@@ -5,12 +5,12 @@ export const metadata = {
   title: "Proprietà - Cervantes Immobiliare",
   description: "Scopri la nostra selezione di proprietà premium in Messico. Case e appartamenti di lusso a Città del Messico e dintorni.",
   alternates: {
-    canonical: "https://cervantesbienesraices.vercel.app/it/listing_06",
+    canonical: "https://www.cervantesbienesraices.com/it/listing_06",
     languages: {
-      "it-IT": "https://cervantesbienesraices.vercel.app/it/listing_06",
-      "es-MX": "https://cervantesbienesraices.vercel.app/listing_06",
-      "en-US": "https://cervantesbienesraices.vercel.app/en/listing_06",
-      "fr-FR": "https://cervantesbienesraices.vercel.app/fr/listing_06",
+      "it-IT": "https://www.cervantesbienesraices.com/it/listing_06",
+      "es-MX": "https://www.cervantesbienesraices.com/listing_06",
+      "en-US": "https://www.cervantesbienesraices.com/en/listing_06",
+      "fr-FR": "https://www.cervantesbienesraices.com/fr/listing_06",
     },
   },
 };

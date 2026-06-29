@@ -8,12 +8,12 @@ export const metadata = {
   title: "Services immobiliers premium | Cervantes Immobilier",
   description: "Accompagnement expert pour acheter, vendre et investir en toute confiance à Mexico.",
   alternates: {
-    canonical: "https://cervantesbienesraices.vercel.app/fr/services",
+    canonical: "https://www.cervantesbienesraices.com/fr/services",
     languages: {
-      "fr-FR": "https://cervantesbienesraices.vercel.app/fr/services",
-      "es-MX": "https://cervantesbienesraices.vercel.app/servicios",
-      "en-US": "https://cervantesbienesraices.vercel.app/en/services",
-      "it-IT": "https://cervantesbienesraices.vercel.app/it/services",
+      "fr-FR": "https://www.cervantesbienesraices.com/fr/services",
+      "es-MX": "https://www.cervantesbienesraices.com/servicios",
+      "en-US": "https://www.cervantesbienesraices.com/en/services",
+      "it-IT": "https://www.cervantesbienesraices.com/it/services",
     },
   },
 };

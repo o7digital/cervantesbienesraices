@@ -9,7 +9,7 @@ import BLockFeatureTwoEn from "./BLockFeatureTwoEn";
 import MortgageCreditEn from "./MortgageCreditEn";
 import BLockFeatureFourEn from "./BLockFeatureFourEn";
 import FancyBannerTwoEn from "./FancyBannerTwoEn";
-import FooterThreeEn from "@/layouts/footers/FooterThreeEn";
+import FooterThreeIt from "@/layouts/footers/FooterThreeIt";
 import FeedbackEn from "./FeedbackEn";
 
 const HomeEightIt = () => {
@@ -27,7 +27,7 @@ const HomeEightIt = () => {
       <BLockFeatureFourEn />
       <FeedbackEn />
       <FancyBannerTwoEn />
-      <FooterThreeEn />
+      <FooterThreeIt />
     </div>
   );
 };

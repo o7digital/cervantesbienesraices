@@ -5,12 +5,12 @@ export const metadata = {
   title: "Propriétés - Cervantes Immobilier",
   description: "Découvrez notre sélection de propriétés premium au Mexique. Maisons et appartements de luxe à Mexico et environs.",
   alternates: {
-    canonical: "https://cervantesbienesraices.vercel.app/fr/listing_06",
+    canonical: "https://www.cervantesbienesraices.com/fr/listing_06",
     languages: {
-      "fr-FR": "https://cervantesbienesraices.vercel.app/fr/listing_06",
-      "es-MX": "https://cervantesbienesraices.vercel.app/listing_06",
-      "en-US": "https://cervantesbienesraices.vercel.app/en/listing_06",
-      "it-IT": "https://cervantesbienesraices.vercel.app/it/listing_06",
+      "fr-FR": "https://www.cervantesbienesraices.com/fr/listing_06",
+      "es-MX": "https://www.cervantesbienesraices.com/listing_06",
+      "en-US": "https://www.cervantesbienesraices.com/en/listing_06",
+      "it-IT": "https://www.cervantesbienesraices.com/it/listing_06",
     },
   },
 };

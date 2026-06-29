@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     "bienes raíces México",
     "inmobiliaria CDMX",
     "venta de casas",
+    "venta de ranchos en México",
+    "ranchos en venta México",
     "renta de departamentos",
     "propiedades Polanco",
     "propiedades Condesa",

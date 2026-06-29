@@ -308,6 +308,22 @@ model DealStageHistory {
   toStage   Stage  @relation("ToStage", fields: [toStageId], references: [id])
 }
 
+model MarketingContactLead {
+  id        String   @id @default(uuid())
+  language  String   @default("es")
+  pagePath  String?
+  source    String?
+  name      String
+  email     String
+  phone     String?
+  objective String?
+  message   String
+  createdAt DateTime @default(now())
+
+  @@index([language])
+  @@index([createdAt])
+}
+
 enum TaskStatus {
   PENDING
   IN_PROGRESS

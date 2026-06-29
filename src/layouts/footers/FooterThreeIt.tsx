@@ -19,6 +19,7 @@ const FooterThreeIt = () => {
                            </Link>
                         </div>
                         <p className="mb-45 lg-mb-30">
+                           Cervantes Immobiliare è specializzata nella vendita di ranch in Messico.<br />
                            Cerrada de Bezares 133, Col. Lomas de Bezares, <br />
                            CP 11910, Miguel Hidalgo, CDMX.
                         </p>
@@ -49,7 +50,7 @@ const FooterThreeIt = () => {
          <div className="bottom-footer">
             <div className="container text-center">
                <p className="seo-footer">
-                  immobiliare di lusso Città del Messico · agenzia immobiliare premium CDMX · case Polanco · proprietà Lomas de Chapultepec · annunci esclusivi Messico · investimento immobiliare Messico · alloggi espatriati Città del Messico · consulente immobiliare Messico · appartamenti premium CDMX · quartieri sicuri Città del Messico · trasferimento in Messico · valutazione immobiliare Messico · consulenza immobiliare CDMX · immobiliare di alta gamma Messico · esperti immobiliari Città del Messico · investimento a lungo termine Messico · condomini premium Messico · immobiliare per acquirenti stranieri · case di lusso Messico · agenzia immobiliare di fiducia CDMX
+                  ranch in vendita in Messico · vendita di ranch in Messico · immobiliare di lusso Città del Messico · agenzia immobiliare premium CDMX · case Polanco · proprietà Lomas de Chapultepec · annunci esclusivi Messico · investimento immobiliare Messico · alloggi espatriati Città del Messico · consulente immobiliare Messico · appartamenti premium CDMX · quartieri sicuri Città del Messico · trasferimento in Messico · valutazione immobiliare Messico · consulenza immobiliare CDMX · immobiliare di alta gamma Messico · esperti immobiliari Città del Messico · investimento a lungo termine Messico · condomini premium Messico · immobiliare per acquirenti stranieri · case di lusso Messico · agenzia immobiliare di fiducia CDMX
                </p>
                <p className="m-0">Copyright ©2025 CERVANTES IMMOBILIARE. Tutti i diritti riservati.</p>
             </div>

@@ -4,7 +4,7 @@ import menu_data_en from "@/data/home-data/MenuDataEn";
 import menu_data_fr from "@/data/home-data/MenuDataFr";
 import menu_data_it from "@/data/home-data/MenuDataIt";
 import menu_data_de from "@/data/home-data/MenuDataDe";
-import Link from "next/link.js";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";

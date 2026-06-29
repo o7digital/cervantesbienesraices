@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Cervantes Bienes Raíces – Venta y Renta de Casas y Departamentos en México | +20 años de experiencia",
   description: "Encuentra tu hogar ideal en México. Cervantes Bienes Raíces ofrece casas en venta, departamentos en renta, y asesoría hipotecaria profesional. Más de 20 años de experiencia en el mercado inmobiliario.",
-  keywords: "casas en venta méxico, departamentos en renta cdmx, bienes raíces méxico, inmobiliaria, propiedades en venta, casas polanco, departamentos condesa, asesoría hipotecaria",
+  keywords: "casas en venta méxico, venta de ranchos en méxico, ranchos en venta méxico, departamentos en renta cdmx, bienes raíces méxico, inmobiliaria, propiedades en venta, casas polanco, departamentos condesa, asesoría hipotecaria",
   openGraph: {
     title: "Cervantes Bienes Raíces – Tu Hogar Ideal en México",
     description: "Venta y renta de casas y departamentos. Asesoría inmobiliaria profesional con más de 20 años de experiencia.",

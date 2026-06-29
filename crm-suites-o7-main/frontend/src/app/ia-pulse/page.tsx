@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { AppShell } from '../../components/AppShell';
 import { Guard } from '../../components/Guard';
@@ -1310,12 +1311,9 @@ function IaPulsePageContent() {
                     <Text fontSize="sm" color="amber.200">
                       {locale.missingContractSetup}
                     </Text>
-                    <a
-                      href="/admin/parameters/customers"
-                      className="mt-2 inline-block text-xs text-cyan-300 underline"
-                    >
+                    <Link href="/admin/parameters/customers" className="mt-2 inline-block text-xs text-cyan-300 underline">
                       {locale.openContractSetup}
-                    </a>
+                    </Link>
                   </Box>
                 )}
 

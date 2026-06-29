@@ -8,12 +8,12 @@ export const metadata = {
   title: "Servizi immobiliari premium | Cervantes Immobiliare",
   description: "Consulenza esperta per acquistare, vendere e investire con fiducia a Città del Messico.",
   alternates: {
-    canonical: "https://cervantesbienesraices.vercel.app/it/services",
+    canonical: "https://www.cervantesbienesraices.com/it/services",
     languages: {
-      "it-IT": "https://cervantesbienesraices.vercel.app/it/services",
-      "es-MX": "https://cervantesbienesraices.vercel.app/servicios",
-      "en-US": "https://cervantesbienesraices.vercel.app/en/services",
-      "fr-FR": "https://cervantesbienesraices.vercel.app/fr/services",
+      "it-IT": "https://www.cervantesbienesraices.com/it/services",
+      "es-MX": "https://www.cervantesbienesraices.com/servicios",
+      "en-US": "https://www.cervantesbienesraices.com/en/services",
+      "fr-FR": "https://www.cervantesbienesraices.com/fr/services",
     },
   },
 };
