@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 const SITE_CODE = 'cervantesbienesraices'
 const LEAD_ENDPOINT = 'https://www.o7digital.com/api/o7-lead'
 const CHAT_ENDPOINT = 'https://www.o7digital.com/api/o7-chat'
+const OFFLINE = true
 
 const COPY = {
   es: {
@@ -78,9 +79,12 @@ export default function SofiaChat() {
   const [isLoading, setIsLoading] = useState(false)
   const [leadSent, setLeadSent] = useState(false)
   const [lead, setLead] = useState({ firstName: '', lastName: '', email: '', phone: '' })
-  const [messages, setMessages] = useState<ChatMessage[]>([{ role: 'assistant', content: copy.welcome }])
+  const [messages, setMessages] = useState<ChatMessage[]>(
+    OFFLINE ? [{ role: 'assistant', content: 'Offline' }] : [{ role: 'assistant', content: copy.welcome }]
+  )
 
   useEffect(() => {
+    if (OFFLINE) return
     setMessages((prev) => {
       if (prev.length !== 1 || prev[0]?.role !== 'assistant') return prev
       return [{ role: 'assistant', content: copy.welcome }]
@@ -91,6 +95,7 @@ export default function SofiaChat() {
 
   const handleLeadSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    if (OFFLINE) return
     if (!lead.firstName.trim() || !lead.lastName.trim() || !lead.email.trim() || !lead.phone.trim() || isLoading) return
     setIsLoading(true)
     try {
@@ -113,6 +118,7 @@ export default function SofiaChat() {
   }
 
   const handleSend = async () => {
+    if (OFFLINE) return
     const message = input.trim()
     if (!message || isLoading || !leadSent) return
     const messageLanguage = detectMessageLanguage(message, language)
@@ -138,14 +144,14 @@ export default function SofiaChat() {
       {isOpen && (
         <section className="sofia-cervantes-panel" aria-label={copy.status}>
           <header className="sofia-cervantes-header">
-            <div><p className="sofia-cervantes-title">{copy.title}</p><p className="sofia-cervantes-status">{copy.status} · {copy.online}</p></div>
+            <div><p className="sofia-cervantes-title">{copy.title}</p><p className="sofia-cervantes-status">{OFFLINE ? 'Offline' : `${copy.status} · ${copy.online}`}</p></div>
             <button type="button" className="sofia-cervantes-close" onClick={() => setIsOpen(false)} aria-label={copy.close}>x</button>
           </header>
           <div className="sofia-cervantes-messages">
             {messages.map((message, index) => <div key={`${message.role}-${index}`} className={`sofia-cervantes-message ${message.role}`}>{message.content}</div>)}
             {isLoading && <div className="sofia-cervantes-message assistant">...</div>}
           </div>
-          {!leadSent && (
+          {!OFFLINE && !leadSent && (
             <form className="sofia-cervantes-lead" onSubmit={handleLeadSubmit}>
               <p>{copy.leadIntro}</p>
               <input required placeholder={copy.firstName} value={lead.firstName} onChange={(event) => setLead((prev) => ({ ...prev, firstName: event.target.value }))} />
@@ -156,13 +162,13 @@ export default function SofiaChat() {
             </form>
           )}
           <div className="sofia-cervantes-composer">
-            <input value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter') handleSend() }} disabled={!leadSent || isLoading} placeholder={copy.placeholder} />
-            <button type="button" onClick={handleSend} disabled={isLoading || !leadSent} aria-label={copy.send}>{'>'}</button>
+            <input value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter') handleSend() }} disabled={OFFLINE || !leadSent || isLoading} placeholder={OFFLINE ? 'Offline' : copy.placeholder} />
+            <button type="button" onClick={handleSend} disabled={OFFLINE || isLoading || !leadSent} aria-label={copy.send}>{'>'}</button>
           </div>
         </section>
       )}
       <div className="sofia-cervantes-closed">
-        {!isOpen && <button type="button" className="sofia-cervantes-teaser" onClick={() => setIsOpen(true)}><span className="sofia-cervantes-avatar">S</span><span>{copy.teaser}</span></button>}
+        {!isOpen && <button type="button" className="sofia-cervantes-teaser" onClick={() => setIsOpen(true)}><span className="sofia-cervantes-avatar">S</span><span>{OFFLINE ? 'Offline' : copy.teaser}</span></button>}
         <button type="button" className="sofia-cervantes-toggle" onClick={() => setIsOpen((value) => !value)} aria-label={isOpen ? copy.close : copy.open}>{isOpen ? 'x' : 'Sofia'}</button>
       </div>
     </div>
