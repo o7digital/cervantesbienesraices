@@ -40,6 +40,12 @@ const baseMenu: MenuItem[] = [
     has_dropdown: false,
   },
   {
+    id: 99,
+    title: "Destacado",
+    link: "/anuncios-destacados",
+    has_dropdown: false,
+  },
+  {
     id: 4,
     title: "Contacto",
     link: "/#contacto",
@@ -49,19 +55,9 @@ const baseMenu: MenuItem[] = [
 
 const menu_data: MenuItem[] = BLOG_ENABLED
   ? [
-      ...baseMenu.slice(0, 3),
-      {
-        id: 99,
-        title: "Nuestras Propiedades",
-        link: "/anuncios-destacados",
-        has_dropdown: true,
-        sub_menus: [
-          { title: "Venta", link: "/anuncios-destacados?operacion=sale#propiedades-destacadas" },
-          { title: "Rentas", link: "/anuncios-destacados?operacion=rent#propiedades-destacadas" },
-        ],
-      },
+      ...baseMenu.slice(0, 4),
       { id: 101, title: "Noticias", link: "/blog", has_dropdown: false },
-      ...baseMenu.slice(3),
+      ...baseMenu.slice(4),
     ]
   : baseMenu;
 

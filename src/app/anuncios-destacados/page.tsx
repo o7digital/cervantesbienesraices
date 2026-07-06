@@ -1,10 +1,8 @@
 import { Metadata } from "next";
-import { Suspense } from "react";
 import Wrapper from "@/layouts/Wrapper";
 import HeaderOne from "@/layouts/headers/HeaderOne";
 import FooterFour from "@/layouts/footers/FooterFour";
-import BreadcrumbOne from "@/components/common/breadcrumb/BreadcrumbOne";
-import FeaturedProperties from "@/components/blogs/blog-three/FeaturedProperties";
+import FeaturedPropertiesTemplate from "@/components/featured-properties/FeaturedPropertiesTemplate";
 
 export const metadata: Metadata = {
   title: "Nuestras Propiedades | Cervantes Bienes Raíces",
@@ -15,17 +13,7 @@ export const metadata: Metadata = {
 const AnunciosDestacadosPage = () => (
   <Wrapper>
     <HeaderOne style={true} />
-    <BreadcrumbOne
-      title="Nuestras Propiedades"
-      link="/"
-      link_title="Inicio"
-      sub_title="Venta y Renta"
-      style={true}
-      backgroundImage="/oak-motion-7vYMAVS-cKo-unsplash.webp"
-    />
-    <Suspense fallback={<p className="text-center py-5">Cargando propiedades...</p>}>
-      <FeaturedProperties />
-    </Suspense>
+    <FeaturedPropertiesTemplate />
     <FooterFour />
   </Wrapper>
 );
