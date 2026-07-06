@@ -13,19 +13,16 @@ import CommonReviewForm from "../listing-details-common/CommonReviewForm"
 import CommonSimilarProperty from "../listing-details-common/CommonSimilarProperty"
 import Review from "@/components/inner-pages/agency/agency-details/Review"
 import Sidebar from "../listing-details-1/Sidebar"
+import MediaGallery from "../listing-details-1/MediaGallery"
 
 const ListingDetailsTwoArea = () => {
 
    const selectHandler = (e: any) => { };
 
    return (
-      <div className="listing-details-one theme-details-one bg-pink pt-120 lg-pt-100 pb-150 xl-pb-120">
-         <div className="video-wrapper">
-            <video preload="" muted={true} playsInline={true} autoPlay={true} loop={true}>
-               <source src="https://creativegigstf.com/video/intro_4.mp4" type="video/mp4" />
-            </video>
-         </div>
+      <div className="listing-details-one theme-details-one bg-pink pt-180 lg-pt-150 pb-150 xl-pb-120">
          <div className="container">
+            <MediaGallery />
             <div className="bg-white shadow4 border-20 p-40 mt-70 lg-mt-50 mb-60">
                <CommonBanner />
                <div className="property-feature-list border-top mt-70 lg-mt-50 pt-60 lg-pt-30 pb-30 lg-pb-10">
