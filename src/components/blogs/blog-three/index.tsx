@@ -19,6 +19,7 @@ const BlogThree = ({ posts }: Props) => {
         link_title="Inicio"
         sub_title="Artículos"
         style={true}
+        backgroundImage="/oak-motion-7vYMAVS-cKo-unsplash.jpg"
       />
       <BlogThreeArea posts={posts} />
       <FancyBanner />
