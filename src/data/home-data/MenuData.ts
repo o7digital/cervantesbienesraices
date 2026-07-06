@@ -53,14 +53,13 @@ const menu_data: MenuItem[] = BLOG_ENABLED
       {
         id: 99,
         title: "Nuestras Propiedades",
-        link: "/listing_06",
+        link: "/anuncios-destacados",
         has_dropdown: true,
         sub_menus: [
-          { title: "Venta", link: "/listing_06?tipo=venta" },
-          { title: "Rentas", link: "/listing_06?tipo=renta" },
+          { title: "Venta", link: "/anuncios-destacados?operacion=sale#propiedades-destacadas" },
+          { title: "Rentas", link: "/anuncios-destacados?operacion=rent#propiedades-destacadas" },
         ],
       },
-      { id: 100, title: "Anuncios Destacados", link: "/anuncios-destacados", has_dropdown: false },
       { id: 101, title: "Noticias", link: "/blog", has_dropdown: false },
       ...baseMenu.slice(3),
     ]

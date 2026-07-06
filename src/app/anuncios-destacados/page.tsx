@@ -7,7 +7,7 @@ import BreadcrumbOne from "@/components/common/breadcrumb/BreadcrumbOne";
 import FeaturedProperties from "@/components/blogs/blog-three/FeaturedProperties";
 
 export const metadata: Metadata = {
-  title: "Anuncios Destacados | Cervantes Bienes Raíces",
+  title: "Nuestras Propiedades | Cervantes Bienes Raíces",
   description: "Propiedades destacadas en venta y renta seleccionadas por Cervantes Bienes Raíces.",
   alternates: { canonical: "https://www.cervantesbienesraices.com/anuncios-destacados" },
 };
@@ -16,7 +16,7 @@ const AnunciosDestacadosPage = () => (
   <Wrapper>
     <HeaderOne style={true} />
     <BreadcrumbOne
-      title="Anuncios Destacados"
+      title="Nuestras Propiedades"
       link="/"
       link_title="Inicio"
       sub_title="Venta y Renta"
