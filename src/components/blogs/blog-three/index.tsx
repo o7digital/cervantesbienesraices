@@ -3,6 +3,7 @@ import FancyBanner from "@/components/common/FancyBanner";
 import FooterFour from "@/layouts/footers/FooterFour";
 import HeaderOne from "@/layouts/headers/HeaderOne";
 import { BlogPost } from "@/types/blog";
+import { Suspense } from "react";
 import BlogThreeArea from "./BlogThreeArea";
 import FeaturedProperties from "./FeaturedProperties";
 
@@ -22,7 +23,9 @@ const BlogThree = ({ posts }: Props) => {
         style={true}
         backgroundImage="/oak-motion-7vYMAVS-cKo-unsplash.webp"
       />
-      <FeaturedProperties />
+      <Suspense fallback={<p className="text-center py-5">Cargando propiedades...</p>}>
+        <FeaturedProperties />
+      </Suspense>
       <BlogThreeArea posts={posts} />
       <FancyBanner />
       <FooterFour />

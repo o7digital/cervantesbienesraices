@@ -50,7 +50,17 @@ const baseMenu: MenuItem[] = [
 const menu_data: MenuItem[] = BLOG_ENABLED
   ? [
       ...baseMenu.slice(0, 3),
-      { id: 99, title: "Noticias y Propiedades destacadas", link: "/blog", has_dropdown: false },
+      {
+        id: 99,
+        title: "Propiedades destacadas",
+        link: "/blog#propiedades-destacadas",
+        has_dropdown: true,
+        sub_menus: [
+          { title: "Rentas", link: "/blog?operacion=rent#propiedades-destacadas" },
+          { title: "Ventas", link: "/blog?operacion=sale#propiedades-destacadas" },
+          { title: "Últimas Noticias", link: "/blog#ultimas-noticias" },
+        ],
+      },
       ...baseMenu.slice(3),
     ]
   : baseMenu;

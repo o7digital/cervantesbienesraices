@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import PropertyCard from "@/components/common/PropertyCard";
 
 type Property = {
@@ -38,8 +39,10 @@ const propertyDate = (property: Property) =>
   new Date(property.updated_at || property.created_at || 0).getTime();
 
 const FeaturedProperties = () => {
+  const searchParams = useSearchParams();
   const [properties, setProperties] = useState<Property[]>([]);
-  const [filter, setFilter] = useState<OperationFilter>("rent");
+  const requestedOperation = searchParams?.get("operacion");
+  const [filter, setFilter] = useState<OperationFilter>(requestedOperation === "sale" ? "sale" : "rent");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -62,6 +65,12 @@ const FeaturedProperties = () => {
     return () => controller.abort();
   }, []);
 
+  useEffect(() => {
+    if (requestedOperation === "rent" || requestedOperation === "sale") {
+      setFilter(requestedOperation);
+    }
+  }, [requestedOperation]);
+
   const filteredProperties = useMemo(() => {
     const search = normalize(query.trim());
 
@@ -77,7 +86,7 @@ const FeaturedProperties = () => {
   }, [filter, properties, query]);
 
   return (
-    <section className="pt-100 lg-pt-80" aria-labelledby="featured-properties-heading">
+    <section id="propiedades-destacadas" className="pt-100 lg-pt-80" aria-labelledby="featured-properties-heading">
       <div className="container">
         <div className="title-one text-center mb-45">
           <h2 id="featured-properties-heading">Propiedades destacadas</h2>
@@ -104,7 +113,7 @@ const FeaturedProperties = () => {
           <ul className="style-none d-flex justify-content-center flex-wrap isotop-menu-wrapper">
             {([
               ["rent", "Rentas"],
-              ["sale", "Compras"],
+              ["sale", "Ventas"],
               ["all", "Todas"],
             ] as const).map(([value, label]) => (
               <li

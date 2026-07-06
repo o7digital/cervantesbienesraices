@@ -53,8 +53,11 @@ const BlogThreeArea = ({ posts }: Props) => {
   }
 
   return (
-    <div className="blog-section-three mt-130 xl-mt-100 mb-150 xl-mb-100">
+    <div id="ultimas-noticias" className="blog-section-three mt-130 xl-mt-100 mb-150 xl-mb-100">
       <div className="container">
+        <div className="title-one text-center mb-45">
+          <h2>Últimas Noticias</h2>
+        </div>
         <div className="blog-filter-nav">
           <ul className="style-none d-flex justify-content-center flex-wrap isotop-menu-wrapper">
             {categories.map((category) => (
