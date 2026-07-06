@@ -60,7 +60,7 @@ const Hero = () => {
               className="fs-24 text-white text-center pt-35 wow fadeInUp"
               data-wow-delay="0.1s"
             >
-              Cervantes Bienes Raíces se dedica a la venta de ranchos en México, además de ofrecer asesoría inmobiliaria profesional con más de 20 años de experiencia.
+              Cervantes Bienes Raíces – Asesoría inmobiliaria profesional con más de 20 años de experiencia en CDMX, Polanco, Condesa y toda el área metropolitana.
             </p>
           </div>
         </div>

@@ -4,6 +4,7 @@ import FooterFour from "@/layouts/footers/FooterFour";
 import HeaderOne from "@/layouts/headers/HeaderOne";
 import { BlogPost } from "@/types/blog";
 import BlogThreeArea from "./BlogThreeArea";
+import FeaturedProperties from "./FeaturedProperties";
 
 type Props = {
   posts: BlogPost[];
@@ -19,8 +20,9 @@ const BlogThree = ({ posts }: Props) => {
         link_title="Inicio"
         sub_title="Artículos"
         style={true}
-        backgroundImage="/oak-motion-7vYMAVS-cKo-unsplash.jpg"
+        backgroundImage="/oak-motion-7vYMAVS-cKo-unsplash.webp"
       />
+      <FeaturedProperties />
       <BlogThreeArea posts={posts} />
       <FancyBanner />
       <FooterFour />

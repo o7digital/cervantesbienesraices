@@ -140,6 +140,7 @@ export default function PropertyCard({
     sourcePath: pathname || "/listing_06",
   }).toString();
   const contactHref = `${contactBasePath}?${contactQuery}#contact-form`;
+  const detailHref = `/property/${public_id}`;
 
   // Charger les images si elles ne sont pas déjà fournies
   useEffect(() => {
@@ -174,17 +175,19 @@ export default function PropertyCard({
       <div className={styles.propertyCard}>
         <div className={styles.imageContainer}>
           {!imageError ? (
-            <Image
-              src={imageUrl}
-              alt={title}
-              className={styles.propertyImage}
-              onError={() => setImageError(true)}
-              width={600}
-              height={400}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              quality={85}
-              priority={false}
-            />
+            <Link href={detailHref} aria-label={`Ver detalles de ${title}`}>
+              <Image
+                src={imageUrl}
+                alt={title}
+                className={styles.propertyImage}
+                onError={() => setImageError(true)}
+                width={600}
+                height={400}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={85}
+                priority={false}
+              />
+            </Link>
           ) : (
             <div className={styles.imagePlaceholder}>
               <i className="fa-solid fa-house fa-3x"></i>
@@ -196,7 +199,7 @@ export default function PropertyCard({
         </div>
 
         <div className={styles.propertyInfo}>
-          <h3 className={styles.propertyTitle}>{title}</h3>
+          <h3 className={styles.propertyTitle}><Link href={detailHref}>{title}</Link></h3>
           <p className={styles.propertyLocation}>
             <i className="fa-solid fa-location-dot"></i>
             {formatLocation(location, language)}

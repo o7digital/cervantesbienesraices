@@ -319,7 +319,7 @@
 /* Privacy Floating Button */
 .privacy-floating-button {
   position: fixed;
-  bottom: 44px;
+  bottom: 22px;
   right: 20px;
   z-index: 999;
   background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
@@ -392,7 +392,7 @@
 /* Responsive privacy button */
 @media (max-width: 768px) {
   .privacy-floating-button {
-    bottom: 80px; /* Au-dessus du bouton scroll to top sur mobile */
+    bottom: 70px;
     right: 15px;
     max-width: 200px;
     

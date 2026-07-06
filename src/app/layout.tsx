@@ -5,6 +5,7 @@ import Script from "next/script";
 import CookieConsent from "@/components/common/CookieConsent";
 import PrivacyFloatingButton from "@/components/common/PrivacyFloatingButton";
 import SofiaChat from "@/components/chat/SofiaChat";
+import WhatsAppFloatingButton from "@/components/common/WhatsAppFloatingButton";
 import Providers from "@/redux/Providers";
 
 const SITE_URL = "https://www.cervantesbienesraices.com";
@@ -97,6 +98,7 @@ export default function RootLayout({
             {children}
             <CookieConsent />
             <PrivacyFloatingButton />
+            <WhatsAppFloatingButton />
             <SofiaChat />
           </div>
         </Providers>
