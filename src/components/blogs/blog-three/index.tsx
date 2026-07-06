@@ -1,7 +1,7 @@
 import BreadcrumbOne from "@/components/common/breadcrumb/BreadcrumbOne";
 import FancyBanner from "@/components/common/FancyBanner";
 import FooterFour from "@/layouts/footers/FooterFour";
-import HeaderOne from "@/layouts/headers/HeaderOne";
+import HeaderFive from "@/layouts/headers/HeaderFive";
 import { BlogPost } from "@/types/blog";
 import BlogThreeArea from "./BlogThreeArea";
 
@@ -12,7 +12,7 @@ type Props = {
 const BlogThree = ({ posts }: Props) => {
   return (
     <>
-      <HeaderOne style={true} />
+      <HeaderFive style="dark" />
       <BreadcrumbOne
         title="Noticias"
         link="/"

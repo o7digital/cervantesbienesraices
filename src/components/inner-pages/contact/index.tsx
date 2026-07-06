@@ -1,11 +1,11 @@
 import FooterFour from '@/layouts/footers/FooterFour'
-import HeaderOne from '@/layouts/headers/HeaderOne'
+import HeaderFive from '@/layouts/headers/HeaderFive'
 import ContactArea from './ContactArea'
 
 const Contact = () => {
    return (
       <>
-         <HeaderOne style={true} />
+         <HeaderFive style="dark" />
          <ContactArea />
          <FooterFour />
       </>

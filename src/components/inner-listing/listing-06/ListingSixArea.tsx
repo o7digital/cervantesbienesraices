@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import DropdownHomeEightEs from "@/components/search-dropdown/home-dropdown/DropdownHomeEightEs";
 import PropertyCard from "@/components/common/PropertyCard";
@@ -271,10 +271,8 @@ const ListingSixArea = () => {
     });
   }, [properties, filters]);
 
-  // Prefill visible filters from URL params on first load, then rely solely on panel
-  const initializedFromParams = useRef(false);
+  // Apply URL filters on initial load and whenever a menu link changes them.
   useEffect(() => {
-    if (initializedFromParams.current) return;
     const tipoParam = normalizeText(searchParams?.get("tipo") || "");
     const ubicacionKey = normalizeText(searchParams?.get("ubicacion") || "");
     const rangoParam = normalizeText(searchParams?.get("rango") || "");
@@ -379,12 +377,8 @@ const ListingSixArea = () => {
       }
     }
 
-    // If any param present, prefill and apply immediately
-    if (op || propertyKind || nextInputs.location || nextInputs.minPrice || nextInputs.maxPrice) {
-      setInputs(nextInputs);
-      setFilters(nextInputs);
-    }
-    initializedFromParams.current = true;
+    setInputs(nextInputs);
+    setFilters(nextInputs);
   }, [searchParams]);
 
   const handleInputChange = (key: keyof typeof initialFilterState) => (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

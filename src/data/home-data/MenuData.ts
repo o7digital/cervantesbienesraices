@@ -45,8 +45,8 @@ const baseMenu: MenuItem[] = [
     link: "/listing_06",
     has_dropdown: true,
     sub_menus: [
-      { title: "Venta", link: "/listing_06?operacion=sale" },
-      { title: "Rentas", link: "/listing_06?operacion=rent" },
+      { title: "Venta", link: "/listing_06?tipo=venta" },
+      { title: "Rentas", link: "/listing_06?tipo=renta" },
     ],
   },
   {
@@ -58,7 +58,7 @@ const baseMenu: MenuItem[] = [
   {
     id: 4,
     title: "Contacto",
-    link: "/#contacto",
+    link: "/contact",
     has_dropdown: false,
   },
 ];
