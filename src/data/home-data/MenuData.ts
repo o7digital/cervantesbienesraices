@@ -50,7 +50,7 @@ const baseMenu: MenuItem[] = [
 const menu_data: MenuItem[] = BLOG_ENABLED
   ? [
       ...baseMenu.slice(0, 3),
-      { id: 99, title: "Blog", link: "/blog", has_dropdown: false },
+      { id: 99, title: "Noticias y Propiedades destacadas", link: "/blog", has_dropdown: false },
       ...baseMenu.slice(3),
     ]
   : baseMenu;

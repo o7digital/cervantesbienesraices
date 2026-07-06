@@ -14,7 +14,7 @@ const BlogThree = ({ posts }: Props) => {
     <>
       <HeaderOne style={true} />
       <BreadcrumbOne
-        title="Blog"
+        title="Noticias y Propiedades destacadas"
         link="/"
         link_title="Inicio"
         sub_title="Artículos"
