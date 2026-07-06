@@ -5,8 +5,9 @@ import { usePathname } from 'next/navigation'
 
 const SITE_CODE = 'cervantesbienesraices'
 const LEAD_ENDPOINT = 'https://www.o7digital.com/api/o7-lead'
-const CHAT_ENDPOINT = 'https://www.o7digital.com/api/o7-chat'
-const OFFLINE = true
+const CHAT_ENDPOINT = 'https://olivia-ai.o7digital.com/api/olivia/chat'
+const CHANNEL_ENDPOINT = 'https://olivia-ai.o7digital.com/api/widget/conversations'
+const OFFLINE = false
 
 const COPY = {
   es: {
@@ -82,6 +83,14 @@ export default function SofiaChat() {
   const [messages, setMessages] = useState<ChatMessage[]>(
     OFFLINE ? [{ role: 'assistant', content: 'Offline' }] : [{ role: 'assistant', content: copy.welcome }]
   )
+  const visitorId = useMemo(() => {
+    if (typeof window === 'undefined') return ''
+    const key = `sofiaVisitor:${SITE_CODE}`
+    const saved = localStorage.getItem(key)
+    const id = saved || crypto.randomUUID()
+    localStorage.setItem(key, id)
+    return id
+  }, [])
 
   useEffect(() => {
     if (OFFLINE) return
@@ -108,6 +117,20 @@ export default function SofiaChat() {
         }),
       })
       if (!response.ok) throw new Error('Lead delivery failed')
+      await fetch(CHANNEL_ENDPOINT, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          clientCode: SITE_CODE,
+          visitorId,
+          content: `Lead: ${lead.firstName.trim()} ${lead.lastName.trim()} · ${lead.email.trim()} · ${lead.phone.trim()}`,
+          visitorName: `${lead.firstName.trim()} ${lead.lastName.trim()}`,
+          email: lead.email.trim(),
+          phone: lead.phone.trim(),
+          source: 'website',
+          language,
+          metadata: { page: window.location.href, type: 'lead' },
+        }),
+      })
       setLeadSent(true)
       setMessages((prev) => [...prev, { role: 'assistant', content: copy.leadThanks }])
     } catch {
@@ -126,12 +149,32 @@ export default function SofiaChat() {
     setMessages((prev) => [...prev, { role: 'user', content: message }])
     setIsLoading(true)
     try {
+      const stored = await fetch(CHANNEL_ENDPOINT, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          clientCode: SITE_CODE,
+          visitorId,
+          content: message,
+          visitorName: `${lead.firstName.trim()} ${lead.lastName.trim()}`,
+          email: lead.email.trim(),
+          phone: lead.phone.trim(),
+          source: 'website',
+          language: messageLanguage,
+          metadata: { page: window.location.href, pageTitle: document.title },
+        }),
+      })
+      if (!stored.ok) throw new Error('Channel Manager delivery failed')
       const response = await fetch(CHAT_ENDPOINT, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, language: messageLanguage, siteCode: SITE_CODE }),
+        body: JSON.stringify({ message, language: messageLanguage, clientCode: SITE_CODE, visitorId, metadata: { page: window.location.href } }),
       })
       const data = await response.json()
-      setMessages((prev) => [...prev, { role: 'assistant', content: data.reply || copy.error }])
+      const reply = data.reply || copy.error
+      setMessages((prev) => [...prev, { role: 'assistant', content: reply }])
+      await fetch(CHANNEL_ENDPOINT, {
+        method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ clientCode: SITE_CODE, visitorId, content: reply, model: data.mode || 'sofia-ai' }),
+      })
     } catch {
       setMessages((prev) => [...prev, { role: 'assistant', content: copy.error }])
     } finally {
