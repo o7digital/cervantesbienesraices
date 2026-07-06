@@ -9,7 +9,6 @@ const WhatsAppFloatingButton = () => (
     aria-label="Contactar por WhatsApp"
   >
     <i className="fa-brands fa-whatsapp" aria-hidden="true" />
-    <span>WhatsApp</span>
   </a>
 );
 

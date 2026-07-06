@@ -29,20 +29,19 @@
 
 .whatsapp-floating-button {
   position: fixed;
-  left: 22px;
-  bottom: 22px;
-  z-index: 1000;
+  right: 31px;
+  bottom: 262px;
+  z-index: 2147483646;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  min-height: 52px;
-  padding: 0 20px;
-  border-radius: 999px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
   background: #25d366;
   color: #fff;
   font-family: Gordita, system-ui, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
   box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
   transition: transform 0.2s ease, background 0.2s ease;
 }
@@ -53,7 +52,7 @@
   transform: translateY(-3px);
 }
 
-.whatsapp-floating-button i { font-size: 25px; }
+.whatsapp-floating-button i { font-size: 29px; }
 
 .sofia-cervantes-chat * { box-sizing: border-box; }
 
@@ -218,10 +217,9 @@
   .sofia-cervantes-chat { right: 14px; bottom: 130px; }
   .sofia-cervantes-lead { grid-template-columns: 1fr; }
   .whatsapp-floating-button {
-    left: 14px;
-    bottom: 14px;
-    min-width: 52px;
-    padding: 0 14px;
+    right: 23px;
+    bottom: 280px;
+    width: 52px;
+    height: 52px;
   }
-  .whatsapp-floating-button span { display: none; }
 }
