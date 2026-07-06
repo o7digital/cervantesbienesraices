@@ -280,10 +280,11 @@ const ListingSixArea = () => {
     const rangoParam = normalizeText(searchParams?.get("rango") || "");
 
     const isRentalSearch = (typeParam: string) =>
-      typeParam.startsWith("rentar_") || typeParam.startsWith("rent_");
+      typeParam === "renta" || typeParam.startsWith("rentar_") || typeParam.startsWith("rent_");
 
     const toOperation = (t: string): string => {
       if (!t || t === "todos") return "";
+      if (t === "venta") return "operation:venta";
       if (t.startsWith("comprar_") || t.startsWith("buy_")) return "operation:venta";
       if (isRentalSearch(t)) return "operation:renta";
       return "";

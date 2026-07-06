@@ -52,15 +52,16 @@ const menu_data: MenuItem[] = BLOG_ENABLED
       ...baseMenu.slice(0, 3),
       {
         id: 99,
-        title: "Propiedades destacadas",
-        link: "/blog#propiedades-destacadas",
+        title: "Nuestras Propiedades",
+        link: "/listing_06",
         has_dropdown: true,
         sub_menus: [
-          { title: "Rentas", link: "/blog?operacion=rent#propiedades-destacadas" },
-          { title: "Ventas", link: "/blog?operacion=sale#propiedades-destacadas" },
-          { title: "Últimas Noticias", link: "/blog#ultimas-noticias" },
+          { title: "Venta", link: "/listing_06?tipo=venta" },
+          { title: "Rentas", link: "/listing_06?tipo=renta" },
         ],
       },
+      { id: 100, title: "Anuncios Destacados", link: "/anuncios-destacados", has_dropdown: false },
+      { id: 101, title: "Noticias", link: "/blog", has_dropdown: false },
       ...baseMenu.slice(3),
     ]
   : baseMenu;

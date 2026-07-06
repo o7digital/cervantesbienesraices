@@ -5,11 +5,11 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Noticias y Propiedades destacadas | Cervantes Bienes Raíces",
+  title: "Noticias | Cervantes Bienes Raíces",
   description:
     "Consejos inmobiliarios, tendencias de mercado y guías prácticas para comprar, vender o rentar en México.",
   openGraph: {
-    title: "Noticias y Propiedades destacadas | Cervantes Bienes Raíces",
+    title: "Noticias inmobiliarias | Cervantes Bienes Raíces",
     description:
       "Consejos inmobiliarios, tendencias de mercado y guías prácticas para comprar, vender o rentar en México.",
     url: "https://www.cervantesbienesraices.com/blog",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Noticias y Propiedades destacadas | Cervantes Bienes Raíces",
+    title: "Noticias inmobiliarias | Cervantes Bienes Raíces",
     description:
       "Consejos inmobiliarios y guías prácticas para comprar, vender o rentar en México.",
     images: ["/images/assets/ogg.png"],
