@@ -42,11 +42,11 @@ const baseMenu: MenuItem[] = [
   {
     id: 98,
     title: "Nuestras Propiedades",
-    link: "/anuncios-destacados",
+    link: "/listing_06",
     has_dropdown: true,
     sub_menus: [
-      { title: "Venta", link: "/anuncios-destacados?operacion=sale#propiedades-destacadas" },
-      { title: "Rentas", link: "/anuncios-destacados?operacion=rent#propiedades-destacadas" },
+      { title: "Venta", link: "/listing_06?operacion=sale" },
+      { title: "Rentas", link: "/listing_06?operacion=rent" },
     ],
   },
   {
