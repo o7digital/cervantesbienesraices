@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import CookieConsent from "@/components/common/CookieConsent";
 import PrivacyFloatingButton from "@/components/common/PrivacyFloatingButton";
-import SofiaChat from "@/components/chat/SofiaChat";
 import WhatsAppFloatingButton from "@/components/common/WhatsAppFloatingButton";
 import Providers from "@/redux/Providers";
 
@@ -99,7 +98,6 @@ export default function RootLayout({
             <CookieConsent />
             <PrivacyFloatingButton />
             <WhatsAppFloatingButton />
-            <SofiaChat />
           </div>
         </Providers>
         <Script
