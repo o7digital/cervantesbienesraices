@@ -54,7 +54,7 @@ async function fetchProperty(id: string): Promise<Property | null> {
 }
 
 function buildLocationLabel(property: Property): string {
-  if (!property?.location) return "Location not available";
+  if (!property?.location) return "Местоположение не указано";
   if (typeof property.location === "string") return property.location;
 
   const parts = [
@@ -67,12 +67,12 @@ function buildLocationLabel(property: Property): string {
     property.location?.country,
   ].filter(Boolean);
 
-  return parts.length ? parts.join(", ") : "Location not available";
+  return parts.length ? parts.join(", ") : "Местоположение не указано";
 }
 
 function buildPriceLabel(property: Property): string {
   const op = property.operations?.[0];
-  return op?.formatted_amount || (op?.amount ? `${op.amount} ${op.currency || "MXN"}` : "Price not available");
+  return op?.formatted_amount || (op?.amount ? `${op.amount} ${op.currency || "MXN"}` : "Цена по запросу");
 }
 
 function truncate(text?: string, max = 160): string | undefined {
@@ -86,14 +86,14 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 
   if (!property) {
     return {
-      title: "Property not found | Cervantes Недвижимость",
+      title: "Объект не найден | Cervantes Недвижимость",
       robots: { index: false, follow: false },
     };
   }
 
   const canonical = `${BASE_URL}/ru/property/${property.public_id || params.id}`;
   const localizedTitle = localizePropertyTitle(property.title || "", "ru");
-  const description = truncate(property.description) || "Property for sale or rent in Mexico.";
+  const description = truncate(property.description) || "Недвижимость для продажи или аренды в Мексике.";
   const ogImage = property.property_images?.[0]?.url || "/images/assets/ogg.png";
 
   return {
@@ -145,22 +145,22 @@ export default async function PropertyDetailPageRu({ params }: { params: { id: s
         {property.property_images?.length ? (
           <ImageGallery images={property.property_images} title={localizedTitle || property.title} />
         ) : (
-          <p className="text-muted mb-4">No images available.</p>
+          <p className="text-muted mb-4">Фотографии отсутствуют.</p>
         )}
 
-        <h3>Price</h3>
+        <h3>Цена</h3>
         <p>{priceLabel}</p>
 
-        <h3>Description</h3>
-        <p>{property.description || "No description available"}</p>
+        <h3>Описание</h3>
+        <p>{property.description || "Описание отсутствует"}</p>
 
-        <h3>Features</h3>
+        <h3>Характеристики</h3>
         <ul>
-          <li>Bedrooms: {property.bedrooms ?? "N/A"}</li>
-          <li>Bathrooms: {property.bathrooms ?? "N/A"}</li>
-          <li>Parking: {property.parking_spaces ?? "N/A"}</li>
+          <li>Спальни: {property.bedrooms ?? "Нет данных"}</li>
+          <li>Ванные комнаты: {property.bathrooms ?? "Нет данных"}</li>
+          <li>Парковочные места: {property.parking_spaces ?? "Нет данных"}</li>
           <li>
-            Area: {property.building_size?.size ?? "N/A"} {property.building_size?.unit}
+            Площадь: {property.building_size?.size ?? "Нет данных"} {property.building_size?.unit}
           </li>
         </ul>
       </main>

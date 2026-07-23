@@ -23,7 +23,7 @@ const MortgageCreditRu = () => {
 
       // Validation
       if (!formData.name || !formData.email || !formData.phone) {
-         toast.error("Please fill in all fields");
+         toast.error("Пожалуйста, заполните все поля");
          return;
       }
 
@@ -41,14 +41,14 @@ const MortgageCreditRu = () => {
          const data = await response.json();
 
          if (response.ok) {
-            toast.success("Request sent successfully! We'll contact you soon.");
+            toast.success("Заявка успешно отправлена! Мы скоро свяжемся с вами.");
             setFormData({ name: "", email: "", phone: "" });
          } else {
-            toast.error(data.error || "Failed to send request. Please try again.");
+            toast.error(data.error || "Не удалось отправить заявку. Попробуйте еще раз.");
          }
       } catch (error) {
          console.error("Error submitting form:", error);
-         toast.error("An error occurred. Please try again later.");
+         toast.error("Произошла ошибка. Попробуйте позже.");
       } finally {
          setIsSubmitting(false);
       }
@@ -63,7 +63,7 @@ const MortgageCreditRu = () => {
                      <div className="title-one mb-60 lg-mb-40">
                         <div className="upper-title">ИПОТЕКА</div>
                         <h3>Нужна <span>ипотека<Image src={titleShape} alt="" className="lazy-img" /></span> ?</h3>
-                        <p className="fs-24 color-dark">We&apos;ll guide you through the entire process. Leave your details and we&apos;ll contact you.</p>
+                        <p className="fs-24 color-dark">Мы сопроводим вас на всех этапах. Оставьте контактные данные, и мы свяжемся с вами.</p>
                      </div>
                      <form onSubmit={handleSubmit} className="me-xl-4">
                         <input 
@@ -109,7 +109,7 @@ const MortgageCreditRu = () => {
                      <div style={{ maxWidth: '800px', width: '100%' }}>
                         <Image
                            src="/assets/images/media/morgage_house.png"
-                           alt="Mortgage Credit"
+                           alt="Ипотечное кредитование"
                            width={800}
                            height={800}
                            style={{ width: '100%', height: 'auto', display: 'block' }}

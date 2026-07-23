@@ -19,12 +19,12 @@ const FancyBannerOneRu = () => {
               </div>
               <div className="ps-3 text" style={{ width: "auto", flex: "1 1 240px" }}>
                 <h6 className="fs-22">Javier Cervantes</h6>
-                <span className="fs-20">Founder & CEO of CERVANTES REAL ESTATE</span>
+                <span className="fs-20">Основатель и генеральный директор CERVANTES REAL ESTATE</span>
               </div>
             </div>
           </div>
           <div className="col-xxl-7 col-lg-8">
-            <blockquote>&quot;We follow a rigorous process to offer the best opportunities to our investors.&quot;</blockquote>
+            <blockquote>&quot;Мы придерживаемся строгого процесса отбора, чтобы предлагать инвесторам лучшие возможности.&quot;</blockquote>
           </div>
         </div>
 

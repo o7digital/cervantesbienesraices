@@ -21,6 +21,7 @@ const HeaderFive = ({ style }: any) => {
       : lang === "ru"
       ? "/ru"
       : "/";
+   const loginLabel = lang === "ru" ? "Войти" : "Login";
 
    return (
       <>
@@ -59,7 +60,7 @@ const HeaderFive = ({ style }: any) => {
                            </li>
                            <li>
                               <Link href="#" data-bs-toggle="modal" data-bs-target="#loginModal" className="btn-one">
-                                 <i className="fa-regular fa-lock"></i> <span>Login</span>
+                                 <i className="fa-regular fa-lock"></i> <span>{loginLabel}</span>
                               </Link>
                            </li>
                            {/* 🚫 Eliminado el botón Add Listing */}

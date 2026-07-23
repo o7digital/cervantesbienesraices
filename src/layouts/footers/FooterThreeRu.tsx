@@ -19,7 +19,7 @@ const FooterThreeRu = () => {
                            </Link>
                         </div>
                         <p className="mb-45 lg-mb-30">
-                           Cervantes Недвижимость specializes in ranch sales throughout Mexico.<br />
+                           Cervantes Недвижимость специализируется на продаже ранчо по всей Мексике.<br />
                            Cerrada de Bezares 133, Col. Lomas de Bezares, <br />
                            CP 11910, Miguel Hidalgo, CDMX.
                         </p>
@@ -34,13 +34,13 @@ const FooterThreeRu = () => {
 
                   <div className="col-xl-3 col-lg-4 col-md-6 mb-30">
                      <div className="footer-nav">
-                        <h5 className="footer-title">Newsletter</h5>
-                        <p className="mb-20">Subscribe to receive important updates.</p>
+                        <h5 className="footer-title">Рассылка</h5>
+                        <p className="mb-20">Подпишитесь, чтобы получать важные новости.</p>
                         <div className="email-input-group d-flex">
-                           <input type="email" placeholder="Enter your email" />
-                           <button type="submit" className="btn-four fw-500 text-uppercase">Send</button>
+                           <input type="email" placeholder="Введите ваш email" />
+                           <button type="submit" className="btn-four fw-500 text-uppercase">Отправить</button>
                         </div>
-                        <div className="fs-14 mt-10">We only send relevant and valuable emails.</div>
+                        <div className="fs-14 mt-10">Мы отправляем только полезную и актуальную информацию.</div>
                      </div>
                   </div>
                </div>
@@ -50,9 +50,9 @@ const FooterThreeRu = () => {
          <div className="bottom-footer">
             <div className="container text-center">
                <p className="seo-footer">
-                  ranches for sale in Mexico · Mexico ranch real estate · luxury real estate Mexico City · premium real estate agency CDMX · homes in Polanco · houses in Lomas de Chapultepec · exclusive listings Mexico · investment property Mexico · expat housing Mexico City · Mexico real estate advisor · premium apartments CDMX · safe neighborhoods Mexico City · relocation to Mexico · property valuation Mexico · real estate consulting CDMX · high-end real estate Mexico · Mexico City property experts · long-term investment Mexico · premium condos Mexico · real estate for foreign buyers · luxury homes Mexico · trusted real estate agency CDMX
+                  ранчо на продажу в Мексике · элитная недвижимость в Мехико · премиальное агентство недвижимости CDMX · дома в Поланко · недвижимость в Ломас-де-Чапультепек · эксклюзивные объекты в Мексике · инвестиционная недвижимость · жилье для экспатов в Мехико · оценка недвижимости · консультации по недвижимости в CDMX · недвижимость для иностранных покупателей
                </p>
-               <p className="m-0">Copyright ©2025 CERVANTES REAL ESTATE. All rights reserved.</p>
+               <p className="m-0">© 2025 CERVANTES REAL ESTATE. Все права защищены.</p>
             </div>
          </div>
       </div>

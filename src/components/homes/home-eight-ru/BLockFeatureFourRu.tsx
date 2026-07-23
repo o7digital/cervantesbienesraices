@@ -21,7 +21,7 @@ const BLockFeatureFourRu = () => {
                         <input type="email" placeholder="Ваш email..." />
                         <button>Узнать</button>
                      </form>
-                     <div className="fs-16 mt-10 opacity-75">*For precise information please <Link href="/contact" className="fst-italic color-dark text-decoration-underline">contact us.</Link></div>
+                     <div className="fs-16 mt-10 opacity-75">*Для получения точной информации <Link href="/contact" className="fst-italic color-dark text-decoration-underline">свяжитесь с нами.</Link></div>
                   </div>
                </div>
 

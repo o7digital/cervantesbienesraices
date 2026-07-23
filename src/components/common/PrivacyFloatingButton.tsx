@@ -20,6 +20,12 @@ const PrivacyFloatingButton = () => {
   } else if (currentLang === "it") {
     privacyLink = "/it/politica-privacy"
     privacyText = "Informativa sulla Privacy"
+  } else if (currentLang === "de") {
+    privacyLink = "/de/datenschutz"
+    privacyText = "Datenschutzerklärung"
+  } else if (currentLang === "ru") {
+    privacyLink = "/ru/politika-konfidencialnosti"
+    privacyText = "Политика конфиденциальности"
   }
 
   if (!isVisible) return null
@@ -33,7 +39,7 @@ const PrivacyFloatingButton = () => {
       <button 
         className="privacy-close"
         onClick={() => setIsVisible(false)}
-        aria-label="Cerrar"
+        aria-label={currentLang === "ru" ? "Закрыть" : "Cerrar"}
       >
         <i className="fa-solid fa-times"></i>
       </button>

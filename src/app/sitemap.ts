@@ -291,6 +291,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/ru/politika-konfidencialnosti`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
   ]
 
   return [...staticUrls, ...propertyUrls]

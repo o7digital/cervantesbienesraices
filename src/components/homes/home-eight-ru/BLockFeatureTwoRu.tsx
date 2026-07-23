@@ -5,19 +5,19 @@ const reasons = [
     id: 1,
     icon: "/assets/images/icon/icon_40.svg",
     title: "Безопасные сделки",
-    desc: "We protect each transaction for your peace of mind.",
+    desc: "Мы обеспечиваем безопасность каждой сделки и ваше спокойствие.",
   },
   {
     id: 2,
     icon: "/assets/images/icon/icon_41.svg",
     title: "Проверенные платежи",
-    desc: "Your payments are processed with certified systems.",
+    desc: "Ваши платежи обрабатываются через сертифицированные системы.",
   },
   {
     id: 3,
     icon: "/assets/images/icon/icon_42.svg",
     title: "Быстрое сопровождение",
-    desc: "Buy or sell your property in minutes, hassle-free.",
+    desc: "Начните покупку или продажу недвижимости быстро и без лишних сложностей.",
   },
 ];
 

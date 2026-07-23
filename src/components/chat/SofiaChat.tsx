@@ -50,6 +50,14 @@ const COPY = {
     leadThanks: 'Danke. Ihre Daten wurden gesendet und ein Berater wird Sie zeitnah kontaktieren.', placeholder: 'Schreiben Sie Ihre Frage...', send: 'Senden',
     error: 'Ich konnte die Nachricht nicht senden. Bitte versuchen Sie es erneut oder kontaktieren Sie Cervantes Bienes Raices direkt.',
   },
+  ru: {
+    title: 'София', status: 'Помощник Cervantes Недвижимость', online: 'В сети', teaser: 'Ищете недвижимость?', open: 'Открыть чат', close: 'Закрыть чат',
+    welcome: 'Здравствуйте, я София. Чем я могу помочь вам в поиске недвижимости?',
+    leadIntro: 'Оставьте свои контактные данные, чтобы консультант Cervantes Недвижимость мог связаться с вами.',
+    firstName: 'Имя', lastName: 'Фамилия', email: 'Электронная почта', phone: 'Телефон', submitLead: 'Отправить данные',
+    leadThanks: 'Спасибо. Ваши данные отправлены, и консультант скоро свяжется с вами.', placeholder: 'Напишите ваш вопрос...', send: 'Отправить',
+    error: 'Не удалось отправить сообщение. Попробуйте еще раз или свяжитесь с Cervantes Недвижимость напрямую.',
+  },
 }
 
 type Language = keyof typeof COPY
@@ -57,7 +65,7 @@ type ChatMessage = { role: 'assistant' | 'user'; content: string }
 
 function getLanguage(pathname: string | null): Language {
   const firstSegment = pathname?.split('/').filter(Boolean)[0]
-  if (firstSegment === 'en' || firstSegment === 'fr' || firstSegment === 'it' || firstSegment === 'de') return firstSegment
+  if (firstSegment === 'en' || firstSegment === 'fr' || firstSegment === 'it' || firstSegment === 'de' || firstSegment === 'ru') return firstSegment
   return 'es'
 }
 
@@ -68,6 +76,7 @@ function detectMessageLanguage(message: string, fallbackLanguage: Language): Lan
   if (/\b(hello|thanks|looking|property|house|apartment|rent|sale|buy|sell|real estate|polanco|condesa|roma)\b/.test(value)) return 'en'
   if (/\b(ciao|grazie|cerco|proprieta|casa|appartamento|affitto|vendita|comprare|vendere|immobiliare|polanco|condesa|roma)\b/.test(value)) return 'it'
   if (/\b(hallo|danke|suche|immobilie|haus|wohnung|miete|verkauf|kaufen|verkaufen|polanco|condesa|roma)\b/.test(value)) return 'de'
+  if (/[а-яё]/i.test(value)) return 'ru'
   return fallbackLanguage
 }
 
@@ -212,7 +221,7 @@ export default function SofiaChat() {
       )}
       <div className="sofia-cervantes-closed">
         {!isOpen && <button type="button" className="sofia-cervantes-teaser" onClick={() => setIsOpen(true)}><span className="sofia-cervantes-avatar">S</span><span>{OFFLINE ? 'Offline' : copy.teaser}</span></button>}
-        <button type="button" className="sofia-cervantes-toggle" onClick={() => setIsOpen((value) => !value)} aria-label={isOpen ? copy.close : copy.open}>{isOpen ? 'x' : 'Sofia'}</button>
+        <button type="button" className="sofia-cervantes-toggle" onClick={() => setIsOpen((value) => !value)} aria-label={isOpen ? copy.close : copy.open}>{isOpen ? 'x' : copy.title}</button>
       </div>
     </div>
   )

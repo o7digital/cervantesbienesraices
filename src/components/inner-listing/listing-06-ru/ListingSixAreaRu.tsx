@@ -5,7 +5,7 @@ import PropertyCard from "@/components/common/PropertyCard";
 import { localizePropertyTitle } from "@/utils/propertyLocalization";
 
 const formatLocation = (location: any) => {
-  if (!location) return "Location not available";
+  if (!location) return "Местоположение не указано";
 
   if (typeof location === "string") {
     return location;
@@ -21,7 +21,7 @@ const formatLocation = (location: any) => {
     location?.country,
   ].filter(Boolean);
 
-  return parts.length ? parts.join(", ") : "Location not available";
+  return parts.length ? parts.join(", ") : "Местоположение не указано";
 };
 
 const normalizeText = (value?: string) => {
@@ -93,7 +93,7 @@ const ListingSixAreaRu = () => {
       .then((data) => {
         if (data?.errors?.length) {
           console.error("EasyBroker API error:", data.errors);
-          setError("Properties could not be loaded right now.");
+          setError("Сейчас не удалось загрузить объекты.");
           setProperties([]);
           setLoading(false);
           return;
@@ -101,7 +101,7 @@ const ListingSixAreaRu = () => {
 
         if (data?.error) {
           console.error("/api/properties error:", data.error);
-          setError("Properties could not be loaded right now.");
+          setError("Сейчас не удалось загрузить объекты.");
           setProperties([]);
           setLoading(false);
           return;
@@ -109,7 +109,7 @@ const ListingSixAreaRu = () => {
 
         if (!Array.isArray(data?.content)) {
           console.warn("Unexpected response from /api/properties:", data);
-          setError("Properties could not be loaded right now.");
+          setError("Сейчас не удалось загрузить объекты.");
           setProperties([]);
           setLoading(false);
           return;
@@ -120,7 +120,7 @@ const ListingSixAreaRu = () => {
       })
       .catch((err) => {
         console.error("Error loading properties:", err);
-        setError("Properties could not be loaded right now.");
+        setError("Сейчас не удалось загрузить объекты.");
         setLoading(false);
       });
   }, []);
@@ -153,7 +153,7 @@ const ListingSixAreaRu = () => {
 
     if (propertyTypes.size) {
       groups.push({
-        label: "Property type",
+        label: "Тип недвижимости",
         options: Array.from(propertyTypes.entries()).map(([value, label]) => ({
           value: `property:${value}`,
           label,
@@ -187,7 +187,7 @@ const ListingSixAreaRu = () => {
 
     properties.forEach((prop) => {
       const label = getLocationLabel(prop?.location) || formatLocation(prop?.location);
-      if (!label || label === "Location not available") return;
+      if (!label || label === "Местоположение не указано") return;
       const key = normalizeText(label);
       if (!locations.has(key)) {
         locations.set(key, label);
@@ -415,13 +415,13 @@ const ListingSixAreaRu = () => {
   return (
     <div className="property-listing-six pt-200 xl-pt-150 pb-200 xl-pb-120">
       <div className="container">
-        <h2 className="mb-40 text-center">Available properties</h2>
+        <h2 className="mb-40 text-center">Доступные объекты</h2>
 
         <div className="listing-filters mb-40">
           <div className="row g-3 align-items-end">
             <div className="col-12 col-md-4 col-lg-3">
               <label htmlFor="listing-type-filter-ru" className="form-label fw-500">
-                Type / Operation
+                Тип / операция
               </label>
               <select
                 id="listing-type-filter-ru"
@@ -429,7 +429,7 @@ const ListingSixAreaRu = () => {
                 value={inputs.type}
                 onChange={handleInputChange("type")}
               >
-                <option value="">All</option>
+                <option value="">Все</option>
                 {typeOptionGroups.map((group) => (
                   <optgroup key={group.label} label={group.label}>
                     {group.options.map((option) => (
@@ -443,13 +443,13 @@ const ListingSixAreaRu = () => {
             </div>
             <div className="col-6 col-md-4 col-lg-2">
               <label htmlFor="listing-min-price-ru" className="form-label fw-500">
-                Min amount
+                Минимальная цена
               </label>
               <input
                 id="listing-min-price-ru"
                 type="number"
                 className="form-control"
-                placeholder="E.g. 500000"
+                placeholder="Например, 500000"
                 value={inputs.minPrice}
                 onChange={handleInputChange("minPrice")}
                 min={0}
@@ -457,13 +457,13 @@ const ListingSixAreaRu = () => {
             </div>
             <div className="col-6 col-md-4 col-lg-2">
               <label htmlFor="listing-max-price-ru" className="form-label fw-500">
-                Max amount
+                Максимальная цена
               </label>
               <input
                 id="listing-max-price-ru"
                 type="number"
                 className="form-control"
-                placeholder="E.g. 1500000"
+                placeholder="Например, 1500000"
                 value={inputs.maxPrice}
                 onChange={handleInputChange("maxPrice")}
                 min={0}
@@ -471,7 +471,7 @@ const ListingSixAreaRu = () => {
             </div>
             <div className="col-12 col-md-6 col-lg-3">
               <label htmlFor="listing-location-filter-ru" className="form-label fw-500">
-                Location
+                Местоположение
               </label>
               <input
                 id="listing-location-filter-ru"
@@ -479,7 +479,7 @@ const ListingSixAreaRu = () => {
                 value={inputs.location}
                 onChange={handleInputChange("location")}
                 list="listing-location-options-ru"
-                placeholder="Type location or leave empty for all"
+                placeholder="Введите место или оставьте поле пустым"
               />
               <datalist id="listing-location-options-ru">
                 {locationOptions.map((option) => (
@@ -495,7 +495,7 @@ const ListingSixAreaRu = () => {
                   onClick={handleApplyFilters}
                   disabled={filtersMatchInputs}
                 >
-                  Search
+                  Найти
                 </button>
                 <button
                   type="button"
@@ -503,7 +503,7 @@ const ListingSixAreaRu = () => {
                   onClick={handleResetFilters}
                   disabled={isResetDisabled}
                 >
-                  Clear filters
+                  Сбросить фильтры
                 </button>
               </div>
             </div>
@@ -512,12 +512,12 @@ const ListingSixAreaRu = () => {
 
         {loading && <p className="text-center">Загрузка объектов...</p>}
         {!loading && error && <p className="text-center text-danger">{error}</p>}
-        {!loading && !error && properties.length === 0 && <p>No properties found.</p>}
+        {!loading && !error && properties.length === 0 && <p>Объекты не найдены.</p>}
 
         <div className="row">
           {!loading && !error && properties.length > 0 && filteredProperties.length === 0 && (
             <div className="col-12">
-              <p className="text-center">No properties match the selected filters.</p>
+              <p className="text-center">Нет объектов, соответствующих выбранным фильтрам.</p>
             </div>
           )}
           {filteredProperties.map((prop) => {

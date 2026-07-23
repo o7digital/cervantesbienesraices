@@ -16,19 +16,19 @@ const feature_data: DataType[] = [
     id: 1,
     icon: icon_1,
     title: "2M+ объектов",
-    desc: <>Legal advisory for real estate in Mexico, Miami, and Madrid.</>,
+    desc: <>Юридическое сопровождение сделок с недвижимостью в Мексике, Майами и Мадриде.</>,
   },
   {
     id: 2,
     icon: icon_2,
     title: "ПОКУПКА И АРЕНДА",
-    desc: <>Sell your property quickly at the best market price.</>,
+    desc: <>Продайте свою недвижимость быстро и по лучшей рыночной цене.</>,
   },
   {
     id: 3,
     icon: icon_3,
     title: "Быстрый процесс",
-    desc: <>It only takes minutes to buy or sell with CERVANTES REAL ESTATE.</>,
+    desc: <>Покупка или продажа с CERVANTES REAL ESTATE начинается всего за несколько минут.</>,
   },
 ];
 

@@ -11,29 +11,29 @@ const AboutSectionRu = () => {
             </div>
             <div className="text-center text-lg-start">
               <p className="mb-3">
-                At <strong>Cervantes Bienes Raíces</strong>, we are a professional real-estate agency specializing in luxury real estate in Mexico City, as well as the sale of ranches and properties throughout Mexico. We work with exclusive and high-value listings across the city&apos;s most prestigious areas, including Polanco, Lomas de Chapultepec, Condesa, Roma and Santa Fe.
+                <strong>Cervantes Bienes Raíces</strong> — профессиональное агентство, специализирующееся на элитной недвижимости в Мехико, а также на продаже ранчо и объектов по всей Мексике. Мы работаем с эксклюзивными объектами в самых престижных районах города, включая Поланко, Ломас-де-Чапультепек, Кондесу, Рому и Санта-Фе.
               </p>
               <p className="mb-3">
-                Our team of property experts provides personalized guidance for both local and international buyers, including expats and foreign investors seeking premium homes in Mexico either for lifestyle, relocation, rental income or long-term capital appreciation.
+                Наша команда экспертов предлагает персональное сопровождение местным и иностранным покупателям, включая экспатов и инвесторов, которые ищут премиальную недвижимость в Мексике для проживания, переезда, получения арендного дохода или долгосрочного роста капитала.
               </p>
               <p className="mb-3">
-                We offer strong expertise in property valuation, market analytics, negotiation strategy and legal advisory, ensuring a secure and transparent transaction process. Our approach is based on discretion, ethics and a client-first service philosophy supported by real market data and deep knowledge of Mexico City&apos;s premium real-estate landscape.
+                Мы обладаем глубокой экспертизой в оценке недвижимости, анализе рынка, ведении переговоров и юридическом сопровождении, обеспечивая безопасность и прозрачность каждой сделки. Наш подход основан на конфиденциальности, этике и интересах клиента, а рекомендации — на реальных рыночных данных и знании премиального рынка Мехико.
               </p>
               <p className="mb-0">
-                From the initial search to evaluation, negotiation, due-diligence, documentation and closing, we deliver a fully guided process that provides confidence, peace of mind and tangible results in every acquisition.
+                От первичного поиска и оценки до переговоров, юридической проверки, оформления документов и закрытия сделки мы сопровождаем клиента на каждом этапе, обеспечивая уверенность, спокойствие и конкретный результат.
               </p>
               <div className="mt-40">
                 <h3 className="mb-20">Наша философия</h3>
                 <p className="mb-3">
-                  At Cervantes Bienes Raíces we believe that a property is more than a real-estate asset: it is a lifestyle decision, a long-term investment and a personal milestone. Our philosophy is built on three core principles:
+                  В Cervantes Bienes Raíces мы считаем, что недвижимость — это больше, чем актив: это выбор образа жизни, долгосрочная инвестиция и важный личный этап. Наша философия строится на трех принципах:
                 </p>
                 <ul className="list-style-one">
-                  <li><strong>Trust</strong> — We create long-term relationships based on integrity, confidentiality and full transparency.</li>
-                  <li><strong>Precision</strong> — Every recommendation is backed by real market analysis, premium segment insights and accurate comparative data.</li>
-                  <li><strong>Excellence</strong> — We aim to secure the best value for our clients, whether in location, price, investment potential or quality of life.</li>
+                  <li><strong>Доверие</strong> — Мы строим долгосрочные отношения на честности, конфиденциальности и полной прозрачности.</li>
+                  <li><strong>Точность</strong> — Каждая рекомендация основана на анализе рынка, знании премиального сегмента и достоверных сравнительных данных.</li>
+                  <li><strong>Высокие стандарты</strong> — Мы добиваемся для клиентов наилучшего результата с точки зрения местоположения, цены, инвестиционного потенциала и качества жизни.</li>
                 </ul>
                 <p className="mb-0">
-                  Our mission is to serve as a strategic partner for our clients, guiding them with professional rigor in every real-estate decision.
+                  Наша миссия — быть стратегическим партнером клиента и профессионально сопровождать каждое решение в сфере недвижимости.
                 </p>
               </div>
             </div>

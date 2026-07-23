@@ -19,25 +19,25 @@ const feedback_data: DataType[] = [
       id: 1,
       avatar: avatar_1,
       title: (<>Клиент</>),
-      desc: (<>Thanks to Cervantes Недвижимость I sold a home that had been on the market for 2 years.</>),
+      desc: (<>Благодаря Cervantes Недвижимость я продал дом, который находился на рынке два года.</>),
    },
    {
       id: 2,
       avatar: avatar_2,
       title: (<>Клиент</>),
-      desc: (<>They showed us several apartments until we found the one we loved the most.</>),
+      desc: (<>Нам показали несколько квартир, пока мы не нашли ту, которая понравилась больше всего.</>),
    },
    {
       id: 3,
       avatar: avatar_3,
       title: (<>Клиент</>),
-      desc: (<>Javier Cervantes guided me through the entire sale process and coordinated everything with the notary.</>),
+      desc: (<>Хавьер Сервантес сопровождал меня на протяжении всей продажи и согласовал все вопросы с нотариусом.</>),
    },
    {
       id: 4,
       avatar: avatar_2,
       title: (<>Клиент</>),
-      desc: (<>Julio Cervantes found the apartment I live in now, exactly with the specs I asked for.</>),
+      desc: (<>Хулио Сервантес нашел квартиру, в которой я сейчас живу, точно по моим требованиям.</>),
    },
 ];
 
