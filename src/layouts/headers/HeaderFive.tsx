@@ -18,6 +18,8 @@ const HeaderFive = ({ style }: any) => {
       ? "/it"
       : lang === "de"
       ? "/de"
+      : lang === "ru"
+      ? "/ru"
       : "/";
 
    return (

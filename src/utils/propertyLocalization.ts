@@ -1,4 +1,4 @@
-export type PropertyLanguage = "es" | "en" | "fr" | "it" | "de";
+export type PropertyLanguage = "es" | "en" | "fr" | "it" | "de" | "ru";
 
 type TargetLanguage = Exclude<PropertyLanguage, "es">;
 
@@ -106,6 +106,32 @@ const REPLACEMENTS: Record<TargetLanguage, Array<[RegExp, string]>> = {
     [/\brenta\b/gi, "miete"],
     [/\bciudad de mexico\b/gi, "Mexiko-Stadt"],
     [/\bestado de mexico\b/gi, "Bundesstaat Mexiko"],
+  ],
+  ru: [
+    [/\bse vende\b/gi, "продается"],
+    [/\bvende\b/gi, "продается"],
+    [/\ben venta\b/gi, "на продажу"],
+    [/\ben renta\b/gi, "в аренду"],
+    [/\bconjunto\b/gi, "комплекс"],
+    [/\bextraordinari[ao]s?\b/gi, "исключительный"],
+    [/\bbonit[ao]s?\b/gi, "красивый"],
+    [/\blocal comercial\b/gi, "коммерческое помещение"],
+    [/\bcasa en condominio\b/gi, "дом в кондоминиуме"],
+    [/\bdepartamentos\b/gi, "квартиры"],
+    [/\bdepartamento\b/gi, "квартира"],
+    [/\bcasas\b/gi, "дома"],
+    [/\bcasa\b/gi, "дом"],
+    [/\bterrenos\b/gi, "земельные участки"],
+    [/\bterreno\b/gi, "земельный участок"],
+    [/\boficinas\b/gi, "офисы"],
+    [/\boficina\b/gi, "офис"],
+    [/\bedificio\b/gi, "здание"],
+    [/\brancho\b/gi, "ранчо"],
+    [/\bpropiedad\b/gi, "недвижимость"],
+    [/\bventa\b/gi, "продажа"],
+    [/\brenta\b/gi, "аренда"],
+    [/\bciudad de mexico\b/gi, "Мехико"],
+    [/\bestado de mexico\b/gi, "Штат Мехико"],
   ],
 };
 

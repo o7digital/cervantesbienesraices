@@ -54,7 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Obtener propiedades de EasyBroker
   const properties = await fetchAllProperties()
   
-  // URLs de propiedades dinámicas (ES, EN, FR, IT, DE)
+  // URLs de propiedades dinámicas (ES, EN, FR, IT, DE, RU)
   const propertyUrls: MetadataRoute.Sitemap = []
   
   properties.forEach((property: any) => {
@@ -99,6 +99,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     })
+
+    // RU
+    propertyUrls.push({
+      url: `${BASE_URL}/ru/property/${property.public_id}`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })
   })
 
   // URLs estáticas principales
@@ -129,6 +137,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${BASE_URL}/de`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/ru`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.9,
@@ -263,6 +277,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.5,
+    },
+    // Russian version
+    {
+      url: `${BASE_URL}/ru/listing_06`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/ru/services`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     },
   ]
 

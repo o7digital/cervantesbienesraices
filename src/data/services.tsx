@@ -201,3 +201,42 @@ export const servicesDe: ServiceItem[] = [
       "Wir vertreten Viehzucht-, Landwirtschafts-, Reit-, Jagd- und Freizeitranches in ganz Mexiko. Unser Service umfasst die Bewertung von Land und Infrastruktur, die Prüfung von Eigentumstiteln, Wasserrechten und Flächennutzung, diskrete Vermarktung sowie Verhandlungen mit qualifizierten Käufern im In- und Ausland.",
   },
 ];
+
+export const servicesRu: ServiceItem[] = [
+  {
+    icon: <FiHome />,
+    title: "Покупка премиальной недвижимости",
+    description:
+      "Мы подбираем лучшие объекты в Polanco, Lomas, Condesa, Roma и Santa Fe с учетом образа жизни, бюджета и инвестиционной стратегии.",
+  },
+  {
+    icon: <FiUsers />,
+    title: "Продажа и представительство собственников",
+    description:
+      "Проводим профессиональную оценку, позиционируем объект в премиальном сегменте и работаем с квалифицированными покупателями из Мексики и других стран.",
+  },
+  {
+    icon: <FiFileText />,
+    title: "Юридическое сопровождение",
+    description:
+      "Сопровождаем сделку: проверка документов, договоры, акты, налоги и нотариальные процедуры. Цель - юридическая определенность и прозрачность.",
+  },
+  {
+    icon: <FiSearch />,
+    title: "Анализ рынка и оценка",
+    description:
+      "Готовим актуальные сравнительные исследования рынка и оценку недвижимости, чтобы решения были точными и защищали капитал клиента.",
+  },
+  {
+    icon: <FiTarget />,
+    title: "Инвестиционная стратегия",
+    description:
+      "Разрабатываем долгосрочные стратегии инвестиций в недвижимость с фокусом на рост капитала, доходность и диверсификацию в премиальном рынке Мехико.",
+  },
+  {
+    icon: <FiCompass />,
+    title: "Продажа ранчо в Мексике",
+    description:
+      "Представляем животноводческие, сельскохозяйственные, конные, охотничьи и рекреационные ранчо по всей Мексике, включая оценку земли, проверку прав и конфиденциальное продвижение.",
+  },
+];

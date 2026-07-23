@@ -89,6 +89,16 @@ const CARD_TEXT: Record<
     contact: "Kontakt",
     imageLabel: "Bild",
   },
+  ru: {
+    locationNotAvailable: "Локация недоступна",
+    priceOnRequest: "Цена по запросу",
+    forSale: "ПРОДАЖА",
+    forRent: "АРЕНДА",
+    loadingPhotos: "Загрузка...",
+    viewPhotos: "Смотреть фото",
+    contact: "Связаться",
+    imageLabel: "Изображение",
+  },
 };
 
 const formatLocation = (location: any, language: PropertyLanguage) => {

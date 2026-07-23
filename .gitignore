@@ -21,3 +21,4 @@ Thumbs.db
 
 # SQLite lock
 *.db-journal
+.vercel
