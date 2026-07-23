@@ -11,48 +11,48 @@ const OFFLINE = false
 
 const COPY = {
   es: {
-    title: 'Sofia', status: 'Asistente Cervantes Bienes Raices', online: 'En linea', teaser: 'Buscas propiedad?', open: 'Abrir chat', close: 'Cerrar chat',
-    welcome: 'Hola, soy Sofia. En que puedo ayudarte con tu busqueda inmobiliaria?',
+    title: 'Olivia AI', status: 'Asistente Cervantes Bienes Raices', online: 'En linea', teaser: 'Buscas propiedad?', open: 'Abrir chat', close: 'Cerrar chat',
+    welcome: 'Hola, soy Olivia AI. En que puedo ayudarte con tu busqueda inmobiliaria?',
     leadIntro: 'Deja tus datos para que un asesor de Cervantes Bienes Raices pueda contactarte.',
     firstName: 'Nombre', lastName: 'Apellido', email: 'Email', phone: 'Telefono', submitLead: 'Enviar datos',
     leadThanks: 'Gracias. Tus datos fueron enviados y un asesor te contactara pronto.', placeholder: 'Escribe tu pregunta...', send: 'Enviar',
     error: 'No pude enviar el mensaje. Intenta de nuevo o contacta directamente a Cervantes Bienes Raices.',
   },
   en: {
-    title: 'Sofia', status: 'Cervantes Real Estate Assistant', online: 'Online', teaser: 'Looking for property?', open: 'Open chat', close: 'Close chat',
-    welcome: 'Hello, I am Sofia. How can I help with your real estate search?',
+    title: 'Olivia AI', status: 'Cervantes Real Estate Assistant', online: 'Online', teaser: 'Looking for property?', open: 'Open chat', close: 'Close chat',
+    welcome: 'Hello, I am Olivia AI. How can I help with your real estate search?',
     leadIntro: 'Leave your details so a Cervantes Real Estate advisor can contact you.',
     firstName: 'First name', lastName: 'Last name', email: 'Email', phone: 'Phone', submitLead: 'Send details',
     leadThanks: 'Thanks. Your details were sent and an advisor will contact you soon.', placeholder: 'Write your question...', send: 'Send',
     error: 'I could not send the message. Please try again or contact Cervantes Real Estate directly.',
   },
   fr: {
-    title: 'Sofia', status: 'Assistante Cervantes Immobilier', online: 'En ligne', teaser: 'Vous cherchez un bien ?', open: 'Ouvrir le chat', close: 'Fermer le chat',
-    welcome: 'Bonjour, je suis Sofia. Comment puis-je vous aider dans votre recherche immobiliere ?',
+    title: 'Olivia AI', status: 'Assistante Cervantes Immobilier', online: 'En ligne', teaser: 'Vous cherchez un bien ?', open: 'Ouvrir le chat', close: 'Fermer le chat',
+    welcome: 'Bonjour, je suis Olivia AI. Comment puis-je vous aider dans votre recherche immobiliere ?',
     leadIntro: "Laissez vos coordonnees pour qu'un conseiller Cervantes Bienes Raices puisse vous contacter.",
     firstName: 'Prenom', lastName: 'Nom', email: 'Email', phone: 'Telephone', submitLead: 'Envoyer',
     leadThanks: 'Merci. Vos coordonnees ont ete envoyees et un conseiller vous contactera rapidement.', placeholder: 'Ecrivez votre question...', send: 'Envoyer',
     error: "Je n'ai pas pu envoyer le message. Reessayez ou contactez directement Cervantes Bienes Raices.",
   },
   it: {
-    title: 'Sofia', status: 'Assistente Cervantes Immobiliare', online: 'Online', teaser: 'Cerchi una proprieta?', open: 'Apri chat', close: 'Chiudi chat',
-    welcome: 'Ciao, sono Sofia. Come posso aiutarti nella tua ricerca immobiliare?',
+    title: 'Olivia AI', status: 'Assistente Cervantes Immobiliare', online: 'Online', teaser: 'Cerchi una proprieta?', open: 'Apri chat', close: 'Chiudi chat',
+    welcome: 'Ciao, sono Olivia AI. Come posso aiutarti nella tua ricerca immobiliare?',
     leadIntro: 'Lascia i tuoi dati cosi un consulente Cervantes Bienes Raices potra contattarti.',
     firstName: 'Nome', lastName: 'Cognome', email: 'Email', phone: 'Telefono', submitLead: 'Invia dati',
     leadThanks: 'Grazie. I tuoi dati sono stati inviati e un consulente ti contattera presto.', placeholder: 'Scrivi la tua domanda...', send: 'Invia',
     error: 'Non ho potuto inviare il messaggio. Riprova o contatta direttamente Cervantes Bienes Raices.',
   },
   de: {
-    title: 'Sofia', status: 'Cervantes Immobilien Assistentin', online: 'Online', teaser: 'Immobilie gesucht?', open: 'Chat offnen', close: 'Chat schliessen',
-    welcome: 'Hallo, ich bin Sofia. Wie kann ich Ihnen bei Ihrer Immobiliensuche helfen?',
+    title: 'Olivia AI', status: 'Cervantes Immobilien Assistentin', online: 'Online', teaser: 'Immobilie gesucht?', open: 'Chat offnen', close: 'Chat schliessen',
+    welcome: 'Hallo, ich bin Olivia AI. Wie kann ich Ihnen bei Ihrer Immobiliensuche helfen?',
     leadIntro: 'Hinterlassen Sie Ihre Kontaktdaten, damit ein Berater von Cervantes Bienes Raices Sie kontaktieren kann.',
     firstName: 'Vorname', lastName: 'Name', email: 'E-Mail', phone: 'Telefon', submitLead: 'Daten senden',
     leadThanks: 'Danke. Ihre Daten wurden gesendet und ein Berater wird Sie zeitnah kontaktieren.', placeholder: 'Schreiben Sie Ihre Frage...', send: 'Senden',
     error: 'Ich konnte die Nachricht nicht senden. Bitte versuchen Sie es erneut oder kontaktieren Sie Cervantes Bienes Raices direkt.',
   },
   ru: {
-    title: 'София', status: 'Помощник Cervantes Недвижимость', online: 'В сети', teaser: 'Ищете недвижимость?', open: 'Открыть чат', close: 'Закрыть чат',
-    welcome: 'Здравствуйте, я София. Чем я могу помочь вам в поиске недвижимости?',
+    title: 'Olivia AI', status: 'Помощник Cervantes Недвижимость', online: 'В сети', teaser: 'Ищете недвижимость?', open: 'Открыть чат', close: 'Закрыть чат',
+    welcome: 'Здравствуйте, я Olivia AI. Чем я могу помочь вам в поиске недвижимости?',
     leadIntro: 'Оставьте свои контактные данные, чтобы консультант Cervantes Недвижимость мог связаться с вами.',
     firstName: 'Имя', lastName: 'Фамилия', email: 'Электронная почта', phone: 'Телефон', submitLead: 'Отправить данные',
     leadThanks: 'Спасибо. Ваши данные отправлены, и консультант скоро свяжется с вами.', placeholder: 'Напишите ваш вопрос...', send: 'Отправить',
@@ -80,7 +80,7 @@ function detectMessageLanguage(message: string, fallbackLanguage: Language): Lan
   return fallbackLanguage
 }
 
-export default function SofiaChat() {
+export default function OliviaChat() {
   const pathname = usePathname()
   const language = getLanguage(pathname)
   const copy = COPY[language]
@@ -94,7 +94,7 @@ export default function SofiaChat() {
   )
   const visitorId = useMemo(() => {
     if (typeof window === 'undefined') return ''
-    const key = `sofiaVisitor:${SITE_CODE}`
+    const key = `oliviaVisitor:${SITE_CODE}`
     const saved = localStorage.getItem(key)
     const id = saved || crypto.randomUUID()
     localStorage.setItem(key, id)
@@ -121,8 +121,8 @@ export default function SofiaChat() {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           firstName: lead.firstName.trim(), lastName: lead.lastName.trim(), email: lead.email.trim(), phone: lead.phone.trim(),
-          source: 'Chat Sofia Cervantes Bienes Raices', language, siteCode: SITE_CODE,
-          message: `Lead Chat Sofia Cervantes Bienes Raices (${language}, ${SITE_CODE})\n\n${transcript}`,
+          source: 'Chat Olivia AI Cervantes Bienes Raices', language, siteCode: SITE_CODE,
+          message: `Lead Chat Olivia AI Cervantes Bienes Raices (${language}, ${SITE_CODE})\n\n${transcript}`,
         }),
       })
       if (!response.ok) throw new Error('Lead delivery failed')
@@ -182,7 +182,7 @@ export default function SofiaChat() {
       setMessages((prev) => [...prev, { role: 'assistant', content: reply }])
       await fetch(CHANNEL_ENDPOINT, {
         method: 'PATCH', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ clientCode: SITE_CODE, visitorId, content: reply, model: data.mode || 'sofia-ai' }),
+        body: JSON.stringify({ clientCode: SITE_CODE, visitorId, content: reply, model: data.mode || 'olivia-v2' }),
       })
     } catch {
       setMessages((prev) => [...prev, { role: 'assistant', content: copy.error }])
@@ -220,7 +220,7 @@ export default function SofiaChat() {
         </section>
       )}
       <div className="sofia-cervantes-closed">
-        {!isOpen && <button type="button" className="sofia-cervantes-teaser" onClick={() => setIsOpen(true)}><span className="sofia-cervantes-avatar">S</span><span>{OFFLINE ? 'Offline' : copy.teaser}</span></button>}
+        {!isOpen && <button type="button" className="sofia-cervantes-teaser" onClick={() => setIsOpen(true)}><span className="sofia-cervantes-avatar">O</span><span>{OFFLINE ? 'Offline' : copy.teaser}</span></button>}
         <button type="button" className="sofia-cervantes-toggle" onClick={() => setIsOpen((value) => !value)} aria-label={isOpen ? copy.close : copy.open}>{isOpen ? 'x' : copy.title}</button>
       </div>
     </div>
