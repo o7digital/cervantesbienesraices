@@ -26,6 +26,9 @@ type Property = {
   bathrooms?: number;
   parking_spaces?: number;
   building_size?: { size?: number; unit?: string };
+  construction_size?: number;
+  lot_size?: { size?: number; unit?: string };
+  property_type?: string;
   property_images?: Array<{ url: string }>;
   updated_at?: string;
   show_prices?: boolean;
@@ -72,6 +75,20 @@ function buildLocationLabel(property: Property): string {
 function buildPriceLabel(property: Property): string {
   const op = property.operations?.[0];
   return op?.formatted_amount || (op?.amount ? `${op.amount} ${op.currency || "MXN"}` : "Precio no disponible");
+}
+
+function buildOperationLabel(property: Property): string {
+  const operation = property.operations?.[0];
+  const type = operation?.type_label || operation?.type || "";
+  const normalized = type.toLowerCase();
+  if (normalized === "sale" || normalized === "venta") return "En venta";
+  if (normalized === "rent" || normalized === "renta") return "En renta";
+  return type || "Disponible";
+}
+
+function formatArea(size?: number, unit = "m2") {
+  if (!size) return "N/D";
+  return `${size.toLocaleString("es-MX")} ${unit}`;
 }
 
 function truncate(text?: string, max = 160): string | undefined {
@@ -131,35 +148,80 @@ export default async function PropertyDetailPage({ params }: { params: { id: str
 
   const locationLabel = buildLocationLabel(property);
   const priceLabel = buildPriceLabel(property);
+  const operationLabel = buildOperationLabel(property);
+  const areaSize = property.building_size?.size || property.construction_size;
+  const areaUnit = property.building_size?.unit || "m2";
+  const featureItems = [
+    { icon: "fa-bed", label: "Recamaras", value: property.bedrooms ?? "N/D" },
+    { icon: "fa-bath", label: "Banos", value: property.bathrooms ?? "N/D" },
+    { icon: "fa-car", label: "Estacionamientos", value: property.parking_spaces ?? "N/D" },
+    { icon: "fa-ruler-combined", label: "Construccion", value: formatArea(areaSize, areaUnit) },
+    { icon: "fa-vector-square", label: "Terreno", value: formatArea(property.lot_size?.size, property.lot_size?.unit || "m2") },
+    { icon: "fa-house", label: "Tipo", value: property.property_type || "N/D" },
+  ];
 
   return (
     <div className="main-page-wrapper">
       <HeaderFive />
-      <main className="property-detail container pt-100 pb-100">
-        <h1 className="mb-4">{property.title}</h1>
-        <p className="text-muted">{locationLabel}</p>
+      <main className="property-detail-page pt-160 lg-pt-130 pb-120">
+        <div className="container">
+          <div className="property-detail-hero">
+            <div>
+              <span className="property-detail-status">{operationLabel}</span>
+              <h1>{property.title}</h1>
+              <p className="property-detail-location">
+                <i className="fa-solid fa-location-dot"></i>
+                {locationLabel}
+              </p>
+            </div>
+            <div className="property-detail-price">
+              <span>Precio</span>
+              <strong>{priceLabel}</strong>
+            </div>
+          </div>
 
-        {property.property_images?.length ? (
-          <ImageGallery images={property.property_images} title={property.title} />
-        ) : (
-          <p className="text-muted mb-4">Sin imágenes disponibles.</p>
-        )}
+          {property.property_images?.length ? (
+            <ImageGallery images={property.property_images} title={property.title} />
+          ) : (
+            <div className="property-detail-empty">Sin imagenes disponibles.</div>
+          )}
 
-        <h3>Precio</h3>
-        <p>{priceLabel}</p>
+          <div className="property-detail-content">
+            <section className="property-detail-main">
+              <div className="property-detail-panel">
+                <h2>Descripcion</h2>
+                <p>{property.description || "Sin descripcion disponible."}</p>
+              </div>
+            </section>
 
-        <h3>Descripción</h3>
-        <p>{property.description || "Sin descripción disponible"}</p>
+            <aside className="property-detail-sidebar">
+              <div className="property-detail-panel">
+                <h2>Caracteristicas</h2>
+                <div className="property-detail-features">
+                  {featureItems.map((item) => (
+                    <div className="property-detail-feature" key={item.label}>
+                      <i className={`fa-solid ${item.icon}`}></i>
+                      <div>
+                        <span>{item.label}</span>
+                        <strong>{item.value}</strong>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-        <h3>Características</h3>
-        <ul>
-          <li>Recámaras: {property.bedrooms ?? "N/D"}</li>
-          <li>Baños: {property.bathrooms ?? "N/D"}</li>
-          <li>Estacionamientos: {property.parking_spaces ?? "N/D"}</li>
-          <li>
-            Área: {property.building_size?.size ?? "N/D"} {property.building_size?.unit}
-          </li>
-        </ul>
+              <a
+                className="property-detail-contact"
+                href={`/contact?property=${encodeURIComponent(property.title)}&propertyId=${encodeURIComponent(
+                  property.public_id
+                )}&sourcePath=${encodeURIComponent(`/property/${property.public_id}`)}#contact-form`}
+              >
+                Contactar por esta propiedad
+                <i className="fa-solid fa-envelope"></i>
+              </a>
+            </aside>
+          </div>
+        </div>
       </main>
       <FooterThree />
       <PropertySchema property={property} />

@@ -70,6 +70,193 @@
   opacity: 0.6;
 }
 
+.listing-subtitle {
+  max-width: 680px;
+  margin: -26px auto 34px;
+  color: rgba(15, 34, 67, 0.68);
+  font-size: 16px;
+}
+
+.property-detail-page {
+  background: #f7f8fb;
+}
+
+.property-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+.property-detail-hero h1 {
+  margin: 12px 0 12px;
+  color: #0b0b15;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.property-detail-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #102725;
+  color: #d9bd7d;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.property-detail-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  color: rgba(11, 11, 21, 0.68);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.property-detail-location i {
+  color: #ff5a3c;
+  margin-top: 5px;
+}
+
+.property-detail-price {
+  min-width: 280px;
+  padding: 22px 26px;
+  border: 1px solid rgba(15, 34, 67, 0.08);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgba(15, 34, 67, 0.08);
+}
+
+.property-detail-price span {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(11, 11, 21, 0.58);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.property-detail-price strong {
+  display: block;
+  color: #ff5a3c;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.property-detail-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 30px;
+  align-items: start;
+}
+
+.property-detail-panel {
+  border: 1px solid rgba(15, 34, 67, 0.08);
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 32px;
+  box-shadow: 0 18px 48px rgba(15, 34, 67, 0.07);
+}
+
+.property-detail-panel h2 {
+  margin: 0 0 18px;
+  color: #0b0b15;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.property-detail-panel p {
+  margin: 0;
+  color: rgba(11, 11, 21, 0.74);
+  font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.property-detail-features {
+  display: grid;
+  gap: 14px;
+}
+
+.property-detail-feature {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(15, 34, 67, 0.08);
+}
+
+.property-detail-feature:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.property-detail-feature i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255, 90, 60, 0.1);
+  color: #ff5a3c;
+}
+
+.property-detail-feature span {
+  display: block;
+  color: rgba(11, 11, 21, 0.56);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.property-detail-feature strong {
+  display: block;
+  margin-top: 3px;
+  color: #0b0b15;
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.property-detail-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 54px;
+  margin-top: 18px;
+  border-radius: 10px;
+  background: #ff5a3c;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.property-detail-contact:hover {
+  background: #0b0b15;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.property-detail-empty {
+  margin-bottom: 42px;
+  padding: 56px 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: rgba(11, 11, 21, 0.62);
+  text-align: center;
+}
+
 @media (max-width: 767px) {
   .listing-filters {
     padding: 20px;
@@ -79,5 +266,36 @@
   .listing-filters .filter-actions {
     justify-content: flex-start;
     gap: 10px;
+  }
+}
+
+@media (max-width: 991px) {
+  .property-detail-hero,
+  .property-detail-content {
+    grid-template-columns: 1fr;
+  }
+
+  .property-detail-price {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .listing-subtitle {
+    margin-top: -20px;
+    font-size: 15px;
+  }
+
+  .property-detail-hero h1 {
+    font-size: 34px;
+  }
+
+  .property-detail-panel,
+  .property-detail-price {
+    padding: 22px;
+  }
+
+  .property-detail-panel p {
+    font-size: 16px;
   }
 }

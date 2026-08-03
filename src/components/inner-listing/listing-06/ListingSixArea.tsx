@@ -68,6 +68,23 @@ const extractOperationAmounts = (operations: any[] | undefined) => {
     .filter((value): value is number => typeof value === "number" && !Number.isNaN(value));
 };
 
+const getPropertyTimestamp = (property: any) => {
+  const candidates = [
+    property?.updated_at,
+    property?.created_at,
+    property?.published_at,
+    property?.created_on,
+  ];
+
+  for (const candidate of candidates) {
+    if (!candidate) continue;
+    const timestamp = new Date(candidate).getTime();
+    if (!Number.isNaN(timestamp)) return timestamp;
+  }
+
+  return 0;
+};
+
 const initialFilterState = {
   type: "",
   propertyKind: "",
@@ -125,7 +142,9 @@ const ListingSixArea = () => {
           return;
         }
 
-        setProperties(data.content);
+        setProperties(
+          [...data.content].sort((a, b) => getPropertyTimestamp(b) - getPropertyTimestamp(a))
+        );
         setLoading(false);
       })
       .catch((err) => {
@@ -224,6 +243,7 @@ const ListingSixArea = () => {
       const propertyLocation = normalizeText(formatLocation(prop?.location));
       const isApartment = /apartment|departament|depa|apto|apartament/.test(propTypeNorm);
       const isHouse = /house|casa|residenc/.test(propTypeNorm);
+      const isRancho = /rancho|ranch|hacienda|finca|quinta/.test(propTypeNorm);
 
       const matchesType =
         !filters.type ||
@@ -242,7 +262,8 @@ const ListingSixArea = () => {
       const matchesPropertyKind =
         !filters.propertyKind ||
         (filters.propertyKind === "apartment" && isApartment) ||
-        (filters.propertyKind === "house" && isHouse);
+        (filters.propertyKind === "house" && isHouse) ||
+        (filters.propertyKind === "rancho" && isRancho);
 
       if (!matchesPropertyKind) return false;
 
@@ -301,6 +322,9 @@ const ListingSixArea = () => {
       }
       if (t === "comprar_casa" || t === "rentar_casa" || t === "buy_house" || t === "rent_house") {
         return "house";
+      }
+      if (t === "rancho" || t === "comprar_rancho" || t === "buy_ranch") {
+        return "rancho";
       }
       return "";
     };
@@ -432,6 +456,9 @@ const ListingSixArea = () => {
     <div className="property-listing-six pt-200 xl-pt-150 pb-200 xl-pb-120">
       <div className="container">
         <h2 className="mb-40 text-center">Propiedades disponibles</h2>
+        <p className="listing-subtitle text-center">
+          Mostrando primero las propiedades agregadas o actualizadas recientemente.
+        </p>
 
         {/* (Retirado) Barra de búsqueda superior: dejamos solo el panel de filtros */}
 
@@ -459,6 +486,22 @@ const ListingSixArea = () => {
                     ))}
                   </optgroup>
                 ))}
+              </select>
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <label htmlFor="listing-kind-filter" className="form-label fw-500">
+                Categoría
+              </label>
+              <select
+                id="listing-kind-filter"
+                className="form-select"
+                value={inputs.propertyKind}
+                onChange={handleInputChange("propertyKind")}
+              >
+                <option value="">Todas</option>
+                <option value="house">Casa</option>
+                <option value="apartment">Departamento</option>
+                <option value="rancho">Rancho</option>
               </select>
             </div>
             <div className="col-6 col-md-4 col-lg-2">

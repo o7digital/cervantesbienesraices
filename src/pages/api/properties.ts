@@ -68,6 +68,26 @@ const hasAny = (candidates: string[], tokens: string[]) => {
   return tokens.some((t) => set.has(normalize(t)));
 };
 
+const getPropertyTimestamp = (item: any) => {
+  const candidates = [
+    item?.updated_at,
+    item?.created_at,
+    item?.published_at,
+    item?.created_on,
+  ];
+
+  for (const candidate of candidates) {
+    if (!candidate) continue;
+    const timestamp = new Date(candidate).getTime();
+    if (!Number.isNaN(timestamp)) return timestamp;
+  }
+
+  return 0;
+};
+
+const sortNewestFirst = (items: any[]) =>
+  [...items].sort((a, b) => getPropertyTimestamp(b) - getPropertyTimestamp(a));
+
 // Verifica si un item coincide con el estatus solicitado (p.ej. "No publicada")
 const matchesStatus = (item: any, statusFilter: string) => {
   const target = normalize(statusFilter);
@@ -164,7 +184,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       if (Array.isArray(pageData?.content)) {
         // EasyBroker a déjà filtré selon le statut demandé
-        const filtered = pageData.content;
+        const filtered = sortNewestFirst(pageData.content);
 
         if (debugStatuses || debugFields) {
           const stats = debugStatuses ? buildStatusStats(pageData.content) : undefined;
@@ -224,7 +244,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // EasyBroker a déjà filtré selon le statut demandé
-    const resultContent = allContent;
+    const resultContent = sortNewestFirst(allContent);
 
     if (debugStatuses || debugFields) {
       const stats = debugStatuses ? buildStatusStats(allContent) : undefined;
