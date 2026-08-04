@@ -89,17 +89,10 @@ export default function OliviaChat() {
   const [isLoading, setIsLoading] = useState(false)
   const [leadSent, setLeadSent] = useState(false)
   const [lead, setLead] = useState({ firstName: '', lastName: '', email: '', phone: '', need: '' })
+  const [visitorId, setVisitorId] = useState('')
   const [messages, setMessages] = useState<ChatMessage[]>(
     OFFLINE ? [{ role: 'assistant', content: 'Offline' }] : [{ role: 'assistant', content: copy.welcome }]
   )
-  const visitorId = useMemo(() => {
-    if (typeof window === 'undefined') return ''
-    const key = `oliviaVisitor:${SITE_CODE}`
-    const saved = localStorage.getItem(key)
-    const id = saved || crypto.randomUUID()
-    localStorage.setItem(key, id)
-    return id
-  }, [])
 
   useEffect(() => {
     if (OFFLINE) return
@@ -116,6 +109,10 @@ export default function OliviaChat() {
     if (OFFLINE) return
     if (!lead.firstName.trim() || !lead.lastName.trim() || !lead.email.trim() || !lead.phone.trim() || isLoading) return
     setIsLoading(true)
+    const conversationVisitorId = typeof crypto !== 'undefined' && 'randomUUID' in crypto
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(36).slice(2)}`
+    setVisitorId(conversationVisitorId)
     try {
       const response = await fetch(LEAD_ENDPOINT, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -131,7 +128,7 @@ export default function OliviaChat() {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           clientCode: SITE_CODE,
-          visitorId,
+          visitorId: conversationVisitorId,
           content: `Lead: ${lead.firstName.trim()} ${lead.lastName.trim()} · ${lead.email.trim()} · ${lead.phone.trim()}${lead.need.trim() ? ` · ${lead.need.trim()}` : ''}`,
           visitorName: `${lead.firstName.trim()} ${lead.lastName.trim()}`,
           email: lead.email.trim(),
@@ -153,7 +150,7 @@ export default function OliviaChat() {
   const handleSend = async () => {
     if (OFFLINE) return
     const message = input.trim()
-    if (!message || isLoading || !leadSent) return
+    if (!message || isLoading || !leadSent || !visitorId) return
     const messageLanguage = detectMessageLanguage(message, language)
     setInput('')
     setMessages((prev) => [...prev, { role: 'user', content: message }])
