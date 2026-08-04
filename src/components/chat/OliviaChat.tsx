@@ -14,7 +14,7 @@ const COPY = {
     title: 'Olivia AI', status: 'Asistente Cervantes Bienes Raices', online: 'En linea', teaser: 'Buscas propiedad?', open: 'Abrir chat', close: 'Cerrar chat',
     welcome: 'Hola, soy Olivia AI. En que puedo ayudarte con tu busqueda inmobiliaria?',
     leadIntro: 'Deja tus datos para que un asesor de Cervantes Bienes Raices pueda contactarte.',
-    firstName: 'Nombre', lastName: 'Apellido', email: 'Email', phone: 'Telefono', submitLead: 'Enviar datos',
+    firstName: 'Nombre', lastName: 'Apellido', email: 'Email', phone: 'Telefono', need: 'Necesidad', submitLead: 'Enviar datos',
     leadThanks: 'Gracias. Tus datos fueron enviados y un asesor te contactara pronto.', placeholder: 'Escribe tu pregunta...', send: 'Enviar',
     error: 'No pude enviar el mensaje. Intenta de nuevo o contacta directamente a Cervantes Bienes Raices.',
   },
@@ -22,7 +22,7 @@ const COPY = {
     title: 'Olivia AI', status: 'Cervantes Real Estate Assistant', online: 'Online', teaser: 'Looking for property?', open: 'Open chat', close: 'Close chat',
     welcome: 'Hello, I am Olivia AI. How can I help with your real estate search?',
     leadIntro: 'Leave your details so a Cervantes Real Estate advisor can contact you.',
-    firstName: 'First name', lastName: 'Last name', email: 'Email', phone: 'Phone', submitLead: 'Send details',
+    firstName: 'First name', lastName: 'Last name', email: 'Email', phone: 'Phone', need: 'Need', submitLead: 'Send details',
     leadThanks: 'Thanks. Your details were sent and an advisor will contact you soon.', placeholder: 'Write your question...', send: 'Send',
     error: 'I could not send the message. Please try again or contact Cervantes Real Estate directly.',
   },
@@ -30,7 +30,7 @@ const COPY = {
     title: 'Olivia AI', status: 'Assistante Cervantes Immobilier', online: 'En ligne', teaser: 'Vous cherchez un bien ?', open: 'Ouvrir le chat', close: 'Fermer le chat',
     welcome: 'Bonjour, je suis Olivia AI. Comment puis-je vous aider dans votre recherche immobiliere ?',
     leadIntro: "Laissez vos coordonnees pour qu'un conseiller Cervantes Bienes Raices puisse vous contacter.",
-    firstName: 'Prenom', lastName: 'Nom', email: 'Email', phone: 'Telephone', submitLead: 'Envoyer',
+    firstName: 'Prenom', lastName: 'Nom', email: 'Email', phone: 'Telephone', need: 'Votre besoin', submitLead: 'Envoyer',
     leadThanks: 'Merci. Vos coordonnees ont ete envoyees et un conseiller vous contactera rapidement.', placeholder: 'Ecrivez votre question...', send: 'Envoyer',
     error: "Je n'ai pas pu envoyer le message. Reessayez ou contactez directement Cervantes Bienes Raices.",
   },
@@ -38,7 +38,7 @@ const COPY = {
     title: 'Olivia AI', status: 'Assistente Cervantes Immobiliare', online: 'Online', teaser: 'Cerchi una proprieta?', open: 'Apri chat', close: 'Chiudi chat',
     welcome: 'Ciao, sono Olivia AI. Come posso aiutarti nella tua ricerca immobiliare?',
     leadIntro: 'Lascia i tuoi dati cosi un consulente Cervantes Bienes Raices potra contattarti.',
-    firstName: 'Nome', lastName: 'Cognome', email: 'Email', phone: 'Telefono', submitLead: 'Invia dati',
+    firstName: 'Nome', lastName: 'Cognome', email: 'Email', phone: 'Telefono', need: 'Esigenza', submitLead: 'Invia dati',
     leadThanks: 'Grazie. I tuoi dati sono stati inviati e un consulente ti contattera presto.', placeholder: 'Scrivi la tua domanda...', send: 'Invia',
     error: 'Non ho potuto inviare il messaggio. Riprova o contatta direttamente Cervantes Bienes Raices.',
   },
@@ -46,7 +46,7 @@ const COPY = {
     title: 'Olivia AI', status: 'Cervantes Immobilien Assistentin', online: 'Online', teaser: 'Immobilie gesucht?', open: 'Chat offnen', close: 'Chat schliessen',
     welcome: 'Hallo, ich bin Olivia AI. Wie kann ich Ihnen bei Ihrer Immobiliensuche helfen?',
     leadIntro: 'Hinterlassen Sie Ihre Kontaktdaten, damit ein Berater von Cervantes Bienes Raices Sie kontaktieren kann.',
-    firstName: 'Vorname', lastName: 'Name', email: 'E-Mail', phone: 'Telefon', submitLead: 'Daten senden',
+    firstName: 'Vorname', lastName: 'Name', email: 'E-Mail', phone: 'Telefon', need: 'Bedarf', submitLead: 'Daten senden',
     leadThanks: 'Danke. Ihre Daten wurden gesendet und ein Berater wird Sie zeitnah kontaktieren.', placeholder: 'Schreiben Sie Ihre Frage...', send: 'Senden',
     error: 'Ich konnte die Nachricht nicht senden. Bitte versuchen Sie es erneut oder kontaktieren Sie Cervantes Bienes Raices direkt.',
   },
@@ -54,7 +54,7 @@ const COPY = {
     title: 'Olivia AI', status: 'Помощник Cervantes Недвижимость', online: 'В сети', teaser: 'Ищете недвижимость?', open: 'Открыть чат', close: 'Закрыть чат',
     welcome: 'Здравствуйте, я Olivia AI. Чем я могу помочь вам в поиске недвижимости?',
     leadIntro: 'Оставьте свои контактные данные, чтобы консультант Cervantes Недвижимость мог связаться с вами.',
-    firstName: 'Имя', lastName: 'Фамилия', email: 'Электронная почта', phone: 'Телефон', submitLead: 'Отправить данные',
+    firstName: 'Имя', lastName: 'Фамилия', email: 'Электронная почта', phone: 'Телефон', need: 'Потребность', submitLead: 'Отправить данные',
     leadThanks: 'Спасибо. Ваши данные отправлены, и консультант скоро свяжется с вами.', placeholder: 'Напишите ваш вопрос...', send: 'Отправить',
     error: 'Не удалось отправить сообщение. Попробуйте еще раз или свяжитесь с Cervantes Недвижимость напрямую.',
   },
@@ -88,7 +88,7 @@ export default function OliviaChat() {
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [leadSent, setLeadSent] = useState(false)
-  const [lead, setLead] = useState({ firstName: '', lastName: '', email: '', phone: '' })
+  const [lead, setLead] = useState({ firstName: '', lastName: '', email: '', phone: '', need: '' })
   const [messages, setMessages] = useState<ChatMessage[]>(
     OFFLINE ? [{ role: 'assistant', content: 'Offline' }] : [{ role: 'assistant', content: copy.welcome }]
   )
@@ -121,8 +121,9 @@ export default function OliviaChat() {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           firstName: lead.firstName.trim(), lastName: lead.lastName.trim(), email: lead.email.trim(), phone: lead.phone.trim(),
+          need: lead.need.trim(),
           source: 'Chat Olivia AI Cervantes Bienes Raices', language, siteCode: SITE_CODE,
-          message: `Lead Chat Olivia AI Cervantes Bienes Raices (${language}, ${SITE_CODE})\n\n${transcript}`,
+          message: `Lead Chat Olivia AI Cervantes Bienes Raices (${language}, ${SITE_CODE})\nNeed: ${lead.need.trim() || '-'}\n\n${transcript}`,
         }),
       })
       if (!response.ok) throw new Error('Lead delivery failed')
@@ -131,13 +132,13 @@ export default function OliviaChat() {
         body: JSON.stringify({
           clientCode: SITE_CODE,
           visitorId,
-          content: `Lead: ${lead.firstName.trim()} ${lead.lastName.trim()} · ${lead.email.trim()} · ${lead.phone.trim()}`,
+          content: `Lead: ${lead.firstName.trim()} ${lead.lastName.trim()} · ${lead.email.trim()} · ${lead.phone.trim()}${lead.need.trim() ? ` · ${lead.need.trim()}` : ''}`,
           visitorName: `${lead.firstName.trim()} ${lead.lastName.trim()}`,
           email: lead.email.trim(),
           phone: lead.phone.trim(),
           source: 'website',
           language,
-          metadata: { page: window.location.href, type: 'lead' },
+          metadata: { page: window.location.href, type: 'lead', need: lead.need.trim() },
         }),
       })
       setLeadSent(true)
@@ -169,13 +170,39 @@ export default function OliviaChat() {
           phone: lead.phone.trim(),
           source: 'website',
           language: messageLanguage,
-          metadata: { page: window.location.href, pageTitle: document.title },
+          metadata: {
+            page: window.location.href,
+            pageTitle: document.title,
+            lead: {
+              firstName: lead.firstName.trim(),
+              lastName: lead.lastName.trim(),
+              email: lead.email.trim(),
+              phone: lead.phone.trim(),
+              need: lead.need.trim(),
+            },
+          },
         }),
       })
       if (!stored.ok) throw new Error('Channel Manager delivery failed')
       const response = await fetch(CHAT_ENDPOINT, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, language: messageLanguage, clientCode: SITE_CODE, visitorId, metadata: { page: window.location.href } }),
+        body: JSON.stringify({
+          message,
+          language: messageLanguage,
+          clientCode: SITE_CODE,
+          visitorId,
+          metadata: {
+            page: window.location.href,
+            pageTitle: document.title,
+            lead: {
+              firstName: lead.firstName.trim(),
+              lastName: lead.lastName.trim(),
+              email: lead.email.trim(),
+              phone: lead.phone.trim(),
+              need: lead.need.trim(),
+            },
+          },
+        }),
       })
       const data = await response.json()
       const reply = data.reply || copy.error
@@ -210,6 +237,7 @@ export default function OliviaChat() {
               <input required placeholder={copy.lastName} value={lead.lastName} onChange={(event) => setLead((prev) => ({ ...prev, lastName: event.target.value }))} />
               <input required type="email" placeholder={copy.email} value={lead.email} onChange={(event) => setLead((prev) => ({ ...prev, email: event.target.value }))} />
               <input required type="tel" placeholder={copy.phone} value={lead.phone} onChange={(event) => setLead((prev) => ({ ...prev, phone: event.target.value }))} />
+              <textarea placeholder={copy.need} rows={2} value={lead.need} onChange={(event) => setLead((prev) => ({ ...prev, need: event.target.value }))} />
               <button type="submit" disabled={isLoading}>{copy.submitLead}</button>
             </form>
           )}

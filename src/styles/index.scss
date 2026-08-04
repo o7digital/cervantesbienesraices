@@ -143,6 +143,7 @@
 .sofia-cervantes-lead p { margin: 0; color: rgba(255,255,255,.72); font-size: 13px; line-height: 1.4; }
 
 .sofia-cervantes-lead input,
+.sofia-cervantes-lead textarea,
 .sofia-cervantes-composer input {
   width: 100%;
   min-width: 0;
@@ -155,8 +156,15 @@
   outline: none;
 }
 
-.sofia-cervantes-lead input { padding: 11px; }
+.sofia-cervantes-lead input,
+.sofia-cervantes-lead textarea { padding: 11px; }
+.sofia-cervantes-lead textarea {
+  grid-column: 1 / -1;
+  min-height: 74px;
+  resize: vertical;
+}
 .sofia-cervantes-lead input::placeholder,
+.sofia-cervantes-lead textarea::placeholder,
 .sofia-cervantes-composer input::placeholder { color: rgba(255,255,255,.52); }
 
 .sofia-cervantes-lead button,
