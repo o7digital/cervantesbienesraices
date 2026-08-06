@@ -1,0 +1,10 @@
+---
+import AstroLayout from "../../../layouts/AstroLayout.astro";
+import SiteChrome from "../../../components/astro/SiteChrome";
+import Page from "../../../app/de/services/page";
+---
+
+<AstroLayout>
+  <Page />
+  <SiteChrome client:load />
+</AstroLayout>

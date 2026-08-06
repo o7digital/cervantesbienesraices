@@ -1,0 +1,10 @@
+---
+import AstroLayout from "../../../layouts/AstroLayout.astro";
+import Page from "../../../app/ru/property/[id]/page";
+
+const params = { id: Astro.params.id ?? "" };
+---
+
+<AstroLayout>
+  <Page params={params} />
+</AstroLayout>

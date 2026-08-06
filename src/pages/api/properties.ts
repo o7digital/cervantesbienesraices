@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { callNextApiHandler } from "@/lib/astroApiAdapter";
 
 const EASY_BROKER_URL = "https://api.easybroker.com/v1/properties";
 const MAX_LIMIT = 50;
@@ -275,6 +276,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(500).json({ error: error.message });
   }
 }
+
+export const GET = ({ request }: { request: Request }) => callNextApiHandler(handler as any, request);
 
 // Compila valores únicos de estatus para diagnóstico
 function buildStatusStats(items: any[]) {

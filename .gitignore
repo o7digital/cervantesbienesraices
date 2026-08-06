@@ -1,8 +1,10 @@
 # Node
 node_modules/
 .next/
+.astro/
 .cache/
 dist/
+*.tsbuildinfo
 
 # Logs
 npm-debug.log*

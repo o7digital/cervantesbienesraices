@@ -1,0 +1,24 @@
+---
+import AstroLayout from "../../layouts/AstroLayout.astro";
+import SiteChrome from "../../components/astro/SiteChrome";
+import BlogThree from "../../components/blogs/blog-three";
+import Wrapper from "../../layouts/Wrapper";
+import { getBlogPosts } from "../../lib/blog";
+
+const posts = await getBlogPosts(18);
+---
+
+<AstroLayout
+  title="Noticias | Cervantes Bienes Raíces"
+  description="Consejos inmobiliarios, tendencias de mercado y guías prácticas para comprar, vender o rentar en México."
+  canonical="https://www.cervantesbienesraices.com/blog"
+>
+  {posts.length ? (
+    <Wrapper>
+      <BlogThree posts={posts} />
+    </Wrapper>
+  ) : (
+    <Fragment />
+  )}
+  <SiteChrome client:load />
+</AstroLayout>
