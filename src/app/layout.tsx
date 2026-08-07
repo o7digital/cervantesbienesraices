@@ -30,6 +30,13 @@ export const metadata: Metadata = {
     "bienes raíces premium Polanco",
     "departamentos premium Condesa CDMX",
     "bienes raíces premium Roma Norte",
+    "propiedades en Valle de Bravo",
+    "propiedades en Cuernavaca Morelos",
+    "terrenos y casas para desarrolladores en Valle de Bravo",
+    "mejores casas precio calidad en Valle de Bravo",
+    "mejores casas precio calidad en Cuernavaca",
+    "casas para desarrolladores en Cuernavaca",
+    "casas y terrenos para desarrolladores en CDMX México",
   ],
   openGraph: {
     type: "website",
