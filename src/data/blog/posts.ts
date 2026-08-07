@@ -2,111 +2,111 @@ import { BlogPost } from "@/types/blog";
 
 const mockBlogPosts: BlogPost[] = [
   {
-    id: "mercado-cdmx-2024",
-    slug: "mercado-inmobiliario-cdmx-2024",
-    title: "Cómo se mueve el mercado inmobiliario en CDMX en 2024",
+    id: "mercado-cdmx-2026",
+    slug: "mercado-inmobiliario-cdmx-2026",
+    title: "Mercado inmobiliario en CDMX 2026: zonas, precios y oportunidades",
     excerpt:
-      "Rentabilidades, colonias con mayor demanda y qué tan rápido se venden los departamentos en la ciudad.",
+      "Qué colonias concentran demanda, dónde buscar plusvalía y cómo leer precios antes de comprar o vender.",
     coverImage: "/assets/images/blog/blog_img_05.jpg",
     category: "mercado",
-    date: "2024-04-10",
+    date: "2026-04-10",
     readTimeMinutes: 4,
     author: "Equipo Cervantes",
     tags: ["CDMX", "tendencias", "plusvalía"],
     content: [
-      "Los corredores Reforma, Polanco y Roma-Condesa mantienen la mayor absorción de inventario, con tickets que siguen ajustándose a la baja frente a 2023.",
-      "Vemos departamentos de 2 recámaras con rotación más rápida, mientras que las unidades de lujo requieren marketing especializado y planes de pago creativos.",
-      "Si tienes dudas sobre tu zona, escríbenos y te compartimos comparables reales del último trimestre."
+      "Polanco, Roma-Condesa, Narvarte, Del Valle y Santa Fe siguen mostrando perfiles de comprador muy distintos. El precio correcto depende de inventario comparable, estado legal y liquidez real de la zona.",
+      "Para vender bien en 2026 no basta publicar: hay que preparar documentación, fotos, precio de salida y estrategia de negociación antes de recibir visitas.",
+      "Si tienes dudas sobre tu colonia, podemos revisar comparables activos y operaciones recientes para definir una estrategia realista."
     ]
   },
   {
-    id: "credito-hipotecario-2024",
-    slug: "como-elegir-credito-hipotecario-2024",
-    title: "Qué crédito hipotecario conviene en 2024",
+    id: "credito-hipotecario-2026",
+    slug: "credito-hipotecario-mexico-2026",
+    title: "Crédito hipotecario en México 2026: banco, Infonavit o cofinanciamiento",
     excerpt:
-      "Tasas, enganche recomendado y cómo negociar con el banco para que tu mensualidad no se dispare.",
+      "Cómo comparar CAT, enganche, seguros y mensualidad total antes de comprometerte con una hipoteca.",
     coverImage: "/assets/images/blog/blog_img_02.jpg",
     category: "finanzas",
-    date: "2024-03-18",
+    date: "2026-03-18",
     readTimeMinutes: 6,
     author: "Equipo Cervantes",
     tags: ["hipoteca", "financiamiento"],
     content: [
-      "Las instituciones están priorizando historiales sólidos y relación ingreso-deuda menor a 35%. Lleva estados de cuenta limpios y evita nuevas tarjetas antes de aplicar.",
-      "Comparar CAT en vez de solo la tasa es clave. Considera seguros y comisiones; en algunos casos un coacreditado reduce el costo total.",
-      "Si prefieres renta con opción a compra, podemos armar un esquema escalonado que alimente tu enganche."
+      "La tasa no es todo: compara CAT, seguros, comisiones, penalizaciones y flexibilidad para pagos anticipados.",
+      "Antes de ofertar, valida tu capacidad real de pago y deja margen para escrituración, mudanza, mantenimiento y posibles remodelaciones.",
+      "Un asesor puede ayudarte a negociar condiciones y a evitar comprar una propiedad que el banco no acepte por temas legales o de avalúo."
     ]
   },
   {
     id: "checklist-airbnb",
     slug: "checklist-airbnb-cdmx",
-    title: "Checklist legal antes de poner tu depa en Airbnb",
+    title: "Rentas temporales en CDMX 2026: qué revisar antes de invertir",
     excerpt:
-      "Lo indispensable para operar sin multas: reglamento, uso de suelo y seguros que sí cubren alquiler temporal.",
+      "Reglamento condominal, permisos, impuestos y riesgos operativos antes de apostar por renta corta.",
     coverImage: "/assets/images/blog/blog_img_14.jpg",
     category: "inversion",
-    date: "2024-02-22",
+    date: "2026-02-22",
     readTimeMinutes: 5,
     author: "Equipo Cervantes",
     tags: ["renta", "cdmx", "legal"],
     content: [
-      "Revisa el régimen de condominio: muchos estatutos prohíben alquileres menores a 30 días. Necesitas actas y aval del administrador.",
-      "Confirma uso de suelo habitacional y declara ingresos ante SAT para evitar bloqueos en plataformas.",
-      "Un seguro de responsabilidad civil con cobertura a terceros es tan importante como la póliza contra daños."
+      "Antes de comprar para renta temporal, revisa si el condominio permite estancias cortas y si existen restricciones internas.",
+      "Calcula ocupación, limpieza, mantenimiento, administración e impuestos. La rentabilidad bruta puede verse muy distinta al flujo neto.",
+      "Un buen inmueble para Airbnb no siempre es un buen inmueble patrimonial. Ubicación, ruido, accesos y vecinos pesan mucho."
     ]
   },
   {
-    id: "preventa-2024",
+    id: "preventa-2026",
     slug: "guia-compra-preventa-cdmx",
-    title: "Guía rápida para comprar en preventa sin sobresaltos",
+    title: "Comprar en preventa en México 2026: señales de alerta y oportunidades",
     excerpt:
-      "Qué revisar en el contrato, fechas de entrega realistas y cómo blindar tu inversión en obra.",
+      "Cómo evaluar desarrollador, contrato, permisos, fecha de entrega y plusvalía antes de apartar.",
     coverImage: "/assets/images/blog/blog_img_12.jpg",
     category: "guia",
-    date: "2024-01-30",
+    date: "2026-01-30",
     readTimeMinutes: 5,
     author: "Equipo Cervantes",
     tags: ["preventa", "contrato"],
     content: [
-      "Pide avance de obra certificado y un cronograma con penalizaciones claras por atraso.",
-      "Verifica permisos (manifestación de construcción, uso de suelo) y solicita la fianza de cumplimiento.",
-      "Elige esquemas con enganche distribuido; evita promesas sin números de cuenta o con descuentos a cambio de saltarte notaría."
+      "Pide historial del desarrollador, permisos, régimen de propiedad y calendario de obra con penalizaciones claras.",
+      "La preventa puede tener plusvalía, pero también riesgo de retrasos, cambios de acabados y costos extra.",
+      "Evita apartados sin contrato revisado y pagos fuera de cuentas formales. La asesoría legal previa cuesta menos que corregir después."
     ]
   },
   {
     id: "home-staging-ventas",
     slug: "home-staging-para-vender-mas-rapido",
-    title: "Home staging: vende 30% más rápido con ajustes simples",
+    title: "Cómo vender mejor tu propiedad en 2026: precio, marketing y negociación",
     excerpt:
-      "Pequeños cambios en iluminación, color y fotografías profesionales que aceleran la venta.",
+      "Preparación documental, fotos profesionales, estrategia de precio y filtros para compradores reales.",
     coverImage: "/assets/images/blog/blog_img_06.jpg",
     category: "ventas",
-    date: "2024-03-05",
+    date: "2026-03-05",
     readTimeMinutes: 3,
     author: "Equipo Cervantes",
     tags: ["venta", "marketing"],
     content: [
-      "Un repintado neutro y luz cálida logran mejores recorridos virtuales que cualquier descuento.",
-      "Fotografías profesionales y un plano esquemático generan más contactos calificados.",
-      "Incluimos este servicio en nuestros listados exclusivos; pregunta por el plan que mejor encaja contigo."
+      "Una propiedad lista para vender combina precio correcto, documentación completa y presentación profesional.",
+      "Fotos, video, recorridos y plano ayudan, pero el filtro de prospectos evita visitas improductivas.",
+      "La negociación empieza antes de publicar: define mínimo aceptable, tiempos, forma de pago y condiciones notariales."
     ]
   },
   {
     id: "impuestos-venta",
     slug: "impuestos-al-vender-propiedad",
-    title: "Impuestos al vender tu propiedad en México",
+    title: "Impuestos y notaría al vender una propiedad en México en 2026",
     excerpt:
-      "ISR, avalúos y documentación que debes preparar antes de firmar en la notaría.",
+      "ISR, avalúo, escrituras, comprobantes y pasos para llegar a firma sin sorpresas.",
     coverImage: "/assets/images/blog/blog_img_15.jpg",
     category: "legal",
-    date: "2024-02-01",
+    date: "2026-02-01",
     readTimeMinutes: 6,
     author: "Equipo Cervantes",
     tags: ["legal", "ISR"],
     content: [
-      "La exención de ISR aplica bajo condiciones de residencia y valor; prepara comprobantes y facturas de mejoras.",
-      "Un avalúo vigente y el certificado de libertad de gravamen aceleran la operación.",
-      "Coordinamos con notaría y contador para que tengas cálculos claros antes de firmar."
+      "Antes de aceptar una oferta, revisa escrituras, predial, agua, régimen de condominio y libertad de gravamen.",
+      "El ISR puede variar según uso, valor, comprobantes y situación fiscal. Conviene estimarlo antes de negociar.",
+      "Coordinar asesor, notaría y contador desde el inicio reduce retrasos y evita renegociaciones de último minuto."
     ]
   }
 ];
