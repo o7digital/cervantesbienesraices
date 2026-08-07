@@ -1,4 +1,3 @@
-import BreadcrumbOne from "@/components/common/breadcrumb/BreadcrumbOne";
 import FancyBanner from "@/components/common/FancyBanner";
 import FooterFour from "@/layouts/footers/FooterFour";
 import HeaderFive from "@/layouts/headers/HeaderFive";
@@ -12,15 +11,15 @@ type Props = {
 const BlogThree = ({ posts }: Props) => {
   return (
     <>
-      <HeaderFive style="dark" />
-      <BreadcrumbOne
-        title="Noticias"
-        link="/"
-        link_title="Inicio"
-        sub_title="Artículos"
-        style={true}
-        backgroundImage="/oak-motion-7vYMAVS-cKo-unsplash.webp"
-      />
+      <section className="blog-hero-shell">
+        <HeaderFive />
+        <div className="blog-hero-content text-center">
+          <h1>Noticias</h1>
+          <div className="blog-hero-breadcrumb">
+            Home / Inicio / Artículos
+          </div>
+        </div>
+      </section>
       <BlogThreeArea posts={posts} />
       <FancyBanner />
       <FooterFour />

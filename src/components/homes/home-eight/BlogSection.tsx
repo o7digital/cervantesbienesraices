@@ -1,12 +1,12 @@
-import { getBlogPosts } from "@/lib/blog";
+import mockBlogPosts from "@/data/blog/posts";
 import Link from "next/link";
 
 const BLOG_ENABLED = process.env.NEXT_PUBLIC_BLOG_ENABLED !== "off";
 
-const BlogSection = async () => {
+const BlogSection = () => {
   if (!BLOG_ENABLED) return null;
 
-  const posts = await getBlogPosts(3);
+  const posts = mockBlogPosts.slice(0, 3);
   if (!posts.length) return null;
 
   return (

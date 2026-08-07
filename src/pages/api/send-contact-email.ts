@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
+import { callNextApiHandler } from "@/lib/astroApiAdapter";
 
 type ResponseData = {
   message: string;
@@ -155,3 +156,5 @@ ${message}
     });
   }
 }
+
+export const POST = ({ request }: { request: Request }) => callNextApiHandler(handler as any, request);

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
+import { callNextApiHandler } from "@/lib/astroApiAdapter";
 
 type ResponseData = {
   message: string;
@@ -126,3 +127,5 @@ Contactar al cliente dentro de 24 horas.
     });
   }
 }
+
+export const POST = ({ request }: { request: Request }) => callNextApiHandler(handler as any, request);

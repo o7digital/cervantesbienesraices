@@ -1,0 +1,11 @@
+---
+export const prerender = true;
+import AstroLayout from "../../layouts/AstroLayout.astro";
+import SiteChrome from "../../components/astro/SiteChrome";
+import Page from "../../app/anuncios-destacados/page";
+---
+
+<AstroLayout>
+  <Page />
+  <SiteChrome client:load />
+</AstroLayout>

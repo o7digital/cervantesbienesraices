@@ -102,31 +102,6 @@ const Feedback = () => {
             </Slider>
          </div>
 
-         <div className="slider-right mt-50">
-            <Slider {...setting} className="feedback-slider-four">
-               {feedback_data.map((item) => (
-                  <div key={item.id} className="item">
-                     <div className="feedback-block-six rounded-4">
-                        <div className="d-flex justify-content-between align-items-center">
-                           <ul className="rating style-none d-flex">
-                              <li><i className="fa-sharp fa-solid fa-star"></i></li>
-                              <li><i className="fa-sharp fa-solid fa-star"></i></li>
-                              <li><i className="fa-sharp fa-solid fa-star"></i></li>
-                              <li><i className="fa-sharp fa-solid fa-star"></i></li>
-                              <li><i className="fa-sharp fa-solid fa-star"></i></li>
-                           </ul>
-                           <Image src={icon} alt="" className="icon" />
-                        </div>
-                        <blockquote>{item.desc}</blockquote>
-                        <div className="d-flex align-items-center justify-content-between">
-                           <h6 className="fs-20 m0">{item.title}</h6>
-                           <Image src={item.avatar} alt="" className="rounded-circle avatar" />
-                        </div>
-                     </div>
-                  </div>
-               ))}
-            </Slider>
-         </div>
       </div>
    )
 }

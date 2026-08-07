@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { callNextApiHandler } from "@/lib/astroApiAdapter";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query;
@@ -25,3 +26,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(500).json({ error: error.message });
   }
 }
+
+export const GET = ({ request, params }: { request: Request; params: { id?: string } }) =>
+  callNextApiHandler(handler as any, request, params);

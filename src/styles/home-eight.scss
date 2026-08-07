@@ -66,5 +66,121 @@
       margin-top: -20px;
     }
     .slick-list, .slick-track, .item { height: 100%; }
+    .item {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      animation: home-eight-hero-fade 21s infinite;
+    }
+    .item:nth-child(1) { animation-delay: 0s; }
+    .item:nth-child(2) { animation-delay: 7s; }
+    .item:nth-child(3) { animation-delay: 14s; }
+  }
+}
+
+@keyframes home-eight-hero-fade {
+  0%, 28% { opacity: 1; }
+  33%, 100% { opacity: 0; }
+}
+
+.inner-page-shell {
+  .theme-main-menu.menu-overlay {
+    position: relative;
+    background: #fff;
+    box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.1);
+  }
+}
+
+.feedback-section-six .slider-left {
+  max-width: 1860px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.feedback-section-six .feedback-slider-four .slick-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 48px;
+  transform: none !important;
+}
+
+.feedback-section-six .feedback-slider-four .item {
+  flex: 0 0 calc((100% - 96px) / 3);
+  width: auto !important;
+}
+
+.feedback-section-six .feedback-slider-four .item:nth-child(n+4) {
+  display: none;
+}
+
+.feedback-section-six .feedback-block-six {
+  height: 100%;
+}
+
+@media (max-width: 1199px) {
+  .feedback-section-six .feedback-slider-four .item {
+    flex-basis: calc((100% - 30px) / 2);
+  }
+}
+
+@media (max-width: 767px) {
+  .feedback-section-six .slider-left {
+    padding: 0 20px;
+  }
+
+  .feedback-section-six .feedback-slider-four .slick-track {
+    gap: 24px;
+  }
+
+  .feedback-section-six .feedback-slider-four .item {
+    flex-basis: 100%;
+  }
+}
+
+.blog-hero-shell {
+  position: relative;
+  min-height: 520px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52)), url("/oak-motion-7vYMAVS-cKo-unsplash.webp");
+  background-size: cover;
+  background-position: center 48%;
+  overflow: hidden;
+
+  .theme-main-menu.menu-overlay {
+    position: relative;
+    background: rgba(0, 0, 0, 0.72);
+  }
+}
+
+.blog-hero-content {
+  padding: 95px 20px 120px;
+  color: #fff;
+
+  h1 {
+    color: #fff;
+    font-size: 72px;
+    line-height: 1;
+    margin: 0 0 34px;
+  }
+}
+
+.blog-hero-breadcrumb {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+  padding-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  .blog-hero-shell {
+    min-height: 430px;
+  }
+
+  .blog-hero-content {
+    padding: 70px 20px 90px;
+
+    h1 {
+      font-size: 48px;
+    }
   }
 }

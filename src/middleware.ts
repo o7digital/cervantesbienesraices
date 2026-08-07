@@ -1,5 +1,4 @@
-import type { NextRequest } from "next/server"
-import { NextResponse } from "next/server"
+import { defineMiddleware } from "astro:middleware";
 
 const NOINDEX_PREFIXES = [
   "/home-two",
@@ -72,20 +71,13 @@ function shouldNoIndex(pathname: string) {
   return NOINDEX_PREFIXES.some((prefix) => stripped.startsWith(prefix));
 }
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+export const onRequest = defineMiddleware(async (context, next) => {
+  const { pathname } = context.url;
+  const response = await next();
 
   if (shouldNoIndex(pathname)) {
-    const response = NextResponse.next();
     response.headers.set("X-Robots-Tag", "noindex, nofollow");
-    return response;
   }
 
-  return NextResponse.next();
-}
-
-export const config = {
-  matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)",
-  ],
-};
+  return response;
+});
