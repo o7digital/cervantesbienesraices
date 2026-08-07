@@ -66,5 +66,19 @@
       margin-top: -20px;
     }
     .slick-list, .slick-track, .item { height: 100%; }
+    .item {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      animation: home-eight-hero-fade 21s infinite;
+    }
+    .item:nth-child(1) { animation-delay: 0s; }
+    .item:nth-child(2) { animation-delay: 7s; }
+    .item:nth-child(3) { animation-delay: 14s; }
   }
+}
+
+@keyframes home-eight-hero-fade {
+  0%, 28% { opacity: 1; }
+  33%, 100% { opacity: 0; }
 }
