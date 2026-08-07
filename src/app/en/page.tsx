@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Find your ideal home in Mexico. Cervantes Real Estate offers homes for sale, apartments for rent, and expert mortgage advisory with 20+ years of experience.",
   keywords:
-    "luxury real estate Mexico City, premium real estate agency Mexico City, professional real estate advisory CDMX, premium property advisor Mexico City, premium homes for sale Mexico City, luxury apartments for sale Mexico City, exclusive properties in Mexico City, luxury real estate Polanco, premium apartments in Polanco, homes for sale Polanco CDMX, luxury properties in Condesa CDMX, premium apartments Condesa Mexico City, luxury real estate Roma Norte, premium property valuation Mexico City, premium real estate investment CDMX",
+    "luxury real estate Mexico City, premium real estate agency Mexico City, professional real estate advisory CDMX, premium property advisor Mexico City, premium homes for sale Mexico City, luxury apartments for sale Mexico City, exclusive properties in Mexico City, luxury real estate Polanco, premium apartments in Polanco, homes for sale Polanco CDMX, luxury properties in Condesa CDMX, premium apartments Condesa Mexico City, luxury real estate Roma Norte, properties in Valle de Bravo, properties in Cuernavaca Morelos, land and homes for developers in Valle de Bravo, best value homes in Valle de Bravo, best value homes in Cuernavaca, homes for developers in Cuernavaca, homes and land for developers in CDMX Mexico, premium property valuation Mexico City, premium real estate investment CDMX",
   alternates: {
     canonical: `${BASE_URL}/en`,
     languages: {

@@ -50,7 +50,7 @@ const FooterThreeEn = () => {
          <div className="bottom-footer">
             <div className="container text-center">
                <p className="seo-footer">
-                  luxury real estate Mexico City · premium real estate agency Mexico City · professional real estate advisory CDMX · premium property advisor Mexico City · premium homes for sale Mexico City · luxury apartments for sale Mexico City · exclusive properties in Mexico City · luxury real estate Polanco · premium apartments in Polanco · homes for sale Polanco CDMX · luxury properties in Condesa CDMX · premium apartments Condesa Mexico City · luxury real estate Roma Norte · premium property valuation Mexico City · premium real estate investment CDMX
+                  luxury real estate Mexico City · premium real estate agency Mexico City · professional real estate advisory CDMX · premium property advisor Mexico City · premium homes for sale Mexico City · luxury apartments for sale Mexico City · exclusive properties in Mexico City · luxury real estate Polanco · premium apartments in Polanco · homes for sale Polanco CDMX · luxury properties in Condesa CDMX · premium apartments Condesa Mexico City · luxury real estate Roma Norte · properties in Valle de Bravo · properties in Cuernavaca Morelos · land and homes for developers in Valle de Bravo · best value homes in Valle de Bravo · best value homes in Cuernavaca · homes for developers in Cuernavaca · homes and land for developers in CDMX Mexico · premium property valuation Mexico City · premium real estate investment CDMX
                </p>
                <p className="m-0">Copyright ©2025 CERVANTES REAL ESTATE. All rights reserved.</p>
             </div>

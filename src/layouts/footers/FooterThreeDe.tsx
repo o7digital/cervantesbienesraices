@@ -50,7 +50,7 @@ const FooterThreeDe = () => {
          <div className="bottom-footer">
             <div className="container text-center">
                <p className="seo-footer">
-                  Luxusimmobilien Mexiko-Stadt · Premium Immobilienagentur Mexiko-Stadt · professionelle Immobilienberatung CDMX · Premium Immobilienberater Mexiko-Stadt · Premium Immobilien kaufen CDMX · Luxuswohnungen kaufen Mexiko-Stadt · exklusive Immobilien in Mexiko-Stadt · Luxusimmobilien Polanco · Premium Wohnungen Polanco · Häuser kaufen Polanco CDMX · Premium Immobilien Condesa CDMX · Luxuswohnungen Condesa · Luxusimmobilien Roma Norte · Premium Immobilienbewertung CDMX · Premium Immobilieninvestment Mexiko-Stadt
+                  Luxusimmobilien Mexiko-Stadt · Premium Immobilienagentur Mexiko-Stadt · professionelle Immobilienberatung CDMX · Premium Immobilienberater Mexiko-Stadt · Premium Immobilien kaufen CDMX · Luxuswohnungen kaufen Mexiko-Stadt · exklusive Immobilien in Mexiko-Stadt · Luxusimmobilien Polanco · Premium Wohnungen Polanco · Häuser kaufen Polanco CDMX · Premium Immobilien Condesa CDMX · Luxuswohnungen Condesa · Luxusimmobilien Roma Norte · Immobilien in Valle de Bravo · Immobilien in Cuernavaca Morelos · Grundstücke und Häuser für Bauträger in Valle de Bravo · beste Häuser Preis-Leistung in Valle de Bravo · beste Häuser Preis-Leistung in Cuernavaca · Häuser für Bauträger in Cuernavaca · Häuser und Grundstücke für Bauträger in CDMX Mexiko · Premium Immobilienbewertung CDMX · Premium Immobilieninvestment Mexiko-Stadt
                </p>
                <p className="m-0">Copyright ©2025 CERVANTES REAL ESTATE. Alle Rechte vorbehalten.</p>
             </div>

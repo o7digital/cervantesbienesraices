@@ -50,7 +50,7 @@ const FooterThreeFr = () => {
          <div className="bottom-footer">
             <div className="container text-center">
                <p className="seo-footer">
-                  immobilier de luxe Mexico · agence immobilière premium Mexico · conseil immobilier professionnel CDMX · conseiller immobilier premium Mexico · propriétés premium à vendre Mexico · appartements haut de gamme à Mexico · biens exclusifs à Mexico · immobilier de luxe Polanco · appartements premium Polanco · maisons à vendre Polanco CDMX · immobilier premium Condesa CDMX · appartements haut de gamme Condesa · immobilier de luxe Roma Norte · évaluation immobilière premium Mexico · investissement immobilier premium CDMX
+                  immobilier de luxe Mexico · agence immobilière premium Mexico · conseil immobilier professionnel CDMX · conseiller immobilier premium Mexico · propriétés premium à vendre Mexico · appartements haut de gamme à Mexico · biens exclusifs à Mexico · immobilier de luxe Polanco · appartements premium Polanco · maisons à vendre Polanco CDMX · immobilier premium Condesa CDMX · appartements haut de gamme Condesa · immobilier de luxe Roma Norte · propriétés à Valle de Bravo · propriétés à Cuernavaca Morelos · terrains et maisons pour promoteurs à Valle de Bravo · meilleures maisons rapport qualité prix à Valle de Bravo · meilleures maisons rapport qualité prix à Cuernavaca · maisons pour promoteurs à Cuernavaca · maisons et terrains pour promoteurs à CDMX Mexique · évaluation immobilière premium Mexico · investissement immobilier premium CDMX
                </p>
                <p className="m-0">Copyright ©2025 CERVANTES IMMOBILIER. Tous droits réservés.</p>
             </div>
