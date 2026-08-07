@@ -12,7 +12,9 @@ type Props = {
 const BlogThree = ({ posts }: Props) => {
   return (
     <>
-      <HeaderFive style="dark" />
+      <div className="blog-hero-shell">
+        <HeaderFive />
+      </div>
       <BreadcrumbOne
         title="Noticias"
         link="/"
