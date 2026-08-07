@@ -11,8 +11,8 @@ export const metadata = {
 export default function Servicios() {
   return (
     <Wrapper>
-      <div className="main-page-wrapper">
-        <HeaderFive />
+      <div className="main-page-wrapper inner-page-shell">
+        <HeaderFive style="dark" />
         <ServicesContent
           id="servicios"
           title="Servicios"

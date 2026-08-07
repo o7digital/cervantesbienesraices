@@ -82,3 +82,11 @@
   0%, 28% { opacity: 1; }
   33%, 100% { opacity: 0; }
 }
+
+.inner-page-shell {
+  .theme-main-menu.menu-overlay {
+    position: relative;
+    background: #fff;
+    box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.1);
+  }
+}
