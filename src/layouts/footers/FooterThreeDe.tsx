@@ -50,7 +50,7 @@ const FooterThreeDe = () => {
          <div className="bottom-footer">
             <div className="container text-center">
                <p className="seo-footer">
-                  Ranches in Mexiko kaufen · Ranches zum Verkauf in Mexiko · luxusimmobilien mexiko-stadt · premium immobilienagentur cdmx · häuser in polanco · villen lomas de chapultepec · exklusive angebote mexiko · immobilieninvestition mexiko · expat wohnungen mexiko · immobilienberatung mexiko · premium apartments cdmx · sichere stadtviertel mexiko · relocation nach mexiko · immobilienbewertung mexiko · real estate consulting cdmx · high-end immobilien mexiko · immobilienexperten mexiko-stadt · langfristige investition mexiko · premium condos mexiko · immobilien für ausländische käufer · luxushäuser mexiko · vertrauenswürdige immobilienagentur cdmx
+                  Luxusimmobilien Mexiko-Stadt · Premium Immobilienagentur Mexiko-Stadt · professionelle Immobilienberatung CDMX · Premium Immobilienberater Mexiko-Stadt · Premium Immobilien kaufen CDMX · Luxuswohnungen kaufen Mexiko-Stadt · exklusive Immobilien in Mexiko-Stadt · Luxusimmobilien Polanco · Premium Wohnungen Polanco · Häuser kaufen Polanco CDMX · Premium Immobilien Condesa CDMX · Luxuswohnungen Condesa · Luxusimmobilien Roma Norte · Premium Immobilienbewertung CDMX · Premium Immobilieninvestment Mexiko-Stadt
                </p>
                <p className="m-0">Copyright ©2025 CERVANTES REAL ESTATE. Alle Rechte vorbehalten.</p>
             </div>

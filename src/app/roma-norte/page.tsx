@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Departamentos y Casas en Renta y Venta en Roma Norte CDMX | Cervantes Bienes Raíces",
   description: "Encuentra tu hogar en Roma Norte, el barrio más trendy de CDMX. Departamentos modernos, lofts, casas restauradas. Precios desde $6M MXN. Arte, gastronomía y cultura en cada esquina.",
-  keywords: "departamentos roma norte, casas venta roma norte, rentas roma cdmx, lofts roma norte, propiedades roma norte, bienes raíces roma, departamentos modernos roma",
+  keywords: "bienes raíces premium Roma Norte, departamentos premium Roma Norte CDMX, propiedades en venta Roma Norte CDMX, casas premium Roma Norte CDMX, lofts premium Roma Norte CDMX, departamentos modernos Roma Norte CDMX, asesoría inmobiliaria profesional Roma Norte",
   openGraph: {
     title: "Vive en Roma Norte CDMX – El Barrio Más Trendy | Cervantes",
     description: "Descubre Roma Norte: arte urbano, cafés hipster, galerías y la mejor escena cultural de México.",

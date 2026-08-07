@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Найдите недвижимость в Мексике. Cervantes Bienes Raíces предлагает премиальные объекты, ранчо и ипотечное сопровождение с опытом более 20 лет.",
   keywords:
-    "homes for sale mexico, ranches for sale in mexico, mexico ranch real estate, apartments for rent cdmx, real estate mexico, real estate agency, properties for sale, houses polanco, apartments condesa, mortgage advisory",
+    "элитная недвижимость Мехико, премиальное агентство недвижимости Мехико, профессиональная консультация по недвижимости CDMX, премиальный консультант по недвижимости Мехико, премиальная недвижимость на продажу CDMX, элитные квартиры в Мехико, эксклюзивная недвижимость в Мехико, элитная недвижимость Поланко, премиальные квартиры Поланко, дома на продажу Поланко CDMX, премиальная недвижимость Кондеса CDMX, элитные квартиры Кондеса, элитная недвижимость Рома Норте, премиальная оценка недвижимости CDMX, премиальные инвестиции в недвижимость Мехико",
   alternates: {
     canonical: `${BASE_URL}/ru`,
     languages: {

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Cervantes Bienes Raíces – Venta y Renta de Casas y Departamentos en México | +20 años de experiencia",
   description: "Cervantes Bienes Raíces – Asesoría inmobiliaria profesional con más de 20 años de experiencia en CDMX, Polanco, Condesa y toda el área metropolitana.",
-  keywords: "casas en venta méxico, venta de ranchos en méxico, ranchos en venta méxico, departamentos en renta cdmx, bienes raíces méxico, inmobiliaria, propiedades en venta, casas polanco, departamentos condesa, asesoría hipotecaria",
+  keywords: "bienes raíces de lujo CDMX, inmobiliaria premium Ciudad de México, asesoría inmobiliaria profesional CDMX, venta de propiedades premium CDMX, compra de propiedades premium CDMX, departamentos premium en venta CDMX, casas premium en venta CDMX, propiedades exclusivas en CDMX, bienes raíces premium Polanco, inmobiliaria premium Polanco, departamentos premium en Polanco, casas en venta Polanco CDMX, bienes raíces premium Condesa, departamentos premium Condesa CDMX, bienes raíces premium Roma Norte, valuación de propiedades premium CDMX, inversión inmobiliaria premium CDMX",
   openGraph: {
     title: "Cervantes Bienes Raíces – Tu Hogar Ideal en México",
     description: "Cervantes Bienes Raíces – Asesoría inmobiliaria profesional con más de 20 años de experiencia en CDMX, Polanco, Condesa y toda el área metropolitana.",

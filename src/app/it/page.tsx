@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Trova la tua casa ideale in Messico. Cervantes Real Estate offre case in vendita, appartamenti in affitto e consulenza ipotecaria professionale. Oltre 20 anni di esperienza nel mercato immobiliare.",
   keywords:
-    "case in vendita messico, ranch in vendita in messico, vendita di ranch in messico, appartamenti in affitto cdmx, immobiliare messico, agenzia immobiliare, proprietà in vendita, case polanco, appartamenti condesa, consulenza ipotecaria",
+    "immobili di lusso Città del Messico, agenzia immobiliare premium Città del Messico, consulenza immobiliare professionale CDMX, consulente immobiliare premium Città del Messico, proprietà premium in vendita CDMX, appartamenti di lusso Città del Messico, immobili esclusivi a Città del Messico, immobili di lusso Polanco, appartamenti premium Polanco, case in vendita Polanco CDMX, immobili premium Condesa CDMX, appartamenti di lusso Condesa, immobili di lusso Roma Norte, valutazione immobiliare premium CDMX, investimento immobiliare premium Città del Messico",
   alternates: {
     canonical: `${BASE_URL}/it`,
     languages: {

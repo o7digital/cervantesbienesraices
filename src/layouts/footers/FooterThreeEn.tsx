@@ -50,7 +50,7 @@ const FooterThreeEn = () => {
          <div className="bottom-footer">
             <div className="container text-center">
                <p className="seo-footer">
-                  ranches for sale in Mexico · Mexico ranch real estate · luxury real estate Mexico City · premium real estate agency CDMX · homes in Polanco · houses in Lomas de Chapultepec · exclusive listings Mexico · investment property Mexico · expat housing Mexico City · Mexico real estate advisor · premium apartments CDMX · safe neighborhoods Mexico City · relocation to Mexico · property valuation Mexico · real estate consulting CDMX · high-end real estate Mexico · Mexico City property experts · long-term investment Mexico · premium condos Mexico · real estate for foreign buyers · luxury homes Mexico · trusted real estate agency CDMX
+                  luxury real estate Mexico City · premium real estate agency Mexico City · professional real estate advisory CDMX · premium property advisor Mexico City · premium homes for sale Mexico City · luxury apartments for sale Mexico City · exclusive properties in Mexico City · luxury real estate Polanco · premium apartments in Polanco · homes for sale Polanco CDMX · luxury properties in Condesa CDMX · premium apartments Condesa Mexico City · luxury real estate Roma Norte · premium property valuation Mexico City · premium real estate investment CDMX
                </p>
                <p className="m-0">Copyright ©2025 CERVANTES REAL ESTATE. All rights reserved.</p>
             </div>

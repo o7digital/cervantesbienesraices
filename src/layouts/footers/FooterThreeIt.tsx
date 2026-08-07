@@ -50,7 +50,7 @@ const FooterThreeIt = () => {
          <div className="bottom-footer">
             <div className="container text-center">
                <p className="seo-footer">
-                  ranch in vendita in Messico · vendita di ranch in Messico · immobiliare di lusso Città del Messico · agenzia immobiliare premium CDMX · case Polanco · proprietà Lomas de Chapultepec · annunci esclusivi Messico · investimento immobiliare Messico · alloggi espatriati Città del Messico · consulente immobiliare Messico · appartamenti premium CDMX · quartieri sicuri Città del Messico · trasferimento in Messico · valutazione immobiliare Messico · consulenza immobiliare CDMX · immobiliare di alta gamma Messico · esperti immobiliari Città del Messico · investimento a lungo termine Messico · condomini premium Messico · immobiliare per acquirenti stranieri · case di lusso Messico · agenzia immobiliare di fiducia CDMX
+                  immobili di lusso Città del Messico · agenzia immobiliare premium Città del Messico · consulenza immobiliare professionale CDMX · consulente immobiliare premium Città del Messico · proprietà premium in vendita CDMX · appartamenti di lusso Città del Messico · immobili esclusivi a Città del Messico · immobili di lusso Polanco · appartamenti premium Polanco · case in vendita Polanco CDMX · immobili premium Condesa CDMX · appartamenti di lusso Condesa · immobili di lusso Roma Norte · valutazione immobiliare premium CDMX · investimento immobiliare premium Città del Messico
                </p>
                <p className="m-0">Copyright ©2025 CERVANTES IMMOBILIARE. Tutti i diritti riservati.</p>
             </div>

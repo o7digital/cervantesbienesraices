@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Finden Sie Ihr ideales Zuhause in Mexiko. Cervantes Real Estate bietet Häuser zum Verkauf, Apartments zur Miete und professionelle Hypothekenberatung mit über 20 Jahren Erfahrung.",
   keywords:
-    "immobilien mexiko, ranches in mexiko kaufen, ranches zum verkauf in mexiko, wohnungen mieten cdmx, häuser kaufen mexiko, immobilienagentur mexiko-stadt, immobilien polanco, apartments condesa, hypothekenberatung mexiko",
+    "Luxusimmobilien Mexiko-Stadt, Premium Immobilienagentur Mexiko-Stadt, professionelle Immobilienberatung CDMX, Premium Immobilienberater Mexiko-Stadt, Premium Immobilien kaufen CDMX, Luxuswohnungen kaufen Mexiko-Stadt, exklusive Immobilien in Mexiko-Stadt, Luxusimmobilien Polanco, Premium Wohnungen Polanco, Häuser kaufen Polanco CDMX, Premium Immobilien Condesa CDMX, Luxuswohnungen Condesa, Luxusimmobilien Roma Norte, Premium Immobilienbewertung CDMX, Premium Immobilieninvestment Mexiko-Stadt",
   alternates: {
     canonical: `${BASE_URL}/de`,
     languages: {

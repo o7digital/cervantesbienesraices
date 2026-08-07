@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Casas y Departamentos en Venta y Renta en Polanco CDMX | Cervantes Bienes Raíces",
   description: "Encuentra tu hogar ideal en Polanco, la colonia más exclusiva de México. Casas de lujo, departamentos premium, penthouse. Precios desde $15M MXN. Asesoría profesional con más de 20 años de experiencia.",
-  keywords: "casas venta polanco, departamentos renta polanco, propiedades polanco cdmx, bienes raíces polanco, casas lujo polanco, penthouse polanco, departamentos exclusivos polanco",
+  keywords: "bienes raíces premium Polanco, inmobiliaria premium Polanco, propiedades de lujo Polanco CDMX, casas premium en venta Polanco CDMX, departamentos premium en Polanco, penthouse de lujo Polanco CDMX, asesoría inmobiliaria profesional Polanco",
   openGraph: {
     title: "Propiedades Exclusivas en Polanco CDMX – Cervantes Bienes Raíces",
     description: "Descubre casas y departamentos de lujo en Polanco. La mejor zona residencial de Ciudad de México.",
