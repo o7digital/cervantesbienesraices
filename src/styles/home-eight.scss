@@ -109,6 +109,10 @@
     .item {
       min-width: 0;
     }
+
+    .item:nth-child(n+4) {
+      display: none;
+    }
   }
 
   .feedback-block-six {
