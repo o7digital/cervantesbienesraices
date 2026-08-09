@@ -29,7 +29,7 @@ const AboutSectionFr = () => {
                 </p>
                 <ul className="list-style-one">
                   <li><strong>Confiance</strong> — Nous créons des relations à long terme basées sur l&apos;intégrité, la confidentialité et la transparence totale.</li>
-                  <li><strong>Précision</strong> — Chaque recommandation est soutenue par une analyse de marché réelle, des informations sur le segment premium et des données comparatives précises.</li>
+                  <li><strong>Précision</strong> — Chaque recommandation est soutenue par une analyse de marché réelle, des informations sur le segment profesional et des données comparatives précises.</li>
                   <li><strong>Excellence</strong> — Nous visons à obtenir la meilleure valeur pour nos clients, que ce soit en termes d&apos;emplacement, de prix, de potentiel d&apos;investissement ou de qualité de vie.</li>
                 </ul>
                 <p className="mb-0">

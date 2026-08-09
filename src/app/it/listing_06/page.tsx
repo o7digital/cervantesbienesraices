@@ -3,7 +3,7 @@ import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
   title: "Proprietà - Cervantes Immobiliare",
-  description: "Scopri la nostra selezione di proprietà premium in Messico. Case e appartamenti di lusso a Città del Messico e dintorni.",
+  description: "Scopri la nostra selezione di proprietà selezionate in Messico. Case e appartamenti di lusso a Città del Messico e dintorni.",
   alternates: {
     canonical: "https://www.cervantesbienesraices.com/it/listing_06",
     languages: {

@@ -10,7 +10,7 @@ export type ServiceItem = {
 export const servicesEs: ServiceItem[] = [
   {
     icon: <FiHome />,
-    title: "Compra de Propiedades Premium",
+    title: "Compra de Propiedades Seleccionadas",
     description:
       "Identificamos las mejores oportunidades en Polanco, Lomas de Chapultepec, Condesa, Roma y Santa Fe, considerando estilo de vida, presupuesto y objetivos de inversión, ya sea residencial o patrimonial.",
   },
@@ -18,7 +18,7 @@ export const servicesEs: ServiceItem[] = [
     icon: <FiUsers />,
     title: "Venta y Representación de Propietarios",
     description:
-      "Realizamos una valuación profesional, posicionamos la propiedad en el mercado premium y la presentamos únicamente a compradores calificados nacionales y extranjeros, maximizando la velocidad y seguridad de venta.",
+      "Realizamos una valuación profesional, posicionamos la propiedad en el mercado adecuado y la presentamos únicamente a compradores calificados nacionales y extranjeros, maximizando la velocidad y seguridad de venta.",
   },
   {
     icon: <FiFileText />,
@@ -36,7 +36,7 @@ export const servicesEs: ServiceItem[] = [
     icon: <FiTarget />,
     title: "Estrategia de Inversión y Patrimonio",
     description:
-      "Diseñamos planes de inversión inmobiliaria de largo plazo, enfocados en crecimiento de capital, rendimiento proyectado y diversificación inteligente en el mercado inmobiliario premium de CDMX.",
+      "Diseñamos planes de inversión inmobiliaria de largo plazo, enfocados en crecimiento de capital, rendimiento proyectado y diversificación inteligente en el mercado inmobiliario de CDMX.",
   },
   {
     icon: <FiCompass />,
@@ -57,7 +57,7 @@ export const servicesEn: ServiceItem[] = [
     icon: <FiUsers />,
     title: "Property Sales & Seller Representation",
     description:
-      "We provide professional valuation, premium market positioning and access to qualified national and international buyers, maximizing both transaction security and sale performance.",
+      "We provide professional valuation, real-estate market positioning and access to qualified national and international buyers, maximizing both transaction security and sale performance.",
   },
   {
     icon: <FiFileText />,
@@ -75,7 +75,7 @@ export const servicesEn: ServiceItem[] = [
     icon: <FiTarget />,
     title: "Investment & Wealth Strategy",
     description:
-      "We design long-term real-estate investment strategies focused on capital growth, projected yield and intelligent diversification in Mexico City's premium property market.",
+      "We design long-term real-estate investment strategies focused on capital growth, projected yield and intelligent diversification in Mexico City's Mexico City property market.",
   },
   {
     icon: <FiCompass />,
@@ -96,7 +96,7 @@ export const servicesFr: ServiceItem[] = [
     icon: <FiUsers />,
     title: "Vente de Propriétés & Représentation",
     description:
-      "Nous fournissons une évaluation professionnelle, un positionnement sur le marché premium et un accès à des acheteurs nationaux et internationaux qualifiés, maximisant la sécurité et la performance de la vente.",
+      "Nous fournissons une évaluation professionnelle, un positionnement sur le marché immobilier et un accès à des acheteurs nationaux et internationaux qualifiés, maximisant la sécurité et la performance de la vente.",
   },
   {
     icon: <FiFileText />,
@@ -114,7 +114,7 @@ export const servicesFr: ServiceItem[] = [
     icon: <FiTarget />,
     title: "Stratégie d'Investissement & Patrimoine",
     description:
-      "Nous concevons des stratégies d'investissement immobilier à long terme axées sur la croissance du capital, le rendement projeté et la diversification intelligente sur le marché immobilier premium de Mexico.",
+      "Nous concevons des stratégies d'investissement immobilier à long terme axées sur la croissance du capital, le rendement projeté et la diversification intelligente sur le marché immobilier résidentiel de Mexico.",
   },
   {
     icon: <FiCompass />,
@@ -135,7 +135,7 @@ export const servicesIt: ServiceItem[] = [
     icon: <FiUsers />,
     title: "Vendita di Proprietà & Rappresentazione",
     description:
-      "Forniamo valutazione professionale, posizionamento sul mercato premium e accesso ad acquirenti nazionali e internazionali qualificati, massimizzando la sicurezza e le prestazioni della vendita.",
+      "Forniamo valutazione professionale, posizionamento sul mercato immobiliare e accesso ad acquirenti nazionali e internazionali qualificati, massimizzando la sicurezza e le prestazioni della vendita.",
   },
   {
     icon: <FiFileText />,
@@ -153,7 +153,7 @@ export const servicesIt: ServiceItem[] = [
     icon: <FiTarget />,
     title: "Strategia di Investimento & Patrimonio",
     description:
-      "Progettiamo strategie di investimento immobiliare a lungo termine focalizzate sulla crescita del capitale, rendimento previsto e diversificazione intelligente nel mercato immobiliare premium di Città del Messico.",
+      "Progettiamo strategie di investimento immobiliare a lungo termine focalizzate sulla crescita del capitale, rendimento previsto e diversificazione intelligente nel mercato immobiliare residenziale di Città del Messico.",
   },
   {
     icon: <FiCompass />,
@@ -166,7 +166,7 @@ export const servicesIt: ServiceItem[] = [
 export const servicesDe: ServiceItem[] = [
   {
     icon: <FiHome />,
-    title: "Premium-Immobilien kaufen",
+    title: "ausgewählte Immobilien kaufen",
     description:
       "Wir finden die besten Optionen in Polanco, Lomas, Condesa, Roma und Santa Fe – abgestimmt auf Lebensstil, Budget und Investmentziel, ob Eigenheim oder Vermögensaufbau.",
   },
@@ -174,7 +174,7 @@ export const servicesDe: ServiceItem[] = [
     icon: <FiUsers />,
     title: "Verkauf & Eigentümervertretung",
     description:
-      "Wir erstellen eine professionelle Bewertung, positionieren Ihre Immobilie im Premiumsegment und präsentieren sie nur qualifizierten nationalen und internationalen Käufern, um schnell und sicher zu verkaufen.",
+      "Wir erstellen eine professionelle Bewertung, positionieren Ihre Immobilie im Immobiliensegment und präsentieren sie nur qualifizierten nationalen und internationalen Käufern, um schnell und sicher zu verkaufen.",
   },
   {
     icon: <FiFileText />,
@@ -192,7 +192,7 @@ export const servicesDe: ServiceItem[] = [
     icon: <FiTarget />,
     title: "Investitions- & Vermögensstrategie",
     description:
-      "Wir entwickeln langfristige Investmentpläne mit Fokus auf Kapitalwachstum, Renditeprognose und smarte Diversifikation im Premium-Immobilienmarkt von Mexiko-Stadt.",
+      "Wir entwickeln langfristige Investmentpläne mit Fokus auf Kapitalwachstum, Renditeprognose und smarte Diversifikation im ausgewählte Immobilienmarkt von Mexiko-Stadt.",
   },
   {
     icon: <FiCompass />,

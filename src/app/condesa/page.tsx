@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Departamentos y Casas en Renta y Venta en Condesa CDMX | Cervantes Bienes Raíces",
   description: "Vive en la Condesa, el corazón bohemio y cultural de CDMX. Departamentos con balcón, casas estilo Art Deco, lofts modernos. Precios desde $8M MXN. Zona pet-friendly y llena de vida.",
-  keywords: "bienes raíces premium Condesa, departamentos premium Condesa CDMX, propiedades en venta Condesa CDMX, casas premium Condesa CDMX, lofts premium Condesa CDMX, departamentos con balcón Condesa CDMX, asesoría inmobiliaria profesional Condesa",
+  keywords: "bienes raíces Condesa, departamentos Condesa CDMX, propiedades en venta Condesa CDMX, casas en Condesa CDMX, lofts en Condesa CDMX, departamentos con balcón Condesa CDMX, asesoría inmobiliaria profesional Condesa",
   openGraph: {
     title: "Vive en La Condesa CDMX – Departamentos y Casas | Cervantes",
     description: "Descubre el estilo de vida bohemio de la Condesa. Arquitectura Art Deco, cafés, parques y cultura.",

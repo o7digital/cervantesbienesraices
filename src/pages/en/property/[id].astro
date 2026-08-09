@@ -1,10 +1,17 @@
 ---
 import AstroLayout from "../../../layouts/AstroLayout.astro";
-import Page from "../../../app/en/property/[id]/page";
+import Page, { generateMetadata } from "../../../app/en/property/[id]/page";
+import { getSeo, metadataToSeo, SITE_URL } from "@/data/seo";
 
 const params = { id: Astro.params.id ?? "" };
+const metadata = await generateMetadata({ params });
+const seo = metadataToSeo(metadata, {
+  ...getSeo("/en/listing_06"),
+  title: "Property for sale or rent | Cervantes Real Estate",
+  canonical: `${SITE_URL}/en/property/${params.id}`,
+});
 ---
 
-<AstroLayout>
+<AstroLayout {...seo}>
   <Page params={params} />
 </AstroLayout>

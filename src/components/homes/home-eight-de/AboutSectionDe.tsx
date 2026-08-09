@@ -17,7 +17,7 @@ const AboutSectionDe = () => {
                 Unser Expertenteam begleitet lokale und internationale Käufer – auch Expats und ausländische Investoren – mit persönlicher Beratung, egal ob für Lifestyle, Umzug, Mieteinnahmen oder langfristige Wertsteigerung.
               </p>
               <p className="mb-3">
-                Wir bieten fundierte Bewertung, Marktanalysen, Verhandlungsstrategie sowie Rechtsberatung und stellen einen sicheren und transparenten Prozess sicher. Unsere Arbeit basiert auf Diskretion, Ethik und einem kundenorientierten Serviceansatz, gestützt auf reale Marktdaten und tiefes Wissen über den Premium-Markt von Mexiko-Stadt.
+                Wir bieten fundierte Bewertung, Marktanalysen, Verhandlungsstrategie sowie Rechtsberatung und stellen einen sicheren und transparenten Prozess sicher. Unsere Arbeit basiert auf Diskretion, Ethik und einem kundenorientierten Serviceansatz, gestützt auf reale Marktdaten und tiefes Wissen über den Immobilienmarkt von Mexiko-Stadt.
               </p>
               <p className="mb-0">
                 Von der ersten Suche über Prüfung, Verhandlung, Due Diligence, Dokumentation bis zum Abschluss führen wir Sie durch einen vollständigen Prozess, der Vertrauen, Ruhe und messbare Ergebnisse liefert.
@@ -29,7 +29,7 @@ const AboutSectionDe = () => {
                 </p>
                 <ul className="list-style-one">
                   <li><strong>Vertrauen</strong> — Langfristige Beziehungen auf Integrität, Diskretion und voller Transparenz.</li>
-                  <li><strong>Präzision</strong> — Jede Empfehlung basiert auf Marktanalysen, Premium-Insights und präzisen Vergleichsdaten.</li>
+                  <li><strong>Präzision</strong> — Jede Empfehlung basiert auf Marktanalysen, Markteinblicke und präzisen Vergleichsdaten.</li>
                   <li><strong>Exzellenz</strong> — Wir sichern den besten Wert für unsere Kunden: Lage, Preis, Investmentpotenzial und Lebensqualität.</li>
                 </ul>
                 <p className="mb-0">

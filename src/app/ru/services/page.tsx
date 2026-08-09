@@ -5,7 +5,7 @@ import FooterThreeRu from "@/layouts/footers/FooterThreeRu";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-  title: "Премиальные услуги недвижимости | Cervantes Bienes Raíces",
+  title: "Профессиональные услуги недвижимости | Cervantes Bienes Raíces",
 };
 
 const ServicesPageRu = () => {
@@ -16,7 +16,7 @@ const ServicesPageRu = () => {
         <ServicesContent
           id="services"
           title="Услуги"
-          subtitle="Премиальное сопровождение для покупки, продажи и инвестиций в Мехико."
+          subtitle="Профессиональное сопровождение для покупки, продажи и инвестиций в Мехико."
           services={servicesRu}
         />
         <FooterThreeRu />

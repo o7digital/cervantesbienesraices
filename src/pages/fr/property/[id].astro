@@ -1,10 +1,18 @@
 ---
 import AstroLayout from "../../../layouts/AstroLayout.astro";
-import Page from "../../../app/fr/property/[id]/page";
+import Page, { generateMetadata } from "../../../app/fr/property/[id]/page";
+import { getSeo, metadataToSeo, SITE_URL } from "@/data/seo";
 
 const params = Promise.resolve({ id: Astro.params.id ?? "" });
+const id = Astro.params.id ?? "";
+const metadata = await generateMetadata({ params });
+const seo = metadataToSeo(metadata, {
+  ...getSeo("/fr/listing_06"),
+  title: "Propriete a vendre ou a louer | Cervantes Immobilier",
+  canonical: `${SITE_URL}/fr/property/${id}`,
+});
 ---
 
-<AstroLayout>
+<AstroLayout {...seo}>
   <Page params={params} />
 </AstroLayout>

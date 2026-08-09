@@ -5,7 +5,7 @@ import FooterThree from "@/layouts/footers/FooterThree";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-  title: "Servicios inmobiliarios premium | Cervantes Bienes Raíces",
+  title: "Servicios inmobiliarios profesionales | Cervantes Bienes Raíces",
 };
 
 export default function Servicios() {
@@ -16,7 +16,7 @@ export default function Servicios() {
         <ServicesContent
           id="servicios"
           title="Servicios"
-          subtitle="Asesoría inmobiliaria premium para comprar, vender e invertir en las zonas más exclusivas de la CDMX."
+          subtitle="Asesoría inmobiliaria profesional para comprar, vender e invertir en las zonas más exclusivas de la CDMX."
           services={servicesEs}
         />
         <FooterThree />

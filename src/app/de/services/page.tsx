@@ -5,7 +5,7 @@ import FooterThreeDe from "@/layouts/footers/FooterThreeDe";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-  title: "Premium-Immobilienleistungen | Cervantes Real Estate",
+  title: "Professionelle Immobilienleistungen | Cervantes Real Estate",
 };
 
 const ServicesPageDe = () => {
@@ -16,7 +16,7 @@ const ServicesPageDe = () => {
         <ServicesContent
           id="services"
           title="Leistungen"
-          subtitle="Premium-Begleitung, um in Mexiko-Stadt sicher zu kaufen, zu verkaufen oder zu investieren."
+          subtitle="Professionelle Begleitung, um in Mexiko-Stadt sicher zu kaufen, zu verkaufen oder zu investieren."
           services={servicesDe}
         />
         <FooterThreeDe />

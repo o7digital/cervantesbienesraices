@@ -3,7 +3,7 @@ import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
   title: "Propriétés - Cervantes Immobilier",
-  description: "Découvrez notre sélection de propriétés premium au Mexique. Maisons et appartements de luxe à Mexico et environs.",
+  description: "Découvrez notre sélection de propriétés sélectionnées au Mexique. Maisons et appartements de luxe à Mexico et environs.",
   alternates: {
     canonical: "https://www.cervantesbienesraices.com/fr/listing_06",
     languages: {

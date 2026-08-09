@@ -123,7 +123,7 @@ export const servicesIt: ServiceItem[]  // Italien
 ```
 
 Chaque ensemble contient 5 services traduits :
-1. Acquisition/Compra de propriétés premium
+1. Acquisition/Compra de propriétés sélectionnées
 2. Vente & Représentation
 3. Conseil juridique & Documentation
 4. Analyse de marché & Évaluation
@@ -153,8 +153,8 @@ alternates: {
 
 ### Footer SEO Keywords
 Chaque footer contient un bloc SEO avec keywords optimisés dans la langue respective :
-- **FR**: "immobilier de luxe Mexico · agence immobilière premium CDMX · maisons Polanco..."
-- **IT**: "immobiliare di lusso Città del Messico · agenzia immobiliare premium CDMX..."
+- **FR**: "immobilier de luxe Mexico · agence immobilière professionnelle CDMX · maisons Polanco..."
+- **IT**: "immobiliare di lusso Città del Messico · agenzia immobiliare professionale CDMX..."
 
 ## 🚀 Routes Spécifiques
 

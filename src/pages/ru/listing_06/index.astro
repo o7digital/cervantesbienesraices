@@ -3,9 +3,11 @@ export const prerender = true;
 import AstroLayout from "../../../layouts/AstroLayout.astro";
 import SiteChrome from "../../../components/astro/SiteChrome";
 import Page from "../../../app/ru/listing_06/page";
+import { getSeo } from "@/data/seo";
+const seo = getSeo("/ru/listing_06");
 ---
 
-<AstroLayout>
+<AstroLayout {...seo}>
   <Page />
   <SiteChrome client:load />
 </AstroLayout>

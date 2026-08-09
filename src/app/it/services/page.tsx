@@ -5,7 +5,7 @@ import FooterThreeIt from "@/layouts/footers/FooterThreeIt";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-  title: "Servizi immobiliari premium | Cervantes Immobiliare",
+  title: "Servizi immobiliari profesional | Cervantes Immobiliare",
   description: "Consulenza esperta per acquistare, vendere e investire con fiducia a Città del Messico.",
   alternates: {
     canonical: "https://www.cervantesbienesraices.com/it/services",
@@ -26,7 +26,7 @@ const ServicesPageIt = () => {
         <ServicesContent
           id="services"
           title="Servizi"
-          subtitle="Consulenza premium per acquistare, vendere e investire con fiducia a Città del Messico."
+          subtitle="Consulenza profesional per acquistare, vendere e investire con fiducia a Città del Messico."
           services={servicesIt}
         />
         <FooterThreeIt />

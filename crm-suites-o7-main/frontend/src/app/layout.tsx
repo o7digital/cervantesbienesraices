@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Cervantes Bienes Raíces",
   },
   description:
-    "Asesoría inmobiliaria premium y CRM operativo para Cervantes Bienes Raíces.",
+    "Asesoría inmobiliaria profesional y CRM operativo para Cervantes Bienes Raíces.",
 };
 
 export default function RootLayout({

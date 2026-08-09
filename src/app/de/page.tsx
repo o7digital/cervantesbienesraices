@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Finden Sie Ihr ideales Zuhause in Mexiko. Cervantes Real Estate bietet Häuser zum Verkauf, Apartments zur Miete und professionelle Hypothekenberatung mit über 20 Jahren Erfahrung.",
   keywords:
-    "Luxusimmobilien Mexiko-Stadt, Premium Immobilienagentur Mexiko-Stadt, professionelle Immobilienberatung CDMX, Premium Immobilienberater Mexiko-Stadt, Premium Immobilien kaufen CDMX, Luxuswohnungen kaufen Mexiko-Stadt, exklusive Immobilien in Mexiko-Stadt, Luxusimmobilien Polanco, Premium Wohnungen Polanco, Häuser kaufen Polanco CDMX, Premium Immobilien Condesa CDMX, Luxuswohnungen Condesa, Luxusimmobilien Roma Norte, Immobilien in Valle de Bravo, Immobilien in Cuernavaca Morelos, Grundstücke und Häuser für Bauträger in Valle de Bravo, beste Häuser Preis-Leistung in Valle de Bravo, beste Häuser Preis-Leistung in Cuernavaca, Häuser für Bauträger in Cuernavaca, Häuser und Grundstücke für Bauträger in CDMX Mexiko, Premium Immobilienbewertung CDMX, Premium Immobilieninvestment Mexiko-Stadt",
+    "Luxusimmobilien Mexiko-Stadt, professionelle Immobilienagentur Mexiko-Stadt, professionelle Immobilienberatung CDMX, professionelle Immobilienberater Mexiko-Stadt, Immobilien kaufen CDMX, Luxuswohnungen kaufen Mexiko-Stadt, exklusive Immobilien in Mexiko-Stadt, Luxusimmobilien Polanco, ausgewählte Wohnungen Polanco, Häuser kaufen Polanco CDMX, Immobilien Condesa CDMX, Luxuswohnungen Condesa, Luxusimmobilien Roma Norte, Immobilien in Valle de Bravo, Immobilien in Cuernavaca Morelos, Grundstücke und Häuser für Bauträger in Valle de Bravo, beste Häuser Preis-Leistung in Valle de Bravo, beste Häuser Preis-Leistung in Cuernavaca, Häuser für Bauträger in Cuernavaca, Häuser und Grundstücke für Bauträger in CDMX Mexiko, professionelle Immobilienbewertung CDMX, Immobilieninvestment Mexiko-Stadt",
   alternates: {
     canonical: `${BASE_URL}/de`,
     languages: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cervantes Real Estate – Immobilien in Mexiko",
     description:
-      "Kauf oder Miete von Premium-Immobilien mit Expertenbegleitung. Basis in Mexiko-Stadt.",
+      "Kauf oder Miete von ausgewählte Immobilien mit Expertenbegleitung. Basis in Mexiko-Stadt.",
     url: `${BASE_URL}/de`,
     images: [{ url: "/images/assets/ogg.png" }],
     locale: "de_DE",

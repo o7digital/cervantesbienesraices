@@ -7,7 +7,7 @@ const ServicesSectionEn = () => {
     <ServicesContent
       id="services"
       title="Services"
-      subtitle="Premium advisory to buy, sell, and invest with confidence in Mexico City."
+      subtitle="Professional advisory to buy, sell, and invest with confidence in Mexico City."
       services={servicesEn}
     />
   );

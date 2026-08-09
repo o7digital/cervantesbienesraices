@@ -5,8 +5,8 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.cervantesbienesraices.com'),
   title: "Casas y Departamentos en Venta y Renta en Polanco CDMX | Cervantes Bienes Raíces",
-  description: "Encuentra tu hogar ideal en Polanco, la colonia más exclusiva de México. Casas de lujo, departamentos premium, penthouse. Precios desde $15M MXN. Asesoría profesional con más de 20 años de experiencia.",
-  keywords: "bienes raíces premium Polanco, inmobiliaria premium Polanco, propiedades de lujo Polanco CDMX, casas premium en venta Polanco CDMX, departamentos premium en Polanco, penthouse de lujo Polanco CDMX, asesoría inmobiliaria profesional Polanco",
+  description: "Encuentra tu hogar ideal en Polanco, la colonia más exclusiva de México. Casas de lujo, departamentos seleccionados, penthouse. Precios desde $15M MXN. Asesoría profesional con más de 20 años de experiencia.",
+  keywords: "bienes raíces Polanco, inmobiliaria Polanco, propiedades de lujo Polanco CDMX, casas en venta Polanco CDMX, departamentos en Polanco, penthouse de lujo Polanco CDMX, asesoría inmobiliaria profesional Polanco",
   openGraph: {
     title: "Propiedades Exclusivas en Polanco CDMX – Cervantes Bienes Raíces",
     description: "Descubre casas y departamentos de lujo en Polanco. La mejor zona residencial de Ciudad de México.",
@@ -49,7 +49,7 @@ Polanco es ideal para familias que buscan seguridad, calidad educativa (con los 
       "Mejores restaurantes y boutiques de lujo",
       "Arquitectura de primer nivel",
       "Excelente plusvalía año con año",
-      "Colegios privados premium",
+      "Colegios privados reconocidos",
       "Cultura y entretenimiento de clase mundial",
       "Áreas verdes y parques bien cuidados",
       "Comunidad internacional diversa"
@@ -58,7 +58,7 @@ Polanco es ideal para familias que buscan seguridad, calidad educativa (con los 
       "Museo Soumaya – Arquitectura icónica y colección de arte",
       "Avenida Presidente Masaryk – Shopping de lujo",
       "Parque Lincoln – Área verde emblemática",
-      "Antara Fashion Hall – Centro comercial premium",
+      "Antara Fashion Hall – Centro comercial reconocido",
       "Restaurantes Pujol, Quintonil (World's 50 Best)",
       "Auditorio Nacional – Eventos y conciertos",
       "Bosque de Chapultepec – A minutos",

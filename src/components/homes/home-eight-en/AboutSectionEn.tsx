@@ -14,10 +14,10 @@ const AboutSectionEn = () => {
                 At <strong>Cervantes Bienes Raíces</strong>, we are a professional real-estate agency specializing in luxury real estate in Mexico City, as well as the sale of ranches and properties throughout Mexico. We work with exclusive and high-value listings across the city&apos;s most prestigious areas, including Polanco, Lomas de Chapultepec, Condesa, Roma and Santa Fe.
               </p>
               <p className="mb-3">
-                Our team of property experts provides personalized guidance for both local and international buyers, including expats and foreign investors seeking premium homes in Mexico either for lifestyle, relocation, rental income or long-term capital appreciation.
+                Our team of property experts provides personalized guidance for both local and international buyers, including expats and foreign investors seeking profesional homes in Mexico either for lifestyle, relocation, rental income or long-term capital appreciation.
               </p>
               <p className="mb-3">
-                We offer strong expertise in property valuation, market analytics, negotiation strategy and legal advisory, ensuring a secure and transparent transaction process. Our approach is based on discretion, ethics and a client-first service philosophy supported by real market data and deep knowledge of Mexico City&apos;s premium real-estate landscape.
+                We offer strong expertise in property valuation, market analytics, negotiation strategy and legal advisory, ensuring a secure and transparent transaction process. Our approach is based on discretion, ethics and a client-first service philosophy supported by real market data and deep knowledge of Mexico City&apos;s Mexico City real-estate landscape.
               </p>
               <p className="mb-0">
                 From the initial search to evaluation, negotiation, due-diligence, documentation and closing, we deliver a fully guided process that provides confidence, peace of mind and tangible results in every acquisition.
@@ -29,7 +29,7 @@ const AboutSectionEn = () => {
                 </p>
                 <ul className="list-style-one">
                   <li><strong>Trust</strong> — We create long-term relationships based on integrity, confidentiality and full transparency.</li>
-                  <li><strong>Precision</strong> — Every recommendation is backed by real market analysis, premium segment insights and accurate comparative data.</li>
+                  <li><strong>Precision</strong> — Every recommendation is backed by real market analysis, residential market insights and accurate comparative data.</li>
                   <li><strong>Excellence</strong> — We aim to secure the best value for our clients, whether in location, price, investment potential or quality of life.</li>
                 </ul>
                 <p className="mb-0">

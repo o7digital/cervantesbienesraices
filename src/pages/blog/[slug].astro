@@ -1,10 +1,17 @@
 ---
 import AstroLayout from "../../layouts/AstroLayout.astro";
-import Page from "../../app/blog/[slug]/page";
+import Page, { generateMetadata } from "../../app/blog/[slug]/page";
+import { getSeo, metadataToSeo, SITE_URL } from "@/data/seo";
 
 const params = { slug: Astro.params.slug ?? "" };
+const metadata = await generateMetadata({ params });
+const seo = metadataToSeo(metadata, {
+  ...getSeo("/blog"),
+  title: "Blog | Cervantes Bienes Raíces",
+  canonical: `${SITE_URL}/blog/${params.slug}`,
+});
 ---
 
-<AstroLayout>
+<AstroLayout {...seo}>
   <Page params={params} />
 </AstroLayout>

@@ -266,7 +266,7 @@ const sharedChannels = {
 const content: Record<MarketingLocale, MarketingContent> = {
   es: {
     localeLabel: 'Español',
-    tagLine: 'CDMX Premium Realty',
+    tagLine: 'CDMX Real Estate',
     nav: { home: 'Inicio', about: 'Quiénes Somos', services: 'Servicios', blog: 'Blog', contact: 'Contacto' },
     ctas: {
       contact: 'Solicitar asesoría',
@@ -282,22 +282,22 @@ const content: Record<MarketingLocale, MarketingContent> = {
       title: 'Casas en venta y departamentos en renta con estrategia, criterio y acompañamiento real.',
       description:
         'Asesoría inmobiliaria profesional en CDMX, Polanco, Condesa y toda el área metropolitana para compradores, vendedores e inversionistas que necesitan claridad y ejecución.',
-      tags: ['Casas en venta', 'Departamentos en renta', 'Propiedades premium', 'Inversión patrimonial'],
+      tags: ['Casas en venta', 'Departamentos en renta', 'Propiedades seleccionadas', 'Inversión patrimonial'],
       aboutCards: [
         'En Cervantes Bienes Raíces somos una agencia inmobiliaria profesional especializada en bienes raíces de lujo en Ciudad de México.',
-        'Nuestro equipo ofrece asesoría personalizada para compradores nacionales, expatriados y extranjeros interesados en adquirir propiedades premium en México.',
+        'Nuestro equipo ofrece asesoría personalizada para compradores nacionales, expatriados y extranjeros interesados en adquirir propiedades seleccionadas en México.',
       ],
-      coverageTitle: 'Zonas premium de CDMX',
-      coverageBadge: 'Mercado premium',
+      coverageTitle: 'Zonas clave de CDMX',
+      coverageBadge: 'Mercado inmobiliario',
       quote: 'Seguimos un proceso para ofrecer a nuestros inversionistas las mejores oportunidades.',
       founderRole: 'Fundador y CEO',
     },
     about: {
-      title: 'Asesoría inmobiliaria premium con visión de largo plazo.',
+      title: 'Asesoría inmobiliaria profesional con visión de largo plazo.',
       intro: 'Una asesoría que combina mercado, criterio y ejecución.',
       paragraphs: [
         'En Cervantes Bienes Raíces somos una agencia inmobiliaria profesional especializada en bienes raíces de lujo en Ciudad de México. Trabajamos con propiedades exclusivas y de alto valor en las zonas más prestigiosas de la ciudad, incluyendo Polanco, Lomas de Chapultepec, Condesa, Roma y Santa Fe.',
-        'Nuestro equipo de expertos inmobiliarios ofrece asesoría personalizada para compradores nacionales, expatriados y extranjeros interesados en adquirir propiedades premium en México, ya sea para vivir, invertir o diversificar patrimonio.',
+        'Nuestro equipo de expertos inmobiliarios ofrece asesoría personalizada para compradores nacionales, expatriados y extranjeros interesados en adquirir propiedades seleccionadas en México, ya sea para vivir, invertir o diversificar patrimonio.',
         'Contamos con amplia experiencia en valuación inmobiliaria, análisis de mercado, negociación estratégica y acompañamiento legal, garantizando procesos de compra-venta transparentes, eficientes y seguros.',
         'En cada operación ofrecemos acompañamiento integral: desde la búsqueda de la propiedad ideal hasta la negociación, revisión de documentos, trámites legales y entrega final.',
       ],
@@ -308,7 +308,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       philosophyIntro: 'Cada propiedad es patrimonio, proyecto de vida y decisión estratégica.',
       philosophyItems: [
         { title: 'Confianza', description: 'Relaciones duraderas basadas en transparencia, ética y confidencialidad.' },
-        { title: 'Precisión', description: 'Recomendaciones respaldadas por análisis reales del mercado premium.' },
+        { title: 'Precisión', description: 'Recomendaciones respaldadas por análisis reales del mercado inmobiliario.' },
         { title: 'Excelencia', description: 'Búsqueda constante de la mejor oportunidad en ubicación, valor y retorno.' },
       ],
     },
@@ -318,7 +318,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
         'Cada operación se construye sobre valuación, posicionamiento, negociación y certeza legal. No vendemos visitas; diseñamos estrategia.',
       items: [
         {
-          title: 'Compra de Propiedades Premium',
+          title: 'Compra de Propiedades Seleccionadas',
           description:
             'Identificamos oportunidades en Polanco, Lomas de Chapultepec, Condesa, Roma y Santa Fe según estilo de vida, presupuesto y objetivos de inversión.',
         },
@@ -357,10 +357,10 @@ const content: Record<MarketingLocale, MarketingContent> = {
       highlights: [
         'Respuesta inicial en menos de 24 horas',
         'Atención a compradores, vendedores e inversionistas',
-        'Cobertura enfocada en CDMX y corredor premium',
+        'Cobertura enfocada en CDMX y corredor inmobiliario',
       ],
       channels: sharedChannels.es,
-      coverageTitle: 'Trabajamos en las zonas más relevantes del corredor premium.',
+      coverageTitle: 'Trabajamos en las zonas más relevantes del corredor inmobiliario.',
       coverageIntro: 'Comparte tu caso y te orientamos según zona, ticket y urgencia.',
       form: {
         title: 'Formulario de contacto',
@@ -397,7 +397,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
           coverImage: '/marketing/blog/blog-mercado.jpg',
           content: [
             'Los corredores Reforma, Polanco y Roma-Condesa mantienen una alta absorción de inventario, con compradores más analíticos y menos tolerancia a precios fuera de mercado.',
-            'Los departamentos bien presentados y correctamente valuados se mueven con mayor velocidad; las propiedades premium necesitan narrativa comercial y negociación más fina.',
+            'Los departamentos bien presentados y correctamente valuados se mueven con mayor velocidad; las propiedades seleccionadas necesitan narrativa comercial y negociación más fina.',
             'La lectura correcta del micro-mercado sigue siendo la diferencia entre publicar mucho tiempo o cerrar una operación.',
           ],
         },
@@ -432,7 +432,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       ],
     },
     footer: {
-      title: 'Asesoría inmobiliaria premium para comprar, vender e invertir con criterio.',
+      title: 'Asesoría inmobiliaria profesional para comprar, vender e invertir con criterio.',
       description:
         'Más de 20 años acompañando operaciones en CDMX con análisis de mercado, estrategia comercial y acompañamiento legal de principio a fin.',
       navigation: 'Navegación',
@@ -442,23 +442,23 @@ const content: Record<MarketingLocale, MarketingContent> = {
     areas: sharedAreas.es,
     seo: {
       defaultTitle: 'Cervantes Bienes Raíces',
-      defaultDescription: 'Asesoría inmobiliaria premium y CRM operativo para Cervantes Bienes Raíces.',
+      defaultDescription: 'Asesoría inmobiliaria profesional y CRM operativo para Cervantes Bienes Raíces.',
       homeTitle: 'Casas en venta y departamentos en renta en México',
       homeDescription:
-        'Cervantes Bienes Raíces ofrece asesoría inmobiliaria premium para comprar, vender e invertir en CDMX con más de 20 años de experiencia.',
+        'Cervantes Bienes Raíces ofrece asesoría inmobiliaria profesional para comprar, vender e invertir en CDMX con más de 20 años de experiencia.',
       aboutTitle: 'Quiénes Somos',
-      aboutDescription: 'Conoce la filosofía y el enfoque de Cervantes Bienes Raíces para operaciones premium en CDMX.',
+      aboutDescription: 'Conoce la filosofía y el enfoque de Cervantes Bienes Raíces para operaciones inmobiliarias en CDMX.',
       servicesTitle: 'Servicios',
-      servicesDescription: 'Servicios inmobiliarios premium para compra, venta, valuación y estrategia patrimonial en CDMX.',
+      servicesDescription: 'Servicios inmobiliarios profesionales para compra, venta, valuación y estrategia patrimonial en CDMX.',
       contactTitle: 'Contacto',
-      contactDescription: 'Escríbenos para comprar, vender o invertir en propiedades premium en CDMX.',
+      contactDescription: 'Escríbenos para comprar, vender o invertir en propiedades seleccionadas en CDMX.',
       blogTitle: 'Blog',
       blogDescription: 'Tendencias de mercado, crédito hipotecario y guías inmobiliarias de Cervantes Bienes Raíces.',
     },
   },
   en: {
     localeLabel: 'English',
-    tagLine: 'CDMX Premium Realty',
+    tagLine: 'CDMX Real Estate',
     nav: { home: 'Home', about: 'About', services: 'Services', blog: 'Blog', contact: 'Contact' },
     ctas: {
       contact: 'Request advisory',
@@ -474,21 +474,21 @@ const content: Record<MarketingLocale, MarketingContent> = {
       title: 'Homes for sale and rentals with strategy, judgment and real execution.',
       description:
         'Professional real-estate advisory across Mexico City, Polanco, Condesa and the metro area for buyers, sellers and investors who need clarity and delivery.',
-      tags: ['Homes for sale', 'Rental apartments', 'Premium properties', 'Wealth strategy'],
+      tags: ['Homes for sale', 'Rental apartments', 'Selected properties', 'Wealth strategy'],
       aboutCards: [
-        'Cervantes Bienes Raíces is a professional agency focused on premium real estate in Mexico City.',
+        'Cervantes Bienes Raíces is a professional agency focused on residential real estate in Mexico City.',
         'We advise local and international buyers looking for homes, investment assets and long-term positioning.',
       ],
-      coverageTitle: 'Premium neighborhoods in Mexico City',
+      coverageTitle: 'Key neighborhoods in Mexico City',
       coverageBadge: 'Prime market',
       quote: 'We follow a process to bring our investors the best opportunities.',
       founderRole: 'Founder and CEO',
     },
     about: {
-      title: 'Premium real-estate advisory with a long-term view.',
+      title: 'Professional real-estate advisory with a long-term view.',
       intro: 'Market knowledge, judgment and execution in one advisory process.',
       paragraphs: [
-        'Cervantes Bienes Raíces is a professional agency specialized in premium real estate in Mexico City, with active focus on Polanco, Lomas de Chapultepec, Condesa, Roma and Santa Fe.',
+        'Cervantes Bienes Raíces is a professional agency specialized in residential real estate in Mexico City, with active focus on Polanco, Lomas de Chapultepec, Condesa, Roma and Santa Fe.',
         'We advise local buyers, expatriates and international clients looking to live, invest or diversify their wealth in Mexico.',
         'Our work combines valuation, market analysis, negotiation and legal coordination so that each transaction moves with clarity and control.',
         'From search to closing, we stay involved in the practical details that protect time, money and certainty.',
@@ -499,7 +499,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       philosophyIntro: 'Every property is both a life decision and a strategic asset.',
       philosophyItems: [
         { title: 'Trust', description: 'Long-term relationships built on transparency, ethics and confidentiality.' },
-        { title: 'Precision', description: 'Advice grounded in real premium-market data and comparables.' },
+        { title: 'Precision', description: 'Advice grounded in real market data and comparables.' },
         { title: 'Excellence', description: 'Constant focus on the best outcome in location, value and return.' },
       ],
     },
@@ -508,7 +508,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       intro: 'Every transaction is built on valuation, positioning, negotiation and legal certainty.',
       items: [
         {
-          title: 'Premium Property Acquisition',
+          title: 'Selected Property Acquisition',
           description:
             'We identify the right opportunities in Polanco, Lomas, Condesa, Roma and Santa Fe based on lifestyle, budget and investment objectives.',
         },
@@ -549,7 +549,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
         'Coverage focused on prime Mexico City corridors',
       ],
       channels: sharedChannels.en,
-      coverageTitle: 'We work in the most relevant premium corridors.',
+      coverageTitle: 'We work in the most relevant real-estate corridors.',
       coverageIntro: 'Share your case and we will orient you based on area, ticket size and timing.',
       form: {
         title: 'Contact form',
@@ -621,7 +621,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       ],
     },
     footer: {
-      title: 'Premium real-estate advisory for buying, selling and investing with judgment.',
+      title: 'Professional real-estate advisory for buying, selling and investing with judgment.',
       description: 'More than 20 years supporting Mexico City transactions with market analysis, commercial strategy and legal coordination.',
       navigation: 'Navigation',
       contact: 'Contact',
@@ -630,22 +630,22 @@ const content: Record<MarketingLocale, MarketingContent> = {
     areas: sharedAreas.en,
     seo: {
       defaultTitle: 'Cervantes Real Estate',
-      defaultDescription: 'Premium real-estate advisory and CRM operations for Cervantes Bienes Raíces.',
+      defaultDescription: 'Professional real-estate advisory and CRM operations for Cervantes Bienes Raíces.',
       homeTitle: 'Homes for sale and rentals in Mexico City',
-      homeDescription: 'Premium real-estate advisory to buy, sell and invest in Mexico City.',
+      homeDescription: 'Professional real-estate advisory to buy, sell and invest in Mexico City.',
       aboutTitle: 'About',
       aboutDescription: 'Get to know the advisory approach behind Cervantes Real Estate.',
       servicesTitle: 'Services',
-      servicesDescription: 'Premium real-estate services for acquisitions, sales, valuation and wealth strategy.',
+      servicesDescription: 'Professional real-estate services for acquisitions, sales, valuation and wealth strategy.',
       contactTitle: 'Contact',
-      contactDescription: 'Get in touch to buy, sell or invest in premium property in Mexico City.',
+      contactDescription: 'Get in touch to buy, sell or invest in selected property in Mexico City.',
       blogTitle: 'Blog',
       blogDescription: 'Market trends, mortgage context and real-estate guides from the Cervantes team.',
     },
   },
   fr: {
     localeLabel: 'Français',
-    tagLine: 'Immobilier premium CDMX',
+    tagLine: 'Immobilier professionnel CDMX',
     nav: { home: 'Accueil', about: 'À propos', services: 'Services', blog: 'Blog', contact: 'Contact' },
     ctas: {
       contact: 'Demander un conseil',
@@ -660,22 +660,22 @@ const content: Record<MarketingLocale, MarketingContent> = {
       eyebrow: '20+ ans d expérience',
       title: 'Maisons à vendre et locations avec méthode, jugement et exécution réelle.',
       description:
-        'Conseil immobilier premium à Mexico pour acheteurs, vendeurs et investisseurs qui ont besoin de clarté et de suivi.',
-      tags: ['Maisons à vendre', 'Appartements à louer', 'Biens premium', 'Stratégie patrimoniale'],
+        'Conseil immobilier professionnel à Mexico pour acheteurs, vendeurs et investisseurs qui ont besoin de clarté et de suivi.',
+      tags: ['Maisons à vendre', 'Appartements à louer', 'Biens sélectionnés', 'Stratégie patrimoniale'],
       aboutCards: [
-        'Cervantes Bienes Raíces est une agence spécialisée dans l immobilier premium à Mexico.',
+        'Cervantes Bienes Raíces est une agence spécialisée dans l immobilier résidentiel à Mexico.',
         'Nous accompagnons clients locaux et internationaux pour résidence, investissement et diversification patrimoniale.',
       ],
-      coverageTitle: 'Quartiers premium de Mexico',
-      coverageBadge: 'Marché premium',
+      coverageTitle: 'Quartiers clés de Mexico',
+      coverageBadge: 'Marché immobilier',
       quote: 'Nous suivons un processus pour offrir les meilleures opportunités à nos investisseurs.',
       founderRole: 'Fondateur et CEO',
     },
     about: {
-      title: 'Conseil immobilier premium avec vision de long terme.',
+      title: 'Conseil immobilier professionnel avec vision de long terme.',
       intro: 'Marché, jugement et exécution dans un seul processus de conseil.',
       paragraphs: [
-        'Nous travaillons sur les zones premium de Mexico comme Polanco, Lomas de Chapultepec, Condesa, Roma et Santa Fe.',
+        'Nous travaillons sur les zones clés de Mexico comme Polanco, Lomas de Chapultepec, Condesa, Roma et Santa Fe.',
         'Nous accompagnons acheteurs locaux, expatriés et investisseurs internationaux.',
         'Notre travail combine valorisation, analyse de marché, négociation et coordination juridique.',
         'De la recherche à la signature, nous restons présents sur les détails qui protègent temps, budget et sécurité.',
@@ -694,7 +694,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       title: 'Acheter, vendre et investir avec un processus structuré.',
       intro: 'Chaque opération repose sur valorisation, positionnement, négociation et sécurité juridique.',
       items: [
-        { title: 'Acquisition de biens premium', description: 'Identification des meilleures opportunités selon style de vie, budget et objectif patrimonial.' },
+        { title: 'Acquisition de biens sélectionnés', description: 'Identification des meilleures opportunités selon style de vie, budget et objectif patrimonial.' },
         { title: 'Représentation vendeur', description: 'Évaluation, mise en marché et présentation à des acheteurs qualifiés.' },
         { title: 'Conseil juridique et documentation', description: 'Contrats, actes, fiscalité, revue documentaire et coordination notariale.' },
         { title: 'Valorisation et analyse de marché', description: 'Comparables et lecture de marché pour soutenir les bonnes décisions.' },
@@ -710,9 +710,9 @@ const content: Record<MarketingLocale, MarketingContent> = {
     contact: {
       title: 'Expliquez votre objectif et nous cadrons la prochaine étape.',
       intro: 'Achat, vente, valorisation, analyse de marché ou investissement: nous répondons avec une route concrète.',
-      highlights: ['Réponse initiale en moins de 24 heures', 'Accompagnement acheteurs, vendeurs et investisseurs', 'Couverture ciblée sur les corridors premium de Mexico'],
+      highlights: ['Réponse initiale en moins de 24 heures', 'Accompagnement acheteurs, vendeurs et investisseurs', 'Couverture ciblée sur les corridors immobiliers de Mexico'],
       channels: sharedChannels.fr,
-      coverageTitle: 'Nous intervenons sur les zones les plus pertinentes du corridor premium.',
+      coverageTitle: 'Nous intervenons sur les zones les plus pertinentes du corridor immobilier.',
       coverageIntro: 'Partagez votre besoin et nous vous orientons selon zone, budget et horizon.',
       form: {
         title: 'Formulaire de contact',
@@ -779,7 +779,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       ],
     },
     footer: {
-      title: 'Conseil immobilier premium pour acheter, vendre et investir avec jugement.',
+      title: 'Conseil immobilier professionnel pour acheter, vendre et investir avec jugement.',
       description: 'Plus de 20 ans d accompagnement à Mexico avec analyse de marché, stratégie commerciale et coordination juridique.',
       navigation: 'Navigation',
       contact: 'Contact',
@@ -788,13 +788,13 @@ const content: Record<MarketingLocale, MarketingContent> = {
     areas: sharedAreas.fr,
     seo: {
       defaultTitle: 'Cervantes Immobilier',
-      defaultDescription: 'Conseil immobilier premium et opérations CRM pour Cervantes Bienes Raíces.',
+      defaultDescription: 'Conseil immobilier professionnel et opérations CRM pour Cervantes Bienes Raíces.',
       homeTitle: 'Biens à vendre et à louer à Mexico',
-      homeDescription: 'Conseil immobilier premium pour acheter, vendre et investir à Mexico.',
+      homeDescription: 'Conseil immobilier professionnel pour acheter, vendre et investir à Mexico.',
       aboutTitle: 'À propos',
       aboutDescription: 'Découvrez l approche de conseil de Cervantes Immobilier.',
       servicesTitle: 'Services',
-      servicesDescription: 'Services immobiliers premium pour acquisition, vente et stratégie patrimoniale.',
+      servicesDescription: 'Services immobiliers profesional pour acquisition, vente et stratégie patrimoniale.',
       contactTitle: 'Contact',
       contactDescription: 'Écrivez-nous pour acheter, vendre ou investir à Mexico.',
       blogTitle: 'Blog',
@@ -803,7 +803,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
   },
   it: {
     localeLabel: 'Italiano',
-    tagLine: 'Immobiliare premium CDMX',
+    tagLine: 'Immobiliare professionale CDMX',
     nav: { home: 'Home', about: 'Chi siamo', services: 'Servizi', blog: 'Blog', contact: 'Contatto' },
     ctas: {
       contact: 'Richiedi consulenza',
@@ -817,22 +817,22 @@ const content: Record<MarketingLocale, MarketingContent> = {
     hero: {
       eyebrow: 'Oltre 20 anni di esperienza',
       title: 'Case in vendita e affitti con metodo, giudizio ed esecuzione reale.',
-      description: 'Consulenza immobiliare premium a Città del Messico per acquirenti, venditori e investitori.',
-      tags: ['Case in vendita', 'Appartamenti in affitto', 'Immobili premium', 'Strategia patrimoniale'],
+      description: 'Consulenza immobiliare profesional a Città del Messico per acquirenti, venditori e investitori.',
+      tags: ['Case in vendita', 'Appartamenti in affitto', 'Immobili profesional', 'Strategia patrimoniale'],
       aboutCards: [
-        'Cervantes Bienes Raíces è una realtà specializzata nell immobiliare premium di Città del Messico.',
+        'Cervantes Bienes Raíces è una realtà specializzata nell immobiliare profesional di Città del Messico.',
         'Affianchiamo clienti locali e internazionali per casa, investimento e diversificazione.',
       ],
-      coverageTitle: 'Zone premium di Città del Messico',
-      coverageBadge: 'Mercato premium',
+      coverageTitle: 'Zone profesional di Città del Messico',
+      coverageBadge: 'Mercato profesional',
       quote: 'Seguiamo un processo per offrire ai nostri investitori le migliori opportunità.',
       founderRole: 'Fondatore e CEO',
     },
     about: {
-      title: 'Consulenza immobiliare premium con visione di lungo periodo.',
+      title: 'Consulenza immobiliare profesional con visione di lungo periodo.',
       intro: 'Mercato, giudizio ed esecuzione in un solo processo di consulenza.',
       paragraphs: [
-        'Operiamo nelle zone premium come Polanco, Lomas de Chapultepec, Condesa, Roma e Santa Fe.',
+        'Operiamo nelle zone profesional come Polanco, Lomas de Chapultepec, Condesa, Roma e Santa Fe.',
         'Seguiamo acquirenti locali, expat e investitori internazionali.',
         'Il nostro lavoro unisce valutazione, lettura del mercato, negoziazione e coordinamento legale.',
         'Dalla ricerca al closing restiamo presenti sui dettagli che proteggono tempo, capitale e certezza.',
@@ -851,7 +851,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       title: 'Comprare, vendere e investire con un processo strutturato.',
       intro: 'Ogni operazione si basa su valutazione, posizionamento, negoziazione e certezza legale.',
       items: [
-        { title: 'Acquisto di proprietà premium', description: 'Selezioniamo le migliori opportunità in base a stile di vita, budget e obiettivi.' },
+        { title: 'Acquisto di proprietà selezionate', description: 'Selezioniamo le migliori opportunità in base a stile di vita, budget e obiettivi.' },
         { title: 'Rappresentanza per proprietari', description: 'Valutazione, posizionamento commerciale e presentazione a compratori qualificati.' },
         { title: 'Consulenza legale e documentale', description: 'Contratti, atti, fiscalità, revisione documentale e coordinamento notarile.' },
         { title: 'Valutazione e analisi di mercato', description: 'Comparabili e lettura del mercato per supportare decisioni e negoziazione.' },
@@ -867,9 +867,9 @@ const content: Record<MarketingLocale, MarketingContent> = {
     contact: {
       title: 'Raccontaci il tuo obiettivo e definiamo il passo successivo.',
       intro: 'Acquisto, vendita, valutazione, analisi di mercato o investimento: rispondiamo con una direzione concreta.',
-      highlights: ['Prima risposta in meno di 24 ore', 'Supporto per acquirenti, venditori e investitori', 'Copertura focalizzata sui corridoi premium di CDMX'],
+      highlights: ['Prima risposta in meno di 24 ore', 'Supporto per acquirenti, venditori e investitori', 'Copertura focalizzata sui corridoi profesional di CDMX'],
       channels: sharedChannels.it,
-      coverageTitle: 'Lavoriamo nelle aree più rilevanti del corridoio premium.',
+      coverageTitle: 'Lavoriamo nelle aree più rilevanti del corridoio profesional.',
       coverageIntro: 'Condividi il tuo caso e ti orientiamo per zona, budget e tempi.',
       form: {
         title: 'Modulo di contatto',
@@ -936,7 +936,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       ],
     },
     footer: {
-      title: 'Consulenza immobiliare premium per comprare, vendere e investire con giudizio.',
+      title: 'Consulenza immobiliare profesional per comprare, vendere e investire con giudizio.',
       description: 'Oltre 20 anni di operazioni a Città del Messico con analisi di mercato, strategia commerciale e coordinamento legale.',
       navigation: 'Navigazione',
       contact: 'Contatto',
@@ -945,13 +945,13 @@ const content: Record<MarketingLocale, MarketingContent> = {
     areas: sharedAreas.it,
     seo: {
       defaultTitle: 'Cervantes Immobiliare',
-      defaultDescription: 'Consulenza immobiliare premium e operatività CRM per Cervantes Bienes Raíces.',
+      defaultDescription: 'Consulenza immobiliare profesional e operatività CRM per Cervantes Bienes Raíces.',
       homeTitle: 'Case in vendita e in affitto a Città del Messico',
-      homeDescription: 'Consulenza immobiliare premium per comprare, vendere e investire a CDMX.',
+      homeDescription: 'Consulenza immobiliare profesional per comprare, vendere e investire a CDMX.',
       aboutTitle: 'Chi siamo',
       aboutDescription: 'Scopri l approccio di consulenza di Cervantes Immobiliare.',
       servicesTitle: 'Servizi',
-      servicesDescription: 'Servizi immobiliari premium per acquisto, vendita, valutazione e strategia patrimoniale.',
+      servicesDescription: 'Servizi immobiliari profesional per acquisto, vendita, valutazione e strategia patrimoniale.',
       contactTitle: 'Contatto',
       contactDescription: 'Scrivici per comprare, vendere o investire a Città del Messico.',
       blogTitle: 'Blog',
@@ -960,7 +960,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
   },
   de: {
     localeLabel: 'Deutsch',
-    tagLine: 'Premium-Immobilien CDMX',
+    tagLine: 'Immobilienberatung CDMX',
     nav: { home: 'Start', about: 'Über uns', services: 'Leistungen', blog: 'Blog', contact: 'Kontakt' },
     ctas: {
       contact: 'Beratung anfragen',
@@ -974,22 +974,22 @@ const content: Record<MarketingLocale, MarketingContent> = {
     hero: {
       eyebrow: 'Mehr als 20 Jahre Erfahrung',
       title: 'Häuser und Vermietungen mit Methode, Urteilskraft und echter Umsetzung.',
-      description: 'Premium-Immobilienberatung in Mexiko-Stadt für Käufer, Verkäufer und Investoren.',
-      tags: ['Häuser kaufen', 'Wohnungen mieten', 'Premium-Immobilien', 'Vermögensstrategie'],
+      description: 'Professionelle Immobilienberatung in Mexiko-Stadt für Käufer, Verkäufer und Investoren.',
+      tags: ['Häuser kaufen', 'Wohnungen mieten', 'ausgewählte Immobilien', 'Vermögensstrategie'],
       aboutCards: [
-        'Cervantes Bienes Raíces ist auf Premium-Immobilien in Mexiko-Stadt spezialisiert.',
+        'Cervantes Bienes Raíces ist auf ausgewählte Immobilien in Mexiko-Stadt spezialisiert.',
         'Wir begleiten lokale und internationale Kunden bei Wohnen, Investment und Vermögensdiversifikation.',
       ],
-      coverageTitle: 'Premium-Lagen in Mexiko-Stadt',
+      coverageTitle: 'wichtigen Lagen in Mexiko-Stadt',
       coverageBadge: 'Prime-Markt',
       quote: 'Wir folgen einem klaren Prozess, um Investoren die besten Chancen zu liefern.',
       founderRole: 'Gründer und CEO',
     },
     about: {
-      title: 'Premium-Immobilienberatung mit langfristiger Perspektive.',
+      title: 'Professionelle Immobilienberatung mit langfristiger Perspektive.',
       intro: 'Marktkenntnis, Urteilskraft und Umsetzung in einem Beratungsprozess.',
       paragraphs: [
-        'Wir arbeiten in den Premium-Lagen Polanco, Lomas de Chapultepec, Condesa, Roma und Santa Fe.',
+        'Wir arbeiten in den wichtigen Lagen Polanco, Lomas de Chapultepec, Condesa, Roma und Santa Fe.',
         'Wir begleiten lokale Käufer, Expats und internationale Investoren.',
         'Unsere Arbeit verbindet Bewertung, Marktanalyse, Verhandlung und rechtliche Koordination.',
         'Von der Suche bis zum Closing bleiben wir in den Details präsent, die Zeit, Kapital und Sicherheit schützen.',
@@ -1008,7 +1008,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       title: 'Kaufen, verkaufen und investieren mit einem strukturierten Prozess.',
       intro: 'Jede Transaktion basiert auf Bewertung, Positionierung, Verhandlung und Rechtssicherheit.',
       items: [
-        { title: 'Erwerb von Premium-Immobilien', description: 'Wir identifizieren passende Chancen nach Lebensstil, Budget und Investmentziel.' },
+        { title: 'Erwerb von ausgewählte Immobilien', description: 'Wir identifizieren passende Chancen nach Lebensstil, Budget und Investmentziel.' },
         { title: 'Verkäufervertretung', description: 'Bewertung, Marktpositionierung und Präsentation an qualifizierte Käufer.' },
         { title: 'Recht und Dokumentation', description: 'Verträge, Urkunden, Steuern, Dokumentenprüfung und Notarkoordination.' },
         { title: 'Bewertung und Marktanalyse', description: 'Vergleichsdaten und Marktlese zur Unterstützung fundierter Entscheidungen.' },
@@ -1024,9 +1024,9 @@ const content: Record<MarketingLocale, MarketingContent> = {
     contact: {
       title: 'Beschreiben Sie Ihr Ziel und wir definieren den nächsten Schritt.',
       intro: 'Kauf, Verkauf, Bewertung, Marktanalyse oder Investmentstrategie: wir antworten mit einer klaren Richtung.',
-      highlights: ['Erste Antwort in unter 24 Stunden', 'Begleitung für Käufer, Verkäufer und Investoren', 'Fokus auf Premium-Korridore in Mexiko-Stadt'],
+      highlights: ['Erste Antwort in unter 24 Stunden', 'Begleitung für Käufer, Verkäufer und Investoren', 'Fokus auf Immobilienkorridore in Mexiko-Stadt'],
       channels: sharedChannels.de,
-      coverageTitle: 'Wir arbeiten in den relevantesten Premium-Korridoren.',
+      coverageTitle: 'Wir arbeiten in den relevantesten Immobilienkorridoren.',
       coverageIntro: 'Schildern Sie Ihren Fall und wir ordnen ihn nach Lage, Ticket und Timing ein.',
       form: {
         title: 'Kontaktformular',
@@ -1093,7 +1093,7 @@ const content: Record<MarketingLocale, MarketingContent> = {
       ],
     },
     footer: {
-      title: 'Premium-Immobilienberatung für Kauf, Verkauf und Investment mit Urteilskraft.',
+      title: 'Professionelle Immobilienberatung für Kauf, Verkauf und Investment mit Urteilskraft.',
       description: 'Mehr als 20 Jahre Transaktionserfahrung in Mexiko-Stadt mit Marktanalyse, Vermarktungsstrategie und rechtlicher Koordination.',
       navigation: 'Navigation',
       contact: 'Kontakt',
@@ -1102,13 +1102,13 @@ const content: Record<MarketingLocale, MarketingContent> = {
     areas: sharedAreas.de,
     seo: {
       defaultTitle: 'Cervantes Immobilien',
-      defaultDescription: 'Premium-Immobilienberatung und CRM-Betrieb für Cervantes Bienes Raíces.',
+      defaultDescription: 'Professionelle Immobilienberatung und CRM-Betrieb für Cervantes Bienes Raíces.',
       homeTitle: 'Häuser und Wohnungen in Mexiko-Stadt',
-      homeDescription: 'Premium-Immobilienberatung für Kauf, Verkauf und Investment in CDMX.',
+      homeDescription: 'Professionelle Immobilienberatung für Kauf, Verkauf und Investment in CDMX.',
       aboutTitle: 'Über uns',
       aboutDescription: 'Lernen Sie den Beratungsansatz von Cervantes Immobilien kennen.',
       servicesTitle: 'Leistungen',
-      servicesDescription: 'Premium-Leistungen für Erwerb, Verkauf, Bewertung und Vermögensstrategie.',
+      servicesDescription: 'professionelle Leistungen für Erwerb, Verkauf, Bewertung und Vermögensstrategie.',
       contactTitle: 'Kontakt',
       contactDescription: 'Schreiben Sie uns für Kauf, Verkauf oder Investment in Mexiko-Stadt.',
       blogTitle: 'Blog',

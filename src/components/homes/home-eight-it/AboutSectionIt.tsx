@@ -14,10 +14,10 @@ const AboutSectionIt = () => {
                 <strong>Cervantes Bienes Raíces</strong> è un&apos;agenzia immobiliare professionale specializzata in immobili di lusso a Città del Messico, nonché nella vendita di ranch e proprietà in tutto il Messico. Lavoriamo con proprietà esclusive e di alto valore nelle zone più prestigiose della città, tra cui Polanco, Lomas de Chapultepec, Condesa, Roma e Santa Fe.
               </p>
               <p className="mb-3">
-                Il nostro team di esperti immobiliari fornisce consulenza personalizzata sia per acquirenti locali che internazionali, inclusi espatriati e investitori stranieri alla ricerca di case premium in Messico per stile di vita, trasferimento, reddito da locazione o apprezzamento del capitale a lungo termine.
+                Il nostro team di esperti immobiliari fornisce consulenza personalizzata sia per acquirenti locali che internazionali, inclusi espatriati e investitori stranieri alla ricerca di case profesional in Messico per stile di vita, trasferimento, reddito da locazione o apprezzamento del capitale a lungo termine.
               </p>
               <p className="mb-3">
-                Offriamo una solida esperienza in valutazione immobiliare, analisi di mercato, strategia di negoziazione e consulenza legale, garantendo un processo di transazione sicuro e trasparente. Il nostro approccio si basa sulla discrezione, l&apos;etica e una filosofia di servizio incentrata sul cliente, supportata da dati di mercato reali e una profonda conoscenza del panorama immobiliare premium di Città del Messico.
+                Offriamo una solida esperienza in valutazione immobiliare, analisi di mercato, strategia di negoziazione e consulenza legale, garantendo un processo di transazione sicuro e trasparente. Il nostro approccio si basa sulla discrezione, l&apos;etica e una filosofia di servizio incentrata sul cliente, supportata da dati di mercato reali e una profonda conoscenza del panorama immobiliare profesional di Città del Messico.
               </p>
               <p className="mb-0">
                 Dalla ricerca iniziale alla valutazione, negoziazione, due diligence, documentazione e chiusura, offriamo un processo completamente guidato che fornisce fiducia, tranquillità e risultati tangibili in ogni acquisizione.
@@ -29,7 +29,7 @@ const AboutSectionIt = () => {
                 </p>
                 <ul className="list-style-one">
                   <li><strong>Fiducia</strong> — Creiamo relazioni a lungo termine basate su integrità, riservatezza e totale trasparenza.</li>
-                  <li><strong>Precisione</strong> — Ogni raccomandazione è supportata da un&apos;analisi di mercato reale, approfondimenti sul segmento premium e dati comparativi accurati.</li>
+                  <li><strong>Precisione</strong> — Ogni raccomandazione è supportata da un&apos;analisi di mercato reale, approfondimenti sul segmento residenziale e dati comparativi accurati.</li>
                   <li><strong>Eccellenza</strong> — Miriamo a garantire il miglior valore per i nostri clienti, sia in termini di posizione, prezzo, potenziale di investimento o qualità della vita.</li>
                 </ul>
                 <p className="mb-0">
