@@ -3,6 +3,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
+function useOliviaFloatingTheme() {
+  useEffect(() => {
+    if (document.querySelector('script[data-olivia-floating-theme]')) return
+    const script = document.createElement('script')
+    script.src = 'https://olivia-ai.o7digital.com/olivia-floating-theme.js'
+    script.defer = true
+    script.dataset.oliviaFloatingTheme = 'true'
+    document.head.appendChild(script)
+  }, [])
+}
+
 const SITE_CODE = 'cervantesbienesraices'
 const LEAD_ENDPOINT = 'https://www.o7digital.com/api/o7-lead'
 const CHAT_ENDPOINT = 'https://olivia-ai.o7digital.com/api/olivia/chat'
@@ -81,6 +92,7 @@ function detectMessageLanguage(message: string, fallbackLanguage: Language): Lan
 }
 
 export default function OliviaChat() {
+  useOliviaFloatingTheme()
   const pathname = usePathname()
   const language = getLanguage(pathname)
   const copy = COPY[language]
