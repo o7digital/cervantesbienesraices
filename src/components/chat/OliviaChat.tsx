@@ -162,7 +162,7 @@ export default function OliviaChat() {
   const handleSend = async () => {
     if (OFFLINE) return
     const message = input.trim()
-    if (!message || isLoading || !leadSent || !visitorId) return
+    if (!message || isLoading || !visitorId) return
     const messageLanguage = detectMessageLanguage(message, language)
     setInput('')
     setMessages((prev) => [...prev, { role: 'user', content: message }])
@@ -239,20 +239,9 @@ export default function OliviaChat() {
             {messages.map((message, index) => <div key={`${message.role}-${index}`} className={`sofia-cervantes-message ${message.role}`}>{message.content}</div>)}
             {isLoading && <div className="sofia-cervantes-message assistant">...</div>}
           </div>
-          {!OFFLINE && !leadSent && (
-            <form className="sofia-cervantes-lead" onSubmit={handleLeadSubmit}>
-              <p>{copy.leadIntro}</p>
-              <input required placeholder={copy.firstName} value={lead.firstName} onChange={(event) => setLead((prev) => ({ ...prev, firstName: event.target.value }))} />
-              <input required placeholder={copy.lastName} value={lead.lastName} onChange={(event) => setLead((prev) => ({ ...prev, lastName: event.target.value }))} />
-              <input required type="email" placeholder={copy.email} value={lead.email} onChange={(event) => setLead((prev) => ({ ...prev, email: event.target.value }))} />
-              <input required type="tel" placeholder={copy.phone} value={lead.phone} onChange={(event) => setLead((prev) => ({ ...prev, phone: event.target.value }))} />
-              <textarea placeholder={copy.need} rows={2} value={lead.need} onChange={(event) => setLead((prev) => ({ ...prev, need: event.target.value }))} />
-              <button type="submit" disabled={isLoading}>{copy.submitLead}</button>
-            </form>
-          )}
           <div className="sofia-cervantes-composer">
-            <input value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter') handleSend() }} disabled={OFFLINE || !leadSent || isLoading} placeholder={OFFLINE ? 'Offline' : copy.placeholder} />
-            <button type="button" onClick={handleSend} disabled={OFFLINE || isLoading || !leadSent} aria-label={copy.send}>{'>'}</button>
+            <input value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter') handleSend() }} disabled={OFFLINE || isLoading} placeholder={OFFLINE ? 'Offline' : copy.placeholder} />
+            <button type="button" onClick={handleSend} disabled={OFFLINE || isLoading} aria-label={copy.send}>{'>'}</button>
           </div>
         </section>
       )}
