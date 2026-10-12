@@ -2,12 +2,21 @@
 export const prerender = true;
 import AstroLayout from "../../../layouts/AstroLayout.astro";
 import SiteChrome from "../../../components/astro/SiteChrome";
-import Page from "../../../app/fr/listing_06/page";
+import Wrapper from "@/layouts/Wrapper";
+import HeaderFive from "@/layouts/headers/HeaderFive";
+import Footer from "@/layouts/footers/FooterThreeFr";
+import ListingArea from "@/components/inner-listing/listing-06-fr/ListingSixAreaFr";
 import { getSeo } from "@/data/seo";
 const seo = getSeo("/fr/listing_06");
 ---
 
 <AstroLayout {...seo}>
-  <Page client:load />
+  <Wrapper>
+    <div class="main-page-wrapper">
+      <HeaderFive style="dark" />
+      <ListingArea client:load />
+      <Footer />
+    </div>
+  </Wrapper>
   <SiteChrome client:load />
 </AstroLayout>
