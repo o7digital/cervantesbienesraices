@@ -5,12 +5,9 @@ import { ToastContainer } from "react-toastify";
 import { animationCreate } from "@/utils/utils";
 import ScrollToTop from "@/components/common/ScrollToTop";
 
-if (typeof window !== "undefined") {
-    require("bootstrap/dist/js/bootstrap");
-}
-
 const Wrapper = ({ children }: any) => {
     useEffect(() => {
+        void import("bootstrap/dist/js/bootstrap");
         // animation
         const timer = setTimeout(() => {
             animationCreate();
