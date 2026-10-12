@@ -1,11 +1,13 @@
+import { useMemo } from "react";
+
 export function usePathname() {
   if (typeof window === "undefined") return "/";
   return window.location.pathname || "/";
 }
 
 export function useSearchParams() {
-  if (typeof window === "undefined") return new URLSearchParams();
-  return new URLSearchParams(window.location.search);
+  const search = typeof window === "undefined" ? "" : window.location.search;
+  return useMemo(() => new URLSearchParams(search), [search]);
 }
 
 export function useRouter() {
