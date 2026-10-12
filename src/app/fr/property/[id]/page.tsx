@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import HeaderFive from "@/layouts/headers/HeaderFive";
 import FooterThreeFr from "@/layouts/footers/FooterThreeFr";
-import ImageGallery from "@/components/common/ImageGallery";
+import type { ReactNode } from "react";
 import PropertySchema from "@/components/common/PropertySchema";
 import { localizePropertyTitle } from "@/utils/propertyLocalization";
 
@@ -32,7 +31,7 @@ type Property = {
   show_prices?: boolean;
 };
 
-async function fetchProperty(id: string): Promise<Property | null> {
+export async function fetchProperty(id: string): Promise<Property | null> {
   const apiKey = process.env.EB_API_KEY;
   if (!apiKey) return null;
 
@@ -136,18 +135,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function PropertyDetailPageFr({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
-  const property = await fetchProperty(id);
-
-  if (!property) {
-    notFound();
-  }
-
+export default function PropertyDetailPageFr({ property, children }: { property: Property; children?: ReactNode }) {
   const localizedTitle = localizePropertyTitle(property.title || "", "fr");
   const locationLabel = buildLocationLabel(property);
   const priceLabel = buildPriceLabel(property);
@@ -160,7 +148,7 @@ export default async function PropertyDetailPageFr({
         <p className="text-muted">{locationLabel}</p>
 
         {property.property_images?.length ? (
-          <ImageGallery images={property.property_images} title={localizedTitle || property.title} />
+          children
         ) : (
           <p className="text-muted mb-4">Aucune image disponible.</p>
         )}

@@ -1,9 +1,15 @@
 ---
 import AstroLayout from "../../../layouts/AstroLayout.astro";
-import Page, { generateMetadata } from "../../../app/ru/property/[id]/page";
+import Page, { generateMetadata, fetchProperty } from "../../../app/ru/property/[id]/page";
+import ImageGallery from "@/components/common/ImageGallery";
+import SiteChrome from "@/components/astro/SiteChrome";
 import { getSeo, metadataToSeo, SITE_URL } from "@/data/seo";
 
 const params = { id: Astro.params.id ?? "" };
+const property = await fetchProperty(params.id);
+if (!property) {
+  return new Response("Propiedad no encontrada", { status: 404 });
+}
 const metadata = await generateMetadata({ params });
 const seo = metadataToSeo(metadata, {
   ...getSeo("/ru/listing_06"),
@@ -13,5 +19,8 @@ const seo = metadataToSeo(metadata, {
 ---
 
 <AstroLayout {...seo}>
-  <Page params={params} />
+  <Page property={property}>
+    <ImageGallery client:load images={property.property_images ?? []} title={property.title} />
+  </Page>
+  <SiteChrome client:load />
 </AstroLayout>

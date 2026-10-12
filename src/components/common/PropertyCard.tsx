@@ -150,7 +150,7 @@ export default function PropertyCard({
     sourcePath: pathname || "/listing_06",
   }).toString();
   const contactHref = `${contactBasePath}?${contactQuery}#contact-form`;
-  const detailHref = `/property/${public_id}`;
+  const detailHref = `${language === "es" ? "" : `/${language}`}/property/${public_id}`;
 
   // Charger les images si elles ne sont pas déjà fournies
   useEffect(() => {
@@ -199,9 +199,9 @@ export default function PropertyCard({
               />
             </Link>
           ) : (
-            <div className={styles.imagePlaceholder}>
+            <Link href={detailHref} className={styles.imagePlaceholder} aria-label={`Ver detalles de ${title}`}>
               <i className="fa-solid fa-house fa-3x"></i>
-            </div>
+            </Link>
           )}
           <div className={styles.tag}>
             {isForSale ? text.forSale : text.forRent}

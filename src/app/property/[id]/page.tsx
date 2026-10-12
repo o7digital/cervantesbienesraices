@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import HeaderFive from "@/layouts/headers/HeaderFive";
 import FooterThree from "@/layouts/footers/FooterThree";
-import ImageGallery from "@/components/common/ImageGallery";
+import type { ReactNode } from "react";
 import PropertySchema from "@/components/common/PropertySchema";
 
 const BASE_URL = "https://www.cervantesbienesraices.com";
@@ -34,7 +33,7 @@ type Property = {
   show_prices?: boolean;
 };
 
-async function fetchProperty(id: string): Promise<Property | null> {
+export async function fetchProperty(id: string): Promise<Property | null> {
   const apiKey = process.env.EB_API_KEY;
   if (!apiKey) return null;
 
@@ -140,12 +139,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default async function PropertyDetailPage({ params }: { params: { id: string } }) {
-  const property = await fetchProperty(params.id);
-  if (!property) {
-    notFound();
-  }
-
+export default function PropertyDetailPage({ property, children }: { property: Property; children?: ReactNode }) {
   const locationLabel = buildLocationLabel(property);
   const priceLabel = buildPriceLabel(property);
   const operationLabel = buildOperationLabel(property);
@@ -181,7 +175,7 @@ export default async function PropertyDetailPage({ params }: { params: { id: str
           </div>
 
           {property.property_images?.length ? (
-            <ImageGallery images={property.property_images} title={property.title} />
+            children
           ) : (
             <div className="property-detail-empty">Sin imagenes disponibles.</div>
           )}
