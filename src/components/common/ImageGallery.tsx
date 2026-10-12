@@ -30,52 +30,52 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
 
   return (
     <section className="media-gallery mb-60">
-      <div className="row g-3">
-        <Fancybox
-          options={{
-            Carousel: {
-              infinite: true,
+      <Fancybox
+        options={{
+          Carousel: {
+            infinite: true,
+          },
+          Toolbar: {
+            display: {
+              left: ["infobar"],
+              middle: [],
+              right: ["slideshow", "thumbs", "close"],
             },
-            Toolbar: {
-              display: {
-                left: ["infobar"],
-                middle: [],
-                right: ["slideshow", "thumbs", "close"],
-              },
-            },
-          }}
-        >
-          {images.map((img, index) => {
-            const hasError = imageErrors.has(index);
+          },
+        }}
+      >
+        <div className={styles.galleryGrid}>
+        {images.map((img, index) => {
+          const hasError = imageErrors.has(index);
 
-            if (hasError) return null;
+          if (hasError) return null;
 
-            return (
-              <div key={index} className="col-lg-4 col-md-6 col-sm-12">
-                <a
-                  data-fancybox="property-gallery"
-                  href={img.url}
-                  className={styles.galleryItem}
-                >
-                  <Image
-                    src={img.url}
-                    alt={title ? `${title} - Imagen ${index + 1}` : `Imagen ${index + 1}`}
-                    className={styles.galleryImage}
-                    width={600}
-                    height={400}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    quality={85}
-                    onError={() => handleImageError(index)}
-                  />
-                  <div className={styles.overlayHover}>
-                    <i className={`fa-solid fa-magnifying-glass-plus ${styles.zoomIcon}`}></i>
-                  </div>
-                </a>
-              </div>
-            );
-          })}
-        </Fancybox>
-      </div>
+          return (
+            <div key={index}>
+              <a
+                data-fancybox="property-gallery"
+                href={img.url}
+                className={styles.galleryItem}
+              >
+                <Image
+                  src={img.url}
+                  alt={title ? `${title} - Imagen ${index + 1}` : `Imagen ${index + 1}`}
+                  className={styles.galleryImage}
+                  width={600}
+                  height={400}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={85}
+                  onError={() => handleImageError(index)}
+                />
+                <div className={styles.overlayHover}>
+                  <i className={`fa-solid fa-magnifying-glass-plus ${styles.zoomIcon}`}></i>
+                </div>
+              </a>
+            </div>
+          );
+        })}
+        </div>
+      </Fancybox>
     </section>
   );
 }
