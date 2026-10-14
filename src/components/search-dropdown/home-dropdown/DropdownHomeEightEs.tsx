@@ -1,4 +1,5 @@
 "use client";
+import { locationOptions } from "@/data/searchLocations";
 import NiceSelect from "@/ui/NiceSelect";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -78,80 +79,7 @@ const DropdownHomeEightEs = () => {
             <div className="label">Ubicación</div>
             <NiceSelect
               className="nice-select location fw-normal"
-              options={[
-                { value: "todas", text: "Todas las ubicaciones" },
-                // Aguascalientes
-                { value: "aguascalientes", text: "Aguascalientes, Aguascalientes" },
-                // Baja California
-                { value: "mexicali", text: "Mexicali, Baja California" },
-                { value: "tijuana", text: "Tijuana, Baja California" },
-                // Baja California Sur
-                { value: "lapaz", text: "La Paz, Baja California Sur" },
-                // Campeche
-                { value: "campeche", text: "Campeche, Campeche" },
-                // Chiapas
-                { value: "tuxtla", text: "Tuxtla Gutiérrez, Chiapas" },
-                // Chihuahua
-                { value: "chihuahua", text: "Chihuahua, Chihuahua" },
-                // Coahuila
-                { value: "saltillo", text: "Saltillo, Coahuila" },
-                { value: "torreon", text: "Torreón, Coahuila" },
-                // Colima
-                { value: "colima", text: "Colima, Colima" },
-                { value: "manzanillo", text: "Manzanillo, Colima" },
-                // Durango
-                { value: "durango", text: "Durango, Durango" },
-                // Estado de México
-                { value: "toluca", text: "Toluca, Estado de México" },
-                // Guanajuato
-                { value: "guanajuato", text: "Guanajuato, Guanajuato" },
-                { value: "leon", text: "León, Guanajuato" },
-                // Guerrero
-                { value: "ixtapa", text: "Ixtapa Zihuatanejo, Guerrero" },
-                // Hidalgo
-                { value: "pachuca", text: "Pachuca, Hidalgo" },
-                // Jalisco
-                { value: "guadalajara", text: "Guadalajara, Jalisco" },
-                // Michoacán
-                { value: "morelia", text: "Morelia, Michoacán" },
-                // Morelos
-                { value: "cuernavaca", text: "Cuernavaca, Morelos" },
-                // Nayarit
-                { value: "tepic", text: "Tepic, Nayarit" },
-                // Nuevo León
-                { value: "monterrey", text: "Monterrey, Nuevo León" },
-                // Oaxaca
-                { value: "oaxaca", text: "Oaxaca de Juárez, Oaxaca" },
-                // Puebla
-                { value: "puebla", text: "Puebla, Puebla" },
-                // Querétaro
-                { value: "queretaro", text: "Querétaro, Querétaro" },
-                { value: "queretaro2", text: "San Juan del Río, Querétaro" },
-                // Quintana Roo
-                { value: "cancun", text: "Cancún, Quintana Roo" },
-                { value: "chetumal", text: "Chetumal, Quintana Roo" },
-                // San Luis Potosí
-                { value: "slp", text: "San Luis Potosí, San Luis Potosí" },
-                // Sinaloa
-                { value: "culiacan", text: "Culiacán, Sinaloa" },
-                // Sonora
-                { value: "hermosillo", text: "Hermosillo, Sonora" },
-                // Tabasco
-                { value: "villahermosa", text: "Villahermosa, Tabasco" },
-                // Tlaxcala
-                { value: "tlaxcala", text: "Tlaxcala, Tlaxcala" },
-                // Veracruz
-                { value: "veracruz", text: "Veracruz, Veracruz" },
-                { value: "xalapa", text: "Xalapa, Veracruz" },
-                // Yucatán
-                { value: "merida", text: "Mérida, Yucatán" },
-                // Zacatecas
-                { value: "zacatecas", text: "Zacatecas, Zacatecas" },
-                // Ciudad de México
-                { value: "cdmx", text: "CDMX, México" },
-                // Internacional
-                { value: "madrid", text: "Madrid, España" },
-              ]}
+              options={[{ value: "todas", text: "Todas las ubicaciones" }, ...locationOptions]}
               defaultCurrent={0}
               onChange={handleUbicacion}
               name="ubicacion"

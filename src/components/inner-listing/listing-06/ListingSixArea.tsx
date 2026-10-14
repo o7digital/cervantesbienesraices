@@ -1,4 +1,5 @@
 "use client";
+import { stateLocationFilter } from "@/data/searchLocations";
 import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import DropdownHomeEightEs from "@/components/search-dropdown/home-dropdown/DropdownHomeEightEs";
@@ -390,7 +391,9 @@ const ListingSixArea = () => {
     const propertyKind = toPropertyKind(tipoParam);
     if (op) nextInputs.type = op;
     if (propertyKind) nextInputs.propertyKind = propertyKind;
-    if (ubicacionKey && ubicacionTokens[ubicacionKey]) {
+    if (stateLocationFilter(ubicacionKey)) {
+      nextInputs.location = stateLocationFilter(ubicacionKey);
+    } else if (ubicacionKey && ubicacionTokens[ubicacionKey]) {
       nextInputs.location = ubicacionTokens[ubicacionKey][0];
     }
     if (rangoParam && rangeMap[rangoParam]) {
